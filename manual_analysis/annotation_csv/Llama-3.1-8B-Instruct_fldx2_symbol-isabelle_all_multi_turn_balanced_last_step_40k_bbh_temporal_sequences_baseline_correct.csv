@@ -1,0 +1,119 @@
+data_idx,id,type,value,baseline,finetuned
+91,bbh_temporal_sequences_00091
+,,question,"Today, Tiffany went to the library. Between what times could they have gone?
+We know that:
+Tiffany woke up at 5am.
+Anthony saw Tiffany walking in the garden from 6am to 8am.
+Emily saw Tiffany working out at the gym from 8am to 5pm.
+Kimberly saw Tiffany working at the office from 5pm to 7pm.
+Thomas saw Tiffany playing tennis at the tennis court from 7pm to 8pm.
+The library was closed after 8pm.
+Between what times could Tiffany have gone to the library?
+Options:
+(A) 8am to 5pm
+(B) 5am to 6am
+(C) 7pm to 8pm
+(D) 6am to 8am"
+,,y_true,(B)
+,,solution selected by baseline
+,,step 0,"Tiffany wake up at 5am, so she did not go to the library before 5am.",0.9375,0.62109375
+,,step 1,"Anthony saw Tiffany walking in the garden from 6am to 8am, so Tiffany did not go to the library from 6am to 8am.",0.93359375,0.408203125
+,,step 2,"Emily saw Tiffany working out at the gym from 8am to 5pm, so Tiffany did not go to the library from 8am to 5pm.",0.9765625,0.95703125
+,,step 3,"Kimberly saw Tiffany working at the office from 5pm to 7pm, so Tiffany did not go to the library from 5pm to 7pm.",0.99609375,0.9921875
+,,step 4,"Thomas saw Tiffany playing tennis at the tennis court from 7pm to 8pm, so Tiffany did not go to the library from 7pm to 8pm.",1.0,0.99609375
+,,step 5,"The library was closed after 8pm, so Tiffany did not go to the library after 8pm.",1.0,1.0
+,,step 6,"Im summary, the only time when Tiffany could have gone to the library was before 6am (5am to 6am).",0.65234375,0.796875
+,,step 7,"From the options, we can see that 5am to 6am is the only option that fits this time frame.",0.9765625,0.97265625
+,,step 8,So the answer is (B).,0.99609375,0.99609375
+,,solution selected by finetuned
+,,step 0,"Tiffany wake up at 5am, so she did not go to the library before 5am.",0.9375,0.65234375
+,,step 1,"Tiffany wake up at 5am, and Anthony saw Tiffany walking in the garden from 6am to 8am, so Tiffany did not go to the library from 5am to 6am.",0.98046875,0.70703125
+,,step 2,"Emily saw Tiffany working out at the gym from 8am to 5pm, so Tiffany did not go to the library from 8am to 5pm.",0.90625,0.8671875
+,,step 3,"Emily saw Tiffany working out at the gym from 8am to 5pm, and the library was closed after 8pm, so Tiffany did not go to the library after 5pm.",0.9921875,0.90625
+,,step 4,"Kimberly saw Tiffany working at the office from 5pm to 7pm, so Tiffany did not go to the library from 5pm to 7pm.",0.984375,0.984375
+,,step 5,"Thomas saw Tiffany playing tennis at the tennis court from 7pm to 8pm, so Tiffany did not go to the library from 7pm to 8pm.",1.0,0.99609375
+,,step 6,"Anthony saw Tiffany walking in the garden from 6am to 8am, so Tiffany did not go to the library from 6am to 8am.",0.0179443359375,0.70703125
+,,step 7,"Im summary, there is no time frame when Tiffany could have gone to the library.",0.75390625,0.8515625
+,,step 8,"From the options, we can see that none of them fit the time frame when Tiffany could have gone to the library.",0.9609375,0.95703125
+,,step 9,So the answer is None of the above (or E),0.9921875,0.9140625
+,,annotation
+
+110,bbh_temporal_sequences_00110
+,,question,"Today, Andrew went to the coffee shop. Between what times could they have gone?
+We know that:
+Andrew woke up at 8am.
+James saw Andrew buying cookies at a bakery from 8am to 1pm.
+Kimberly saw Andrew working at the office from 2pm to 3pm.
+Sarah saw Andrew fixing their computer at the electronic store from 3pm to 5pm.
+The coffee shop was closed after 5pm.
+Between what times could Andrew have gone to the coffee shop?
+Options:
+(A) 8am to 1pm
+(B) 2pm to 3pm
+(C) 1pm to 2pm
+(D) 3pm to 5pm"
+,,y_true,(C)
+,,solution selected by baseline
+,,step 0,"Andrew wake up at 8am, so he did not go to the coffee shop before 8am.",0.96875,0.87890625
+,,step 1,"Andrew wake up at 8am, and James saw Andrew buying cookies at a bakery from 8am to 1pm, so Andrew did not go to the coffee shop from 8am to 1pm.",0.87890625,0.1640625
+,,step 2,"James saw Andrew buying cookies at a bakery from 8am to 1pm, so Andrew did not go to the coffee shop from 8am to 1pm.",0.9140625,0.9453125
+,,step 3,"Kimberly saw Andrew working at the office from 2pm to 3pm, so Andrew did not go to the coffee shop from 2pm to 3pm.",0.98046875,0.96875
+,,step 4,"Sarah saw Andrew fixing their computer at the electronic store from 3pm to 5pm, so Andrew did not go to the coffee shop from 3pm to 5pm.",0.99609375,0.984375
+,,step 5,There is a gap of time between 1pm and 2pm when Andrew's activities are not specified.,0.90625,0.96875
+,,step 6,"The coffee shop was closed after 5pm, so Andrew did not go to the coffee shop after 5pm.",1.0,1.0
+,,step 7,"Im summary, the only time when Andrew could have gone to the coffee shop was 1pm to 2pm.",0.93359375,0.93359375
+,,step 8,"From the options, we can see that 1pm to 2pm is the only option that fits this time frame.",0.984375,0.984375
+,,step 9,So the answer is (C).,1.0,1.0
+,,solution selected by finetuned
+,,step 0,"Andrew wake up at 8am, so he did not go to the coffee shop before 8am.",0.96875,0.87890625
+,,step 1,"James saw Andrew buying cookies at a bakery from 8am to 1pm, so Andrew could have gone to the coffee shop from 1pm to 8am is incorrect, Andrew could have gone to the coffee shop from 8am to 1pm.",0.119140625,0.376953125
+,,step 2,"Kimberly saw Andrew working at the office from 2pm to 3pm, so Andrew did not go to the coffee shop from 2pm to 3pm.",0.953125,0.8671875
+,,step 3,"Sarah saw Andrew fixing their computer at the electronic store from 3pm to 5pm, so Andrew did not go to the coffee shop from 3pm to 5pm.",0.99609375,0.9609375
+,,step 4,"The coffee shop was closed after 5pm, so Andrew did not go to the coffee shop after 5pm.",1.0,1.0
+,,step 5,"Im summary, the only time when Andrew could have gone to the coffee shop was 8am to 1pm.",0.9765625,0.953125
+,,step 6,"From the options, we can see that 8am to 1pm is the only option that fits this time frame.",0.984375,0.984375
+,,step 7,So the answer is (A).,1.0,1.0
+,,annotation
+
+129,bbh_temporal_sequences_00129
+,,question,"Today, Leslie went to the beach. Between what times could they have gone?
+We know that:
+Leslie woke up at 5am.
+Emily saw Leslie attending class at the school from 5am to 9am.
+Anthony saw Leslie watching a movie at the theater from 9am to 11am.
+Thomas saw Leslie buying cookies at a bakery from 11am to 4pm.
+Ashley saw Leslie fixing their computer at the electronic store from 4pm to 5pm.
+Susan saw Leslie walking towards the Statue of Liberty from 9pm to 10pm.
+The beach was closed after 10pm.
+Between what times could Leslie have gone to the beach?
+Options:
+(A) 5pm to 9pm
+(B) 9am to 11am
+(C) 9pm to 10pm
+(D) 4pm to 5pm"
+,,y_true,(A)
+,,solution selected by baseline
+,,step 0,"Leslie wake up at 5am, so she did not go to the beach before 5am.",0.97265625,0.93359375
+,,step 1,"Emily saw Leslie attending class at the school from 5am to 9am, so Leslie did not go to the beach from 5am to 9am.",0.99609375,0.9921875
+,,step 2,"Anthony saw Leslie watching a movie at the theater from 9am to 11am, so Leslie did not go to the beach from 9am to 11am.",1.0,1.0
+,,step 3,"Thomas saw Leslie buying cookies at a bakery from 11am to 4pm, so Leslie did not go to the beach from 11am to 4pm.",1.0,0.99609375
+,,step 4,"Ashley saw Leslie fixing their computer at the electronic store from 4pm to 5pm, so Leslie did not go to the beach from 4pm to 5pm.",1.0,1.0
+,,step 5,"Susan saw Leslie walking towards the Statue of Liberty from 9pm to 10pm, so Leslie did not go to the beach from 9pm to 10pm.",0.98828125,0.8671875
+,,step 6,"The beach was closed after 10pm, so Leslie did not go to the beach after 10pm.",1.0,1.0
+,,step 7,"Im summary, there is no time frame when Leslie could have gone to the beach without conflicting with the activities.",0.8359375,0.349609375
+,,step 8,"From the options, we can see that 5pm to 9pm is the only option that does not conflict with the activities.",0.92578125,0.5625
+,,step 9,So the answer is (A).,0.99609375,0.94140625
+,,solution selected by finetuned
+,,step 0,"Leslie wake up at 5am, so she did not go to the beach before 5am.",0.97265625,0.93359375
+,,step 1,"Emily saw Leslie attending class at the school from 5am to 9am, so Leslie did not go to the beach from 5am to 9am.",0.99609375,0.9921875
+,,step 2,"Anthony saw Leslie watching a movie at the theater from 9am to 11am, so Leslie did not go to the beach from 9am to 11am.",1.0,1.0
+,,step 3,"Thomas saw Leslie buying cookies at a bakery from 11am to 4pm, so Leslie did not go to the beach from 11am to 4pm.",1.0,0.99609375
+,,step 4,"There is no information about Leslie's activities from 4pm to 5pm, so Leslie could have gone to the beach from 4pm to 5pm.",0.8671875,0.53125
+,,step 5,"Ashley saw Leslie fixing their computer at the electronic store from 4pm to 5pm, so Leslie could have gone to the beach from 4pm to 5pm.",0.0203857421875,0.75390625
+,,step 6,"Susan saw Leslie walking towards the Statue of Liberty from 9pm to 10pm, so Leslie did not go to the beach from 9pm to 10pm.",0.8671875,0.796875
+,,step 7,"The beach was closed after 10pm, so Leslie did not go to the beach after 10pm.",0.9921875,1.0
+,,step 8,"Im summary, the only time when Leslie could have gone to the beach was 4pm to 5pm.",0.73046875,0.9609375
+,,step 9,"From the options, we can see that 4pm to 5pm is the only option that fits this time frame.",0.98046875,0.95703125
+,,step 10,So the answer is (D).,0.99609375,0.99609375
+,,annotation
+

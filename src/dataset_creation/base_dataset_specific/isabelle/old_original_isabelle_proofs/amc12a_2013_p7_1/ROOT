@@ -1,0 +1,3 @@
+session amc12a_2013_p7_1 = HOL +
+  options [document = false]
+  theories amc12a_2013_p7_1

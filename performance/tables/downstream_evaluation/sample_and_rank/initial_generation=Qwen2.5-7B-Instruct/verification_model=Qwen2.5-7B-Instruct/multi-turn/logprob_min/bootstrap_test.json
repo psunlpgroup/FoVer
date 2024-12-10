@@ -1,0 +1,248 @@
+{
+    "fover_fldx2_symbol_multi_turn_balanced_last_step_20k_AdamW": {
+        "gsm8k": {
+            "p_value": 0.03500000000000003
+        },
+        "math": {
+            "p_value": 0.356
+        },
+        "aqua": {
+            "p_value": 0.18300000000000005
+        },
+        "aime": {
+            "p_value": 0.813
+        },
+        "folio": {
+            "p_value": 0.648
+        },
+        "logicnli": {
+            "p_value": 0.546
+        },
+        "anli": {
+            "p_value": 0.72
+        },
+        "hans": {
+            "p_value": 0.025000000000000022
+        },
+        "mmlu_pro_nomath": {
+            "p_value": 0.133
+        },
+        "bbh_temporal_sequences": {
+            "p_value": 0.133
+        },
+        "bbh_tracking_shuffled_objects_three_objects": {
+            "p_value": 0.622
+        },
+        "bbh_word_sorting": {
+            "p_value": 0.0
+        },
+        "all_datasets": {
+            "p_value": 0.018000000000000016
+        }
+    },
+    "fover_isabelle_all_multi_turn_balanced_last_step_20k_AdamW": {
+        "gsm8k": {
+            "p_value": 0.18100000000000005
+        },
+        "math": {
+            "p_value": 0.16700000000000004
+        },
+        "aqua": {
+            "p_value": 0.15100000000000002
+        },
+        "aime": {
+            "p_value": 0.45299999999999996
+        },
+        "folio": {
+            "p_value": 0.5389999999999999
+        },
+        "logicnli": {
+            "p_value": 0.119
+        },
+        "anli": {
+            "p_value": 0.531
+        },
+        "hans": {
+            "p_value": 0.915
+        },
+        "mmlu_pro_nomath": {
+            "p_value": 0.23199999999999998
+        },
+        "bbh_temporal_sequences": {
+            "p_value": 0.11099999999999999
+        },
+        "bbh_tracking_shuffled_objects_three_objects": {
+            "p_value": 0.08699999999999997
+        },
+        "bbh_word_sorting": {
+            "p_value": 0.136
+        },
+        "all_datasets": {
+            "p_value": 0.007000000000000006
+        }
+    },
+    "fover_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_AdamW": {
+        "gsm8k": {
+            "p_value": 0.040000000000000036
+        },
+        "math": {
+            "p_value": 0.122
+        },
+        "aqua": {
+            "p_value": 0.07199999999999995
+        },
+        "aime": {
+            "p_value": 0.254
+        },
+        "folio": {
+            "p_value": 0.09199999999999997
+        },
+        "logicnli": {
+            "p_value": 0.30100000000000005
+        },
+        "anli": {
+            "p_value": 0.45199999999999996
+        },
+        "hans": {
+            "p_value": 0.42300000000000004
+        },
+        "mmlu_pro_nomath": {
+            "p_value": 0.18500000000000005
+        },
+        "bbh_temporal_sequences": {
+            "p_value": 0.129
+        },
+        "bbh_tracking_shuffled_objects_three_objects": {
+            "p_value": 0.44599999999999995
+        },
+        "bbh_word_sorting": {
+            "p_value": 0.07399999999999995
+        },
+        "all_datasets": {
+            "p_value": 0.0
+        }
+    },
+    "Qwen/Qwen2.5-Math-7B-PRM800K": {
+        "gsm8k": {
+            "p_value": 0.0010000000000000009
+        },
+        "math": {
+            "p_value": 0.009000000000000008
+        },
+        "aqua": {
+            "p_value": 0.241
+        },
+        "aime": {
+            "p_value": 0.20799999999999996
+        },
+        "folio": {
+            "p_value": 0.031000000000000028
+        },
+        "logicnli": {
+            "p_value": 0.43400000000000005
+        },
+        "anli": {
+            "p_value": 0.134
+        },
+        "hans": {
+            "p_value": 0.893
+        },
+        "mmlu_pro_nomath": {
+            "p_value": 0.5609999999999999
+        },
+        "bbh_temporal_sequences": {
+            "p_value": 1.0
+        },
+        "bbh_tracking_shuffled_objects_three_objects": {
+            "p_value": 0.23399999999999999
+        },
+        "bbh_word_sorting": {
+            "p_value": 0.657
+        },
+        "all_datasets": {
+            "p_value": 0.07499999999999996
+        }
+    },
+    "Qwen/Qwen2.5-Math-PRM-7B": {
+        "gsm8k": {
+            "p_value": 0.0010000000000000009
+        },
+        "math": {
+            "p_value": 0.008000000000000007
+        },
+        "aqua": {
+            "p_value": 0.06699999999999995
+        },
+        "aime": {
+            "p_value": 0.02200000000000002
+        },
+        "folio": {
+            "p_value": 0.121
+        },
+        "logicnli": {
+            "p_value": 0.32299999999999995
+        },
+        "anli": {
+            "p_value": 0.992
+        },
+        "hans": {
+            "p_value": 0.5660000000000001
+        },
+        "mmlu_pro_nomath": {
+            "p_value": 0.605
+        },
+        "bbh_temporal_sequences": {
+            "p_value": 0.999
+        },
+        "bbh_tracking_shuffled_objects_three_objects": {
+            "p_value": 0.020000000000000018
+        },
+        "bbh_word_sorting": {
+            "p_value": 0.36
+        },
+        "all_datasets": {
+            "p_value": 0.025000000000000022
+        }
+    },
+    "Skywork/Skywork-o1-Open-PRM-Qwen-2.5-7B": {
+        "gsm8k": {
+            "p_value": 0.0
+        },
+        "math": {
+            "p_value": 0.018000000000000016
+        },
+        "aqua": {
+            "p_value": 0.777
+        },
+        "aime": {
+            "p_value": 0.15100000000000002
+        },
+        "folio": {
+            "p_value": 0.473
+        },
+        "logicnli": {
+            "p_value": 0.777
+        },
+        "anli": {
+            "p_value": 0.908
+        },
+        "hans": {
+            "p_value": 0.994
+        },
+        "mmlu_pro_nomath": {
+            "p_value": 0.369
+        },
+        "bbh_temporal_sequences": {
+            "p_value": 1.0
+        },
+        "bbh_tracking_shuffled_objects_three_objects": {
+            "p_value": 0.18000000000000005
+        },
+        "bbh_word_sorting": {
+            "p_value": 0.123
+        },
+        "all_datasets": {
+            "p_value": 0.44699999999999995
+        }
+    }
+}

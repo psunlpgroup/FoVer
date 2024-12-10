@@ -1,0 +1,440 @@
+data_idx,id,type,value,baseline,finetuned
+4,mmlu_pro_nomath_test_09104
+,,question,"An object is placed 100 cm from a plane mirror. How far is the image from the object?
+(A) 350 cm
+(B) 300 cm
+(C) 100 cm
+(D) 600 cm
+(E) 150 cm
+(F) 250 cm
+(G) 50 cm
+(H) 400 cm
+(I) 500 cm
+(J) 200 cm"
+,,y_true,J
+,,solution selected by baseline
+,,step 0,"When an object is placed in front of a plane mirror, the image is formed at the same distance behind the mirror as the object is in front of the mirror. The distance between the object and the image is twice the distance between the object and the mirror.",0.73046875,0.8671875
+,,step 1,"Given that the object is 100 cm from the mirror, the image is also 100 cm from the mirror, and the total distance between the object and the image is 200 cm.",0.59375,0.92578125
+,,step 2,The answer is (J).,0.93359375,0.59375
+,,solution selected by finetuned
+,,step 0,"The image distance of a plane mirror is the same as the object distance, which is 100 cm.",0.07177734375,0.94140625
+,,step 1,The answer is (C).,0.8984375,1.0
+,,annotation
+
+7,mmlu_pro_nomath_test_03229
+,,question,"Explain why simple diffusion is not sufficient to account for the passage of all of the dissolved minerals into the cells of water plants.
+(A) Simple diffusion can only transport minerals when they are bound to oxygen molecules
+(B) Simple diffusion cannot occur against a concentration gradient
+(C) Simple diffusion requires specific carrier proteins for each mineral
+(D) Simple diffusion only works for organic compounds, not inorganic minerals
+(E) Simple diffusion can transport minerals in any concentration
+(F) Simple diffusion cannot differentiate between beneficial minerals and toxins
+(G) Simple diffusion can only occur in water plants
+(H) Simple diffusion is too slow for transporting large quantities of minerals
+(I) Simple diffusion requires energy
+(J) Simple diffusion is only possible in animal cells, not in plant cells"
+,,y_true,B
+,,solution selected by baseline
+,,step 0,"Simple diffusion is a process by which molecules move from an area of higher concentration to an area of lower concentration. However, in the case of plant cells, minerals are transported against a concentration gradient, from the soil (where the concentration of minerals is higher) into the cells of the plant (where the concentration of minerals is lower). This requires a mechanism that can transport minerals against the concentration gradient, which simple diffusion cannot do.",0.9140625,0.53125
+,,step 1,The correct answer is (B) Simple diffusion cannot occur against a concentration gradient.,0.95703125,0.98046875
+,,solution selected by finetuned
+,,step 0,"Simple diffusion is a process in which molecules move from an area of higher concentration to an area of lower concentration, down their concentration gradient, until equilibrium is reached.",0.421875,0.95703125
+,,step 1,"Plants need to take in a large amount of minerals from the soil, such as nitrogen, phosphorus, and potassium, in order to grow and develop.",0.99609375,0.96875
+,,step 2,Simple diffusion would be too slow and inefficient to transport these large quantities of minerals into the cells of water plants.,0.984375,0.65234375
+,,step 3,The answer is (H).,0.9921875,0.984375
+,,annotation
+
+12,mmlu_pro_nomath_test_02142
+,,question,"Your new ‘client is a 37-year-old woman whose symptoms meet the diagnostic criteria for Major Depressive Disorder. After your third session with her, she tells you that she was in treatment with another psychologist but terminated after the psychologist made sexual advances toward her. She does not want you to discuss this matter with anyone. To be consistent with the provisions of the ethics codes of the American and Canadian Psychology Association, your best course of action would be to:
+(A) Refuse to continue therapy until she allows you to report the unethical behavior.
+(B) Inform the client of the limits of confidentiality and insist on reporting the unethical behavior.
+(C) discuss the client's options with her and maintain her confidentiality unless she signs a release.
+(D) contact the Ethics Committee to determine what the appropriate steps would be in this situation.
+(E) Contact the police to report the other psychologist's behavior.
+(F) Discuss the situation with your supervisor before proceeding.
+(G) inform the client of the limits of confidentiality and contact the other psychologist.
+(H) inform the client of the limits of confidentiality and report the unethical behavior.
+(I) Inform the client that you cannot continue therapy due to a conflict of interest.
+(J) Continue therapy without addressing the issue."
+,,y_true,C
+,,solution selected by baseline
+,,step 0,"According to the American Psychological Association (APA) and the Canadian Psychological Association (CPA), psychologists have a duty to protect clients from harm and to report any known or suspected violations of the ethics code. However, this can be overridden by the client's right to confidentiality.",0.8359375,0.87890625
+,,step 1,"In this case, the client has explicitly stated that she does not want the psychologist's unethical behavior to be reported. To respect her autonomy and maintain trust, the psychologist should discuss the situation with her and explain the limits of confidentiality, but not report the behavior without her consent.",0.99609375,0.75390625
+,,step 2,The correct answer is (C) discuss the client's options with her and maintain her confidentiality unless she signs a release.,0.97265625,0.97265625
+,,solution selected by finetuned
+,,step 0,"According to the American Psychological Association (APA) and Canadian Psychological Association (CPA) ethics codes, psychologists have a duty to protect the client's confidentiality, but there are exceptions to this duty, including situations where there is a risk of serious harm to the client or others.",0.81640625,0.89453125
+,,step 1,"In this case, the client has reported that she was a victim of a psychologist's unethical behavior, which is a serious breach of professional ethics. The APA and CPA codes require psychologists to report such behavior to the relevant authorities, but also to inform the client of the limits of confidentiality and the intention to report the behavior.",0.9921875,0.8359375
+,,step 2,The correct answer is (H) inform the client of the limits of confidentiality and report the unethical behavior.,0.98046875,0.984375
+,,step 3,"Option (B) is incorrect because it does not inform the client of the limits of confidentiality, which is a required step in this situation. Option (C) is incorrect because it implies that the client has the power to decide whether or not to report the unethical behavior, which is not the case. Option (D) is incorrect because it involves consulting with the Ethics Committee after the fact, rather than taking action to protect the client. Options (E), (G), and (J) are incorrect because they do not involve informing the client of the limits of confidentiality. Option (I) is incorrect because it is not relevant to the situation.",0.9765625,0.953125
+,,annotation
+
+16,mmlu_pro_nomath_test_10844
+,,question,"Epicurus claims that all other virtues spring from:
+(A) temperance.
+(B) self-control.
+(C) humility.
+(D) faith.
+(E) integrity.
+(F) courage.
+(G) honesty.
+(H) wisdom.
+(I) justice.
+(J) prudence."
+,,y_true,J
+,,solution selected by baseline
+,,step 0,"Epicurus is a Greek philosopher who believed that the key to happiness is the absence of physical pain and mental distress. He argued that virtues are means to achieve this goal, and that all virtues can be reduced to one fundamental virtue: prudence.",0.53125,0.62109375
+,,step 1,"Prudence, in Epicurus' view, is the ability to understand what is truly good and bad, and to live a life that is free from unnecessary desires and fears. From prudence, all other virtues such as justice, temperance, self-control, and others follow.",0.96875,0.8515625
+,,step 2,The answer is (J).,0.9921875,1.0
+,,solution selected by finetuned
+,,step 0,"Epicurus, a Greek philosopher, believed that the key to happiness is the absence of physical pain and mental distress. He claimed that virtues such as self-control, justice, and temperance are not ends in themselves, but rather means to achieve this goal.",0.453125,0.73046875
+,,step 1,"However, Epicurus is most closely associated with the idea that all other virtues spring from the virtue of *wisdom*. According to Epicurus, wisdom is the ability to discern what is necessary for happiness, and to live in accordance with that knowledge.",0.98828125,0.796875
+,,step 2,The answer is (H).,0.9921875,0.99609375
+,,annotation
+
+45,mmlu_pro_nomath_test_04675
+,,question,"In primates, the location of which of the following determines if it is a quadruped or biped?
+(A) the foramen magnum
+(B) the skull
+(C) the feet
+(D) the femur
+(E) the spine
+(F) the pelvis
+(G) the clavicle
+(H) the vertebrae
+(I) the ulna
+(J) the radius"
+,,y_true,A
+,,solution selected by baseline
+,,step 0,"In quadruped primates, the foramen magnum (the opening in the skull through which the spinal cord passes) is located at the back of the skull. In biped primates (such as humans), the foramen magnum is located at the bottom of the skull, which allows for a more upright posture and gait.",0.81640625,0.70703125
+,,step 1,The answer is (A).,0.984375,0.2451171875
+,,solution selected by finetuned
+,,step 0,"In primates, the location that determines if it is a quadruped or biped is the pelvis. ",0.376953125,0.62109375
+,,step 1,"In quadrupedal primates, the pelvis is broad and the acetabulum (the socket of the hip joint) is oriented downward, which allows for a wide range of motion and support for the body weight on four limbs.",0.98046875,0.89453125
+,,step 2,"In bipedal primates, such as humans, the pelvis is narrower and the acetabulum is oriented upward and forward, which allows for a more vertical posture and support of the body weight on two limbs.",0.99609375,0.96875
+,,step 3,The answer is (F).,0.99609375,1.0
+,,annotation
+
+51,mmlu_pro_nomath_test_07895
+,,question,"Find the generator for the finite field Z_11.
+(A) 2
+(B) 5
+(C) 10
+(D) 6
+(E) 4
+(F) 3
+(G) 8
+(H) 7
+(I) 1
+(J) 9"
+,,y_true,A
+,,solution selected by baseline
+,,step 0,"A finite field Z_p is a field with p elements, where p is a prime number.",0.9140625,0.9140625
+,,step 1,The generator of Z_p is a number g such that the powers of g generate all the elements of Z_p.,1.0,0.8671875
+,,step 2,"In Z_11, the powers of 2 are:",0.98828125,0.294921875
+,,step 3,$2^0 = 1$,1.0,0.0849609375
+,,step 4,$2^1 = 2$,1.0,0.62109375
+,,step 5,$2^2 = 4$,1.0,0.65234375
+,,step 6,$2^3 = 8$,1.0,0.97265625
+,,step 7,$2^4 = 16 \equiv 5 \pmod{11}$,0.99609375,0.2451171875
+,,step 8,$2^5 = 32 \equiv 10 \pmod{11}$,1.0,0.59375
+,,step 9,$2^6 = 64 \equiv 9 \pmod{11}$,1.0,0.75390625
+,,step 10,$2^7 = 128 \equiv 7 \pmod{11}$,1.0,0.95703125
+,,step 11,$2^8 = 256 \equiv 3 \pmod{11}$,1.0,0.62109375
+,,step 12,$2^9 = 512 \equiv 6 \pmod{11}$,1.0,0.96875
+,,step 13,$2^{10} = 1024 \equiv 1 \pmod{11}$,1.0,0.75390625
+,,step 14,"Therefore, the powers of 2 generate all the elements of Z_11. The answer is (A).",0.9453125,0.46875
+,,solution selected by finetuned
+,,step 0,"A finite field Z_p is a field with p elements. In this case, p = 11. The generator is a primitive root modulo 11.",0.84375,0.349609375
+,,step 1,"The primitive roots modulo 11 are 2, 6, 7, and 8.",0.98046875,0.5625
+,,step 2,"The answer is (B), (D), (H), or (G).",0.94140625,0.59375
+,,annotation
+
+59,mmlu_pro_nomath_test_01203
+,,question,"A widow owned an apartment building. Several years ago, a student, in a signed writing, entered a three-year lease agreement with the widow. The student agreed to pay $800 monthly rent for the third-floor apartment in the widow's building. The original three-year term had long since expired, but the student had continued to pay his rent, and the widow continued to accept it. If the widow had chosen to evict the student immediately upon the end of the three-year period, and before she had accepted the next rent check, the student's strongest argument to prevent eviction, if true, would have been that
+(A) the student had a right to stay as he had been residing there for more than three years.
+(B) the widow had not given the student requisitenotice for terminating a term of years.
+(C) the student had made improvements to the property, thus extending the leasehold.
+(D) the student had a verbal agreement with the widow to extend the lease.
+(E) the terms of the leasehold contract were binding on both parties.
+(F) the widow had accepted rent for the following month before the three-year period ended.
+(G) the student was protected from eviction due to his status as a student.
+(H) the widow had not clearly communicated the end of the lease term.
+(I) the widow had not given the student requisitenotice for terminating a periodic tenancy.
+(J) the leasehold contract was void ab initio."
+,,y_true,I
+,,solution selected by baseline
+,,step 0,The strongest argument the student could make to prevent eviction would be that the widow had not given the student requisite notice for terminating a term of years.,0.4375,0.376953125
+,,step 1,"In most jurisdictions, when a fixed-term lease (in this case, a 3-year lease) comes to an end, the tenant remains a periodic tenant until the landlord gives proper notice to terminate the tenancy. The notice period varies by jurisdiction, but it is typically 30 days or 60 days.",0.984375,0.796875
+,,step 2,"If the widow had chosen to evict the student immediately upon the end of the three-year period, and before she had accepted the next rent check, the student's strongest argument would be that the widow had not given him the requisite notice to terminate the periodic tenancy.",0.87890625,0.376953125
+,,step 3,The answer is (I).,0.9765625,0.9453125
+,,solution selected by finetuned
+,,step 0,The student's strongest argument to prevent eviction would be that the widow had not given the student requisite notice for terminating a term of years. ,0.36328125,0.408203125
+,,step 1,"When a lease is for a fixed term (in this case three years), the landlord must give the tenant a notice before terminating the lease, usually 30 days or more, depending on the jurisdiction. If the landlord fails to give this notice, the tenant may argue that they are still protected from eviction.",0.98046875,0.796875
+,,step 2,The answer is (B).,0.984375,0.984375
+,,annotation
+
+71,mmlu_pro_nomath_test_05990
+,,question,"For an individual business owner, which of the following would typically be classified as a capital asset for federal income tax purposes?
+(A) Marketable securities
+(B) Outstanding loans
+(C) Machinery and equipment used in a business
+(D) Real estate property used for the business
+(E) The business' goodwill
+(F) Cash on hand
+(G) Accounts receivable
+(H) Office furniture and supplies
+(I) Inventory
+(J) Intellectual property such as patents"
+,,y_true,A
+,,solution selected by baseline
+,,step 0,"For federal income tax purposes, a capital asset is any property held for investment or used in a trade or business, and not held for sale to customers in the ordinary course of business.",0.578125,0.9453125
+,,step 1,- (A) Marketable securities are considered capital assets.,0.99609375,0.70703125
+,,step 2,- (C) Machinery and equipment used in a business are considered capital assets.,1.0,0.9921875
+,,step 3,- (D) Real estate property used for the business is considered a capital asset.,1.0,0.9921875
+,,step 4,- (E) Goodwill is considered a capital asset.,0.99609375,0.9140625
+,,step 5,- (F) Cash on hand is not a capital asset.,0.9140625,0.294921875
+,,step 6,"- (G) Accounts receivable is not a capital asset, it is a current asset.",0.9921875,0.9453125
+,,step 7,"- (H) Office furniture and supplies are not capital assets, they are current assets.",0.99609375,0.9609375
+,,step 8,"- (I) Inventory is not a capital asset, it is a current asset.",1.0,0.984375
+,,step 9,- (J) Intellectual property such as patents are considered capital assets.,1.0,0.9921875
+,,step 10,"The answer is (A), (C), (D), (E), and (J).",0.92578125,0.98046875
+,,solution selected by finetuned
+,,step 0,"For federal income tax purposes, a capital asset is a type of asset that is not considered inventory or a financial investment. It is used for business purposes and is expected to last for more than one year.",0.484375,0.90625
+,,step 1,The options that are typically classified as capital assets are:,0.96484375,0.59375
+,,step 2,- Machinery and equipment used in a business (C),1.0,0.9921875
+,,step 3,- Real estate property used for the business (D),1.0,0.99609375
+,,step 4,- Office furniture and supplies (H),0.8671875,0.53125
+,,step 5,- Intellectual property such as patents (J),1.0,0.99609375
+,,step 6,The others are not typically classified as capital assets:,0.99609375,0.6796875
+,,step 7,"- Marketable securities (A) are investments, not capital assets.",0.9140625,0.77734375
+,,step 8,"- Outstanding loans (B) are liabilities, not assets.",0.89453125,0.95703125
+,,step 9,"- Cash on hand (F) is a current asset, not a capital asset.",0.99609375,0.98828125
+,,step 10,"- Accounts receivable (G) is a current asset, not a capital asset.",1.0,0.99609375
+,,step 11,"- Inventory (I) is a current asset, not a capital asset.",1.0,0.99609375
+,,step 12,"The answer is (C), (D), (H), or (J).",0.9765625,0.93359375
+,,annotation
+
+75,mmlu_pro_nomath_test_01021
+,,question,"A toxicologist employed at the state crime laboratory testifies at a murder trial about the autopsy he performed on the victim. His testimony is that he detected traces of succinic acid and choline, the components of succinylcholine, in the victim's brain tissues. Over defense objections, he testified further that, in his opinion, the victim's cause of death was succinylcholine poisoning. On cross-examination, the toxicologist admitted that up until his findings, it had been universally accepted in the medical community that succinylcholine would be undetectable in the brain within a few minutes of its injection. He also admitted that his methods of detecting succinylcholine were experimental and that his results were not presently publishable because they were not complete enough. The defense attorney then makes a motion to strike the toxicologist's testimony regarding the cause of death. The court will most likely
+(A) deny the motion, because he was qualified to give an opinion on the ultimate issue of the case.
+(B) deny the motion, because the toxicologist's findings were based on his professional expertise.
+(C) deny the motion, because the toxicologist was qualified as an expert in medical matters.
+(D) deny the motion, because the court values the opinion of the state-employed expert.
+(E) grant the motion, because the toxicologist's opinion could not be substantiated.
+(F) deny the motion, because the toxicologist's opinion is the only evidence of the cause of death.
+(G) grant the motion, because the toxicologist was not properly qualified as an expert.
+(H) grant the motion, because the toxicologist admitted his findings contradicted accepted medical knowledge.
+(I) grant the motion, because the toxicologist's results were not complete enough to be published."
+,,y_true,E
+,,solution selected by baseline
+,,step 0,"The toxicologist's opinion about the cause of death is an ultimate issue to be decided by the jury. Expert testimony is generally not allowed on ultimate issues unless it is based on reliable facts and methods. In this case, the toxicologist admitted that his methods of detecting succinylcholine were experimental and that his results were not presently publishable because they were not complete enough. This suggests that his opinion is not based on reliable facts and methods.",0.859375,0.70703125
+,,step 1,The answer is (E).,0.95703125,0.92578125
+,,solution selected by finetuned
+,,step 0,"The toxicologist's opinion regarding the cause of death is an ultimate issue in the case, and his testimony was based on experimental methods that are not yet widely accepted in the medical community. The fact that his methods are not presently publishable and contradict accepted medical knowledge raises concerns about the reliability and admissibility of his opinion.",0.6796875,0.796875
+,,step 1,The correct answer is (H). The court may grant the motion to strike the toxicologist's testimony because his opinion contradicts accepted medical knowledge and is based on untested and unproven methods.,0.93359375,0.93359375
+,,annotation
+
+78,mmlu_pro_nomath_test_10159
+,,question,"The charge on an oil drop is measured in the laboratory. Which of the following measurements should be rejected as highly unlikely to be correct?
+(A) 2.4 × 10^-19 C
+(B) 6.4 × 10^-19 C
+(C) 8.0 × 10^-19 C
+(D) 4.8 × 10^-19 C"
+,,y_true,A
+,,solution selected by baseline
+,,step 0,The charge on an electron is $-1.6 \times 10^{-19}$ C. ,0.546875,0.62109375
+,,step 1,"All the options are close to this value, but the most likely charge would be $-1.6 \times 10^{-19}$ C, which is not among the options. ",0.62109375,0.376953125
+,,step 2,"However, option (A) 2.4 × 10^-19 C is the closest to the actual value. ",0.89453125,0.53125
+,,step 3,The answer is (A).,0.93359375,0.1826171875
+,,solution selected by finetuned
+,,step 0,The charge of an electron is $-1.6 \times 10^{-19}$ C. ,0.53125,0.70703125
+,,step 1,"A charge of $2.4 \times 10^{-19}$ C is a multiple of the electron charge, which is possible. ",0.98828125,0.6796875
+,,step 2,"A charge of $6.4 \times 10^{-19}$ C is also a multiple of the electron charge, which is possible.",1.0,0.984375
+,,step 3,"A charge of $8.0 \times 10^{-19}$ C is not a multiple of the electron charge, which is unlikely.",0.9453125,0.53125
+,,step 4,"A charge of $4.8 \times 10^{-19}$ C is a multiple of the electron charge, which is possible.",1.0,0.9921875
+,,step 5,The answer is (C).,0.97265625,0.93359375
+,,annotation
+
+97,mmlu_pro_nomath_test_08699
+,,question,"Use rounding to estimate the sum of 27.94 + 15.35 to the nearest tenth.
+(A) 44
+(B) 42.9
+(C) 44.1
+(D) 42.8
+(E) 43.29
+(F) 43.3
+(G) 43.2
+(H) 43.4
+(I) 42.5
+(J) 43.5"
+,,y_true,F
+,,solution selected by baseline
+,,step 0,"To round to the nearest tenth, we need to look at the hundredth place (the second decimal place).",0.9921875,0.90625
+,,step 1,"27.94 has a 4 in the hundredth place, which is greater than 5, so it rounds up to 27.9.",0.984375,0.408203125
+,,step 2,"15.35 has a 5 in the hundredth place, which is greater than or equal to 5, so it rounds up to 15.4.",1.0,0.9453125
+,,step 3,Then we add 27.9 and 15.4 to get 43.3.,0.984375,0.9453125
+,,step 4,The answer is (F).,1.0,0.77734375
+,,solution selected by finetuned
+,,step 0,"To round a number to the nearest tenth, look at the hundredth place. If the hundredth place is 5 or greater, round up. If the hundredth place is 4 or less, round down.",0.87890625,0.89453125
+,,step 1,"27.94 has a 4 in the hundredth place, so it rounds down to 27.9.",0.98046875,0.75390625
+,,step 2,"15.35 has a 5 in the hundredth place, so it rounds up to 15.4.",1.0,0.98828125
+,,step 3,Add 27.9 and 15.4 to get 43.3.,0.98828125,0.953125
+,,step 4,The answer is (F).,1.0,0.75390625
+,,annotation
+
+101,mmlu_pro_nomath_test_04830
+,,question,"This question refers to the following information.
+Read the following letter.
+It happened . . . that a Spaniard saw an Indian . . . eating a piece of flesh taken from the body of an Indian who had been killed. . . . I had the culprit burned, explaining that the cause was his having killed that Indian and eaten him[,] which was prohibited by Your Majesty, and by me in Your Royal name. I further made the chief understand that all the people . . . must abstain from this custom. . . . I came . . . to protect their lives as well as their property, and to teach them that they were to adore but one God[,] . . . that they must turn from their idols, and the rites they had practiced until then, for these were lies and deceptions which the devil . . . had invented. . . . I, likewise, had come to teach them that Your Majesty, by the will of Divine Providence, rules the universe, and that they also must submit themselves to the imperial yoke, and do all that we who are Your Majesty's ministers here might order them.
+—Hernan Cortez, Fifth Letter to Holy Roman Emperor Charles V, 1521
+Which of the following was NOT a result of the European conquest of the Americas realized by the end of the seventeenth century?
+(A) Europeans established overseas colonies on the coasts of the Americas and throughout the continent of Africa.
+(B) Europeans established colonies throughout Asia and the Pacific Islands.
+(C) Europeans created vast global trade networks that allowed them to gain large accumulations of wealth.
+(D) European conquest led to the extinction of the majority of plant and animal species in the Americas.
+(E) Europeans expanded the African slave trade in response to the establishment of a plantation economy in the Americas and to demographic catastrophes among indigenous peoples.
+(F) The European conquest resulted in a globally unified political system under European rule.
+(G) The conquest resulted in a decrease in Europe's population.
+(H) Europe's colonial expansion led to a global exchange of goods, flora, fauna, cultural practices, and diseases.
+(I) The indigenous people of the Americas were able to retain their territories and political power.
+(J) Europeans were able to completely eliminate all native cultures and languages in the Americas."
+,,y_true,A
+,,solution selected by baseline
+,,step 0,"The European conquest of the Americas resulted in the establishment of overseas colonies on the coasts of the Americas and throughout the continent of Africa. However, the European colonization of Africa actually occurred later, during the Scramble for Africa (1881-1914), long after the conquest of the Americas.",0.7421875,0.1826171875
+,,step 1,"So, the correct answer is (A).",0.88671875,0.349609375
+,,solution selected by finetuned
+,,step 0,The correct answer is (F) The European conquest resulted in a globally unified political system under European rule.,0.376953125,0.2021484375
+,,step 1,"The European colonization of the Americas was a process of expansion and fragmentation, with various European powers establishing their own colonies and empires. While there were some attempts at unification, such as the Spanish Empire, the European conquest did not result in a globally unified political system under European rule.",0.75390625,0.22265625
+,,step 2,"In fact, the European colonization of the Americas led to the creation of multiple, often competing, colonial empires, including the Spanish Empire, the Portuguese Empire, the British Empire, the French Empire, and others. These empires were often at odds with one another, and the Americas were subject to a complex web of colonial rivalries and power struggles.",0.92578125,0.98046875
+,,step 3,The other options are all accurate descriptions of the consequences of the European conquest of the Americas:,0.953125,0.81640625
+,,step 4,* (A) Europeans established overseas colonies on the coasts of the Americas and throughout the continent of Africa.,0.87890625,0.97265625
+,,step 5,* (B) Europeans established colonies throughout Asia and the Pacific Islands.,1.0,0.9453125
+,,step 6,* (C) Europeans created vast global trade networks that allowed them to gain large accumulations of wealth.,1.0,0.9921875
+,,step 7,* (D) European conquest led to the extinction of the majority of plant and animal species in the Americas.,0.9921875,0.75390625
+,,step 8,* (E) Europeans expanded the African slave trade in response to the establishment of a plantation economy in the Americas and to demographic catastrophes among indigenous peoples.,1.0,0.98828125
+,,step 9,"* (H) Europe's colonial expansion led to a global exchange of goods, flora, fauna, cultural practices, and diseases.",1.0,1.0
+,,step 10,"* (I) The indigenous people of the Americas were not able to retain their territories and political power, as they were often subjected to colonization, displacement, and exploitation.",0.6796875,0.75390625
+,,step 11,"* (J) Europeans were able to eliminate many native cultures and languages in the Americas, although many indigenous cultures and languages continue to exist today.",0.98828125,0.8671875
+,,annotation
+
+121,mmlu_pro_nomath_test_11174
+,,question,"Arguing that someone couldn't have done something good because she holds a particular position commits the fallacy of
+(A) Guilt by association
+(B) False dilemma
+(C) Reprehensible personality
+(D) False dichotomy"
+,,y_true,C
+,,solution selected by baseline
+,,step 0,"This is actually called ""ad hominem"" or ""personal attack"" fallacy, but more specifically in this case, it seems to be a type of ""ad hominem"" called ""reprehensible personality"" or more precisely ""appeal to character"" or ""poisoning the well"", but it is more specifically ""appeal to character"" when it argues that someone is wrong because of their position because we know that people with that position are wrong.",0.546875,0.408203125
+,,step 1,"However, ""appeal to character"" is not one of the options, but the closest one is ""Reprehensible personality"" so the answer is (C).",0.9296875,0.8671875
+,,solution selected by finetuned
+,,step 0,"The fallacy of arguing that someone couldn't have done something good because she holds a particular position is an example of ""Guilt by association"" (also known as ""guilt by accusation"").",0.3203125,0.53125
+,,step 1,"Guilt by association is a fallacy that occurs when someone is discredited or judged based on their association with another person or group, rather than on their own actions or qualities.",0.9921875,0.9453125
+,,step 2,"In this case, the fallacy is that someone is being judged based on their position, rather than their actions or character.",0.95703125,0.9765625
+,,step 3,The answer is (A).,0.984375,0.99609375
+,,annotation
+
+136,mmlu_pro_nomath_test_00219
+,,question,"In the event of bankruptcy, what is the order of payment of bonds, common stock, and preferred stock?
+(A) Preferred stockholders, common stockholders, bondholders
+(B) Bondholders, common stockholders, preferred stockholders
+(C) Preferred stockholders, bondholders, common stockholders
+(D) Common stockholders, bondholders, preferred stockholders
+(E) Bondholders and common stockholders equally, then preferred stockholders
+(F) Preferred stockholders, then bondholders and common stockholders equally
+(G) Bondholders equally with preferred stockholders, then common stockholders
+(H) Common stockholders, preferred stockholders, bondholders
+(I) Bondholders, preferred stockholders, common stockholders
+(J) Common stockholders and preferred stockholders equally, then bondholders"
+,,y_true,I
+,,solution selected by baseline
+,,step 0,"In the event of bankruptcy, the order of payment is typically as follows:",0.62109375,0.3203125
+,,step 1,1. Bondholders (secured creditors): They have a prior claim on the assets of the company and are usually paid first.,0.99609375,0.9609375
+,,step 2,2. Preferred stockholders: They have a higher claim than common stockholders but a lower claim than bondholders.,1.0,0.796875
+,,step 3,3. Common stockholders: They have the lowest claim on the assets of the company and are usually paid last.,1.0,0.98828125
+,,step 4,"So the correct order is Bondholders, preferred stockholders, common stockholders.",1.0,0.9765625
+,,step 5,The answer is (I).,0.99609375,0.984375
+,,solution selected by finetuned
+,,step 0,"In the event of bankruptcy, the order of payment is typically as follows:",0.609375,0.3203125
+,,step 1,1. Bondholders (secured creditors) - They have a legal claim on the company's assets and are paid first.,0.9921875,0.9609375
+,,step 2,2. Preferred stockholders (creditors) - They have a higher claim than common stockholders and are paid after bondholders.,0.9453125,0.9140625
+,,step 3,"3. Common stockholders (shareholders) - They have the lowest claim and are paid last, if anything is left after paying bondholders and preferred stockholders.",0.99609375,0.98046875
+,,step 4,The answer is (B).,0.9765625,0.77734375
+,,annotation
+
+145,mmlu_pro_nomath_test_00201
+,,question,"What is a paradigm?
+(A) A research methodology
+(B) A practical application of a theory
+(C) An illustration
+(D) An experimental hypothesis
+(E) A statistical analysis
+(F) A proven scientific law
+(G) A theoretical model
+(H) A theoretical assumption
+(I) A philosophical belief
+(J) An example serving as a model"
+,,y_true,J
+,,solution selected by baseline
+,,step 0,"A paradigm is a model or example that serves as a pattern or a standard for something else. It is often used to illustrate or demonstrate a concept, theory, or idea.",0.765625,0.59375
+,,step 1,The correct answer is (J) An example serving as a model.,0.984375,0.98046875
+,,solution selected by finetuned
+,,step 0,"A paradigm is a theoretical model or a conceptual framework that explains a particular phenomenon or a set of phenomena. It is a way of thinking or a perspective that guides research, theory, and practice in a particular field.",0.5,0.62109375
+,,step 1,"The term ""paradigm"" is often associated with Thomas Kuhn, who used it to describe the dominant or accepted framework of a scientific discipline at a particular point in time.",0.99609375,0.95703125
+,,step 2,The correct answer is (G) A theoretical model.,0.984375,0.97265625
+,,annotation
+
+232,mmlu_pro_nomath_test_01077
+,,question,"A grantor executed a deed by which he conveyed his apartment building for a consideration of one dollar, receipt of which was acknowledged, ""to my son for life, then to my uncle for life, but if my uncle moves to another state, to my brother for the life of my uncle, then to the heirs of my uncle if my uncle does not move to another state, and to the heirs of my brother if my uncle does move to another state. "" This deed was promptly recorded. During the son's lifetime, the brother's interest may best be described as a (an)
+(A) contingent remainder pur autre vie.
+(B) vested remainder absolute.
+(C) estate pur autre vie.
+(D) shifting executory interest pur autre vie.
+(E) vested remainder pur autre vie.
+(F) contingent remainder in fee simple.
+(G) contingent executory interest pur autre vie.
+(H) vested remainder in fee simple.
+(I) vested executory interest pur autre vie.
+(J) contingent remainder absolute."
+,,y_true,D
+,,solution selected by baseline
+,,step 0,"The brother's interest is contingent on the uncle moving to another state. This is a shifting executory interest, which is a type of executory interest that takes effect only if a certain condition is met.",0.75390625,0.65234375
+,,step 1,"The brother's interest is ""pur autre vie"", meaning it is a life estate, which is a type of estate that lasts for the life of a person.",0.99609375,0.796875
+,,step 2,The answer is (D) shifting executory interest pur autre vie.,0.96875,0.984375
+,,solution selected by finetuned
+,,step 0,"The brother's interest is contingent on the uncle moving to another state, and it is a life estate (pur autre vie) because it is tied to the life of another person (the uncle). The brother only receives the property if the uncle moves to another state, so it is a contingent interest. Therefore, the brother's interest is a contingent executory interest pur autre vie.",0.4375,0.8671875
+,,step 1,The answer is (G).,0.8984375,0.9921875
+,,annotation
+
+236,mmlu_pro_nomath_test_04081
+,,question,"A certain reaction is nonspontaneous under standard conditions, but becomes spontaneous at higher temperatures. What conclusions may be drawn under standard conditions?
+(A) ΔH = 0, ΔS > 0 and ΔG > 0
+(B) ΔH > 0, ΔS < 0 and ΔG > 0
+(C) ΔH > 0, ΔS = 0 and ΔG > 0
+(D) ΔH > 0, ΔS > 0 and ΔG = 0
+(E) ΔH = 0, ΔS < 0 and ΔG > 0
+(F) ΔH < 0, ΔS = 0 and ΔG > 0
+(G) ΔH > 0, ΔS > 0 and ΔG > 0
+(H) ΔH < 0, ΔS > 0 and ΔG < 0
+(I) ΔH < 0, ΔS < 0 and ΔG = 0
+(J) ΔH < 0, ΔS < 0 and ΔG > 0"
+,,y_true,G
+,,solution selected by baseline
+,,step 0,"A reaction is nonspontaneous under standard conditions, but becomes spontaneous at higher temperatures. This means that the reaction becomes spontaneous as the temperature increases, which means that the entropy change ΔS must be positive. ",0.828125,0.46875
+,,step 1,The Gibbs free energy change ΔG is related to the enthalpy change ΔH and the entropy change ΔS by the equation ΔG = ΔH - TΔS. ,1.0,0.70703125
+,,step 2,"Since the reaction is nonspontaneous at lower temperatures and becomes spontaneous at higher temperatures, we can conclude that ΔG is initially greater than 0 (ΔG > 0) and becomes less than 0 (ΔG < 0) as the temperature increases.",0.98828125,0.53125
+,,step 3,"Since ΔG is initially greater than 0, we can write ΔG = ΔH - TΔS > 0. ",0.9921875,0.8515625
+,,step 4,"Since ΔG becomes less than 0 at higher temperatures, we can write ΔG = ΔH - TΔS < 0. ",0.9921875,0.9765625
+,,step 5,"Combining these two inequalities, we get ΔH - TΔS > 0 and ΔH - TΔS < 0. ",0.8359375,0.65234375
+,,step 6,This is only possible if ΔH > 0 and ΔS > 0.,0.9140625,0.5
+,,step 7,The answer is (G).,0.99609375,0.98046875
+,,solution selected by finetuned
+,,step 0,"The change in Gibbs free energy ΔG is given by the equation ΔG = ΔH - TΔS, where ΔH is the change in enthalpy, ΔS is the change in entropy, and T is the temperature in Kelvin.",0.578125,0.90625
+,,step 1,"If the reaction is nonspontaneous at standard conditions, then ΔG > 0.",1.0,0.984375
+,,step 2,"At higher temperatures, the reaction becomes spontaneous, so ΔG < 0.",0.99609375,0.90625
+,,step 3,This means that ΔH - TΔS < 0.,0.99609375,0.796875
+,,step 4,"Since TΔS > 0 (ΔS > 0), we must have ΔH < 0.",0.90625,0.70703125
+,,step 5,"Therefore, ΔH < 0, ΔS > 0, and ΔG > 0 at standard conditions.",0.796875,0.70703125
+,,step 6,The answer is (H).,0.99609375,0.65234375
+,,annotation
+

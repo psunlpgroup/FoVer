@@ -1,0 +1,3 @@
+session mathd_algebra_101 = HOL +
+  options [document = false]
+  theories mathd_algebra_101

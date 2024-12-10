@@ -1,0 +1,303 @@
+data_idx,id,type,value,baseline,finetuned
+6,anli_test_aa6544a7-fe28-4e34-a47d-cbba2814dc2a,,,,
+,,question,"Premise: The Texas Wrestling Academy (formerly known as The Shawn Michaels Wrestling Academy) is a professional wrestling training school that was operated by Shawn Michaels and Rudy Boy Gonzalez. The school has produced many well-known wrestlers such as Daniel Bryan, Brian Kendrick, Paul London, Lance Cade, Shawn Hernandez, Matt Bentley and Milano Collection A.T.
+Hypothesis: The TWA used to be known as the SMWA.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,neutral,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""The Texas Wrestling Academy (formerly known as The Shawn Michaels Wrestling Academy)"".",0.8515625,0.9765625
+,,step 1,"This implies that the Texas Wrestling Academy was previously known as the Shawn Michaels Wrestling Academy, but also that it was not previously known as the SMWA.",0.26953125,0.376953125
+,,step 2,"Therefore, the premise directly contradicts the hypothesis.",0.73046875,0.9921875
+,,step 3,The final answer is contradiction.,0.99609375,1.0
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""The Texas Wrestling Academy (formerly known as The Shawn Michaels Wrestling Academy)"".",0.8515625,0.9765625
+,,step 1,"This implies that the Texas Wrestling Academy was previously known as ""The Shawn Michaels Wrestling Academy"", but it does not explicitly state that it was previously known as the ""SMWA"".",0.005218505859375,0.62109375
+,,step 2,"Therefore, the premise only provides a partial match, but does not confirm the exact previous name, making it neutral.",0.5,0.75390625
+,,annotation,baseline_wrong,,
+20,anli_test_b42b7ad3-965d-43ef-8333-df178c126064,,,,
+,,question,"Premise: Well, because there wasn't really a clear resolution to what had occurred the previous meeting. In addition, I was very angry when I left the June 7th meeting just because of the demeanor of the school board and the things that were being said. And, honestly, I thought that maybe it would set me into labor because of, you know, being angry, and at that point in time I was past my due date, in addition to caring about my children's education and everything I said previously.
+Hypothesis: The speaker here is a man.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"There is no information in the premise that implies the speaker is a man. The premise mentions ""I"", ""me"", and ""my children"", but these pronouns do not provide any information about the speaker's gender.",0.75390625,0.408203125
+,,step 1,"Therefore, the final answer is neutral.",0.96875,0.96875
+,,solution selected by finetuned,,,
+,,step 0,"The premise mentions that the speaker was ""past my due date,"" which implies that the speaker is a woman, as ""due date"" typically refers to the expected date of childbirth.",0.1328125,0.70703125
+,,step 1,This information contradicts the hypothesis that the speaker is a man.,0.97265625,0.97265625
+,,step 2,"Therefore, the final answer is contradiction.",0.98828125,1.0
+,,annotation,baseline_wrong,,
+27,anli_test_f661490b-1ed1-4329-8e23-19e573e03051,,,,
+,,question,"Premise: × Man injured in west side fire INDIANAPOLIS–One man was injured when his west side home caught fire Sunday afternoon. Shortly before 5 p.m., firefighters were called to the 5200 block of Ida Street. That scene is near Rockville Road and Lynhurst Drive. Smoke was showing from the one-story residence when fire units arrived. Fire crews quickly brought the flames under control. The male occupant was taken to Eskenazi Hospital with burns to his hands and face. He is reported to be in stable condition. The cause of the fire remains under investigation.
+Hypothesis: the stairs burned in the fire
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""Smoke was showing from the one-story residence when fire units arrived."" This implies that the fire occurred in a one-story house, which means there was no second story with stairs.",0.3203125,0.87890625
+,,step 1,"Therefore, the premise does not entail the hypothesis, but it does imply that the stairs did not burn. However, the premise does not provide any information about the stairs, so it is neutral regarding the hypothesis.",0.6796875,0.53125
+,,step 2,"Therefore, the final answer is neutral.",0.99609375,0.9921875
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""That scene is near Rockville Road and Lynhurst Drive"" and ""the one-story residence.""",0.119140625,0.96875
+,,step 1,"A one-story residence would not typically have stairs, as stairs are usually found in multi-story buildings.",0.97265625,0.93359375
+,,step 2,"In summary, the premise implies that the house was a one-story residence, which contradicts the idea that the stairs burned in the fire.",0.9609375,0.94140625
+,,step 3,"Therefore, the final answer is contradiction.",0.99609375,1.0
+,,annotation,baseline_wrong,,
+37,anli_test_a03fbbac-ecf6-4e45-adb9-1243a5e138c8,,,,
+,,question,"Premise: BALTIMORE _ The winning numbers in Monday evening's drawing of the Maryland Lottery's ""5 Card Cash"" game were: 4C-10C-5H-5S-8S (4C, 10C, 5H, 5S, 8S) Copyright 2018 The Associated Press. All rights reserved. This material may not be published, broadcast, rewritten or redistributed.
+Hypothesis: The draw was held twice.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,There is no information in the premise that suggests the draw was held more than once.,0.71875,0.73046875
+,,step 1,"There is no information in the premise that suggests the draw was held only once, either.",0.953125,0.75390625
+,,step 2,"The premise simply states the winning numbers of a single drawing of the Maryland Lottery's ""5 Card Cash"" game.",0.9609375,1.0
+,,step 3,"In summary, the premise does not provide any information that is relevant to the hypothesis, and it does not derive the hypothesis.",0.9921875,0.8515625
+,,step 4,"Therefore, the final answer is neutral.",0.9921875,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""Monday evening's drawing of the Maryland Lottery's '5 Card Cash' game."" The use of the singular ""drawing"" implies that there was one draw, not two.",0.349609375,0.9765625
+,,step 1,"Therefore, the premise contradicts the hypothesis.",0.65234375,0.9921875
+,,step 2,The final answer is contradiction.,1.0,1.0
+,,annotation,baseline_wrong,,
+63,anli_test_e0beab99-47c8-4289-9dfb-41ff4270470e,,,,
+,,question,"Premise: Davina McCall opened up about her love life with husband Matthew Robertson The TV presenter opened up about their relationship after 16 years of marriage and revealed that since she started taking hormone replacement HRT she has a fresh libido. Telling Stella Magazine about her menopause symptoms and the decision to start HRT, Davina said: ""All my symptoms stopped overnight. I'm not endorsing it. It was a personal decision. ""I feel, in a funny way, it's almost more attractive that I can't have children,"" she continued. ""Because not I don't need to take contraception.
+Hypothesis: Davina McCall is in her fifth decade.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,entailment,,
+,,solution selected by baseline,,,
+,,step 0,"Premise mentions that Davina McCall started taking hormone replacement therapy (HRT) due to menopause symptoms, which implies that she is going through menopause.",0.53125,0.8515625
+,,step 1,"Typically, menopause occurs in women around the age of 50, and it is a natural part of aging.",0.98046875,0.8359375
+,,step 2,"The premise does not explicitly mention Davina's age, but it implies that she is experiencing menopause, which is often associated with being in the fifth decade of life (around 50 years old).",0.9453125,0.94140625
+,,step 3,"Therefore, the premise does not directly state that Davina McCall is in her fifth decade, but it provides a plausible reason for why she might be in her fifth decade.",0.96875,0.87890625
+,,step 4,"However, the premise does not provide definitive evidence to support the hypothesis, so the relationship is not one of entailment or contradiction.",0.99609375,0.59375
+,,step 5,"Therefore, the final answer is neutral.",1.0,0.97265625
+,,solution selected by finetuned,,,
+,,step 0,"Premise mentions that Davina McCall started taking hormone replacement therapy (HRT) due to menopause symptoms, which implies that she is going through menopause.",0.53125,0.8359375
+,,step 1,"Menopause typically occurs in women around the age of 45-55, and it is a significant life event that marks the end of a woman's reproductive period.",0.98828125,0.89453125
+,,step 2,"While the premise does not explicitly state Davina McCall's age, it implies that she is likely over 45 and possibly in her fifth decade.",0.9453125,0.70703125
+,,step 3,"However, the premise does not directly state that Davina McCall is in her fifth decade, but it provides evidence that supports this conclusion.",0.9921875,0.81640625
+,,step 4,"Therefore, the final answer is entailment.",0.97265625,0.9140625
+,,annotation,wrong_ground_truth,,
+98,anli_test_ba09cbc2-f6c1-4621-b24c-d0b6f73e1bf0,,,,
+,,question,"Premise: Missing Brush<br>Kelli was getting ready for school in the morning. She couldn't find the brush. It was almost time for school. Kelli brushed her hair back with her fingers. She pulled her hair back in a ponytail.
+Hypothesis: Kelli had time to find her brush. 
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""Kelli couldn't find the brush"" and ""It was almost time for school."" However, it also says, ""She brushed her hair back with her fingers"" and ""She pulled her hair back in a ponytail,"" implying that she found a way to manage her hair despite not having a brush.",0.392578125,0.349609375
+,,step 1,"It does not necessarily imply that she had time to find her brush, but it does not contradict the hypothesis either.",0.91796875,0.2451171875
+,,step 2,The premise does not provide enough information to confirm or deny the hypothesis.,0.98828125,0.8359375
+,,step 3,"Therefore, the final answer is neutral.",0.99609375,0.98046875
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""It was almost time for school"" implying that Kelli was in a rush and had little time to find her brush.",0.15625,0.9609375
+,,step 1,"Premise says, ""She brushed her hair back with her fingers"" implying that she didn't have time to find her brush, as she had to find an alternative solution.",0.8671875,0.796875
+,,step 2,"In summary, the premise implies that Kelli did not have time to find her brush, which contradicts the hypothesis.",0.349609375,0.9765625
+,,step 3,"Therefore, the final answer is contradiction.",0.984375,1.0
+,,annotation,baseline_wrong,,
+112,anli_test_decb22e4-8d29-4244-a15f-a03d8fde832e,,,,
+,,question,"Premise: SACRAMENTO (AP) _ The winning numbers in Wednesday evening”s drawing of the California Lottery”s “Daily 3 Evening” game were: 6-4-0 (six, four, zero) ¶ Ticket-holders with all three winning numbers in the order given win the top prize. Lesser amounts are also awarded to ticket-holders with other varying combinations of the winning numbers.
+Hypothesis: If you had 6-0-4, then you would get no money.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""Ticket-holders with all three winning numbers in the order given win the top prize."" However, it does not say anything about what happens if you have 6-0-4, but not in the winning order (6-4-0).",0.36328125,0.349609375
+,,step 1,"Premise does not provide information about the outcome of having the numbers 6-0-4, but not in the correct order.",0.8359375,0.65234375
+,,step 2,"Therefore, the final answer is neutral.",0.8671875,0.70703125
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""Ticket-holders with all three winning numbers in the order given win the top prize,"" and the winning numbers are 6-4-0. ",0.65234375,0.8515625
+,,step 1,"However, it also says, ""Ticket-holders with all three winning numbers in the order given win the top prize,"" which implies that having 6-0-4 is a winning combination, not a losing one.",0.1826171875,0.8671875
+,,step 2,"Therefore, the premise contradicts the hypothesis.",0.87890625,0.9921875
+,,step 3,"Therefore, the final answer is contradiction.",1.0,1.0
+,,annotation,wrong_intermediate,,
+119,anli_test_9ba85a9c-04c3-463f-acc8-09d645ca135f,,,,
+,,question,"Premise: Naamloze vennootschap (] ; correctly abbreviated nv, however, often abbreviated N.V. or NV) is a legal structure of a company (of the sort ""public company"") conformable law in the Netherlands, Belgium, Indonesia, and Suriname. The company is owned by shareholders, and the company's shares are not registered to certain owners, so that they may be traded on the public stock market.
+Hypothesis: the abbreviation for Naamloze vennootschap is the same as a US state
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,neutral,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""correctly abbreviated nv,"" but it also says that ""nv"" is often abbreviated as ""N.V. or NV."" This implies that ""nv"", ""N.V."", and ""NV"" are all abbreviations for the same term, Naamloze vennootschap.",0.62109375,0.98046875
+,,step 1,"However, it does not imply that ""N.V."" or ""NV"" is an abbreviation for a US state.",0.029296875,0.4375
+,,step 2,"US states are typically abbreviated using a two-letter code, such as ""CA"" for California or ""NY"" for New York. ""N.V."" or ""NV"" does not resemble any US state abbreviation.",0.96875,0.9140625
+,,step 3,"Therefore, the premises do not derive the hypothesis, and the final answer is contradiction.",0.97265625,0.9921875
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""correctly abbreviated nv, however, often abbreviated N.V. or NV,"" which implies that the abbreviations ""N.V."" and ""NV"" are alternative abbreviations for Naamloze vennootschap.",0.73046875,0.9921875
+,,step 1,"However, the premise does not imply that ""nv"", ""N.V."", or ""NV"" are abbreviations for a US state.",0.000804901123046875,0.5625
+,,step 2,"The premise is about the company structure in the Netherlands, Belgium, Indonesia, and Suriname, and does not relate to US states.",0.1640625,0.984375
+,,step 3,"Therefore, the final answer is neutral.",0.98046875,0.97265625
+,,annotation,both_wrong_scores,,
+127,anli_test_e1821820-bd60-4d9d-a3d8-0bf1da52c130,,,,
+,,question,"Premise: OK, you need an excuse to get that shiny red sports car? Well, turns out there REALLY is good reason to get it. It’s good for your health! According to thedrive.com, a sports car gives you little bursts of excitement and these little surges are incredibly good for your mental and physical health. This even happens during your regular commute. Now, the study was sponsored by Ford, so it’s unclear if it has to be a mustang!
+Hypothesis: thedrive.com thinks you should get a shiny red sports car.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,entailment,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""According to thedrive.com, a sports car gives you little bursts of excitement and these little surges are incredibly good for your mental and physical health.""",0.796875,0.99609375
+,,step 1,"Premise does not directly say that thedrive.com thinks you should get a shiny red sports car, but it implies that thedrive.com suggests that owning a sports car has health benefits, which could be interpreted as a reason to get one.",0.90625,0.81640625
+,,step 2,"However, the premise also says ""Well, turns out there REALLY is good reason to get it,"" which suggests that the reason to get the car is the health benefits, not necessarily the color or the specific type of car.",0.89453125,0.89453125
+,,step 3,"The premise does not explicitly state that thedrive.com thinks you should get a shiny red sports car, but it implies that thedrive.com suggests that owning a sports car has health benefits, which could be a reason to get one.",0.94140625,0.92578125
+,,step 4,"Therefore, the final answer is neutral.",0.96875,0.62109375
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""according to thedrive.com, a sports car gives you little bursts of excitement and these little surges are incredibly good for your mental and physical health.""",0.77734375,0.99609375
+,,step 1,"It also says, ""Now, the study was sponsored by Ford, so it’s unclear if it has to be a mustang!"" which suggests that the study might be biased towards Ford, but it does not make a direct statement about thedrive.com's opinion on buying a sports car.",0.94140625,0.87890625
+,,step 2,"The premise implies that a sports car is good for your mental and physical health, but it does not explicitly state that you should buy one.",0.90625,0.8359375
+,,step 3,"However, the premise starts with ""OK, you need an excuse to get that shiny red sports car? Well, turns out there REALLY is good reason to get it."" which implies that the drive.com's information is being used to justify buying a sports car.",0.1826171875,0.953125
+,,step 4,"Therefore, the final answer is entailment.",0.70703125,0.9609375
+,,annotation,wrong_ground_truth,,
+143,anli_test_3d51178b-f2ba-43cc-8e69-dfa57ff7c194,,,,
+,,question,"Premise: Missed Flight<br>Sheila set of for the airport early so she could catch her flight. On the way her car had a burst tire. She had no idea how to change a tire and started to cry. A car pulled up behind and the driver greeted her by name. It turned out to be someone she had worked with 10 years before.
+Hypothesis: Sheila was going to drive to her destination
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""Sheila set off for the airport early so she could catch her flight."" This implies that Sheila was planning to take a flight, not drive to her destination.",0.140625,0.8671875
+,,step 1,"However, it does not say that she was not going to drive, only that she was initially trying to catch a flight.",0.376953125,0.796875
+,,step 2,"Therefore, the premise is neutral to the hypothesis.",0.8671875,0.65234375
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""Sheila set off for the airport early so she could catch her flight."" This implies that Sheila intended to travel by air, not by driving.",0.119140625,0.73046875
+,,step 1,"The premise does not directly say that Sheila was going to drive to her destination, but it implies the opposite.",0.5,0.87890625
+,,step 2,"Therefore, the final answer is contradiction.",0.5625,0.99609375
+,,annotation,wrong_ground_truth,,
+155,anli_test_17c4ecde-4ac5-43c1-a718-67c6320d9581,,,,
+,,question,"Premise: But for them, they get the benefit of the longer term if you don't apply it to an existing copyright. I mean, if you say you need 70 years because of changes in the economy to encourage works, you grant 70 for the future, but why does that, making that apply to somebody provided him?
+Hypothesis: The amount of years mentioned in the text is higher than 75.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise mentions ""70 years"" as the amount of years being discussed. It does not compare this to 75 years.",0.10693359375,0.8671875
+,,step 1,"The premise does not provide enough information to determine if the amount of years is higher than 75, so it does not derive the hypothesis.",0.6796875,0.65234375
+,,step 2,"Therefore, the final answer is neutral.",0.99609375,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"Premise mentions ""70 years"" as the amount of years being discussed.",0.09033203125,0.92578125
+,,step 1,The hypothesis states that the amount of years is higher than 75.,0.8359375,0.87890625
+,,step 2,"Since 70 is less than 75, the premise does not support the hypothesis.",0.90625,0.75390625
+,,step 3,"In fact, the premise contradicts the hypothesis.",0.9921875,0.99609375
+,,step 4,"Therefore, the final answer is contradiction.",1.0,1.0
+,,annotation,baseline_wrong,,
+171,anli_test_69b77b5c-fb88-4f30-bc2a-25b66ad2124c,,,,
+,,question,"Premise: By 7 p.m., six of the Saudis left by the newly arrived private plane, flying on to Cairo and remaining overnight until heading back to Riyadh, according to Sabah and other media reports. By 11 p.m., another seven left by the other private plane, heading to Dubai, United Arab Emirates, similarly remaining there overnight and then flying on to Riyadh the next day, according to reports. Two others flew out commercially, Sabah said.
+Hypothesis: Sixteen Saudis flew in total.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,Premise mentions the following numbers of Saudis who left by private plane:,0.6875,0.70703125
+,,step 1,- Six left by the first private plane.,1.0,0.9921875
+,,step 2,- Seven left by the second private plane.,1.0,1.0
+,,step 3,It also mentions that two others flew out commercially.,1.0,1.0
+,,step 4,"In summary, the premise implies that at least 15 Saudis (6 + 7 + 2) flew out, but it does not provide information about any Saudis who might have flown in but not left.",0.376953125,0.8671875
+,,step 5,"The premise does not provide information about the total number of Saudis who flew in, only the number who left. Therefore, the hypothesis cannot be derived from the premise.",0.796875,0.2451171875
+,,step 6,"Therefore, the final answer is neutral.",0.98828125,0.953125
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""By 7 p.m., six of the Saudis left"" and ""By 11 p.m., another seven left,"" so 6 + 7 = 13.",0.1923828125,0.96875
+,,step 1,"It also says, ""Two others flew out commercially."" ",0.9921875,0.99609375
+,,step 2,"In summary, the premise implies that 13 + 2 = 15 Saudis flew out, not 16.",0.46875,0.5625
+,,step 3,"Therefore, the final answer is contradiction.",0.98046875,0.96875
+,,annotation,baseline_wrong,,
+175,anli_test_a6d02f70-14c3-44bf-ba24-0e22b69ed638,,,,
+,,question,"Premise: How to get a work visa<br>Be sure you have the necessary documentation to get a passport. The u.s. requires every applicant to provide certain information. [substeps] You will need proof of citizenship.
+Hypothesis: You can get a US passport by swearing you are a citizen.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""proof of citizenship"" is required for a US work visa, but it does not say that the proof of citizenship is obtained by swearing to be a citizen.",0.36328125,0.3203125
+,,step 1,"In fact, the premise implies that the proof of citizenship is a pre-existing requirement for obtaining a work visa.",0.984375,0.9765625
+,,step 2,"Therefore, the premise does not suggest that swearing to be a citizen is a way to obtain a US passport. ",0.97265625,0.65234375
+,,step 3,"The premise does not directly address the process of obtaining a US passport, it addresses the process of obtaining a work visa, which is a different process.",0.984375,0.953125
+,,step 4,"Therefore, the final answer is neutral.",0.99609375,0.89453125
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""Be sure you have the necessary documentation to get a passport"" and lists several requirements, including ""proof of citizenship.""",0.421875,0.96875
+,,step 1,"It implies that having proof of citizenship is a necessary step in getting a passport, but it does not imply that swearing you are a citizen is a requirement.",0.0203857421875,0.62109375
+,,step 2,"In fact, the premise implies the opposite, that you need actual proof of citizenship, not just a sworn statement.",0.04736328125,0.98828125
+,,step 3,"Therefore, the final answer is contradiction.",0.984375,0.96875
+,,annotation,both_wrong_scores,,
+185,anli_test_7e7c9800-5e29-4bde-9166-0bd45295f89a,,,,
+,,question,"Premise: Well, I don't believe in command and control out of Washington, D.C. I believe Washington ought to set standards, but again I think we ought to be collaborative at the local levels and I think we ought to work with people at the local levels. And by the way, I just want to make sure -- I can't let him just say something and not correct it.
+Hypothesis: He wants to build up small community organizations 
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,neutral,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""I think we ought to be collaborative at the local levels and I think we ought to work with people at the local levels.""",0.63671875,0.98828125
+,,step 1,"This implies that he wants to work with local communities, which can be interpreted as wanting to build up small community organizations.",0.9453125,0.59375
+,,step 2,"Therefore, the premises derive the hypothesis, and the final answer is entailment.",0.984375,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"Premise mentions, ""collaborative at the local levels and I think we ought to work with people at the local levels."" This implies that he values working with local people and levels, which could be interpreted as wanting to strengthen or build up local organizations.",0.484375,0.75390625
+,,step 1,"However, the premise does not explicitly mention building up small community organizations, it only implies a general preference for local collaboration.",0.010986328125,0.75390625
+,,step 2,"Therefore, the final answer is neutral.",0.96875,0.92578125
+,,annotation,baseline_wrong,,
+200,anli_test_3152746d-dd50-4477-8456-99808ee227a7,,,,
+,,question,"Premise: The third, and most remote possibility, was considered to be a so-called Jamaican coalition, again based on the party colours, between the Christian Democrats, the FDP and the Greens.
+Hypothesis: The most remote possibility is the number that comes before the number two
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""The third, and most remote possibility,"" which implies that the most remote possibility is the third option.",0.333984375,0.97265625
+,,step 1,"However, the hypothesis says that the most remote possibility is the number that comes before the number two, which would be the first option.",0.65234375,0.26953125
+,,step 2,"In summary, the premise and the hypothesis have different interpretations of what the most remote possibility is, so they do not derive the hypothesis.",0.6796875,0.81640625
+,,step 3,"Therefore, the final answer is neutral.",0.98828125,0.98828125
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""The third, and most remote possibility,"" indicating that the most remote possibility is the number 3.",0.11279296875,0.75390625
+,,step 1,"The hypothesis says, ""the most remote possibility is the number that comes before the number two,"" which implies that the most remote possibility is the number 1.",0.8515625,0.8671875
+,,step 2,"In summary, the premise implies that the most remote possibility is 3, and the hypothesis implies that the most remote possibility is 1. Therefore, the premise and the hypothesis contradict each other.",0.89453125,0.98828125
+,,step 3,"Therefore, the final answer is contradiction.",0.99609375,1.0
+,,annotation,baseline_wrong,,
+211,anli_test_dd08c224-4833-4d62-9372-2f62f10136a4,,,,
+,,question,"Premise: Beaver Dam is a home rule-class city in Ohio County, Kentucky, in the United States. The population was 3,515 at the 2010 census. It is named for the Beaver Dam Baptist Church which predates the town by 65 years. The city was formally incorporated by the state assembly in 1873.
+Hypothesis: Beaver Dam is in a state next to Tennessee.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,neutral,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""in Ohio County, Kentucky"", which implies that Beaver Dam is in Kentucky.",0.5,0.99609375
+,,step 1,"Since Kentucky is not next to Tennessee, the premise does not support the hypothesis.",0.349609375,0.22265625
+,,step 2,"Therefore, the final answer is contradiction.",0.9765625,1.0
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""Beaver Dam is a home rule-class city in Ohio County, Kentucky."" ",0.8359375,0.99609375
+,,step 1,This implies that Beaver Dam is located in the state of Kentucky.,0.9921875,0.9921875
+,,step 2,"It also says, ""in the United States."" However, this does not provide any information about the state next to Kentucky.",0.26953125,0.96875
+,,step 3,The premise does not mention Tennessee or any other state that shares a border with Kentucky.,0.92578125,0.8359375
+,,step 4,"Therefore, the premise does not provide any information to support or contradict the hypothesis.",0.98046875,0.8671875
+,,step 5,The final answer is neutral.,0.99609375,0.98828125
+,,annotation,baseline_wrong,,
+216,anli_test_d6d1d5a2-3b12-4ca2-89be-5157c3d581d5,,,,
+,,question,"Premise: Hudson County saw 25 people lose their lives last year in homicides. Still one of the lowest amounts in years. A building owned and managed by the Jersey City Housing Authority has been experiencing heat problems amid a cold weather snap. In Sports, St. Benedict's stuns top Hudson Catholic in boys basketball.
+Hypothesis: Less than two dozen people were murdered in Hudson County last year 
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""Hudson County saw 25 people lose their lives last year in homicides."" This directly supports the hypothesis, which states ""Less than two dozen people were murdered in Hudson County last year."" ""Less than two dozen"" means 24 or fewer. 25 is indeed less than 26, which is more than two dozen.",0.84375,0.1484375
+,,step 1,"Therefore, the final answer is entailment.",0.94921875,0.77734375
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""Hudson County saw 25 people lose their lives last year in homicides."" This directly states the number of people murdered in Hudson County last year.",0.9140625,0.99609375
+,,step 1,"The hypothesis ""Less than two dozen people were murdered in Hudson County last year"" is equivalent to ""Less than 24 people were murdered in Hudson County last year."" Since 25 is indeed more than 24, the premise contradicts the hypothesis.",0.81640625,0.9609375
+,,step 2,"Therefore, the final answer is contradiction.",0.99609375,1.0
+,,annotation,baseline_wrong,,
+231,anli_test_932c5f42-2510-4ec9-b78e-bfbeba05e1f7,,,,
+,,question,"Premise: CHICO — The California Teachers Association and local chapters of CTA will present a free showing of the educational documentary “Race to Nowhere” at 6 p.m. May 16 at the El Rey Theater, 230 W. Second St. The film has been featured on national news programs and talk shows. For a brief description of the film and to get tickets, visit rtnelreytheater.eventbrite.com.
+Hypothesis: The California Teachers Association has shown less than 1 films
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""The California Teachers Association and local chapters of CTA will present a free showing of the educational documentary “Race to Nowhere”"".",0.87890625,0.96875
+,,step 1,"This implies that the California Teachers Association has shown at least 1 film, but it does not provide information about the total number of films shown.",0.8671875,0.9140625
+,,step 2,"Therefore, the premise does not support the hypothesis that the California Teachers Association has shown less than 1 film, because it shows that they have shown at least 1 film.",0.89453125,0.96875
+,,step 3,"The premise does not derive the hypothesis, so the final answer is neutral.",0.99609375,0.75390625
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""The California Teachers Association and local chapters of CTA will present a free showing of the educational documentary 'Race to Nowhere'"".",0.8671875,0.96875
+,,step 1,"This implies that the California Teachers Association has shown at least 1 film (""Race to Nowhere"").",0.92578125,0.98828125
+,,step 2,"Therefore, the premise contradicts the hypothesis that the California Teachers Association has shown less than 1 film.",0.9453125,0.9921875
+,,step 3,The final answer is contradiction.,0.99609375,1.0
+,,annotation,both_wrong_scores,,
+247,anli_test_9d4ea405-878c-4724-bd38-4ac11d43ebe5,,,,
+,,question,"Premise: Vonn Cummings Sumner (born 1976 in Palo Alto, California) is an internationally exhibited American painter. He received his Bachelor of Arts, in 1998 and Master of Fine Arts, Painting in 2000, both from the University of California, Davis, where he studied with, among others, the celebrated American painter and educator Wayne Thiebaud.
+Hypothesis: Vonn Cummings Sumner has two degrees from different colleges
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise says, ""He received his Bachelor of Arts, in 1998 and Master of Fine Arts, Painting in 2000, both from the University of California, Davis.""",0.62109375,0.99609375
+,,step 1,"This implies that both degrees were received from the same institution, the University of California, Davis.",0.90625,0.99609375
+,,step 2,The premise does not provide any information about Vonn Cummings Sumner having degrees from different colleges.,0.89453125,0.9140625
+,,step 3,"In summary, the premise does not support the hypothesis that Vonn Cummings Sumner has two degrees from different colleges.",0.92578125,0.99609375
+,,step 4,"Therefore, the final answer is neutral.",0.98828125,0.9609375
+,,solution selected by finetuned,,,
+,,step 0,"Premise says, ""He received his Bachelor of Arts, in 1998 and Master of Fine Arts, Painting in 2000, both from the University of California, Davis.""",0.62109375,0.99609375
+,,step 1,"This implies that Vonn Cummings Sumner received both degrees from the same institution, the University of California, Davis.",0.59375,0.99609375
+,,step 2,"Therefore, the hypothesis ""Vonn Cummings Sumner has two degrees from different colleges"" is contradicted by the premise.",0.8359375,0.9921875
+,,step 3,The final answer is contradiction.,0.99609375,1.0
+,,annotation,both_wrong_scores,,

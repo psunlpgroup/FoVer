@@ -1,0 +1,88 @@
+data_idx,id,type,value,baseline,finetuned
+100,gsm8k_test_00153,,,,
+,,question,"Dave bought a large pack of french fries and ate fourteen before a hungry seagull stole the pack out of his hand. When the seagull landed, he gobbled down half the amount of french fries that Dave ate. Then three pigeons bullied him away from the food, and each pigeon ate three fries. Later, a raccoon stole two thirds of the remaining fries. Ants carried off a final french fry, leaving five behind. How many french fries were in the pack when Dave bought it?",,
+,,y_true,48,,
+,,solution selected by baseline,,,
+,,step 0,Dave ate 14 french fries before the seagull took the pack.,1.0,1.0
+,,step 1,"The seagull ate half the amount that Dave ate, which is 14 / 2 = 7 french fries.",1.0,0.96875
+,,step 2,"After the seagull, the total eaten so far is 14 + 7 = 21 french fries.",1.0,0.9921875
+,,step 3,"Three pigeons each ate 3 fries, which is 3 * 3 = 9 french fries.",1.0,1.0
+,,step 4,"So, the total eaten by this point is 21 + 9 = 30 french fries.",1.0,0.99609375
+,,step 5,A raccoon stole two-thirds of the remaining fries. This means one-third of the fries were left.,0.6796875,0.70703125
+,,step 6,"Let the total number of fries initially be \( x \). After the seagull and pigeons ate, \( x - 30 \) fries were left.",1.0,0.9765625
+,,step 7,"The raccoon stole two-thirds of these, leaving one-third: \( \frac{1}{3} (x - 30) \).",1.0,0.98828125
+,,step 8,"The ants carried off the final french fry, leaving 5 behind, which means before the ants, there were 5 + 1 = 6 fries.",1.0,0.9140625
+,,step 9,"So, \( \frac{1}{3} (x - 30) = 6 \).",1.0,0.93359375
+,,step 10,"Multiplying both sides by 3, we get \( x - 30 = 18 \).",1.0,0.98828125
+,,step 11,"Adding 30 to both sides, we get \( x = 48 \).",1.0,0.9921875
+,,step 12,"Therefore, the answer (arabic numerals) is 48.",1.0,0.9765625
+,,solution selected by finetuned,,,
+,,step 0,Dave ate 14 french fries.,1.0,0.99609375
+,,step 1,"The seagull ate half the amount Dave ate, which is 14 / 2 = 7 french fries.",1.0,0.95703125
+,,step 2,"So, after the seagull, there were 14 + 7 = 21 french fries left.",1.996755599975586e-06,0.81640625
+,,step 3,"Three pigeons each ate 3 fries, which is 3 * 3 = 9 fries in total.",1.0,1.0
+,,step 4,"So, after the pigeons, there were 21 - 9 = 12 french fries left.",1.0,0.99609375
+,,step 5,"A raccoon stole two-thirds of the remaining fries, which is 2/3 * 12 = 8 fries.",1.0,0.96875
+,,step 6,"So, after the raccoon, there were 12 - 8 = 4 french fries left.",1.0,0.99609375
+,,step 7,"Finally, ants carried off 1 fry, leaving 4 - 1 = 3 fries.",0.00170135498046875,0.96875
+,,step 8,"But the problem states that 5 fries were left, which means before the ants carried off the final fry, there were 5 + 1 = 6 fries.",0.029296875,0.98046875
+,,step 9,"Therefore, before the raccoon took its share, there were 6 + 8 = 14 fries.",0.0849609375,0.98046875
+,,step 10,"Before the pigeons ate, there were 14 + 9 = 23 fries.",1.0,0.984375
+,,step 11,"Before the seagull ate, there were 23 + 7 = 30 fries.",1.0,0.96875
+,,step 12,"So, the total number of fries in the pack when Dave bought it was 30 + 14 = 44 fries.",0.002471923828125,0.8515625
+,,step 13,"Therefore, the answer (arabic numerals) is 44.",1.0,0.984375
+,,annotation,finetuned_wrong,,
+148,gsm8k_test_00687,,,,
+,,question,"There is one set of twins and one set of triplets. One twin is 7 years older than one triplet. If their combined ages are 44, how old is one of the twins?",,
+,,y_true,13,,
+,,solution selected by baseline,,,
+,,step 0,Let's denote the age of the younger triplet as \( x \).,1.0,0.81640625
+,,step 1,"Then, the age of the older twin is \( x + 7 \).",1.0,0.94140625
+,,step 2,"Since there is one set of twins and one set of triplets, the combined ages of the triplets are \( 3x \) and the combined ages of the twins are \( 2(x + 7) \).",1.0,0.97265625
+,,step 3,The total combined ages are given as 44:,1.0,0.98828125
+,,step 4,\[ 3x + 2(x + 7) = 44 \],1.0,0.9765625
+,,step 5,"First, simplify the equation:",1.0,0.9453125
+,,step 6,\[ 3x + 2x + 14 = 44 \],1.0,0.98046875
+,,step 7,Combine like terms:,1.0,0.99609375
+,,step 8,\[ 5x + 14 = 44 \],1.0,0.99609375
+,,step 9,Subtract 14 from both sides:,1.0,0.99609375
+,,step 10,\[ 5x = 30 \],1.0,0.99609375
+,,step 11,Divide both sides by 5:,1.0,1.0
+,,step 12,\[ x = 6 \],1.0,0.99609375
+,,step 13,"So, the younger triplet is 6 years old. The older twin is:",1.0,0.75390625
+,,step 14,\[ x + 7 = 6 + 7 = 13 \],1.0,1.0
+,,step 15,"Therefore, one of the twins is 13 years old.",1.0,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"Let's denote the age of one triplet as \( x \). Therefore, the age of the twin who is 7 years older would be \( x + 7 \).",1.0,0.796875
+,,step 1,"Since there is one set of twins and one set of triplets, the combined ages of the four children are:",1.0,0.77734375
+,,step 2,\[ x + (x + 7) + x + x = 44 \],1.0,0.8359375
+,,step 3,Combine like terms:,1.0,0.984375
+,,step 4,\[ 4x + 7 = 44 \],1.0,0.98046875
+,,step 5,Subtract 7 from both sides:,1.0,0.99609375
+,,step 6,\[ 4x = 37 \],1.4722347259521484e-05,0.99609375
+,,step 7,Divide both sides by 4:,1.0,0.99609375
+,,step 8,\[ x = \frac{37}{4} = 9.25 \],0.005218505859375,0.75390625
+,,step 9,So the triplet is 9.25 years old. The twin who is 7 years older is:,0.9453125,0.96875
+,,step 10,\[ 9.25 + 7 = 16.25 \],0.94140625,0.9921875
+,,step 11,"Therefore, the answer (arabic numerals) is 16.25.",0.9921875,0.9609375
+,,annotation,both_wrong_scores,,
+210,gsm8k_test_00307,,,,
+,,question,"Sandy wants to lose as much weight as Joey does but needs 4 weeks to lose the same amount of weight that Joey loses in a single week. If Joey loses 8 pounds in 4 weeks, how many weeks will it take Sandy to lose the same amount of weight?",,
+,,y_true,16,,
+,,solution selected by baseline,,,
+,,step 0,Joey loses 8 pounds in 4 weeks.,1.0,1.0
+,,step 1,"So, Joey loses 8 / 4 = 2 pounds per week.",1.0,0.984375
+,,step 2,Sandy needs 4 weeks to lose the same amount of weight that Joey loses in one week.,1.0,0.9921875
+,,step 3,"Therefore, Sandy will lose 2 pounds in 4 weeks.",1.0,0.9921875
+,,step 4,"To find out how many weeks it will take Sandy to lose 8 pounds, we can set up the following:",1.0,0.75390625
+,,step 5,"If Sandy loses 2 pounds in 4 weeks, then to lose 8 pounds, it will take 4 * (8 / 2) = 4 * 4 = 16 weeks.",1.0,0.46875
+,,step 6,"Therefore, the answer (arabic numerals) is 16.",1.0,0.9921875
+,,solution selected by finetuned,,,
+,,step 0,Joey loses 8 pounds in 4 weeks.,1.0,1.0
+,,step 1,"To find out how many pounds Joey loses in one week, we divide 8 pounds by 4 weeks:",1.0,0.9921875
+,,step 2,8 / 4 = 2 pounds per week for Joey.,1.0,1.0
+,,step 3,Sandy needs 4 weeks to lose the same amount of weight that Joey loses in one week.,1.0,0.9921875
+,,step 4,"Since Joey loses 2 pounds in one week, Sandy will take 4 weeks to lose 2 pounds.",1.0,0.99609375
+,,step 5,"Therefore, it will take Sandy 4 weeks to lose the same amount of weight that Joey loses in one week.",0.99609375,0.96875
+,,step 6,"Therefore, the answer (arabic numerals) is 4.",1.0,0.95703125
+,,annotation,both_wrong_scores,,

@@ -1,0 +1,470 @@
+data_idx,id,type,value,baseline,finetuned
+2,mmlu_pro_nomath_test_09046
+,,question,"What about asteroids makes them stand out in sky surveys searching for them?
+(A) They reflect enough of the sun's light to make them brighter than most background stars
+(B) Asteroids rotate at a high speed, making them stand out
+(C) Asteroids are larger than most celestial bodies, hence easier to spot
+(D) Asteroids have substantial motion relative to the background stars
+(E) Asteroids have a distinct color that makes them stand out
+(F) Asteroids emit a lot of their own radiation
+(G) They emit a high amount of heat, making them detectable
+(H) They emit a unique sound frequency that can be detected
+(I) Asteroids emit pulsed radiation"
+,,y_true,D
+,,solution selected by baseline
+,,step 0,"Asteroids are rocky objects that reflect sunlight. Unlike background stars, asteroids reflect enough of the sun's light to make them stand out in sky surveys.",0.91015625,0.77734375
+,,step 1,The answer is (A).,0.9765625,0.98828125
+,,solution selected by finetuned
+,,step 0,"Asteroids are relatively small and dark, but they can make them stand out because they move rapidly across the sky relative to the background stars. This is because asteroids are in orbit around the Sun and their motion is not as steady as the background stars. This rapid motion makes them more easily detectable in sky surveys.",0.77734375,0.8359375
+,,step 1,The answer is (D).,0.953125,0.9921875
+,,annotation
+
+18,mmlu_pro_nomath_test_06060
+,,question,"Which of the following rules regarding the interconversion of fuels are central to the integration of metabolic pathways?
+
+(A) Fatty acids can be made from and converted to carbohydrates and amino acids
+(B) Carbohydrates can be made from and converted to amino acids and fatty acids
+(C) Fatty acids can be made from but not converted to carbohydrates and amino acids
+(D) Amino acids can be made from and converted to fatty acids"
+,,y_true,C
+,,solution selected by baseline
+,,step 0,"The three main energy-yielding macromolecules are carbohydrates, fatty acids, and amino acids. ",0.421875,0.92578125
+,,step 1,"The three main energy-storing macromolecules are carbohydrates, fatty acids, and glycogen (a polysaccharide).",0.9140625,0.65234375
+,,step 2,"Amino acids can be converted to carbohydrates and fatty acids via various metabolic pathways, but not the other way around.",0.5,0.2451171875
+,,step 3,Fatty acids can be converted to carbohydrates and amino acids via various metabolic pathways.,0.2451171875,0.70703125
+,,step 4,The answer is (A).,0.859375,0.96875
+,,solution selected by finetuned
+,,step 0,"All three main macromolecules (carbohydrates, proteins, and lipids) are interconverted in metabolic pathways.",0.1826171875,0.75390625
+,,step 1,Carbohydrates can be converted to fatty acids and vice versa (glycolysis and glyceroneogenesis).,0.9765625,0.6796875
+,,step 2,Amino acids can be converted to carbohydrates and vice versa (gluconeogenesis and glycogenesis).,0.9921875,0.8515625
+,,step 3,"However, it is not possible to convert fatty acids to carbohydrates and amino acids directly.",0.8515625,0.294921875
+,,step 4,The answer is (C).,0.65234375,0.796875
+,,annotation
+
+37,mmlu_pro_nomath_test_08201
+,,question,"A symmetric random walk on the three-dimensional cubic lattice Z^3 is transient or persistent? Return 1 for persistent and 0 for transient.
+(A) 0.0
+(B) -1.0
+(C) 4.0
+(D) 0.5
+(E) 2.5
+(F) 2.0
+(G) 1.5
+(H) -0.5
+(I) 1.0
+(J) 3.0"
+,,y_true,A
+,,solution selected by baseline
+,,step 0,"A symmetric random walk on a lattice is transient if it has a finite mean hitting time to a particular point, and persistent if it has an infinite mean hitting time to a particular point.",0.453125,0.70703125
+,,step 1,"For a symmetric random walk on the three-dimensional cubic lattice Z^3, the mean hitting time to a particular point is infinite.",0.93359375,0.09521484375
+,,step 2,"Therefore, the random walk is persistent.",0.984375,0.984375
+,,step 3,The answer is (I).,0.9765625,0.8671875
+,,solution selected by finetuned
+,,step 0,"A symmetric random walk on the three-dimensional cubic lattice is transient, because the probability of returning to the origin is less than 1.",0.408203125,0.2021484375
+,,step 1,"The probability of returning to the origin is zero, so the correct answer is 0.0.",0.62109375,0.59375
+,,step 2,The answer is (A).,0.99609375,0.99609375
+,,annotation
+
+44,mmlu_pro_nomath_test_05768
+,,question,"A preschool teacher is teaching students to forward roll. Which of the following is a problem most characteristic of preschoolers' forward rolling?
+(A) Keeping the knees and hips flexed
+(B) Keeping the chin tucked
+(C) Using the hands to cushion the head contact
+(D) Rolling too fast
+(E) Losing the curl
+(F) Keeping the arms extended
+(G) Using the head to push off the ground
+(H) Unable to maintain balance"
+,,y_true,E
+,,solution selected by baseline
+,,step 0,"When rolling, the knees and hips should be flexed to allow the body to roll in a compact manner and protect the head and torso.",0.408203125,0.70703125
+,,step 1,"Preschoolers often have difficulty keeping their knees and hips flexed while rolling, which can lead to a less controlled and potentially more dangerous roll.",0.984375,0.5
+,,step 2,The answer is (A).,0.97265625,0.53125
+,,solution selected by finetuned
+,,step 0,"Preschoolers, when learning to forward roll, often have difficulty maintaining the curl position and tend to ""unroll"" or ""flatten out"" as they roll, rather than keeping their body in a tight, curled position.",0.2333984375,0.81640625
+,,step 1,The answer is (E).,0.8671875,0.9609375
+,,annotation
+
+46,mmlu_pro_nomath_test_05449
+,,question,"An important source of information on the credit rating of retail businesses is
+(A) Equifax, Inc.
+(B) the National Retail Federation
+(C) the Small Business Administration
+(D) the local chamber of commerce
+(E) Moody's Corporation
+(F) the United States Department of Commerce
+(G) the Retail Merchants Association
+(H) Dun & Bradstreet, Inc.
+(I) the Better Business Bureau
+(J) the United States Retail Credit Association"
+,,y_true,H
+,,solution selected by baseline
+,,step 0,"Equifax, Inc. is a major credit reporting agency that provides credit information on individuals and businesses, including retail businesses.",0.59375,0.98046875
+,,step 1,The answer is (A).,0.9765625,0.62109375
+,,solution selected by finetuned
+,,step 0,"Dun and Bradstreet, Inc. is a well-known credit reporting agency that provides credit scores and reports on businesses, including retail businesses. They gather information from various sources, including public records, credit applications, and other business data to provide a credit rating.",0.53125,0.9453125
+,,step 1,The answer is (H).,0.95703125,0.94140625
+,,annotation
+
+50,mmlu_pro_nomath_test_02874
+,,question,"Distinguish between the terms ""in situ,\textquotedblright ""in vitro,"" and ""invivo.""
+(A) ""In situ"" refers to reactions in a laboratory setting. ""In vitro"" refers to reactions in the body of a living organism. ""In vivo"" refers to reactions observed in a natural setting but not within a living organism.
+(B) ""In situ"" refers to reactions that are artificially induced. ""In vitro"" refers to reactions that occur naturally within a living organism. ""In vivo"" refers to reactions studied in a laboratory environment.
+(C) ""In situ"" refers to reactions in a test tube. ""In vitro"" refers to reactions in the living organism. ""In vivo"" refers to reactions in their original position.
+(D) ""In situ"" refers to reactions that occur in an artificial organism. ""In vitro"" refers to reactions that take place in a natural environment. ""In vivo"" refers to reactions that are simulated using computer models.
+(E) ""In situ"" refers to reactions in a living organism that has been modified. ""In vitro"" refers to reactions in their natural position. ""In vivo"" refers to reactions in a test tube or artificial setting.
+(F) ""In situ"" refers to reactions in a controlled laboratory environment. ""In vitro"" refers to reactions in a natural setting. ""In vivo"" refers to reactions in a computational simulation.
+(G) ""In situ"" is a reaction that occurs in its natural or original position. ""In vitro"" is a reaction that occurs in a laboratory such as a test tube. ""In vivo"" is a reaction that occurs in the living organism.
+(H) ""In situ"" refers to reactions in the living organism. ""In vitro"" refers to reactions in a test tube. ""In vivo"" refers to reactions in their original position.
+(I) ""In situ"" refers to reactions occurring in the living organism. ""In vitro"" refers to reactions in their original position. ""In vivo"" refers to reactions in a test tube.
+(J) ""In situ"" refers to reactions that occur in a virtual environment. ""In vitro"" is a reaction that occurs in a living organism. ""In vivo"" is a reaction that occurs outside of a biological context."
+,,y_true,G
+,,solution selected by baseline
+,,step 0,"""In situ"" is Latin for ""in the place"" or ""in the original position"".",0.7421875,0.8515625
+,,step 1,"""In vitro"" is Latin for ""in the glass"" or ""in a test tube"".",1.0,0.94140625
+,,step 2,"""In vivo"" is Latin for ""in the living"".",1.0,0.9921875
+,,step 3,"So, ""in situ"" refers to reactions in their original position. ""In vitro"" refers to reactions in a test tube or artificial setting. ""In vivo"" refers to reactions in a living organism.",0.94140625,0.81640625
+,,step 4,The answer is (H).,0.90625,0.94140625
+,,solution selected by finetuned
+,,step 0,"""In situ"" refers to reactions that occur in their natural or original position.",0.6796875,0.95703125
+,,step 1,"""In vitro"" refers to reactions that occur in a laboratory setting, such as a test tube.",0.8671875,0.93359375
+,,step 2,"""In vivo"" refers to reactions that occur in a living organism.",1.0,1.0
+,,step 3,The answer is (G).,0.98828125,0.9765625
+,,annotation
+
+61,mmlu_pro_nomath_test_10548
+,,question,"Which is the smallest asymptotically?
+(A) O(n^2)
+(B) O(sqrt(n))
+(C) O(1)
+(D) O(n^1/2)
+(E) O(2^n)
+(F) O(log n)
+(G) O(n)
+(H) O(n log n)
+(I) O(n!)
+(J) O(n^3)"
+,,y_true,C
+,,solution selected by baseline
+,,step 0,Asymptotic notation is used to describe the behavior of functions as the input size $n$ approaches infinity.,0.765625,0.98828125
+,,step 1,- $O(n)$ grows linearly with $n$,0.99609375,0.984375
+,,step 2,- $O(n^2)$ grows quadratically with $n$,1.0,1.0
+,,step 3,- $O(n^3)$ grows cubically with $n$,1.0,1.0
+,,step 4,- $O(2^n)$ grows exponentially with $n$,1.0,0.9921875
+,,step 5,- $O(n!)$ grows factorially with $n$,1.0,0.99609375
+,,step 6,- $O(\log n)$ grows logarithmically with $n$,1.0,0.984375
+,,step 7,"Among these, the smallest growth rate is $O(\log n)$.",0.8671875,0.53125
+,,step 8,The answer is (F).,0.9921875,0.96875
+,,solution selected by finetuned
+,,step 0,"O(1) means the function grows at a constant rate, regardless of the size of the input. This is the smallest asymptotically, because it does not grow at all.",0.65234375,0.9140625
+,,step 1,"O(log n) grows the slowest among the rest, it grows much slower than any polynomial time complexity.",0.87890625,0.65234375
+,,step 2,O(1) and O(log n) are the smallest asymptotically.,0.796875,0.92578125
+,,step 3,"However, since O(1) is smaller than O(log n), the smallest asymptotically is (C).",0.90625,0.98046875
+,,annotation
+
+62,mmlu_pro_nomath_test_10520
+,,question,"Which of the following is usually NOT represented in a subroutine's activation record frame for a stack-based programming language?
+(A) Register values for the calling activation record
+(B) Values of local variables
+(C) The return address
+(D) A heap area
+(E) Stack pointer for the calling activation record
+(F) Address of the subroutine's instruction set"
+,,y_true,D
+,,solution selected by baseline
+,,step 0,"A subroutine's activation record is stored in the stack, which is a LIFO (Last In First Out) data structure. ",0.515625,0.96875
+,,step 1,A stack typically contains:,0.99609375,0.5
+,,step 2,- The return address (C),1.0,0.95703125
+,,step 3,- The local variables (B),1.0,0.94140625
+,,step 4,- The stack pointer for the calling activation record (E),0.77734375,0.93359375
+,,step 5,"The register values for the calling activation record (A) are not stored in the activation record on the stack, but rather in the processor's registers. ",0.98828125,0.62109375
+,,step 6,The heap area (D) is typically a separate memory area used for dynamic memory allocation.,0.9921875,0.9609375
+,,step 7,"The address of the subroutine's instruction set (F) is not stored in the activation record on the stack, but rather in the program counter (PC) or instruction pointer.",1.0,0.90625
+,,step 8,The answer is (F).,0.93359375,0.3203125
+,,solution selected by finetuned
+,,step 0,"In a stack-based programming language, the activation record is stored on the stack, and it contains information such as the return address, local variables, and the stack pointer for the calling activation record.",0.2333984375,0.9609375
+,,step 1,"However, a heap is a separate memory area that is used for dynamic memory allocation, and it is not typically represented in a subroutine's activation record frame.",0.9609375,0.77734375
+,,step 2,The answer is (D).,0.97265625,0.9921875
+,,annotation
+
+93,mmlu_pro_nomath_test_06006
+,,question,"Viruses have encouraged us to change our world, as we have now:
+(A) Developed a universal vaccine for all types of flu
+(B) Eradicated polio
+(C) Created a vaccine for the common cold
+(D) Found a cure for all types of cancer
+(E) Eradicated smallpox
+(F) Completely stopped the spread of all infectious diseases
+(G) Developed immunity to all types of viruses
+(H) Eradicated HIV/AIDS"
+,,y_true,E
+,,solution selected by baseline
+,,step 0,This question is referring to the fact that the COVID-19 pandemic has accelerated the development of vaccines and other technologies to combat infectious diseases.,0.7890625,0.46875
+,,step 1,"However, the most accurate answer is not listed, as we have not eradicated any of the diseases listed in the options. But we have made significant progress in developing vaccines for COVID-19.",0.99609375,0.349609375
+,,step 2,"However, one of the closest correct answers is (E) Eradicated smallpox, as the COVID-19 pandemic has accelerated the development of vaccines and technologies that have also contributed to the eradication of smallpox.",0.9921875,0.8515625
+,,step 3,"But another possible answer is (B) Eradicated polio, as the COVID-19 pandemic has accelerated the development of vaccines and technologies that have also contributed to the global effort to eradicate polio.",0.99609375,0.93359375
+,,step 4,"However, one of the best answers is (E) Eradicated smallpox and (B) Eradicated polio, but since the format of the question is a single best answer, I would choose (B) Eradicated polio.",0.94140625,0.75390625
+,,solution selected by finetuned
+,,step 0,The correct answer is (E) Eradicated smallpox.,0.376953125,0.90625
+,,step 1,"Smallpox was a highly contagious and deadly disease that was responsible for an estimated 300-500 million deaths in the 20th century alone. Thanks to the development of a vaccine by Edward Jenner in 1796 and a global vaccination campaign led by the World Health Organization (WHO), smallpox was officially declared eradicated in 1980.",0.98828125,0.8671875
+,,step 2,"While significant progress has been made in developing vaccines and treatments for other diseases, such as polio, HIV/AIDS, and the flu, these diseases are still present and ongoing efforts are needed to control and potentially eradicate them.",0.93359375,0.81640625
+,,annotation
+
+99,mmlu_pro_nomath_test_11135
+,,question," Nagel clarifies that absolutism is the view that we should
+(A) only sometimes prevent murder
+(B) never prevent murder
+(C) only sometimes avoid murder
+(D) always encourage murder
+(E) consider murder as a last resort
+(F) encourage murder under certain circumstances
+(G) only sometimes encourage murder
+(H) avoid murder except in self-defense situations
+(I) avoid murder at all costs"
+,,y_true,I
+,,solution selected by baseline
+,,step 0,"Absolutism is a philosophical position that holds that a particular statement is always true or always false, regardless of context or circumstance. In the context of morality, absolutism is the view that a particular action, such as murder, is always right or always wrong, regardless of the circumstances.",0.8359375,0.9140625
+,,step 1,"Option (B) ""never prevent murder"" is the correct interpretation of absolutism in this context, as it implies that murder is always wrong and should never be prevented, which is a characteristic of an absolutist view.",0.98828125,0.46875
+,,step 2,The answer is (B).,0.984375,0.98828125
+,,solution selected by finetuned
+,,step 0,"Absolutism is the view that certain actions are absolutely right or wrong, regardless of the circumstances. In the context of murder, absolutism would imply that murder is always wrong, regardless of the circumstances.",0.765625,0.81640625
+,,step 1,The correct answer is (I) avoid murder at all costs.,0.98828125,0.98046875
+,,annotation
+
+112,mmlu_pro_nomath_test_11048
+,,question," Which of the following is not an example Aquinas gives of a self-evident proposition?
+(A) ""Man is a rational being.""
+(B) ""All bachelors are unmarried.""
+(C) ""Night follows day.""
+(D) ""The sum of the angles of a triangle is 180 degrees.""
+(E) ""The same thing cannot be affirmed and denied at the same time.""
+(F) ""The light of Thy countenance, O Lord, is signed upon us.""
+(G) ""A square has four sides.""
+(H) ""Every whole is greater than its part.""
+(I) ""Things equal to one and the same are equal to one another.""
+(J) ""An effect depends on its cause."""
+,,y_true,F
+,,solution selected by baseline
+,,step 0,"The options given are all examples of self-evident propositions, which are statements that are intuitively obvious and do not require proof. However, option (F) is not a mathematical or logical statement, but rather a quote from the psalms, and is therefore not an example of a self-evident proposition in the classical sense.",0.6640625,0.6796875
+,,step 1,"However, a more fitting answer is (D). The other options are all statements that can be verified through reason or observation, but ""The sum of the angles of a triangle is 180 degrees"" is a mathematical statement that requires proof, not a self-evident proposition.",0.93359375,0.376953125
+,,solution selected by finetuned
+,,step 0,"Aquinas discusses self-evident propositions in his work ""De Ente et Essentia"". He mentions examples such as ""The same thing cannot be affirmed and denied at the same time"" (E) and ""Things equal to one and the same are equal to one another"" (I).",0.408203125,0.9609375
+,,step 1,"However, he does not explicitly mention ""The light of Thy countenance, O Lord, is signed upon us"" (F), which is a biblical quote from Psalm 4:6 (KJV). This is a poetic expression and not a mathematical or logical truth, and therefore it is not an example of a self-evident proposition.",0.9140625,0.53125
+,,step 2,The answer is (F).,0.92578125,0.98828125
+,,annotation
+
+120,mmlu_pro_nomath_test_10560
+,,question,"Statement 1| The BLEU metric uses precision, while the ROGUE metric uses recall. Statement 2| Hidden markov models were frequently used to model English sentences.
+(A) Mostly True, Mostly False
+(B) Mostly False, Mostly True
+(C) False, True
+(D) False, Cannot be determined
+(E) Cannot be determined, False
+(F) True, True
+(G) Cannot be determined, True
+(H) False, False
+(I) True, Cannot be determined
+(J) True, False"
+,,y_true,F
+,,solution selected by baseline
+,,step 0,"BLEU (Bilingual Evaluation Understudy) is a score that measures the similarity between a machine translation and a reference translation. It uses precision, but not in the same way as in information retrieval. It uses the number of matching n-grams in the machine translation and the reference translation, and divides it by the total number of n-grams in the reference translation, but also penalizes for the number of n-grams that are not in the reference translation. It does not directly use recall.",0.7421875,0.349609375
+,,step 1,"ROGUE (Recall-Oriented Understudy for Gisting Evaluation) is a score that measures the similarity between a machine translation and a reference translation. It uses recall, which is the ratio of the number of n-grams in the machine translation that are also in the reference translation, to the total number of n-grams in the reference translation.",0.9921875,0.89453125
+,,step 2,"Hidden Markov models (HMMs) are indeed frequently used to model English sentences. They are a type of statistical model that can be used for tasks such as language modeling, speech recognition, and machine translation.",1.0,0.9921875
+,,step 3,"The answer is (B) Mostly False, Mostly True.",0.8515625,0.70703125
+,,solution selected by finetuned
+,,step 0,"BLEU (Bilingual Evaluation Understudy) metric is a measure of the similarity between a machine-translated text and a reference translation. It uses precision, but it also uses recall, so statement 1 is partially true, but not entirely accurate.",0.65234375,0.5
+,,step 1,"Hidden Markov models (HMMs) are a type of statistical model used for modeling sequential data, such as speech, text, or time series data. They are indeed frequently used to model English sentences, so statement 2 is true.",1.0,0.9921875
+,,step 2,"The answer is (B), but this option does not exist. The correct answer is (F) is close but not entirely accurate for statement 1, and the correct answer is (F) but this option should be marked as partially true for statement 1.",0.97265625,0.349609375
+,,annotation
+
+125,mmlu_pro_nomath_test_08369
+,,question,"Which of the following are valid intervals of convergence for a power series?
+(I) [−1, 3)
+(II) (−∞, 0]
+(III) [2, 2] ∪ [3, 3]
+(IV) (−∞,∞)
+(A) Only (III)
+(B) Only (II)
+(C) (I), (III) and (IV)
+(D) All of them
+(E) (I) and (IV )
+(F) (II) and (IV)
+(G) Only (IV )
+(H) (II), (III) and (IV)
+(I) (I), (II) and (III)
+(J) (II) and (III)"
+,,y_true,E
+,,solution selected by baseline
+,,step 0,A power series is of the form $\sum_{n=0}^{\infty} a_n x^n$.,0.53125,0.9609375
+,,step 1,"It converges absolutely for $|x| < R$ and diverges for $|x| > R$, where $R$ is the radius of convergence.",1.0,0.70703125
+,,step 2,The power series converges absolutely at the endpoints $x = R$ and $x = -R$ if and only if the series $\sum_{n=0}^{\infty} a_n R^n$ and $\sum_{n=0}^{\infty} a_n (-R)^n$ converge respectively.,0.99609375,0.6796875
+,,step 3,A power series converges absolutely for $|x| < R$ and may or may not converge at the endpoints $x = R$ and $x = -R$.,0.75390625,0.8671875
+,,step 4,A power series may converge for $|x| = R$ but not absolutely.,0.9609375,0.5625
+,,step 5,A power series may diverge for $|x| > R$ but converge absolutely at $x = R$.,0.96875,0.62109375
+,,step 6,A power series may converge for $|x| > R$ but not absolutely.,0.81640625,0.9140625
+,,step 7,"For case (I), the radius of convergence is 2.",0.97265625,0.06005859375
+,,step 8,The power series converges at $x = 3$ because $\sum_{n=0}^{\infty} a_n 3^n$ converges.,0.94140625,0.2451171875
+,,step 9,The power series diverges at $x = -1$.,0.953125,0.4375
+,,step 10,"The power series converges for $x \in [-1, 3)$.",0.94140625,0.5
+,,step 11,"For case (II), the radius of convergence is 0.",0.984375,0.59375
+,,step 12,The power series converges at $x = 0$.,0.9921875,0.8515625
+,,step 13,The power series diverges for $x < 0$.,0.9453125,0.87890625
+,,step 14,The power series diverges for $x > 0$.,0.953125,0.8515625
+,,step 15,"The power series converges for $x \in (-\infty, 0]$.",0.9453125,0.8515625
+,,step 16,"For case (III), the radius of convergence is 0.",0.90625,0.81640625
+,,step 17,The power series converges at $x = 2$ and $x = 3$.,0.97265625,0.90625
+,,step 18,"The power series diverges for $x \in (-\infty, 2) \cup (2, 3) \cup (3, \infty)$.",0.96875,0.90625
+,,step 19,"The power series converges for $x \in [2, 2] \cup [3, 3]$.",0.75390625,0.9453125
+,,step 20,"For case (IV), the radius of convergence is $\infty$.",0.98828125,0.9140625
+,,step 21,The power series converges for all $x \in \mathbb{R}$.,0.98828125,0.796875
+,,step 22,The answer is (C).,0.98828125,0.6796875
+,,solution selected by finetuned
+,,step 0,A power series is a series of the form $\sum_{n=0}^{\infty} a_n x^n$. ,0.546875,0.95703125
+,,step 1,"The convergence of a power series is determined by the ratio test, which states that if $|r| < 1$, the series converges absolutely. ",0.953125,0.46875
+,,step 2,For the given intervals:,0.90625,0.1826171875
+,,step 3,"(I) $[-1, 3)$, the ratio test works when $-1 < x < 3$, so the series converges for $x \in (-1, 3)$.",0.90625,0.4375
+,,step 4,"(II) $(-\infty, 0]$, the ratio test works when $x \leq 0$, so the series converges for $x \in (-\infty, 0]$.",0.99609375,0.9453125
+,,step 5,"(III) $[2, 2] \cup [3, 3]$, the ratio test does not work in the interval $[2, 3]$, so the series does not converge in this interval.",0.77734375,0.26953125
+,,step 6,"(IV) $(-\infty, \infty)$, the ratio test works when $|x| < 1$, so the series converges for $x \in (-1, 1)$.",0.006683349609375,0.77734375
+,,step 7,"Since (I) and (II) are valid intervals of convergence, the correct answer is (E) (I) and (IV).",0.4375,0.4375
+,,annotation
+
+129,mmlu_pro_nomath_test_07580
+,,question,"In order to hire the least-cost combination of labor and capital, the firm must do which of the following?
+(A) Find the combination of labor and capital where the total cost of labor is equal to the total cost of capital.
+(B) Find the combination of labor and capital where the marginal product of labor is equal to the marginal product of capital.
+(C) Find the combination of labor and capital where the ratio of the marginal product of labor to the price of labor is equal to one.
+(D) Find the combination of labor and capital where the price of labor is equal to the price of capital.
+(E) Find the combination of labor and capital where the marginal product of labor divided by the price of capital is equal to the marginal product of capital divided by the price of labor.
+(F) Find the combination of labor and capital where the price of labor is less than the price of capital.
+(G) Find the combination of labor and capital where the ratio of the marginal product of labor to the marginal product of capital is equal to one.
+(H) Find the combination of labor and capital where the marginal product of labor is equal to the price of labor.
+(I) Find the combination of labor and capital where the marginal product of labor is greater than the marginal product of capital.
+(J) Find the combination of labor and capital where the marginal product of labor divided by the price of labor is equal to the marginal product of capital divided by the price of capital."
+,,y_true,J
+,,solution selected by baseline
+,,step 0,"To hire the least-cost combination of labor and capital, the firm must minimize its total cost function. This can be achieved by setting the ratio of the marginal product of labor to the price of labor equal to the ratio of the marginal product of capital to the price of capital.",0.84375,0.408203125
+,,step 1,"This is based on the fact that the marginal product of labor divided by the price of labor represents the marginal benefit of an additional unit of labor, and the marginal product of capital divided by the price of capital represents the marginal benefit of an additional unit of capital.",1.0,0.8359375
+,,step 2,The correct answer is (E) Find the combination of labor and capital where the marginal product of labor divided by the price of capital is equal to the marginal product of capital divided by the price of labor.,0.98828125,0.953125
+,,solution selected by finetuned
+,,step 0,"To find the least-cost combination of labor and capital, the firm must find the combination where the marginal product of labor divided by the price of labor is equal to the marginal product of capital divided by the price of capital.",0.81640625,0.62109375
+,,step 1,This is known as the equality of the marginal rate of technical substitution (MRTS) between labor and capital.,0.99609375,0.89453125
+,,step 2,The answer is (J).,0.99609375,0.9921875
+,,annotation
+
+132,mmlu_pro_nomath_test_10845
+,,question,"In the case of the debtors, the moral argument against imprisoning A relies on:
+(A) fear.
+(B) the principle of retributive justice.
+(C) universalizability.
+(D) considerations of the debtor's mental health.
+(E) all of the above.
+(F) the potential for societal backlash."
+,,y_true,C
+,,solution selected by baseline
+,,step 0,"The moral argument against imprisoning A in the case of debtors is based on the principle of retributive justice, which is a concept in ethics that argues that punishment should be proportional to the crime committed. Imprisoning a debtor for debt is often seen as disproportionate to the offense, as the debtor is not necessarily committing a crime, but rather failing to pay a debt.",0.7421875,0.6796875
+,,step 1,The other options are not directly relevant to the moral argument against imprisoning debtors. ,0.95703125,0.22265625
+,,step 2,"Fear (A) might be a consideration in some cases, but it is not the primary moral argument. Universalizability (C) is a concept in ethics that refers to the idea that a moral rule should be applied universally, but it is not directly relevant to the case of debtors. Mental health considerations (D) might be a factor in some cases, but it is not the primary moral argument. Societal backlash (F) might be a consideration, but it is not a moral argument in itself.",0.9453125,0.89453125
+,,step 3,The answer is (B).,0.98046875,1.0
+,,solution selected by finetuned
+,,step 0,"This question appears to be about Immanuel Kant's moral philosophy, particularly his categorical imperative.",0.5859375,0.4375
+,,step 1,"The moral argument against imprisoning A in the case of debtors is based on the principle of universalizability, which is a key concept in Kant's moral theory. The idea is that a moral principle should be one that could be universalized, meaning that it should be a principle that could be applied to all individuals in similar circumstances.",1.0,0.6796875
+,,step 2,"In the case of debtors, the principle of universalizability would suggest that imprisonment is not a morally justifiable punishment, because it would be unfair to apply it universally to all debtors. This is because debtors, like A, may not have the means to pay their debts, and imprisonment would be an unfair punishment.",0.96875,0.6796875
+,,step 3,The answer is (C).,0.9921875,0.9921875
+,,annotation
+
+152,mmlu_pro_nomath_test_10728
+,,question,"Statement 1| VGGNets have convolutional kernels of smaller width and height than AlexNet's first-layer kernels. Statement 2| Data-dependent weight initialization procedures were introduced before Batch Normalization.
+(A) Both Statement 1 and Statement 2 are Not Given
+(B) Statement 1 is Not Given and Statement 2 is True
+(C) True, True
+(D) Statement 1 is False and Statement 2 is Not Given
+(E) True, False
+(F) False, False
+(G) Statement 1 is True and Statement 2 is Not Given
+(H) False, True
+(I) Statement 1 is Not Given and Statement 2 is False
+(J) Statement 1 is Not Given and Statement 2 is Not Given"
+,,y_true,C
+,,solution selected by baseline
+,,step 0,"VGGNets are a type of convolutional neural network (CNN) that have 13-19 layers, and their first layer has a convolutional kernel of size 3x3. AlexNet, on the other hand, has a first layer with a convolutional kernel of size 11x11. Since 3x3 is smaller than 11x11, Statement 1 is True.",0.89453125,0.98828125
+,,step 1,"Batch Normalization was introduced by Ioffe and Szegedy in 2015, but data-dependent weight initialization procedures were introduced much earlier, in 1994 by LeCun et al. in the paper ""Learning 8-bit weights is a good idea"" and also by Glorot and Bengio in 2010 in the paper ""Understanding the difficulty of training deep feedforward neural networks"". Since data-dependent weight initialization procedures were introduced before Batch Normalization, Statement 2 is False.",0.8671875,0.053466796875
+,,step 2,"The answer is (E) True, False.",0.98828125,0.9609375
+,,solution selected by finetuned
+,,step 0,VGGNets have convolutional kernels of smaller width and height than AlexNet's first-layer kernels. ,0.1728515625,0.73046875
+,,step 1,"This is a known fact, so statement 1 is True.",0.99609375,1.0
+,,step 2,Data-dependent weight initialization procedures were introduced before Batch Normalization. ,0.22265625,0.953125
+,,step 3,"This is also a known fact. Batch Normalization was introduced by Ioffe and Szegedy in 2015, while data-dependent weight initialization was introduced by Glorot and Bengio in 2010.",0.93359375,0.8515625
+,,step 4,So statement 2 is also True.,0.99609375,1.0
+,,step 5,The answer is (C).,1.0,1.0
+,,annotation
+
+193,mmlu_pro_nomath_test_01992
+,,question,"The _______ is the least developed area of the brain at birth.
+(A) occipital lobe
+(B) temporal lobe
+(C) parietal lobe
+(D) cerebral cortex
+(E) limbic system
+(F) hypothalamus
+(G) thalamus
+(H) cerebellum
+(I) brain stem"
+,,y_true,D
+,,solution selected by baseline
+,,step 0,"The cerebral cortex is the outer layer of the brain that is involved in many higher-order brain functions such as thought, perception, and memory. However, it is not fully developed at birth.",0.515625,0.65234375
+,,step 1,"The limbic system is a complex set of structures in the brain that are involved in emotion, motivation, and memory, and it is relatively immature at birth.",0.89453125,0.75390625
+,,step 2,"The occipital lobe, temporal lobe, parietal lobe, cerebellum, brain stem, and thalamus are all more developed at birth.",0.89453125,0.5625
+,,step 3,The answer is (E).,0.97265625,0.376953125
+,,solution selected by finetuned
+,,step 0,"The cerebral cortex is the outer layer of the brain that is responsible for many higher-order cognitive functions such as thinking, perceiving, and controlling movement.",0.2451171875,0.9765625
+,,step 1,"The cerebral cortex is not fully developed at birth, and it continues to mature and develop throughout childhood and adolescence.",0.984375,0.8671875
+,,step 2,The answer is (D).,0.98828125,0.89453125
+,,annotation
+
+204,mmlu_pro_nomath_test_05739
+,,question,"How does Buzan's concept of 'societal security' mark a departure from traditional understandings of security?
+(A) Securing the sustainable development of the state was dependent on societal security as an independent interest that was not secondary or dependent on the other sectors, including the military.
+(B) The end of the Cold War allowed security studies to move beyond the confines of the dominant realist and neorealist perspectives, with an emerging interest in other, non-military, conceptions of security. Those who wished to broaden the scope of security studies advocated the inclusion of resource, environment, and other referent points for analysis.
+(C) Societal security referred to the sustainable development of traditional patterns of military capabilities. Military threats could be subdivided to include the infrastructural strength, the technology, personnel, the economic base and the political base of the military security sector.
+(D) Contemporary processes of globalization and societal conflict required the development of new conceptual tools beyond the state as the referent object. Security was dependent on factors beyond geographically conceived survival: survival of the state was superseded by survival of the nation (ethnic) state."
+,,y_true,B
+,,solution selected by baseline
+,,step 0,"Buzan's concept of 'societal security' marks a departure from traditional understandings of security by broadening the scope of security studies beyond the state as the primary referent object and beyond the traditional focus on military security. It takes into account the security of the nation (or ethnic) group, including its culture, identity, and way of life, in addition to the physical survival of the state.",0.333984375,0.4375
+,,step 1,The correct answer is (D).,0.75390625,0.94140625
+,,solution selected by finetuned
+,,step 0,"Buzan's concept of 'societal security' marks a departure from traditional understandings of security by broadening the scope of security studies beyond the traditional realist and neorealist perspectives, which focused solely on state security and military capabilities.",0.1728515625,0.59375
+,,step 1,The correct answer is (B).,0.7421875,0.9453125
+,,annotation
+
+238,mmlu_pro_nomath_test_00363
+,,question,"Services are characterized by five distinct characteristics. These are:
+(A) Intangibility, value, variability, inseparability, and relationship.
+(B) Intangibility, perishability, variability, separability, and a lack of ownership.
+(C) Intangibility, perishability, variability, inseparability, and a lack of ownership.
+(D) Intangibility, perishability, variability, inseparability, and sustainability.
+(E) Intangibility, perishability, value, inseparability, and a lack of ownership.
+(F) Intangibility, value, variability, inseparability, and transferability.
+(G) Intangibility, value, variability, inseparability, and profitability.
+(H) Intangibility, perishability, variability, inseparability, and tangibility.
+(I) Intangibility, value, variability, inseparability, and a lack of ownership.
+(J) Tangibility, perishability, variability, inseparability, and a lack of ownership."
+,,y_true,C
+,,solution selected by baseline
+,,step 0,Services are characterized by five distinct characteristics:,0.263671875,0.26953125
+,,step 1,"1. **Intangibility**: Services are intangible, meaning they cannot be seen, touched, or owned.",0.99609375,0.75390625
+,,step 2,"2. **Perishability**: Services are perishable, meaning they have a limited time frame and cannot be stored for later use.",1.0,0.5625
+,,step 3,"3. **Variability**: Services can be customized to meet individual customer needs, making each service experience unique.",1.0,0.98828125
+,,step 4,"4. **Inseparability**: Services are produced and consumed simultaneously, meaning that the production and consumption of the service occur at the same time.",1.0,0.98828125
+,,step 5,"5. **A lack of ownership**: Customers do not own the service, but rather experience it.",0.9921875,0.92578125
+,,step 6,The correct answer is (B).,0.95703125,0.119140625
+,,solution selected by finetuned
+,,step 0,Services are characterized by five distinct characteristics:,0.25,0.294921875
+,,step 1,"1. **Intangibility**: Services are intangible, meaning they cannot be seen, touched, or owned.",0.99609375,0.796875
+,,step 2,"2. **Perishability**: Services are perishable, meaning they cannot be stored and have a limited time frame.",1.0,0.5625
+,,step 3,"3. **Variability**: Services can be customized or tailored to individual customers, making each experience unique.",1.0,0.98828125
+,,step 4,"4. **Inseparability**: Services are produced and consumed simultaneously, and the producer and consumer are often inseparable.",1.0,0.984375
+,,step 5,5. **A lack of ownership**: The customer does not own the service after it has been consumed.,0.99609375,0.9453125
+,,step 6,The answer is (C).,0.9921875,0.89453125
+,,annotation
+

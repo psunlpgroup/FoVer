@@ -1,0 +1,3 @@
+session amc12_2001_p9_1 = HOL +
+  options [document = false]
+  theories amc12_2001_p9_1

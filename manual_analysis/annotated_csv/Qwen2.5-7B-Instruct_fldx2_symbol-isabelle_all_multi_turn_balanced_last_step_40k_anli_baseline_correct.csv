@@ -1,0 +1,268 @@
+data_idx,id,type,value,baseline,finetuned
+7,anli_test_4850324b-00e5-4df3-ad98-460c52d5eb0f,,,,
+,,question,"Premise: LONDON, Oct 28 (Reuters) - Britain will sell 4.0 billion pounds ($6.45 billion) of the 2068 gilt after offering it via syndication, one of the bookrunners of the deal said on Tuesday. Earlier, one of the leads said Britain received orders worth more than 13 billion pounds by the time books closed. (Reporting by Andy Bruce, editing by David Milliken)
+Hypothesis: Britain was seeling more than one year worth of gilt
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,entailment,,
+,,solution selected by baseline,,,
+,,step 0,"Premise states, ""Britain will sell 4.0 billion pounds of the 2068 gilt after offering it via syndication.""",0.9921875,0.98828125
+,,step 1,"This means the gilt being sold matures in the year 2068, which is more than 40 years from the current year (2023).",1.0,0.796875
+,,step 2,"Premise also states, ""Earlier, one of the leads said Britain received orders worth more than 13 billion pounds by the time books closed.""",0.99609375,0.98828125
+,,step 3,This information is about the demand for the gilt but does not affect the maturity period of the gilt being sold.,1.0,0.9921875
+,,step 4,"Given that the gilt matures in 2068, it clearly indicates that the gilt being sold is more than one year worth of gilt.",0.9609375,0.2451171875
+,,step 5,"Therefore, the premise entails the hypothesis.",1.0,0.96875
+,,step 6,Final answer: entailment.,1.0,1.0
+,,solution selected by finetuned,,,
+,,step 0,"Premise states that Britain will sell ""4.0 billion pounds of the 2068 gilt.""",0.93359375,0.9609375
+,,step 1,This means the gilt being sold matures in the year 2068.,1.0,0.96875
+,,step 2,"Premise also states that ""Britain received orders worth more than 13 billion pounds by the time books closed.""",0.9921875,0.99609375
+,,step 3,This indicates the demand for the gilt but does not affect the maturity period.,1.0,0.99609375
+,,step 4,"The term ""2068 gilt"" suggests that the gilt has a maturity date in 2068, which is more than 40 years from the current year (2023).",1.0,0.9140625
+,,step 5,"Therefore, selling ""4.0 billion pounds of the 2068 gilt"" does not imply selling more than one year worth of gilt, but rather a large amount of a specific type of gilt that matures in 2068.",0.99609375,0.8515625
+,,step 6,The hypothesis is not supported by the given premise.,0.796875,0.8359375
+,,step 7,"Therefore, the final answer is neutral.",0.98046875,0.9921875
+,,annotation,wrong_ground_truth,,
+18,anli_test_924edad4-9fe1-41e9-823a-5f5aa6983db2,,,,
+,,question,"Premise: Bob, we relied upon a company out of England to provide about half of the flu vaccines for the United States citizen, and it turned out that the vaccine they were producing was contaminated. And so we took the right action and didn't allow contaminated medicine into our country. We're working with Canada to hopefully -- that they'll produce a -- help us realize the vaccine necessary to make sure our citizens have got flu vaccinations during this upcoming season.
+Hypothesis: A company from continental europe was relied on
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise states, ""Bob, we relied upon a company out of England to provide about half of the flu vaccines for the United States citizen.""",1.0,0.99609375
+,,step 1,"Hypothesis states, ""A company from continental Europe was relied on.""",0.376953125,0.8359375
+,,step 2,Step 1: Identify the location of the company.,1.0,0.9609375
+,,step 3,- The premise mentions that the company is from England.,1.0,0.99609375
+,,step 4,Step 2: Determine if England is part of continental Europe.,0.796875,0.0673828125
+,,step 5,- England is not part of continental Europe; it is an island country that is part of the United Kingdom.,0.87890625,0.75390625
+,,step 6,Step 3: Compare the premise and the hypothesis.,1.0,0.984375
+,,step 7,- The premise specifies a company from England.,1.0,1.0
+,,step 8,- The hypothesis states a company from continental Europe.,1.0,0.99609375
+,,step 9,"Step 4: Check for entailment, contradiction, or neutral relationship.",0.96875,0.75390625
+,,step 10,"- Since England is not in continental Europe, the premise contradicts the hypothesis.",0.3203125,0.9765625
+,,step 11,"Therefore, the final answer is contradiction.",0.62109375,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"Premise states, ""Bob, we relied upon a company out of England to provide about half of the flu vaccines for the United States citizen."" England is part of Europe but specifically located in the continental region of Europe.",0.96875,0.294921875
+,,step 1,"Hypothesis states, ""A company from continental Europe was relied on.""",1.0,0.92578125
+,,step 2,Reasoning:,1.0,0.96875
+,,step 3,1. England is a country in Europe.,1.0,0.98828125
+,,step 4,2. England is considered part of continental Europe.,0.07568359375,0.2021484375
+,,step 5,3. The premise mentions reliance on a company from England.,1.0,1.0
+,,step 6,"4. Therefore, the premise supports that a company from continental Europe was relied upon.",1.0,0.9921875
+,,step 7,The premise supports the hypothesis without any contradiction.,1.0,0.99609375
+,,step 8,"Therefore, the final answer is entailment.",1.0,1.0
+,,annotation,finetuned_wrong,,
+26,anli_test_e62ca2d9-df13-4df0-a1fe-2ea9c3870f20,,,,
+,,question,"Premise: It was all a mistake .<br>So Sir John told Grimes to go home , and promised him five shillings if he would bring the boy quietly up to him , without beating him , that he might be sure of the truth .<br>For he took for granted , and Grimes too , that Tom had made his way home .
+Hypothesis: Tom was able to go home.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,neutral,,
+,,solution selected by baseline,,,
+,,step 0,"Premise 1: ""It was all a mistake.""",0.2021484375,0.9609375
+,,step 1,"Premise 2: ""So Sir John told Grimes to go home, and promised him five shillings if he would bring the boy quietly up to him, without beating him, that he might be sure of the truth.""",0.99609375,0.9921875
+,,step 2,"Premise 3: ""For he took for granted, and Grimes too, that Tom had made his way home.""",1.0,0.9921875
+,,step 3,"From Premise 3, we understand that Sir John and Grimes assumed Tom had made his way home. However, Premise 1 suggests that there was a mistake, which implies that the assumption in Premise 3 might not be accurate.",0.1826171875,0.70703125
+,,step 4,"Given the information, it is not definitively stated that Tom was able to go home. The premise only suggests that it was assumed Tom had made his way home, but the presence of a mistake casts doubt on this assumption.",0.984375,0.9453125
+,,step 5,"Therefore, the final answer is neutral.",0.9921875,0.9765625
+,,solution selected by finetuned,,,
+,,step 0,"Premise 1: ""It was all a mistake.""",0.1484375,0.9609375
+,,step 1,"Premise 2: ""So Sir John told Grimes to go home, and promised him five shillings if he would bring the boy quietly up to him, without beating him, that he might be sure of the truth.""",0.9921875,0.9921875
+,,step 2,"Premise 3: ""For he took for granted, and Grimes too, that Tom had made his way home.""",1.0,0.9921875
+,,step 3,"From Premise 3, it is clear that both Sir John and Grimes believed Tom had made his way home. This supports the idea that Tom was expected to be at home.",1.0,0.98828125
+,,step 4,"Given that Sir John asked Grimes to bring the boy (Tom) up to him, it can be inferred that Tom was indeed at home or on his way home, as Sir John assumed Tom had already made his way home.",1.0,0.87890625
+,,step 5,"Therefore, the premises support the hypothesis that Tom was able to go home.",0.99609375,0.87890625
+,,step 6,The final answer is entailment.,1.0,0.99609375
+,,annotation,both_wrong_scores,,
+29,anli_test_9006dff4-8eeb-423f-943f-9d2c382a2400,,,,
+,,question,"Premise: My Run In With The Cops<br>Today I went to the grocery store to buy groceries. When I got to the checkout line, I realized I forgot my wallet. I tried to explain my situation to the checker, but she didn't listen. She thought I was trying to steal groceries, so she called the cops. My roommate had to save me by bringing me my wallet.
+Hypothesis: The cops beat the narrator within an inch of his life
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise states, ""My roommate had to save me by bringing me my wallet."" This implies that the narrator was ultimately saved by their roommate and did not experience any harm from the police.",0.99609375,0.92578125
+,,step 1,"Hypothesis states, ""The cops beat the narrator within an inch of his life."" This implies that the narrator was severely beaten by the police.",1.0,0.98046875
+,,step 2,"The premise does not mention any interaction with the police that resulted in harm to the narrator. Therefore, the premise contradicts the hypothesis.",0.053466796875,0.8515625
+,,step 3,"Therefore, the final answer is contradiction.",0.984375,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"Premise states, ""My roommate had to save me by bringing me my wallet.""",0.26953125,0.984375
+,,step 1,Premise does not mention anything about the cops beating the narrator.,0.004608154296875,1.0
+,,step 2,"Hypothesis states, ""The cops beat the narrator within an inch of his life.""",1.0,0.9921875
+,,step 3,The premise does not provide any information to support or contradict the hypothesis.,0.96875,0.9921875
+,,step 4,"Therefore, the final answer is neutral.",0.93359375,1.0
+,,annotation,both_wrong_scores,,
+51,anli_test_db7fef31-4f2f-4b5a-855e-831209eab172,,,,
+,,question,"Premise: Governor Greg Abbott has called for a statewide show of support for law enforcement Friday, July 7. Locally, a 15-minute program is planned at 9 a.m. at Memorial Lane Park, 550 N. Travis St. The governor is asking law enforcement officers to turn on red and blue flashing lights for one-minute at 10 a.m. Multiple law enforcement officers were shot and killed in Dallas one year ago.
+Hypothesis: Law enforcement officers and the people at the Travis St. memorial do not show their support at the same time.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,neutral,,
+,,solution selected by baseline,,,
+,,step 0,"Premise states that Governor Greg Abbott has called for a statewide show of support for law enforcement on Friday, July 7.",0.9921875,1.0
+,,step 1,"Premise specifies a 15-minute program planned at 9 a.m. at Memorial Lane Park, 550 N. Travis St.",1.0,0.99609375
+,,step 2,Premise mentions that the governor is asking law enforcement officers to turn on red and blue flashing lights for one minute at 10 a.m.,1.0,0.99609375
+,,step 3,"Premise indicates that multiple law enforcement officers were shot and killed in Dallas one year ago, which is context for the show of support.",1.0,0.97265625
+,,step 4,The hypothesis states that law enforcement officers and the people at the Travis St. memorial do not show their support at the same time.,1.0,0.96875
+,,step 5,The premise does not provide information about the actions of the people at the Travis St. memorial during the 10 a.m. time slot. It only mentions the governor's request for law enforcement officers to turn on their lights at that time.,1.0,0.9609375
+,,step 6,"Therefore, the premise does not provide enough information to derive the hypothesis. The hypothesis could be true or false based on the given information.",1.0,0.9453125
+,,step 7,Final answer: neutral.,0.99609375,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"Premise states that Governor Greg Abbott has called for a statewide show of support for law enforcement on Friday, July 7. ",0.90625,1.0
+,,step 1,"- A 15-minute program is planned at 9 a.m. at Memorial Lane Park, 550 N. Travis St.",1.0,0.9921875
+,,step 2,- The governor is asking law enforcement officers to turn on red and blue flashing lights for one minute at 10 a.m.,1.0,0.99609375
+,,step 3,- Multiple law enforcement officers were shot and killed in Dallas one year ago.,1.0,0.96875
+,,step 4,The hypothesis states that law enforcement officers and the people at the Travis St. memorial do not show their support at the same time.,1.0,0.96875
+,,step 5,- The 15-minute program is planned for 9 a.m.,1.0,0.99609375
+,,step 6,- The governor's request for law enforcement officers to turn on flashing lights is at 10 a.m.,1.0,0.99609375
+,,step 7,The premise indicates that the support for law enforcement is planned at different times: the 15-minute program at 9 a.m. and the flashing lights at 10 a.m. This means that law enforcement officers and the people at the Travis St. memorial are not showing their support at the same time.,1.0,0.953125
+,,step 8,"Therefore, the final answer is entailment.",0.1826171875,0.9921875
+,,annotation,wrong_ground_truth,,
+81,anli_test_362e2665-599c-4359-8eba-217b40638e9d,,,,
+,,question,"Premise: I recall my husband speaking. In fact, he hadn't prepared to speak, but he was very upset, as many people in the audience were, and he stood up to speak. I don't remember his exact comments, but, again, it was a warning to the school board and -actually, not necessarily a warning, but just sort of reiterating what science teachers do in their science classes and how there is really no conflict here with the textbook.
+Hypothesis: The husband only spoke about one of the subjects of textbooks and science but not both. 
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise states that the husband spoke about ""reiterating what science teachers do in their science classes and how there is really no conflict here with the textbook."" This suggests that the husband discussed both science and the textbook.",0.5,0.65234375
+,,step 1,Hypothesis states that the husband only spoke about one of the subjects of textbooks and science but not both.,1.0,0.95703125
+,,step 2,"The premise indicates that the husband spoke about both science and the textbook, while the hypothesis suggests he spoke about only one of these subjects.",1.0,0.9921875
+,,step 3,"Therefore, the premise contradicts the hypothesis.",1.0,1.0
+,,step 4,Final answer: contradiction.,0.99609375,1.0
+,,solution selected by finetuned,,,
+,,step 0,"Premise states, ""he stood up to speak... reiterating what science teachers do in their science classes and how there is really no conflict here with the textbook.""",0.75390625,0.98046875
+,,step 1,This implies that the husband spoke about science and the lack of conflict with the textbook.,1.0,0.98046875
+,,step 2,Premise does not specify whether he only spoke about one subject or both subjects.,0.22265625,0.96875
+,,step 3,"Therefore, the premise does not provide enough information to derive the hypothesis that the husband only spoke about one of the subjects of textbooks and science but not both.",1.0,0.9921875
+,,step 4,The final answer is neutral.,1.0,1.0
+,,annotation,wrong_ground_truth,,
+97,anli_test_f9bba61d-fad0-4145-84e0-ab459217a26b,,,,
+,,question,"Premise: What I was really making reference to was when a physician perhaps in Quebec or a physician in the maritimes or a physician out west may make an advance or a discovery in terms of service delivery, there is no system in place right now throughout the country where there is an exchange of this type of information.
+Hypothesis: The main topic of this text is not religions.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,neutral,,
+,,solution selected by baseline,,,
+,,step 0,Premise discusses the lack of a system for exchanging information about service delivery advances or discoveries among physicians across different regions in Canada.,1.0,0.99609375
+,,step 1,Hypothesis states that the main topic of this text is not religions.,1.0,0.99609375
+,,step 2,The premise focuses on the medical and administrative aspects of information exchange among physicians in different regions.,1.0,0.98828125
+,,step 3,"The hypothesis does not directly relate to the content of the premise, as it is about the main topic being unrelated to religions.",1.0,0.97265625
+,,step 4,"Therefore, the premise does not provide enough information to derive the hypothesis.",1.0,0.95703125
+,,step 5,Final answer: neutral.,1.0,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"Premise discusses the lack of a system for exchanging information about service delivery advancements among physicians across different regions in Canada (Quebec, the maritimes, and the west).",1.0,0.99609375
+,,step 1,"Hypothesis states: ""The main topic of this text is not religions.""",1.0,0.99609375
+,,step 2,Step 1: The premise focuses on a healthcare-related issue (exchange of information among physicians).,1.0,0.98828125
+,,step 3,Step 2: There is no mention of religions or any religious topics in the premise.,1.0,0.98828125
+,,step 4,"Step 3: Since the premise does not discuss religions, it supports the hypothesis that the main topic is not religions.",1.0,0.9921875
+,,step 5,"Therefore, the final answer is entailment.",0.000431060791015625,0.984375
+,,annotation,wrong_ground_truth,,
+114,anli_test_d469aabc-dd2a-4bd7-b840-ab39764b6625,,,,
+,,question,"Premise: Clinton informed the two parties that in the absence of an agreement, a public announcement would be made, with the apparent objective of applying pressure to both sides, particularly the Israelis.
+Hypothesis: Clinton doesn't want an agreement to be happen. 
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise states, ""Clinton informed the two parties that in the absence of an agreement, a public announcement would be made, with the apparent objective of applying pressure to both sides, particularly the Israelis.""",1.0,1.0
+,,step 1,This implies that Clinton is using the threat of a public announcement to push for an agreement.,0.9921875,0.97265625
+,,step 2,"Hypothesis states, ""Clinton doesn't want an agreement to be happen.""",1.0,0.5625
+,,step 3,"If Clinton is using pressure to ensure an agreement, it suggests that Clinton does want an agreement to happen, not the opposite.",1.0,0.98046875
+,,step 4,"Therefore, the premise contradicts the hypothesis.",1.0,0.9921875
+,,step 5,The final answer is contradiction.,1.0,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,Premise states that Clinton informed the two parties that a public announcement would be made if there was no agreement.,0.90625,1.0
+,,step 1,"Premise also mentions that the objective of this public announcement is to apply pressure to both sides, particularly the Israelis.",1.0,1.0
+,,step 2,The premise does not provide any information about Clinton's personal desire or lack thereof for an agreement to be made.,1.0,0.98046875
+,,step 3,"In summary, the premise does not indicate that Clinton doesn't want an agreement to happen. It only states that Clinton is using pressure to encourage an agreement.",1.0,0.9921875
+,,step 4,"Therefore, the final answer is neutral.",1.0,1.0
+,,annotation,both_wrong_scores,,
+124,anli_test_e748f87c-e1de-4282-a89f-d65bbee39ee2,,,,
+,,question,"Premise: Ndubuisi Orji, Abuja The House of Representatives has directed the Inspector General of Police, Ibrahim Idris, to prosecute the Special Adviser and Chairman of the Special Presidential Investigation Panel (SPIP), Chief Okoi Obono-Obla, for forgery and misrepresentation. This is sequel to the adoption of the report of the House Ad-hoc Committee that investigated the legality and modus operandi of the SPIP, at Thursday’s plenary. READ ALSO: APC planning to rig 2019 general elections- Ex Niger governor, Aliyu alleges
+Hypothesis: There is some corruption in the government of Niger.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,neutral,,
+,,solution selected by baseline,,,
+,,step 0,Premise states that the House of Representatives has directed the Inspector General of Police to prosecute Chief Okoi Obono-Obla for forgery and misrepresentation. This is based on the adoption of a report investigating the legality and modus operandi of the Special Presidential Investigation Panel (SPIP).,1.0,0.99609375
+,,step 1,Reasoning:,1.0,0.8515625
+,,step 2,1. The prosecution of Chief Okoi Obono-Obla for forgery and misrepresentation suggests that there was some misconduct or illegal activity.,1.0,0.8359375
+,,step 3,2. The adoption of a report investigating the legality and modus operandi of the SPIP implies that there were questions about the actions and methods of the SPIP.,1.0,0.98828125
+,,step 4,3. Misrepresentation and forgery are forms of corruption or unethical behavior in government.,1.0,0.5
+,,step 5,"While the premise indicates specific instances of potential corruption, it does not directly state that there is corruption in the government of Niger. The premise focuses on the actions of one individual and does not provide a broader context of the entire government of Niger.",0.98828125,0.953125
+,,step 6,"Therefore, the final answer is neutral.",0.99609375,0.98046875
+,,solution selected by finetuned,,,
+,,step 0,Premise states that the House of Representatives has directed the Inspector General of Police to prosecute Chief Okoi Obono-Obla for forgery and misrepresentation. This action is a result of the adoption of a report investigating the legality and modus operandi of the Special Presidential Investigation Panel (SPIP).,1.0,0.99609375
+,,step 1,Step 1: The prosecution of Chief Okoi Obono-Obla for forgery and misrepresentation suggests that there were illegal or unethical actions taken by a high-ranking government official.,1.0,0.8515625
+,,step 2,"Step 2: The investigation of the SPIP indicates that there may be issues with the legality and operations of this panel, which is part of the government structure.",1.0,0.98828125
+,,step 3,Step 3: The involvement of the Inspector General of Police and the House of Representatives in these actions implies that there is an ongoing effort to address and correct these issues.,1.0,0.984375
+,,step 4,"While the premise does not explicitly state that there is corruption, the actions described (investigation, prosecution) strongly suggest that there are issues within the government that could be indicative of corruption.",1.0,0.70703125
+,,step 5,"Therefore, the premise supports the hypothesis that there is some corruption in the government of Niger, even though it is not directly stated.",0.0419921875,0.65234375
+,,step 6,Final answer: entailment,0.2021484375,0.90625
+,,annotation,wrong_ground_truth,,
+148,anli_test_135c6fba-2d52-4fab-b831-a3f4cc3758dc,,,,
+,,question,"Premise: Planes<br>The planes flying overhead woke me up. I was grumpy, and tried to block out the noise. Eventually I started to worry about it. I got up and checked the news. The military was just conducting practice runs.
+Hypothesis: He overslept and missed the flight.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise states that the planes woke the person up, indicating they were not sleeping.",0.9140625,0.77734375
+,,step 1,The person tried to block out the noise but eventually got up to check the news.,1.0,0.9921875
+,,step 2,The news revealed that the military was conducting practice runs.,1.0,0.99609375
+,,step 3,The hypothesis claims that the person overslept and missed the flight.,0.87890625,0.75390625
+,,step 4,"Given the information in the premise, the person was clearly awake when the planes were flying overhead and did not miss the flight.",1.0,0.95703125
+,,step 5,"Therefore, the premise contradicts the hypothesis.",1.0,1.0
+,,step 6,Final answer: contradiction.,1.0,1.0
+,,solution selected by finetuned,,,
+,,step 0,"Premise states that the planes flying overhead woke me up initially, but I was grumpy and tried to block out the noise. Eventually, I started to worry about it and got up to check the news, which showed that the military was conducting practice runs.",0.8515625,0.99609375
+,,step 1,Premise does not mention anything about oversleeping or missing a flight.,0.1640625,0.99609375
+,,step 2,"Therefore, the premise does not support the hypothesis that ""He overslept and missed the flight.""",1.0,0.99609375
+,,step 3,The final answer is neutral.,1.0,1.0
+,,annotation,wrong_intermediate,,
+180,anli_test_6b63eb36-5941-409f-b8b5-ea3e7ae33e8a,,,,
+,,question,"Premise: Close Friends<br>I once had a really close friend that I went to school with. We always looked out for each other. One day he moved off to school. I was sad that we would not see each other. Fortunately, I was able to buy a phone so we could talk everyday.
+Hypothesis: They talked to each other on cellphones.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,entailment,,
+,,solution selected by baseline,,,
+,,step 0,"Premise states, ""Fortunately, I was able to buy a phone so we could talk everyday."" This implies that the speaker and their close friend used a phone to communicate.",1.0,0.81640625
+,,step 1,"The hypothesis states, ""They talked to each other on cellphones.""",1.0,0.73046875
+,,step 2,"The premise mentions that a phone was bought, which could refer to a cellphone, as cellphones are a type of phone.",1.0,0.70703125
+,,step 3,"Therefore, the premise supports the hypothesis that they talked to each other on cellphones.",1.0,0.796875
+,,step 4,The final answer is entailment.,1.0,1.0
+,,solution selected by finetuned,,,
+,,step 0,"Premise states, ""Fortunately, I was able to buy a phone so we could talk everyday.""",1.0,0.96875
+,,step 1,This implies that they obtained a means of communication (a phone) to talk to each other regularly.,1.0,0.99609375
+,,step 2,"The hypothesis states, ""They talked to each other on cellphones.""",1.0,0.796875
+,,step 3,"While the premise mentions they could ""talk everyday,"" it does not specify the type of phone they used. It could be a landline or a cellphone.",0.012451171875,0.75390625
+,,step 4,"Therefore, the final answer is neutral.",0.81640625,0.89453125
+,,annotation,wrong_ground_truth,,
+191,anli_test_7607ca94-25b5-4a51-bd81-0e63c9f5b02b,,,,
+,,question,"Premise: How to drink whiskey<br>Pour "" two fingers "" of whiskey into a rocks or tulip glass. Rocks glasses, the classic whiskey cup, are short, round glasses made for 12-14 oz or liquid. Tulip glasses are curved wide at the bottom and thinner up top, concentrating the smells near your nose, and are used for more high-class whiskey tastings.
+Hypothesis: Rock glasses are a set size. 
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,neutral,,
+,,solution selected by baseline,,,
+,,step 0,"Premise states, ""Rocks glasses, the classic whiskey cup, are short, round glasses made for 12-14 oz or liquid.""",0.99609375,0.89453125
+,,step 1,This implies that rocks glasses can hold anywhere from 12 to 14 ounces of liquid.,1.0,0.9921875
+,,step 2,Premise does not specify a single set size but rather a range of sizes.,0.99609375,0.99609375
+,,step 3,"Therefore, the hypothesis that rock glasses are a set size is not supported by the given premise.",1.0,0.96875
+,,step 4,The final answer is neutral.,1.0,0.9921875
+,,solution selected by finetuned,,,
+,,step 0,"Premise states, ""Rocks glasses, the classic whiskey cup, are short, round glasses made for 12-14 oz or liquid.""",0.99609375,0.89453125
+,,step 1,This implies that rocks glasses are not a set size but can hold between 12-14 oz of liquid.,0.984375,0.9921875
+,,step 2,"Hypothesis states, ""Rock glasses are a set size.""",1.0,0.92578125
+,,step 3,"This contradicts the premise, as rocks glasses can vary in the amount of liquid they hold.",0.9609375,0.9921875
+,,step 4,"Therefore, the final answer is contradiction.",0.6796875,0.99609375
+,,annotation,both_wrong_scores,,
+196,anli_test_c00af20e-3e4f-4d6a-99c0-9e9a2f275f03,,,,
+,,question,"Premise: The Portobello Film Festival is an independent international film festival based in London, which annually premiers over 700 new films, including features, shorts, documentaries, music films and animation. Additionally, workshops and talks with top film directors (such as Stephen Frears and John Maybury) are also featured. Admission to the three-week-long festival is free of charge.
+Hypothesis: Admission to the Portobello Film Festival is only free of charge for Stephen Frears and John Maybury.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral"".",,
+,,y_true,contradiction,,
+,,solution selected by baseline,,,
+,,step 0,"Premise states, ""Admission to the three-week-long festival is free of charge.""",0.98046875,1.0
+,,step 1,Premise does not specify any conditions for free admission other than it being free for everyone attending the festival.,1.0,0.98046875
+,,step 2,"Hypothesis claims, ""Admission to the Portobello Film Festival is only free of charge for Stephen Frears and John Maybury.""",0.99609375,0.81640625
+,,step 3,"This hypothesis contradicts the premise, as it limits free admission to only two individuals, while the premise indicates that admission is free for everyone.",1.0,0.99609375
+,,step 4,"Therefore, the final answer is contradiction.",0.98828125,1.0
+,,solution selected by finetuned,,,
+,,step 0,Premise states that admission to the Portobello Film Festival is free of charge.,0.376953125,1.0
+,,step 1,"Premise also states that workshops and talks with top film directors like Stephen Frears and John Maybury are featured, but it does not specify that their admission is free of charge.",1.0,0.9609375
+,,step 2,"In summary, the premise does not provide any information about the admission fees for Stephen Frears and John Maybury.",1.0,0.9765625
+,,step 3,"Therefore, the hypothesis is not supported by the premises.",1.0,0.98046875
+,,step 4,The final answer is neutral.,0.98828125,0.99609375
+,,annotation,both_wrong_scores,,

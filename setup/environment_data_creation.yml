@@ -1,0 +1,16 @@
+name: fover_data_creation
+channels:
+  - defaults
+dependencies:
+  - python=3.10.14
+  - pip=24.0
+  - pip:
+      - ipython==8.18.1
+      - typed-argument-parser==1.10.1
+      - numpy==1.26.4
+      - datasets==3.2.0
+      - llama-recipes==0.0.4.post1
+      - func_timeout==4.3.5  # Portal-to-ISAbelle
+      # included in requirements.txt
+      # - z3-solver==4.13.3.0
+      # - line_profiling@git+https://github.com/hitachi-nlp/line-profiling.git@main

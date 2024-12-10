@@ -1,0 +1,319 @@
+data_idx,id,type,value,baseline,finetuned
+11,anli_test_a69ceb50-e3ea-4c40-8708-d647bab81d5a
+,,question,"Premise: Leftist guerrillas early Tuesday attacked a residential neighborhood in northern San Salvador where many government and military leaders have their homes.
+Hypothesis: Leftist guerrillas attacked the government and military facility early Tuesday in San Salvador.  
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,Premise states that leftist guerrillas attacked a residential neighborhood in northern San Salvador where many government and military leaders have their homes.,1.0,1.0
+,,step 1,Hypothesis states that leftists guerrillas attacked government and military facilities in San Salvador early Tuesday.,1.0,0.9140625
+,,step 2,Reasoning:,0.349609375,0.07568359375
+,,step 3,"1. The premise mentions an attack on a residential neighborhood, not specifically on government or military facilities.",0.94140625,0.9765625
+,,step 4,"2. The premise does not provide information about the nature of the buildings targeted, only that they are homes of government and military leaders.",1.0,0.99609375
+,,step 5,"3. The hypothesis assumes that the attack was on government and military facilities, which is not explicitly stated in the premise.",0.99609375,0.8359375
+,,step 6,"Therefore, the final answer is neutral.",0.8515625,0.9609375
+,,solution selected by finetuned
+,,step 0,"Premise states, ""Leftist guerrillas early Tuesday attacked a residential neighborhood in northern San Salvador where many government and military leaders have their homes.""",1.0,1.0
+,,step 1,"This implies that the attack was on a residential neighborhood, not directly on government or military facilities.",0.053466796875,0.9453125
+,,step 2,"The hypothesis states, ""Leftist guerrillas attacked the government and military facility early Tuesday in San Salvador.""",1.0,0.9921875
+,,step 3,This suggests that the attack was directly on government and military facilities.,1.0,0.87890625
+,,step 4,"The premise does not support the hypothesis; instead, it indicates that the attack was on a residential area, not on government or military facilities.",1.0,0.9765625
+,,step 5,"Therefore, the final answer is contradiction.",7.486343383789062e-05,0.59375
+,,annotation
+
+36,anli_test_44442d54-2ad2-472d-9ecf-27afb2eee5cf
+,,question,"Premise: Picnic Terror<br>Brad was on a picnic with his family. He had prepared several sandwiches and a pitcher of lemonade. Before they had a chance to eat, a large noise startled them. A bear had crept up behind them and was sniffing at the food. Brad and his family ran away and left the food for the bear.
+Hypothesis: Brad had prepared several sandwiches and pitchers of lemonade.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise states, ""Brad had prepared several sandwiches and a pitcher of lemonade.""",1.0,0.99609375
+,,step 1,"Hypothesis states, ""Brad had prepared several sandwiches and pitchers of lemonade.""",1.0,0.46875
+,,step 2,"Step 1: The premise mentions ""a pitcher of lemonade,"" while the hypothesis mentions ""pitchers of lemonade"" (plural).",1.0,0.796875
+,,step 3,"Step 2: The premise and hypothesis agree on the preparation of ""several sandwiches,"" but the number and form of the lemonade differ.",1.0,0.90625
+,,step 4,"Therefore, the premise does not fully support the hypothesis due to the difference in the number of lemonade pitchers.",1.0,0.376953125
+,,step 5,Final answer: neutral.,1.0,0.97265625
+,,solution selected by finetuned
+,,step 0,"Premise states, ""Brad had prepared several sandwiches and a pitcher of lemonade.""",1.0,0.99609375
+,,step 1,"Hypothesis states, ""Brad had prepared several sandwiches and pitchers of lemonade.""",1.0,0.4375
+,,step 2,"Step 1: The premise mentions ""a pitcher of lemonade.""",0.1640625,1.0
+,,step 3,"Step 2: The hypothesis mentions ""pitchers of lemonade"" (plural).",1.0,0.8515625
+,,step 4,"Step 3: The premise does not specify multiple pitchers, only one.",1.0,0.9921875
+,,step 5,"Given these steps, the premise does not support the hypothesis because the premise specifies one pitcher of lemonade, while the hypothesis mentions multiple pitchers of lemonade.",0.97265625,0.92578125
+,,step 6,"Therefore, the final answer is contradiction.",0.0002956390380859375,0.8359375
+,,annotation
+
+69,anli_test_71a5b926-b49f-4047-8060-d94e585f170c
+,,question,"Premise: Dr. Amy Joy Lanou, director of the Physicians Committee for Responsible Medicine in America, was quick to point out health dangers of the Atkins diet.
+Hypothesis: Dr. Amy Joy Lanou, director of the Doctor's Committee for Responsible Medicine in America, pointed out health dangers of the Atkins diet.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise states: ""Dr. Amy Joy Lanou, director of the Physicians Committee for Responsible Medicine in America, was quick to point out health dangers of the Atkins diet.""",0.99609375,0.9921875
+,,step 1,"Hypothesis states: ""Dr. Amy Joy Lanou, director of the Doctor's Committee for Responsible Medicine in America, pointed out health dangers of the Atkins diet.""",1.0,0.93359375
+,,step 2,Step 1: Compare the organization names.,1.0,0.89453125
+,,step 3,"- Premise: ""Physicians Committee for Responsible Medicine""",1.0,0.99609375
+,,step 4,"- Hypothesis: ""Doctor's Committee for Responsible Medicine""",1.0,0.95703125
+,,step 5,Step 2: Analyze the differences.,1.0,0.89453125
+,,step 6,"- The premise uses ""Physicians Committee,"" while the hypothesis uses ""Doctor's Committee."" This is a minor difference in wording but does not change the meaning.",0.92578125,0.62109375
+,,step 7,Step 3: Compare the actions.,1.0,0.9921875
+,,step 8,- Both the premise and hypothesis state that Dr. Amy Joy Lanou pointed out the health dangers of the Atkins diet.,1.0,1.0
+,,step 9,Step 4: Evaluate overall consistency.,1.0,0.89453125
+,,step 10,"- The core information in both statements is consistent: Dr. Amy Joy Lanou, as the director of a committee for responsible medicine, pointed out health dangers related to the Atkins diet.",1.0,0.9765625
+,,step 11,"Given the minor difference in the organization's name and the consistent core information, the premise supports the hypothesis.",0.9921875,0.53125
+,,step 12,"Therefore, the final answer is entailment.",0.98046875,0.93359375
+,,solution selected by finetuned
+,,step 0,"Premise states that Dr. Amy Joy Lanou, director of the Physicians Committee for Responsible Medicine in America, pointed out health dangers of the Atkins diet.",0.73046875,0.98046875
+,,step 1,"Hypothesis states that Dr. Amy Joy Lanou, director of the Doctor's Committee for Responsible Medicine in America, pointed out health dangers of the Atkins diet.",1.0,0.8515625
+,,step 2,Step 1: Compare the organization names.,1.0,0.90625
+,,step 3,- Premise: Physicians Committee for Responsible Medicine,1.0,0.99609375
+,,step 4,- Hypothesis: Doctor's Committee for Responsible Medicine,1.0,0.92578125
+,,step 5,Step 2: Analyze the difference.,1.0,0.77734375
+,,step 6,"- The premise mentions ""Physicians Committee,"" while the hypothesis mentions ""Doctor's Committee."" These are different organizations.",0.94140625,0.77734375
+,,step 7,Step 3: Compare the rest of the information.,1.0,0.98828125
+,,step 8,- Both statements attribute the action of pointing out health dangers of the Atkins diet to Dr. Amy Joy Lanou and her role as director.,1.0,0.99609375
+,,step 9,Step 4: Determine if the differences affect the overall meaning.,1.0,0.77734375
+,,step 10,- The difference in the organization name changes the factual accuracy of the statement.,1.0,0.9453125
+,,step 11,"Given these steps, the premise and hypothesis are not in agreement due to the difference in the organization name.",0.953125,0.9921875
+,,step 12,"Therefore, the final answer is contradiction.",0.00150299072265625,0.9609375
+,,annotation
+
+77,anli_test_c40a9ac3-2f32-4a32-8470-8cf0665e8d06
+,,question,"Premise: She is just a perfect angel , while I am only angelic in spots and demonic in other spots .<br>I wish Walter would take a fancy to her , but he never seems to think about her in that way , although I heard him say once she was like a tea rose .<br>She is too .
+Hypothesis: Reminding him of a sleet Rose she did
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise states, ""I heard him say once she was like a tea rose.""",1.0,0.98828125
+,,step 1,"Premise also states, ""She is too."" This suggests that the subject being referred to as ""she"" is indeed like a tea rose.",1.0,0.65234375
+,,step 2,"Hypothesis claims, ""Reminding him of a sleet Rose she did.""",0.015869140625,0.1640625
+,,step 3,Reasoning:,0.0028076171875,0.029296875
+,,step 4,1. The premise indicates that the subject (she) is compared to a tea rose.,1.0,0.984375
+,,step 5,2. The hypothesis states that the subject reminds someone of a sleet rose.,0.5625,0.90625
+,,step 6,3. There is no information provided about a sleet rose in the premise.,1.0,0.9609375
+,,step 7,4. The premise does not confirm or deny the hypothesis about a sleet rose.,1.0,0.98828125
+,,step 8,"Therefore, the final answer is neutral.",0.953125,0.9453125
+,,solution selected by finetuned
+,,step 0,"Premise says, ""I heard him say once she was like a tea rose.""",1.0,0.9921875
+,,step 1,"Premise does not specify what kind of rose ""she"" is.",0.010986328125,0.6796875
+,,step 2,"Hypothesis states, ""Reminding him of a sleet Rose she did.""",0.9765625,0.22265625
+,,step 3,"The hypothesis introduces a new term ""sleet Rose,"" which is not mentioned or implied in the premises.",1.0,0.96875
+,,step 4,"Therefore, the final answer is contradiction.",4.5299530029296875e-05,0.1826171875
+,,annotation
+
+79,anli_test_f0130568-d81a-4c30-9707-9cea29a5313c
+,,question,"Premise: Cooper Manning SWAG-JACKED Don 'Magic' Juan??? Call the fashion police ... 'cause Cooper Manning straight-up STOLE his Super Bowl swag from Snoop's spiritual adviser, Bishop Don ""Magic"" Juan! Peyton and Eli's older bro was cruisin' around Super Bowl media night this week in a money suit -- the same kind of outfit we've seen The Bishop rockin' for years. Twinsies.
+Hypothesis: Payton and Eli Manning are both older than Cooper Manning.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise states, ""Peyton and Eli's older bro was cruisin' around Super Bowl media night this week in a money suit,"" implying that Cooper Manning is the brother of Peyton and Eli Manning.",1.0,0.9609375
+,,step 1,"Since Cooper Manning is described as the brother, it follows that Peyton and Eli Manning are older than Cooper Manning.",1.0,0.5625
+,,step 2,"Therefore, the premise supports the hypothesis that Peyton and Eli Manning are both older than Cooper Manning.",1.0,0.99609375
+,,step 3,The final answer is entailment.,1.0,1.0
+,,solution selected by finetuned
+,,step 0,"Premise states: ""Peyton and Eli's older bro was cruisin' around Super Bowl media night this week in a money suit."" This implies that Cooper Manning is the older brother of Peyton and Eli Manning.",0.9921875,0.92578125
+,,step 1,"Given that Cooper Manning is the older brother, it follows that Peyton and Eli Manning are both younger than Cooper Manning.",1.0,0.9921875
+,,step 2,"Therefore, the hypothesis ""Peyton and Eli Manning are both older than Cooper Manning"" is contradicted by the premise.",1.150369644165039e-05,0.984375
+,,step 3,The final answer is contradiction.,0.953125,0.99609375
+,,annotation
+
+94,anli_test_84aa994d-f831-4251-87ae-e2a330d6de2e
+,,question,"Premise: How to refinance an underwater mortgage<br>Check your payment history. You must be current on your mortgage, and not have been delinquent on any payments in the last 12 months. Find out who owns your mortgage.
+Hypothesis: ""underwater mortgage"" is composed of four separate words.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise states: ""How to refinance an underwater mortgage""",0.294921875,0.9921875
+,,step 1,"Premise does not provide any information about the composition of the term ""underwater mortgage.""",0.70703125,0.9921875
+,,step 2,"Hypothesis states: ""underwater mortgage"" is composed of four separate words.",0.09521484375,0.5625
+,,step 3,"Since the premise does not provide any information about the composition of the term ""underwater mortgage,"" it neither supports nor contradicts the hypothesis.",1.0,0.9921875
+,,step 4,"Therefore, the final answer is neutral.",0.9921875,1.0
+,,solution selected by finetuned
+,,step 0,"Premise states, ""How to refinance an underwater mortgage.""",0.81640625,0.9921875
+,,step 1,"The term ""underwater mortgage"" is given as a single phrase in the premise.",0.46875,0.98828125
+,,step 2,"Hypothesis states, ""underwater mortgage"" is composed of four separate words.",0.00193023681640625,0.70703125
+,,step 3,"The premise does not break down ""underwater mortgage"" into individual words, but rather presents it as a single term.",1.0,0.99609375
+,,step 4,"Therefore, the premise contradicts the hypothesis.",0.81640625,0.96875
+,,step 5,"Thus, the final answer is contradiction.",0.8671875,1.0
+,,annotation
+
+102,anli_test_8966ad32-c536-40d0-af9a-d0f46ad63821
+,,question,"Premise: A suicide attack is an attack in which the attacker or attackers intend to kill others and intend to die in the process (see suicide). In a suicide attack in the strict sense the attacker dies by the attack itself, for example in an explosion or crash caused by the attacker.
+Hypothesis: A suicide attacker intends to kill himself.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"Premise states, ""A suicide attack is an attack in which the attacker or attackers intend to kill others and intend to die in the process (see suicide).""",1.0,0.99609375
+,,step 1,"Premise further clarifies, ""In a suicide attack in the strict sense the attacker dies by the attack itself, for example in an explosion or crash caused by the attacker.""",1.0,1.0
+,,step 2,"From these statements, we can break down the reasoning as follows:",1.0,0.93359375
+,,step 3,1. The premise explicitly mentions that the attacker intends to die in the process of the attack.,1.0,0.98828125
+,,step 4,"2. The premise also states that the attacker's death is caused by the attack itself, such as in an explosion or crash.",1.0,0.96875
+,,step 5,"Given these points, the intention to die is a direct and necessary component of a suicide attack.",1.0,0.9140625
+,,step 6,"Therefore, the hypothesis ""A suicide attacker intends to kill himself"" is supported by the premises.",0.9609375,0.4375
+,,step 7,The final answer is entailment.,1.0,0.9921875
+,,solution selected by finetuned
+,,step 0,"Premise states, ""A suicide attack is an attack in which the attacker or attackers intend to kill others and intend to die in the process (see suicide).""",1.0,0.99609375
+,,step 1,"Premise further clarifies, ""In a suicide attack in the strict sense the attacker dies by the attack itself, for example in an explosion or crash caused by the attacker.""",1.0,0.99609375
+,,step 2,"From these statements, it is clear that the attacker in a suicide attack intends to die as part of the attack.",1.0,0.94140625
+,,step 3,Step-by-step reasoning:,1.0,0.77734375
+,,step 4,1. The attacker intends to kill others.,0.8359375,0.8359375
+,,step 5,2. The attacker also intends to die in the process.,1.0,0.98828125
+,,step 6,"3. The death is caused by the attack itself (e.g., explosion or crash).",1.0,0.92578125
+,,step 7,"Given these points, the hypothesis ""A suicide attacker intends to kill himself"" is not directly supported by the premise. The premise focuses on the attacker's intention to die, not specifically to kill himself, although this is implied as a result of the attack.",0.2021484375,0.5625
+,,step 8,"Therefore, the final answer is neutral.",0.94140625,0.96875
+,,annotation
+
+125,anli_test_560a434d-e0b2-42b7-a615-03e5e22ac5e7
+,,question,"Premise: Splashdown is a log flume located at Castles N' Coasters, a theme park in Phoenix, Arizona. It is noted for its two drops, as well as many other special features. The whole ride is themed after a logging expedition through Polynesia. Splashdown is also known for narrowly being dodged by the nearby Desert Storm roller coaster.
+Hypothesis: Splashdown is close to Desert Storm, so Desert storm riders can see Splashdown.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"Premise states, ""Splashdown is also known for narrowly being dodged by the nearby Desert Storm roller coaster.""",1.0,0.9921875
+,,step 1,This implies that Splashdown and Desert Storm are in close proximity to each other.,1.0,0.9453125
+,,step 2,"Given that they are close, it is reasonable to assume that riders on Desert Storm could see Splashdown.",1.0,0.77734375
+,,step 3,"Therefore, the premise supports the hypothesis that Desert Storm riders can see Splashdown.",1.0,0.9765625
+,,step 4,The final answer is entailment.,1.0,1.0
+,,solution selected by finetuned
+,,step 0,"Premise states that Splashdown is ""narrowly dodged by the nearby Desert Storm roller coaster."" This implies that the two rides are close to each other.",1.0,0.93359375
+,,step 1,Premise does not provide information about the visibility from the Desert Storm roller coaster to Splashdown.,0.984375,0.953125
+,,step 2,"Given that the premise only states the proximity and does not mention visibility, the hypothesis cannot be definitively derived from the premise.",1.0,0.98828125
+,,step 3,"Therefore, the final answer is neutral.",0.99609375,1.0
+,,annotation
+
+156,anli_test_231a8357-cb8a-4b6c-bd3b-fa26672b0f5f
+,,question,"Premise: The Pig<br>Kent loved animals. He especially loved his pet pig. The pig was named Charlie and he was big and fat. Kent took great care of the pig. He loved having him around the house.
+Hypothesis: Kent loved other animals more than Charlie
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise states, ""Kent loved animals. He especially loved his pet pig.""",0.98046875,0.98046875
+,,step 1,"Premise also states, ""The pig was named Charlie and he was big and fat. Kent took great care of the pig. He loved having him around the house.""",1.0,1.0
+,,step 2,"From these statements, we can infer that Kent had a special affection for his pet pig Charlie, but it does not explicitly state that he loved other animals less than Charlie.",1.0,0.9609375
+,,step 3,"Therefore, the premise does not provide enough information to conclude that Kent loved other animals more than Charlie.",1.0,0.9921875
+,,step 4,Final answer: neutral,1.0,0.99609375
+,,solution selected by finetuned
+,,step 0,"Premise states, ""Kent loved animals. He especially loved his pet pig.""",0.97265625,0.98046875
+,,step 1,"Premise also states, ""The pig was named Charlie and he was big and fat.""",0.77734375,1.0
+,,step 2,"Premise further states, ""Kent took great care of the pig. He loved having him around the house.""",1.0,1.0
+,,step 3,"From these statements, we can infer that Kent has a special affection for his pet pig Charlie, which is described as ""especially loved.""",1.0,0.9921875
+,,step 4,"The hypothesis states, ""Kent loved other animals more than Charlie.""",1.0,0.96875
+,,step 5,"Given that the premise explicitly states that Kent ""especially loved"" his pet pig Charlie, it directly contradicts the hypothesis that Kent loved other animals more than Charlie.",0.003173828125,0.96875
+,,step 6,"Therefore, the final answer is contradiction.",0.0849609375,0.9921875
+,,annotation
+
+190,anli_test_4c6771ea-bd16-4c42-8cdf-fcd6b1a0288f
+,,question,"Premise: To my students taking a PSSA test, well, you know, I -- being an educator, I'm not in love with PSSA tests or standardized tests. But if you're asking me if I object to my daughter taking a standardized test with that information on it, of course not. I would hope that they would provide lots of academic information on those tests.
+Hypothesis: The writer is a parent but not a teacher.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise states, ""I -- being an educator, I'm not in love with PSSA tests or standardized tests."" This indicates that the writer is an educator.",0.6796875,0.99609375
+,,step 1,"Premise also states, ""if you're asking me if I object to my daughter taking a standardized test with that information on it, of course not."" This indicates that the writer has a daughter, implying the writer is a parent.",1.0,0.96875
+,,step 2,"Premise does not explicitly state that the writer is not a teacher. However, it does state that the writer is an educator, which could encompass roles beyond just being a teacher.",0.99609375,0.95703125
+,,step 3,"Given the information provided, the premise does not contradict the hypothesis, but it also does not fully entail it. The premise supports that the writer is a parent but does not explicitly state that the writer is not a teacher.",0.99609375,0.92578125
+,,step 4,"Therefore, the final answer is neutral.",1.0,0.99609375
+,,solution selected by finetuned
+,,step 0,"Premise states, ""I -- being an educator, I'm not in love with PSSA tests or standardized tests."" This indicates that the writer is an educator, which means they are a teacher.",0.02294921875,0.9765625
+,,step 1,"Premise also states, ""if you're asking me if I object to my daughter taking a standardized test with that information on it, of course not."" This indicates that the writer has a daughter, meaning they are a parent.",1.0,0.97265625
+,,step 2,Given these points:,1.0,0.98046875
+,,step 3,1. The writer is an educator (teacher).,1.0,1.0
+,,step 4,2. The writer is a parent.,1.0,0.99609375
+,,step 5,"Therefore, the premise does not support the hypothesis that the writer is a parent but not a teacher. The premise actually contradicts the hypothesis by stating the writer is both a teacher and a parent.",0.98828125,0.97265625
+,,step 6,"Therefore, the final answer is contradiction.",0.97265625,0.99609375
+,,annotation
+
+194,anli_test_b807d958-25d4-46ce-a47a-337c82eda179
+,,question,"Premise: Former Broncos offensive lineman Mark Schlereth was very, very strong in high school. Love the fact that the Falcons are trying to bury the Packers. This team is flexing like me in high school! pic.twitter.com/Z4fQQe6HPC — mark schlereth (@markschlereth) January 22, 2017 He looked more like a tight end than an offensive guard! Schlereth (6-3, 287 pounds) won three Super Bowls during his 12-year NFL career, two of them with the Broncos. A two-time Pro Bowler, Schlereth retired in 2001 and now works for ESPN. Related Photo of Corey Nelson crying at his wedding goes viral
+Hypothesis: Mark Schlereth went to school before college
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"Premise 1: ""Former Broncos offensive lineman Mark Schlereth was very, very strong in high school.""",0.3203125,0.99609375
+,,step 1,"Premise 2: ""He looked more like a tight end than an offensive guard! Schlereth (6-3, 287 pounds) won three Super Bowls during his 12-year NFL career, two of them with the Broncos. A two-time Pro Bowler, Schlereth retired in 2001 and now works for ESPN.""",1.0,0.9140625
+,,step 2,"From Premise 1, we know that Mark Schlereth was strong in high school, which implies he attended high school.",1.0,0.70703125
+,,step 3,"From Premise 2, we know that Mark Schlereth played in the NFL and retired in 2001, which means he must have gone through high school before his NFL career.",1.0,0.9453125
+,,step 4,"Given that high school comes before college, and the premises confirm that Mark Schlereth attended high school, it logically follows that he went to school before college.",1.0,0.92578125
+,,step 5,"Therefore, the final answer is entailment.",1.0,0.99609375
+,,solution selected by finetuned
+,,step 0,"Premise mentions that Mark Schlereth was ""very, very strong in high school.""",0.2021484375,0.99609375
+,,step 1,Premise does not provide any information about whether Schlereth attended college or not.,0.99609375,0.96875
+,,step 2,"Therefore, the premise does not provide enough information to derive the hypothesis that Mark Schlereth went to school before college.",1.0,0.95703125
+,,step 3,The final answer is neutral.,1.0,1.0
+,,annotation
+
+198,anli_test_f98e096b-5965-407a-932a-a2602a2496e6
+,,question,"Premise: North Ballarat Football Club, nicknamed The Roosters, is an Australian rules football club based at Eureka Stadium in Ballarat. The club is locally known as ""the Roosters"", and was most notable for competing in the Victorian Football League (VFL) between 1996 and 2017.
+Hypothesis: North Ballarat Football Club stopped competing in the VFL in the year prior to 2019.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise states, ""The club is locally known as 'the Roosters', and was most notable for competing in the Victorian Football League (VFL) between 1996 and 2017.""",1.0,1.0
+,,step 1,This indicates that North Ballarat Football Club competed in the VFL from 1996 to 2017.,1.0,1.0
+,,step 2,"The hypothesis states, ""North Ballarat Football Club stopped competing in the VFL in the year prior to 2019.""",1.0,0.99609375
+,,step 3,"Since the club stopped competing in 2017, the year prior to 2019 would be 2018, which aligns with the premise.",0.9609375,0.9140625
+,,step 4,"Therefore, the premise supports the hypothesis that the club stopped competing in the VFL in 2017, which is the year prior to 2019.",0.62109375,0.3203125
+,,step 5,Final answer: entailment,1.0,0.8359375
+,,solution selected by finetuned
+,,step 0,Premise states that the North Ballarat Football Club competed in the Victorian Football League (VFL) between 1996 and 2017.,1.0,1.0
+,,step 1,"The hypothesis claims that the club stopped competing in the VFL in the year prior to 2019, which would be 2018.",1.0,0.9921875
+,,step 2,Step 1: Determine the end year of the club's VFL participation.,1.0,0.9921875
+,,step 3,- The premise specifies that the club competed in the VFL from 1996 to 2017.,1.0,0.99609375
+,,step 4,Step 2: Compare the end year of VFL participation with the year stated in the hypothesis.,1.0,0.9921875
+,,step 5,- The hypothesis states the club stopped competing in 2018.,0.0002956390380859375,0.9921875
+,,step 6,Step 3: Check for consistency.,1.0,0.953125
+,,step 7,"- The premise indicates the club stopped in 2017, while the hypothesis suggests 2018.",1.0,0.953125
+,,step 8,"Since the premise clearly states the club stopped competing in 2017, and the hypothesis claims it stopped in 2018, there is a contradiction.",0.9140625,0.98046875
+,,step 9,"Therefore, the final answer is contradiction.",0.65234375,1.0
+,,annotation
+
+214,anli_test_f03799a8-10f4-4929-ad03-925a074ea785
+,,question,"Premise: In support of international efforts, we are prepared to take the following steps today: to put a halt to any export credit through the Export Development Corporation; to put on hold any negotiations with the Yugoslav airlines for landing rights; to put on hold any discussions on bilateral efforts; and to consider what kind of support we might provide on a humanitarian basis.
+Hypothesis: To support international efforts, we are ready to put on hold considering humanitarian support we can provide.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise states: ""to put on hold any discussions on bilateral efforts; and to consider what kind of support we might provide on a humanitarian basis.""",0.96875,0.953125
+,,step 1,"Hypothesis states: ""To support international efforts, we are ready to put on hold considering humanitarian support we can provide.""",0.53125,0.4375
+,,step 2,"Step 1: The premise mentions ""to consider what kind of support we might provide on a humanitarian basis.""",1.0,1.0
+,,step 3,"Step 2: The hypothesis states ""to put on hold considering humanitarian support we can provide.""",1.0,0.93359375
+,,step 4,"Premise does not state that the consideration of humanitarian support should be put on hold. Instead, it mentions considering the support, which is different from putting it on hold.",0.0673828125,0.87890625
+,,step 5,"Therefore, the premise does not entail the hypothesis.",0.033203125,0.97265625
+,,step 6,Final answer: neutral,1.0,0.98046875
+,,solution selected by finetuned
+,,step 0,"Premise states, ""to consider what kind of support we might provide on a humanitarian basis.""",0.9921875,0.9921875
+,,step 1,"Hypothesis states, ""to put on hold considering humanitarian support we can provide.""",0.0179443359375,0.77734375
+,,step 2,Step 1: The premise mentions considering humanitarian support.,1.0,1.0
+,,step 3,Step 2: The hypothesis suggests putting on hold the consideration of humanitarian support.,0.984375,0.95703125
+,,step 4,"The premise does not state that the consideration of humanitarian support should be put on hold; it only mentions that such support might be considered. The hypothesis, however, suggests that the consideration itself is to be put on hold.",0.81640625,0.92578125
+,,step 5,"Therefore, the premise and the hypothesis are not in agreement. This leads to a contradiction.",0.00116729736328125,0.75390625
+,,step 6,Final answer: contradiction.,0.93359375,0.984375
+,,annotation
+
+216,anli_test_d6d1d5a2-3b12-4ca2-89be-5157c3d581d5
+,,question,"Premise: Hudson County saw 25 people lose their lives last year in homicides. Still one of the lowest amounts in years. A building owned and managed by the Jersey City Housing Authority has been experiencing heat problems amid a cold weather snap. In Sports, St. Benedict's stuns top Hudson Catholic in boys basketball.
+Hypothesis: Less than two dozen people were murdered in Hudson County last year 
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise states, ""Hudson County saw 25 people lose their lives last year in homicides. Still one of the lowest amounts in years.""",1.0,0.9921875
+,,step 1,"This means that the number of homicides in Hudson County last year was 25, which is less than 2 dozen (24).",1.0,0.8671875
+,,step 2,"Premise also states, ""Still one of the lowest amounts in years.""",1.0,0.98828125
+,,step 3,"This suggests that 25 is indeed one of the lower numbers of homicides in recent years, supporting the idea that it is less than 2 dozen.",0.96875,0.8515625
+,,step 4,"Therefore, the premise supports the hypothesis that ""Less than two dozen people were murdered in Hudson County last year.""",1.0,0.99609375
+,,step 5,The final answer is entailment.,1.0,1.0
+,,solution selected by finetuned
+,,step 0,"Premise states, ""Hudson County saw 25 people lose their lives last year in homicides. Still one of the lowest amounts in years.""",1.0,0.9921875
+,,step 1,"Hypothesis states, ""Less than two dozen people were murdered in Hudson County last year.""",1.0,0.95703125
+,,step 2,Step 1: Analyze the premise.,1.0,0.99609375
+,,step 3,- The premise indicates that 25 people were murdered in Hudson County last year.,1.0,0.9921875
+,,step 4,"- ""25"" is not less than ""two dozen"" (which is 24).",0.98828125,0.953125
+,,step 5,Step 2: Compare the premise and hypothesis.,1.0,0.99609375
+,,step 6,"- The premise states 25 murders, which is greater than ""less than two dozen"" (24).",1.0,0.9921875
+,,step 7,- The hypothesis states less than 24 murders.,1.0,0.984375
+,,step 8,Step 3: Determine the relationship.,1.0,0.984375
+,,step 9,- The premise directly contradicts the hypothesis.,0.9921875,0.99609375
+,,step 10,"Therefore, the final answer is contradiction.",0.77734375,1.0
+,,annotation
+

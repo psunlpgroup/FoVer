@@ -1,0 +1,246 @@
+data_idx,id,type,value,baseline,finetuned
+14,anli_test_ddc7331b-dfdb-4c7d-bdbd-d2fa711e575d
+,,question,"Premise: How to run for mayor<br>Become involved in community initiatives. As mayor, you'll be involved in numerous aspects of the local community. You can get a head-start in local politics and government by becoming involved in community initiatives.
+Hypothesis: The local community's support is an ideal way to win votes.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"Premise says, ""As mayor, you'll be involved in numerous aspects of the local community."" This implies that being involved in the local community is a part of the role of a mayor, but it does not directly imply that it is an ideal way to win votes.",0.1923828125,0.59375
+,,step 1,"However, the premise also says, ""get a head-start in local politics and government by becoming involved in community initiatives,"" suggesting that being involved in community initiatives can be beneficial for one's career in local politics and government, which might indirectly imply that it can also help in winning votes.",0.8515625,0.70703125
+,,step 2,"Therefore, the premise does not directly derive the hypothesis, but it provides a context that makes it plausible. However, this context is not strong enough to make the hypothesis a necessary conclusion from the premise.",0.73046875,0.65234375
+,,step 3,"Therefore, the final answer is neutral.",0.9921875,0.96875
+,,solution selected by finetuned
+,,step 0,"Premise says, ""As mayor, you'll be involved in numerous aspects of the local community."" This implies that being involved in the local community can lead to a role as mayor.",0.15625,0.92578125
+,,step 1,"Premise also says, ""you can get a head-start in local politics and government by becoming involved in community initiatives,"" suggesting that being involved in community initiatives can be beneficial for a political career.",1.0,0.9921875
+,,step 2,"While the premise does not directly say that the local community's support is an ideal way to win votes, it implies that being involved in the community can lead to a role as mayor, which could potentially lead to community support and votes.",0.8359375,0.73046875
+,,step 3,"Therefore, the final answer is entailment.",0.99609375,0.8515625
+,,step 4,"However, a more nuanced answer is that the premise supports a broader statement that could entail the hypothesis.",0.99609375,0.6796875
+,,annotation
+
+32,anli_test_08c29049-771d-4f75-9d3f-500128b34917
+,,question,"Premise: Going to the Beach<br>Channel woke up in the morning, and decided to go the beach. She put on her bathing suit, packed a cooler, and grabbed a towel. She got in her car and drove a distance. Parking, and then walking to the beach. She placed her towel on the beach and enjoyed the wonderful day.
+Hypothesis: Channel parked her car away from the beach.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"Premise says, ""She got in her car and drove a distance. Parking,"" but it does not specify where she parked, only that she parked.",0.46875,0.796875
+,,step 1,It does not provide enough information to determine if she parked away from the beach or not. ,0.6796875,0.376953125
+,,step 2,"Therefore, the final answer is neutral.",0.98828125,0.984375
+,,solution selected by finetuned
+,,step 0,"Premise says, ""She got in her car and drove a distance. Parking,"" but it does not specify the location of the parking spot relative to the beach.",0.392578125,0.53125
+,,step 1,"However, it also says, ""She parked, and then walking to the beach,"" which implies that the parking spot is not at the beach, but rather before reaching the beach.",0.9609375,0.81640625
+,,step 2,"Therefore, the final answer is entailment.",0.96875,0.99609375
+,,annotation
+
+33,anli_test_8c67d7c2-f4f1-4379-b052-d4eafdac2913
+,,question,"Premise: Trying Tofu<br>Alicia was feeling a little adventurous. She wanted to try Tofu. She had never had it before. So she took a small bite. To her delight it was delicious.
+Hypothesis: Tofu contains the letters to
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"The premise does not mention the letters in the word ""tofu"" at all. It talks about Alicia trying tofu and enjoying it.",0.349609375,0.77734375
+,,step 1,"The premise does not provide any information about the letters in the word ""tofu.""",0.9921875,0.9921875
+,,step 2,"Therefore, the final answer is neutral.",0.9453125,0.9765625
+,,solution selected by finetuned
+,,step 0,"The premise mentions the word ""tofu"", which contains the letters ""to"".",0.28125,0.98046875
+,,step 1,"The premise does not say anything about the taste, nutritional content, or any other properties of tofu, but it does provide evidence that the word ""tofu"" contains the letters ""to"".",0.9921875,0.97265625
+,,step 2,"Therefore, the final answer is entailment.",0.53125,0.95703125
+,,annotation
+
+50,anli_test_98fdf639-a862-4ae4-8a4b-65fb6501cbda
+,,question,"Premise: The job gains mean that President Bush can celebrate - albeit by a very fine margin - a net growth in jobs in the US economy in his first term in office.
+Hypothesis: President Bush is responsible for the gains.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"The premise says that President Bush can celebrate the job gains, which implies that the job gains occurred during his term in office. However, it does not imply that he was responsible for the gains.",0.62109375,0.349609375
+,,step 1,"Therefore, the premise does not necessarily attribute the job gains to President Bush, it only mentions that he can celebrate them.",0.9921875,0.984375
+,,step 2,"The premise does not provide any information about the cause of the job gains, so it does not entail or contradict the hypothesis.",0.9765625,0.81640625
+,,step 3,"Therefore, the final answer is neutral.",0.99609375,0.9921875
+,,solution selected by finetuned
+,,step 0,"Premise says, ""The job gains mean that President Bush can celebrate... a net growth in jobs in the US economy in his first term in office."" This implies that the job gains are a result of President Bush's presidency.",0.05029296875,0.73046875
+,,step 1,"However, the premise does not explicitly state that President Bush is responsible for the gains, but it implies it.",0.6796875,0.9140625
+,,step 2,"Therefore, the final answer is entailment.",0.294921875,0.99609375
+,,annotation
+
+52,anli_test_fde71938-df6f-4028-81ab-d11a05a3f8aa
+,,question,"Premise: Her husband, political novice Juan Carlos Lecompte, scrambles to preserve Betancourt's dream and sustain the Oxygen Green Party, the political party she founded.
+Hypothesis: It is not the dioxide Green Party.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"The premise mentions ""Oxygen Green Party"", which is a name that includes the word ""Oxygen"". The hypothesis states ""It is not the dioxide Green Party"", which does not relate to the name ""Oxygen"" mentioned in the premise. ",0.26953125,0.1640625
+,,step 1,"However, the hypothesis does imply that the party is the Green Party. Since the premise does not mention ""dioxide"" at all, it does not provide any information about the party being the ""dioxide"" Green Party. ",0.9140625,0.5625
+,,step 2,"The name ""Oxygen"" in the premise does not provide any information about the party being the ""dioxide"" Green Party. ",0.96875,0.77734375
+,,step 3,"Therefore, the final answer is neutral.",0.96875,0.6796875
+,,solution selected by finetuned
+,,step 0,"The premise mentions the Oxygen Green Party, which is the opposite of the hypothesis, ""It is not the dioxide Green Party."" The premise implies that the party is indeed the ""Oxygen Green Party"", not the ""dioxide Green Party"".",0.2119140625,0.93359375
+,,step 1,"In summary, the premise directly contradicts the hypothesis.",0.9453125,0.89453125
+,,step 2,"Therefore, the final answer is contradiction.",1.0,1.0
+,,annotation
+
+70,anli_test_0af480d6-a98c-4675-a66f-ad740bfe50d7
+,,question,"Premise: Botswana Accountancy College students will host a Miss BAC Night Show this Friday at Adansonia Hotel. The show which will see young ladies compete for the coveted Miss BAC crown is a school project in which the students will be assessed. Organisers of the show have roped in Democratic Republic of Congo upcoming artist Farrai Solo to spice up the evening while Francistown based DJs such as Mr Cue, The Dude, Da Quinty and F-Squared will also entertain. The all black formal event tickets sell for P100 and P80 for students. Tickets are inclusive of buffet dinner.
+Hypothesis: The all black formal event tickets will sell under P100 for everybody.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise says, ""tickets sell for P100 and P80 for students."" This implies that tickets for non-students (i.e., adults) sell for P100, but it does not say that the tickets will sell under P100 for everybody.",0.59375,0.65234375
+,,step 1,"In fact, it explicitly states that the non-student tickets sell for P100, which is not under P100.",0.96875,0.99609375
+,,step 2,"Therefore, the final answer is contradiction.",0.94140625,0.98828125
+,,solution selected by finetuned
+,,step 0,"Premise says, ""tickets sell for P100 and P80 for students."" This implies that the ticket prices are not the same for everybody.",0.376953125,0.953125
+,,step 1,"It also says, ""tickets are inclusive of buffet dinner,"" and that the event is an ""all black formal event,"" but it does not imply that the ticket price is under P100 for everybody.",0.8359375,0.796875
+,,step 2,"In summary, the premise implies that the ticket prices are not the same for everybody, and it does not provide any information that would support the hypothesis.",0.87890625,0.96875
+,,step 3,"Therefore, the final answer is neutral.",0.984375,0.8671875
+,,annotation
+
+87,anli_test_d9f0748d-8363-4b62-9ea6-6a940f945f27
+,,question,"Premise: Lebanon is in a period of mourning after a massive car bomb killed the former Prime Minister, Rafik Hariri, on Tuesday.
+Hypothesis: Rafik Hariri was from Lebanon.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"The premise says, ""the former Prime Minister, Rafik Hariri,"" which implies that Rafik Hariri was the Prime Minister of Lebanon at some point. It does not provide any information about his nationality, but it does provide information about his role in Lebanon. ",0.828125,0.87890625
+,,step 1,"The hypothesis is that Rafik Hariri was from Lebanon. There is no contradiction or entailment between the premise and the hypothesis. The premise does not provide any information about Rafik Hariri's nationality, it only provides information about his role in Lebanon.",0.97265625,0.349609375
+,,step 2,"Therefore, the final answer is neutral.",0.99609375,0.89453125
+,,solution selected by finetuned
+,,step 0,"The premise says that Rafik Hariri, the former Prime Minister, was killed in a car bomb in Lebanon. This implies that Rafik Hariri was a person from Lebanon, but the premise does not explicitly state it.",0.408203125,0.75390625
+,,step 1,"However, the information about Rafik Hariri being the former Prime Minister of Lebanon and being killed there is sufficient to imply that he likely held that position due to being a citizen of the country.",0.96875,0.8515625
+,,step 2,"Therefore, the final answer is entailment.",0.77734375,0.96875
+,,annotation
+
+95,anli_test_6fa9f032-5765-4653-bc13-30df3d20d16d
+,,question,"Premise: A Sad Man<br>Jim's grandfather had been sick. His family decided to put him in a home. Jim's grandfather was feeling blue. Jim started to visit his grandfather several times a week. Jim's grandfather started to feel better.
+Hypothesis: Jim's grandfather was felling well. 
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,contradiction
+,,solution selected by baseline
+,,step 0,"Premise says, ""Jim's grandfather was feeling blue"" and then ""Jim's grandfather started to feel better."" This implies that Jim's grandfather was initially feeling unwell, but then his condition improved.",0.28125,0.95703125
+,,step 1,"The hypothesis says that Jim's grandfather was feeling well, which contradicts the premise that he was initially feeling blue.",0.81640625,0.59375
+,,step 2,"Therefore, the final answer is contradiction.",0.953125,0.9140625
+,,solution selected by finetuned
+,,step 0,"Premise says, ""Jim's grandfather was feeling blue,"" which implies that he was not feeling well.",0.1826171875,0.96875
+,,step 1,"However, the premise also says, ""Jim's grandfather started to feel better,"" which implies that his condition improved.",0.98828125,0.98046875
+,,step 2,"Premise does not directly say that Jim's grandfather was feeling well, but it sets up a scenario where his condition improves.",0.796875,0.8359375
+,,step 3,"Therefore, the premises provide partial information that supports the hypothesis, but they do not directly entail it.",0.8515625,0.796875
+,,step 4,The final answer is neutral.,0.99609375,0.953125
+,,annotation
+
+109,anli_test_93cf4664-09a4-4668-bf4b-69e7f77ebf9b
+,,question,"Premise: Prosecutors were still expected to unseal an 11-count manslaughter indictment against the ferry's captain, Michael Gansas.
+Hypothesis: Michael Gansas is a suspected murderer.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"The premise mentions an ""11-count manslaughter indictment"", which means Michael Gansas is being charged with manslaughter, but it does not imply that he is a murderer.",0.484375,0.46875
+,,step 1,"In fact, manslaughter is typically a lesser charge than murder.",0.98828125,0.953125
+,,step 2,"Therefore, the premise does not necessarily imply that Michael Gansas is a murderer.",0.98046875,0.93359375
+,,step 3,The hypothesis is stronger than what the premise implies.,0.953125,0.9140625
+,,step 4,The final answer is neutral.,0.9921875,0.99609375
+,,solution selected by finetuned
+,,step 0,"The premise mentions an ""11-count manslaughter indictment"", which implies that Michael Gansas is accused of manslaughter, a lesser charge than murder.",0.09521484375,0.796875
+,,step 1,"The hypothesis states that Michael Gansas is a suspected murderer, which is a more severe charge than manslaughter.",0.294921875,0.8671875
+,,step 2,"In summary, the premise implies that Michael Gansas is accused of manslaughter, not murder, which contradicts the hypothesis.",0.8515625,0.96875
+,,step 3,"Therefore, the final answer is contradiction.",0.984375,1.0
+,,annotation
+
+118,anli_test_eb8f4d38-ece2-46d7-bbcc-20c6ef5bcb5e
+,,question,"Premise: Sal's Pizza<br>Sal owned a popular pizza restaurant in New York. One night, his store was burglarized. All of his cooking equipment was stolen. The locals donated money to Sal. Sal got his business running again.
+Hypothesis: Locals have been visiting Sal's Pizza restaurant in New York.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,entailment
+,,solution selected by baseline
+,,step 0,"Premise says, ""Sal got his business running again,"" implying that the business was reopened.",0.796875,0.98828125
+,,step 1,"Premise also says, ""Locals donated money to Sal,"" which implies that the locals were supporting Sal's business.",1.0,0.99609375
+,,step 2,"It can be inferred that if the locals were supporting Sal's business and the business was reopened, then the locals would likely be visiting the reopened business.",1.0,0.9453125
+,,step 3,"In summary, the premise implies that the locals were visiting Sal's Pizza restaurant in New York.",0.9765625,0.70703125
+,,step 4,"Therefore, the final answer is entailment.",1.0,1.0
+,,solution selected by finetuned
+,,step 0,"Premise says, ""Sal got his business running again"" after the burglary. It does not directly imply that locals are visiting the restaurant, but it implies that the business is still operational.",0.392578125,0.90625
+,,step 1,"Premise also says, ""The locals donated money to Sal."" This implies that the locals were involved in helping Sal, which could suggest they are interested in his business, but it does not directly imply they are visiting the restaurant.",0.99609375,0.95703125
+,,step 2,"However, the premise also says, ""Sal owned a popular pizza restaurant in New York,"" which suggests that people are likely to visit a popular restaurant. ",0.99609375,0.98828125
+,,step 3,"In summary, the premises do not directly imply that locals are visiting Sal's Pizza, but they do provide some indirect suggestions that could lead to the conclusion that locals are visiting the restaurant.",0.93359375,0.73046875
+,,step 4,"Therefore, the final answer is neutral, but leaning towards entailment.",0.98046875,0.92578125
+,,annotation
+
+125,anli_test_560a434d-e0b2-42b7-a615-03e5e22ac5e7
+,,question,"Premise: Splashdown is a log flume located at Castles N' Coasters, a theme park in Phoenix, Arizona. It is noted for its two drops, as well as many other special features. The whole ride is themed after a logging expedition through Polynesia. Splashdown is also known for narrowly being dodged by the nearby Desert Storm roller coaster.
+Hypothesis: Splashdown is close to Desert Storm, so Desert storm riders can see Splashdown.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"Premise says, ""Splashdown is also known for narrowly being dodged by the nearby Desert Storm roller coaster."" This implies that Splashdown and Desert Storm are close, but it does not necessarily imply that Desert Storm riders can see Splashdown. ",0.578125,0.3203125
+,,step 1,"It only implies proximity, not visibility.",0.98828125,0.97265625
+,,step 2,"Therefore, the final answer is neutral.",0.97265625,0.92578125
+,,solution selected by finetuned
+,,step 0,"Premise says, ""Splashdown is also known for narrowly being dodged by the nearby Desert Storm roller coaster."" This implies that Desert Storm and Splashdown are close to each other, but also that they narrowly avoid colliding, which suggests that they are close enough to potentially collide.",0.59375,0.87890625
+,,step 1,"Premise also mentions that Splashdown is located at Castles N' Coasters, a theme park in Phoenix, Arizona, but does not specify the exact layout or proximity of the rides.",0.1826171875,0.89453125
+,,step 2,"However, the phrase ""nearly being dodged"" implies proximity and potential collision, which supports the idea that Desert Storm riders can see Splashdown.",0.9140625,0.90625
+,,step 3,"Therefore, the final answer is entailment.",0.87890625,0.99609375
+,,annotation
+
+159,anli_test_8951f5b1-6c6f-4f16-a9f1-8c922287e208
+,,question,"Premise: Although the number of the confirmed Ebola cases has risen slightly to 26 in Gabon and to 16 in Congo Brazzaville, new infections are now so low that it seems the epidemic is ""burning out"".
+Hypothesis: Ebola isn't eradicated yet
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"Premise says, ""new infections are now so low that it seems the epidemic is 'burning out'."" This implies that the epidemic is nearing an end or is in decline.",0.59375,0.984375
+,,step 1,"It does not directly support the hypothesis that Ebola isn't eradicated yet, but it also doesn't directly contradict it.",0.9453125,0.349609375
+,,step 2,"However, the premise implies that the epidemic is in decline, which suggests that the hypothesis that Ebola isn't eradicated yet is not supported by the premise.",0.73046875,0.0849609375
+,,step 3,"Therefore, the final answer is neutral.",0.89453125,0.53125
+,,solution selected by finetuned
+,,step 0,"Premise says, ""new infections are now so low that it seems the epidemic is 'burning out'."" This implies that the epidemic is decreasing and possibly coming to an end, rather than still being active.",0.22265625,0.92578125
+,,step 1,"The premise does not provide information about whether the epidemic has been completely eradicated, but it suggests that the number of new cases is decreasing, which contradicts the idea that Ebola isn't eradicated yet.",0.75390625,0.2021484375
+,,step 2,"Therefore, the final answer is contradiction.",0.89453125,0.984375
+,,annotation
+
+183,anli_test_444bfd47-9e7f-4a72-a5ea-77b467fe94c6
+,,question,"Premise: The Toti class were submarines built for the Italian Navy in the 1960s. They were the first submarines designed and built in Italy since World War II. These boats were small and designed as ""hunter killer"" anti-submarine submarines. They are comparable to the German Type 205 submarines and the French Aréthuse class submarines.
+Hypothesis: The subs were built for the Italian Navy, but maybe not by the Italian Navy.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"Premise says, ""The Toti class were submarines built for the Italian Navy."" This directly states that the subs were built for the Italian Navy.",0.87890625,1.0
+,,step 1,The premise does not provide any information that suggests the subs were not built by the Italian Navy.,0.9765625,0.796875
+,,step 2,"In summary, the premise implies that the subs were built for the Italian Navy, but it does not provide any evidence that they were not built by the Italian Navy.",0.98828125,0.9921875
+,,step 3,"Therefore, the final answer is neutral.",0.98046875,0.98828125
+,,solution selected by finetuned
+,,step 0,"Premise says, ""The Toti class were submarines built for the Italian Navy in the 1960s."" This statement clearly implies that the subs were built for the Italian Navy, and it does not leave room for any other possibilities.",0.1484375,0.9921875
+,,step 1,"Therefore, the hypothesis is contradicted by the premise.",0.1640625,0.94140625
+,,step 2,The final answer is contradiction.,0.99609375,1.0
+,,annotation
+
+233,anli_test_a1445c66-ab43-462d-8130-7b900a450c8e
+,,question,"Premise: The land claims agreement must still be approved by the Canadian House of Commons , but has already passed through the House of Assembly of Newfoundland and Labrador.
+Hypothesis: American house of commons is not mentioned
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,neutral
+,,solution selected by baseline
+,,step 0,"The premise mentions the ""Canadian House of Commons"" but does not mention the ""American house of commons"" at all.",0.546875,0.96875
+,,step 1,"Therefore, the premise does not provide any information about the American house of commons, and the hypothesis is unrelated to the premise.",0.953125,0.2021484375
+,,step 2,The premise and the hypothesis are independent of each other.,0.97265625,0.96875
+,,step 3,"Therefore, the final answer is neutral.",0.99609375,0.97265625
+,,solution selected by finetuned
+,,step 0,"The premise mentions ""the Canadian House of Commons"", which implies that there is a Canadian House of Commons, but it does not mention the ""American house of commons"".",0.4375,0.87890625
+,,step 1,"Therefore, the premise does not mention the ""American house of commons"" at all, which supports the hypothesis.",0.97265625,0.9921875
+,,step 2,"Therefore, the final answer is entailment.",0.90625,0.99609375
+,,annotation
+
+249,anli_test_2ac32a35-e251-4bd6-b2b6-0a42cc17ef4c
+,,question,"Premise: Philip Morris cited strong volume gains in Germany, Italy, France, Spain, central and eastern Europe, Russia, the Middle East, Japan, Korea, Argentina and Brazil.
+Hypothesis: Eastern Europe wasn't important enough to be broken down by country.
+Question: do the premises derive the hypothesis? Provide reasoning and answer with either ""entailment"", ""contradiction"" or ""neutral""."
+,,y_true,entailment
+,,solution selected by baseline
+,,step 0,"Premise mentions ""central and eastern Europe"" as a separate region, but it also breaks down other regions by country (e.g., Germany, Italy, France, Spain, Japan, Korea, Argentina, Brazil).",0.333984375,0.5625
+,,step 1,"The fact that ""central and eastern Europe"" is not broken down by country suggests that it is not as important or detailed as the other regions.",0.8515625,0.73046875
+,,step 2,"In summary, the premise implies that central and eastern Europe wasn't broken down by country, which supports the hypothesis.",0.81640625,0.89453125
+,,step 3,"Therefore, the final answer is entailment.",0.9921875,0.984375
+,,solution selected by finetuned
+,,step 0,"Premise mentions ""central and eastern Europe"" as a separate region, implying that it was important enough to be broken down separately from other regions.",0.2451171875,0.81640625
+,,step 1,"This suggests that the premise actually derives the opposite hypothesis, that Eastern Europe was important enough to be broken down by country.",0.73046875,0.70703125
+,,step 2,"Therefore, the final answer is contradiction.",0.984375,1.0
+,,annotation
+

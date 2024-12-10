@@ -1,0 +1,158 @@
+data_idx,id,type,value,baseline,finetuned
+19,bbh_word_sorting_00019
+,,question,Sort the following words alphabetically: List: bituminous ami decadent knickerbocker exeter
+,,y_true,ami bituminous decadent exeter knickerbocker
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""bituminous"": ""b"" (2nd letter). ""ami"": ""a"" (1st letter). ""decadent"": ""d"" (4th letter). ""knickerbocker"": ""k"" (11th letter). ""exeter"": ""e"" (5th letter). We now have: ""ami"" < ""exeter"" < ""bituminous"" < ""decadent"" < ""knickerbocker"".",0.010986328125,0.1826171875
+,,step 1,So the answer is ami exeter bituminous decadent knickerbocker.,0.005218505859375,0.984375
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""bituminous"": ""b"" (2nd letter). ""ami"": ""a"" (1st letter). ""decadent"": ""d"" (4th letter). ""knickerbocker"": ""k"" (11th letter). ""exeter"": ""e"" (5th letter). We now have: ""ami"" < ""bituminous"" < ""decadent"" < ""exeter"" < ""knickerbocker"".",0.033203125,0.26953125
+,,step 1,So the answer is ami bituminous decadent exeter knickerbocker.,0.00116729736328125,0.96875
+,,annotation
+
+52,bbh_word_sorting_00052
+,,question,Sort the following words alphabetically: List: walnut scoot jugoslavia retrorocket polyhedron
+,,y_true,jugoslavia polyhedron retrorocket scoot walnut
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""walnut"": ""w"" (23rd letter). ""scoot"": ""s"" (19th letter). ""jugoslavia"": ""j"" (10th letter). ""retrorocket"": ""r"" (18th letter). ""polyhedron"": ""p"" (16th letter). We now have: ""jugoslavia"" < ""polyhedron"" < ""retrorocket"" < ""scoot"" < ""walnut"".",0.119140625,0.2021484375
+,,step 1,"Now let's sort this subpart [""polyhedron"" ""retrorocket""] by looking at their second letters. The second letter: ""polyhedron"": ""o"" (15th letter). ""retrorocket"": ""e"" (5th letter). We now have: ""jugoslavia"" < ""retrorocket"" < ""polyhedron"" < ""scoot"" < ""walnut"".",0.99609375,0.6796875
+,,step 2,So the answer is jugoslavia < retrorocket < polyhedron < scoot < walnut.,0.99609375,0.94140625
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""walnut"": ""w"" (23rd letter). ""scoot"": ""s"" (19th letter). ""jugoslavia"": ""j"" (10th letter). ""retrorocket"": ""r"" (18th letter). ""polyhedron"": ""p"" (16th letter). We now have: ""jugoslavia"" < ""polyhedron"" < ""retrorocket"" < ""scoot"" < ""walnut"".",0.09521484375,0.2451171875
+,,step 1,"Now let's look at the second letter for the words ""jugoslavia"", ""polyhedron"", ""retrorocket"", and ""scoot"". ""jugoslavia"": ""u"" (21st letter). ""polyhedron"": ""o"" (15th letter). ""retrorocket"": ""e"" (5th letter). ""scoot"": ""c"" (3rd letter). We now have: ""jugoslavia"" < ""polyhedron"" < ""retrorocket"" < ""scoot"" < ""walnut"".",0.06005859375,0.46875
+,,step 2,So the answer is jugoslavia polyhedron retrorocket scoot walnut.,0.1640625,0.953125
+,,annotation
+
+78,bbh_word_sorting_00078
+,,question,Sort the following words alphabetically: List: dew betelgeuse inexplainable snazzy tao stain meaty blue trail wash grossman lyre caudal epoch trailside char cyanide
+,,y_true,betelgeuse blue caudal char cyanide dew epoch grossman inexplainable lyre meaty snazzy stain tao trail trailside wash
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""dew"": ""d"" (4th letter). ""betelgeuse"": ""b"" (2nd letter). ""inexplainable"": ""i"" (9th letter). ""snazzy"": ""s"" (19th letter). ""tao"": ""t"" (20th letter). ""stain"": ""s"" (19th letter). ""meaty"": ""m"" (13th letter). ""blue"": ""b"" (2nd letter). ""trail"": ""t"" (20th letter). ""wash"": ""w"" (23rd letter). ""grossman"": ""g"" (7th letter). ""lyre"": ""l"" (12th letter). ""caudal"": ""c"" (3rd letter). ""epoch"": ""e"" (5th letter). ""trailside"": ""t"" (20th letter). ""char"": ""c"" (3rd letter). ""cyanide"": ""c"" (3rd letter). We now have: ""betelgeuse"" < ""blue"" < ""caudal"" < ""char"" < ""cyanide"" < ""dew"" < ""epoch"" < ""inexplainable"" < ""meaty"" < ""snazzy"" < ""stain"" < ""tao"" < ""trail"" < ""trailside"" < ""wash"" < ""grossman"".",0.002471923828125,0.1484375
+,,step 1,"Now let's sort this subpart [""betelgeuse"" ""blue"" ""caudal"" ""char"" ""cyanide""] by looking at their second letters. The second letter: ""betelgeuse"": ""e"" (5th letter). ""blue"": ""l"" (12th letter). ""caudal"": ""a"" (1st letter). ""char"": ""h"" (8th letter). ""cyanide"": ""y"" (25th letter). We now have: ""caudal"" < ""char"" < ""cyanide"" < ""blue"" < ""betelgeuse"".",0.033203125,0.73046875
+,,step 2,So the answer is betelgeuse < blue < caudal < char < cyanide < dew < epoch < inexplainable < meaty < snazzy < stain < tao < trail < trailside < wash < grossman.,0.000911712646484375,0.3203125
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""dew"": ""d"" (4th letter). ""betelgeuse"": ""b"" (2nd letter). ""inexplainable"": ""i"" (9th letter). ""snazzy"": ""s"" (19th letter). ""tao"": ""t"" (20th letter). ""stain"": ""s"" (19th letter). ""meaty"": ""m"" (13th letter). ""blue"": ""b"" (2nd letter). ""trail"": ""t"" (20th letter). ""wash"": ""w"" (23rd letter). ""grossman"": ""g"" (7th letter). ""lyre"": ""l"" (12th letter). ""caudal"": ""c"" (3rd letter). ""epoch"": ""e"" (5th letter). ""trailside"": ""t"" (20th letter). ""char"": ""c"" (3rd letter). ""cyanide"": ""c"" (3rd letter).",0.1484375,0.59375
+,,step 1,Now we can group the words based on their first letters:,1.0,0.9140625
+,,step 2,"- ""betelgeuse"" < ""blue"" < ""caudal"" < ""char"" < ""cyanide""",0.00020313262939453125,0.2021484375
+,,step 3,"- ""dew""",0.94140625,0.70703125
+,,step 4,"- ""epoch""",1.0,0.97265625
+,,step 5,"- ""grossman""",1.0,0.9921875
+,,step 6,"- ""inexplainable""",1.0,0.98046875
+,,step 7,"- ""lyre""",1.0,0.99609375
+,,step 8,"- ""meaty""",1.0,0.9921875
+,,step 9,"- ""snazzy""",1.0,0.98828125
+,,step 10,"- ""stain""",1.0,0.99609375
+,,step 11,"- ""tao""",1.0,0.9921875
+,,step 12,"- ""trail"" < ""trailside""",1.0,0.8671875
+,,step 13,"- ""wash""",1.0,0.99609375
+,,step 14,So the answer is betelgeuse blue caudal char cyanide dew epoch grossman inexplainable lyre meaty snazzy stain tao trail trailside wash.,0.4375,0.4375
+,,annotation
+
+84,bbh_word_sorting_00084
+,,question,Sort the following words alphabetically: List: chassis caruso corporal signora
+,,y_true,caruso chassis corporal signora
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""chassis"": ""c"" (3rd letter). ""caruso"": ""c"" (3rd letter). ""corporal"": ""c"" (3rd letter). ""signora"": ""s"" (19th letter). We now have: ""signora"" < [""chassis"" ""caruso"" ""corporal""].",0.004058837890625,0.59375
+,,step 1,"Now let's sort this subpart [""chassis"" ""caruso"" ""corporal""] by looking at their second letters. The second letter: ""chassis"": ""h"" (8th letter). ""caruso"": ""a"" (1st letter). ""corporal"": ""o"" (15th letter). We now have: ""caruso"" < ""chassis"" < ""corporal"".",1.0,0.90625
+,,step 2,So the answer is signora < caruso < chassis < corporal.,0.0179443359375,0.294921875
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""chassis"": ""c"" (3rd letter). ""caruso"": ""c"" (3rd letter). ""corporal"": ""c"" (3rd letter). ""signora"": ""s"" (19th letter). We now have: ""chassis"" < ""caruso"" < ""corporal"" < ""signora"".",0.010986328125,0.46875
+,,step 1,"Since all the words start with ""c"", we need to look at the second letter for the next comparison. ""chassis"": ""h"" (8th letter). ""caruso"": ""a"" (1st letter). ""corporal"": ""o"" (15th letter). ""signora"": ""a"" (1st letter). We now have: ""caruso"" < ""chassis"" < ""corporal"" < ""signora"".",0.003173828125,0.59375
+,,step 2,So the answer is caruso < chassis < corporal < signora.,1.0,0.98828125
+,,annotation
+
+109,bbh_word_sorting_00109
+,,question,Sort the following words alphabetically: List: closeup thesaurus intelligent buckaroo vertebral wily blutwurst laguerre
+,,y_true,blutwurst buckaroo closeup intelligent laguerre thesaurus vertebral wily
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""closeup"": ""c"" (3rd letter). ""thesaurus"": ""t"" (20th letter). ""intelligent"": ""i"" (9th letter). ""buckaroo"": ""b"" (2nd letter). ""vertebral"": ""v"" (22nd letter). ""wily"": ""w"" (23rd letter). ""blutwurst"": ""b"" (2nd letter). ""laguerre"": ""l"" (12th letter). We now have: ""buckaroo"" < ""blutwurst"" < ""closeup"" < ""intelligent"" < ""laguerre"" < ""thesaurus"" < ""vertebral"" < ""wily"".",0.037353515625,0.1826171875
+,,step 1,"Now we need to compare ""buckaroo"" and ""blutwurst"". The second letter: ""buckaroo"": ""u"" (21st letter). ""blutwurst"": ""l"" (12th letter). So ""buckaroo"" < ""blutwurst"".",0.953125,0.376953125
+,,step 2,"We do not need to compare ""closeup"" with the rest since it starts with ""c"" which is after ""b"" and ""v"".",0.96875,0.70703125
+,,step 3,So the answer is buckaroo < blutwurst < closeup < intelligent < laguerre < thesaurus < vertebral < wily.,0.81640625,0.90625
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""closeup"": ""c"" (3rd letter). ""thesaurus"": ""t"" (20th letter). ""intelligent"": ""i"" (9th letter). ""buckaroo"": ""b"" (2nd letter). ""vertebral"": ""v"" (22nd letter). ""wily"": ""w"" (23rd letter). ""blutwurst"": ""b"" (2nd letter). ""laguerre"": ""l"" (12th letter). We now have: [""buckaroo"" ""blutwurst""] < ""closeup"" < ""intelligent"" < ""laguerre"" < ""thesaurus"" < ""vertebral"" < ""wily"".",0.004058837890625,0.26953125
+,,step 1,"Now let's sort this subpart [""buckaroo"" ""blutwurst""] by looking at their second letters. The second letter: ""buckaroo"": ""u"" (21st letter). ""blutwurst"": ""l"" (12th letter). We now have: ""blutwurst"" < ""buckaroo"" < ""closeup"" < ""intelligent"" < ""laguerre"" < ""thesaurus"" < ""vertebral"" < ""wily"".",0.46875,0.87890625
+,,step 2,So the answer is blutwurst buckaroo closeup intelligent laguerre thesaurus vertebral wily.,0.000335693359375,0.97265625
+,,annotation
+
+122,bbh_word_sorting_00122
+,,question,Sort the following words alphabetically: List: charcuterie muddle diatom impenetrable footfall crucifix greenberg synchronous spoken
+,,y_true,charcuterie crucifix diatom footfall greenberg impenetrable muddle spoken synchronous
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""charcuterie"": ""c"" (3rd letter). ""muddle"": ""m"" (13th letter). ""diatom"": ""d"" (4th letter). ""impenetrable"": ""i"" (9th letter). ""footfall"": ""f"" (6th letter). ""crucifix"": ""c"" (3rd letter). ""greenberg"": ""g"" (7th letter). ""synchronous"": ""s"" (19th letter). ""spoken"": ""s"" (19th letter). We now have: ""charcuterie"" < ""crucifix"" < [""diatom"" ""footfall"" ""impenetrable"" ""muddle"" ""greenberg"" ""synchronous"" ""spoken""].",0.59375,0.26953125
+,,step 1,"Now let's sort this subpart [""diatom"" ""footfall"" ""impenetrable"" ""muddle"" ""greenberg"" ""synchronous"" ""spoken""] by looking at their second letters. The second letter: ""diatom"": ""i"" (9th letter). ""footfall"": ""o"" (15th letter). ""impenetrable"": ""m"" (13th letter). ""muddle"": ""u"" (21st letter). ""greenberg"": ""r"" (18th letter). ""synchronous"": ""y"" (25th letter). ""spoken"": ""p"" (16th letter). We now have: ""diatom"" < ""footfall"" < ""impenetrable"" < ""muddle"" < ""greenberg"" < ""spoken"" < ""synchronous"".",0.00116729736328125,0.5625
+,,step 2,So the answer is charcuterie crucifix diatom footfall impenetrable muddle greenberg spoken synchronous.,0.00116729736328125,0.89453125
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""charcuterie"": ""c"" (3rd letter). ""muddle"": ""m"" (13th letter). ""diatom"": ""d"" (4th letter). ""impenetrable"": ""i"" (9th letter). ""footfall"": ""f"" (6th letter). ""crucifix"": ""c"" (3rd letter). ""greenberg"": ""g"" (7th letter). ""synchronous"": ""s"" (19th letter). ""spoken"": ""s"" (19th letter). We now have: [""charcuterie"" ""crucifix""] < ""diatom"" < ""footfall"" < ""greenberg"" < ""impenetrable"" < ""muddle"" < [""synchronous"" ""spoken""].",0.0260009765625,0.376953125
+,,step 1,"Now let's sort this subpart [""charcuterie"" ""crucifix""] by looking at their second letters. The second letter: ""charcuterie"": ""h"" (8th letter). ""crucifix"": ""r"" (18th letter). We now have: ""charcuterie"" < ""crucifix"" < ""diatom"" < ""footfall"" < ""greenberg"" < ""impenetrable"" < ""muddle"" < [""synchronous"" ""spoken""].",0.5,0.8671875
+,,step 2,"Now let's sort this subpart [""synchronous"" ""spoken""] by looking at their second letters. The second letter: ""synchronous"": ""y"" (25th letter). ""spoken"": ""p"" (16th letter). We now have: ""synchronous"" > ""spoken"".",0.07568359375,0.87890625
+,,step 3,So the answer is charcuterie < crucifix < diatom < footfall < greenberg < impenetrable < muddle < spoken < synchronous.,4.5299530029296875e-05,0.59375
+,,annotation
+
+160,bbh_word_sorting_00160
+,,question,Sort the following words alphabetically: List: yang relinquish merry maladjust olefin canaan ranch batavia
+,,y_true,batavia canaan maladjust merry olefin ranch relinquish yang
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""yang"": ""y"" (25th letter). ""relinquish"": ""r"" (18th letter). ""merry"": ""m"" (13th letter). ""maladjust"": ""m"" (13th letter). ""olefin"": ""o"" (15th letter). ""canaan"": ""c"" (3rd letter). ""ranch"": ""r"" (18th letter). ""batavia"": ""b"" (2nd letter). We now have: ""batavia"" < ""canaan"" < ""maladjust"" < ""merry"" < ""olefin"" < ""relinquish"" < ""ranch"" < ""yang"".",0.98046875,0.4375
+,,step 1,So the answer is batavia canaan maladjust merry olefin relinquish ranch yang.,1.0,0.9921875
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""yang"": ""y"" (25th letter). ""relinquish"": ""r"" (18th letter). ""merry"": ""m"" (13th letter). ""maladjust"": ""m"" (13th letter). ""olefin"": ""o"" (15th letter). ""canaan"": ""c"" (3rd letter). ""ranch"": ""r"" (18th letter). ""batavia"": ""b"" (2nd letter). We now have: ""batavia"" < ""canaan"" < ""merry"" = ""maladjust"" < ""olefin"" < ""relinquish"" < ""ranch"" < ""yang"".",0.98828125,0.5
+,,step 1,"Now let's sort this subpart [""merry"" ""maladjust""] by looking at their second letters. The second letter: ""merry"": ""e"" (5th letter). ""maladjust"": ""a"" (1st letter). We now have: ""batavia"" < ""canaan"" < ""maladjust"" < ""merry"" < ""olefin"" < ""relinquish"" < ""ranch"" < ""yang"".",0.02294921875,0.87890625
+,,step 2,"Now let's sort this subpart [""relinquish"" ""ranch""] by looking at their second letters. The second letter: ""relinquish"": ""e"" (5th letter). ""ranch"": ""a"" (1st letter). We now have: ""batavia"" < ""canaan"" < ""maladjust"" < ""merry"" < ""olefin"" < ""ranch"" < ""relinquish"" < ""yang"".",0.98046875,0.97265625
+,,step 3,So the answer is batavia < canaan < maladjust < merry < olefin < ranch < relinquish < yang.,0.5625,0.96875
+,,annotation
+
+171,bbh_word_sorting_00171
+,,question,Sort the following words alphabetically: List: saprophytic confident pam stowaway stupor foundling compton
+,,y_true,compton confident foundling pam saprophytic stowaway stupor
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""saprophytic"": ""s"" (19th letter). ""confident"": ""c"" (3rd letter). ""pam"": ""p"" (16th letter). ""stowaway"": ""s"" (19th letter). ""stupor"": ""s"" (19th letter). ""foundling"": ""f"" (6th letter). ""compton"": ""c"" (3rd letter). We now have: ""confident"" < ""compton"" < ""foundling"" < [""pam"" ""saprophytic"" ""stowaway"" ""stupor""].",0.22265625,0.2451171875
+,,step 1,"Now let's sort this subpart [""pam"" ""saprophytic"" ""stowaway"" ""stupor""] by looking at their second letters. The second letter: ""pam"": ""a"" (1st letter). ""saprophytic"": ""a"" (1st letter). ""stowaway"": ""t"" (20th letter). ""stupor"": ""t"" (20th letter). We now have: ""pam"" < ""saprophytic"" < ""stowaway"" < ""stupor"".",0.81640625,0.4375
+,,step 2,So the answer is confident < compton < foundling < pam < saprophytic < stowaway < stupor.,0.9921875,0.8515625
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""saprophytic"": ""s"" (19th letter). ""confident"": ""c"" (3rd letter). ""pam"": ""p"" (16th letter). ""stowaway"": ""s"" (19th letter). ""stupor"": ""s"" (19th letter). ""foundling"": ""f"" (6th letter). ""compton"": ""c"" (3rd letter). We now have: [""confident"" ""compton""] < ""foundling"" < ""pam"" < [""saprophytic"" ""stowaway"" ""stupor""].",0.0673828125,0.4375
+,,step 1,"Now let's sort this subpart [""confident"" ""compton""] by looking at their second letters. The second letter: ""confident"": ""o"" (15th letter). ""compton"": ""o"" (15th letter). They are equal, so we need to look at the third letters. ""confident"": ""n"" (14th letter). ""compton"": ""m"" (13th letter). We now have: ""compton"" < ""confident"".",1.0,0.81640625
+,,step 2,"Now let's sort this subpart [""saprophytic"" ""stowaway"" ""stupor""] by looking at their second letters. The second letter: ""saprophytic"": ""a"" (1st letter). ""stowaway"": ""t"" (20th letter). ""stupor"": ""t"" (20th letter). We now have: ""saprophytic"" < [""stowaway"" ""stupor""].",1.0,0.92578125
+,,step 3,"Now let's sort this subpart [""stowaway"" ""stupor""] by looking at their second letters. The second letter: ""stowaway"": ""t"" (20th letter). ""stupor"": ""t"" (20th letter). They are equal, so we need to look at the third letters. ""stowaway"": ""o"" (15th letter). ""stupor"": ""u"" (21st letter). We now have: ""stowaway"" < ""stupor"".",1.0,0.96875
+,,step 4,So the answer is compton < confident < foundling < pam < saprophytic < stowaway < stupor.,0.2451171875,0.77734375
+,,annotation
+
+204,bbh_word_sorting_00204
+,,question,Sort the following words alphabetically: List: transgressor sidewinder tacky casualty shouldn't courtier leprosy avoidance gibbon merge
+,,y_true,avoidance casualty courtier gibbon leprosy merge shouldn't sidewinder tacky transgressor
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""transgressor"": ""t"" (20th letter). ""sidewinder"": ""s"" (19th letter). ""tacky"": ""t"" (20th letter). ""casualty"": ""c"" (3rd letter). ""shouldn't"": ""s"" (19th letter). ""courtier"": ""c"" (3rd letter). ""leprosy"": ""l"" (12th letter). ""avoidance"": ""a"" (1st letter). ""gibbon"": ""g"" (7th letter). ""merge"": ""m"" (13th letter). We now have: ""avoidance"" < ""casualty"" < ""gibbon"" < ""leprosy"" < ""merge"" < [""shouldn't"" ""sidewinder"" ""transgressor"" ""tacky""] < ""courtier"".",0.037353515625,0.22265625
+,,step 1,"Now let's sort this subpart [""shouldn't"" ""sidewinder"" ""transgressor"" ""tacky""] by looking at their second letters. The second letter: ""shouldn't"": ""h"" (8th letter). ""sidewinder"": ""i"" (9th letter). ""transgressor"": ""d"" (4th letter). ""tacky"": ""d"" (4th letter). We now have: ""shouldn't"" < ""sidewinder"" < ""transgressor"" < ""tacky"".",0.119140625,0.3203125
+,,step 2,So the answer is avoidance < casualty < gibbon < leprosy < merge < shouldn't < sidewinder < transgressor < tacky < courtier.,0.2451171875,0.8359375
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""transgressor"": ""t"" (20th letter). ""sidewinder"": ""s"" (19th letter). ""tacky"": ""t"" (20th letter). ""casualty"": ""c"" (3rd letter). ""shouldn't"": ""s"" (19th letter). ""courtier"": ""c"" (3rd letter). ""leprosy"": ""l"" (12th letter). ""avoidance"": ""a"" (1st letter). ""gibbon"": ""g"" (7th letter). ""merge"": ""m"" (13th letter). We now have: ""avoidance"" < ""casualty"" < ""courtier"" < ""gibbon"" < ""leprosy"" < ""merge"" < ""shouldn't"" < ""sidewinder"" < ""transgressor"" < ""tacky"".",0.0203857421875,0.294921875
+,,step 1,"Now let's sort this subpart [""shouldn't"" ""sidewinder""] by looking at their second letters. The second letter: ""shouldn't"": ""h"" (8th letter). ""sidewinder"": ""i"" (9th letter). We now have: ""avoidance"" < ""casualty"" < ""courtier"" < ""gibbon"" < ""leprosy"" < ""merge"" < ""shouldn't"" < ""sidewinder"" < ""transgressor"" < ""tacky"".",0.0140380859375,0.65234375
+,,step 2,"Now let's sort this subpart [""transgressor"" ""tacky""] by looking at their second letters. The second letter: ""transgressor"": ""r"" (18th letter). ""tacky"": ""a"" (1st letter). We now have: ""avoidance"" < ""casualty"" < ""courtier"" < ""gibbon"" < ""leprosy"" < ""merge"" < ""shouldn't"" < ""sidewinder"" < ""tacky"" < ""transgressor"".",0.87890625,0.94140625
+,,step 3,So the answer is avoidance < casualty < courtier < gibbon < leprosy < merge < shouldn't < sidewinder < tacky < transgressor.,0.2021484375,0.9453125
+,,annotation
+
+220,bbh_word_sorting_00220
+,,question,Sort the following words alphabetically: List: testate orchestra permafrost leasehold shiva
+,,y_true,leasehold orchestra permafrost shiva testate
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""testate"": ""t"" (20th letter). ""orchestra"": ""o"" (15th letter). ""permafrost"": ""p"" (16th letter). ""leasehold"": ""l"" (12th letter). ""shiva"": ""s"" (19th letter). We now have: ""orchestra"" < ""permafrost"" < ""shiva"" < [""testate"" ""leasehold""].",0.3203125,0.2021484375
+,,step 1,"Now let's sort this subpart [""testate"" ""leasehold""] by looking at their second letters. The second letter: ""testate"": ""e"" (5th letter). ""leasehold"": ""e"" (5th letter). They are equal, so we need to look at the third letters.",0.75390625,0.73046875
+,,step 2,"Now let's sort this subpart [""testate"" ""leasehold""] by looking at their third letters. The third letter: ""testate"": ""s"" (19th letter). ""leasehold"": ""a"" (1st letter). We now have: ""leasehold"" < ""testate"".",0.99609375,0.93359375
+,,step 3,So the answer is orchestra < permafrost < shiva < leasehold < testate.,0.99609375,0.97265625
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""testate"": ""t"" (20th letter). ""orchestra"": ""o"" (15th letter). ""permafrost"": ""p"" (16th letter). ""leasehold"": ""l"" (12th letter). ""shiva"": ""s"" (19th letter). We now have: ""leasehold"" < ""orchestra"" < ""permafrost"" < ""shiva"" < ""testate"".",0.02294921875,0.349609375
+,,step 1,So the answer is leasehold orchestra permafrost shiva testate.,0.9453125,0.99609375
+,,annotation
+
+236,bbh_word_sorting_00236
+,,question,Sort the following words alphabetically: List: implementor bangui nudge cavalier refractory islamabad contextual abramson waite railway carlisle magistrate silvery picnicking dustbin emacs
+,,y_true,abramson bangui carlisle cavalier contextual dustbin emacs implementor islamabad magistrate nudge picnicking railway refractory silvery waite
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""implementor"": ""i"" (9th letter). ""bangui"": ""b"" (2nd letter). ""nudge"": ""n"" (14th letter). ""cavalier"": ""c"" (3rd letter). ""refractory"": ""r"" (18th letter). ""islamabad"": ""i"" (9th letter). ""contextual"": ""c"" (3rd letter). ""abramson"": ""a"" (1st letter). ""waite"": ""w"" (23rd letter). ""railway"": ""r"" (18th letter). ""carlisle"": ""c"" (3rd letter). ""magistrate"": ""m"" (13th letter). ""silvery"": ""s"" (19th letter). ""picnicking"": ""p"" (16th letter). ""dustbin"": ""d"" (4th letter). ""emacs"": ""e"" (5th letter).",1.0,0.77734375
+,,step 1,"We now have: ""abramson"" < ""bangui"" < ""carlisle"" < ""cavalier"" < ""contextual"" < ""dustbin"" < ""emacs"" < ""implementor"" < ""islamabad"" < ""magistrate"" < ""nudge"" < ""picnicking"" < ""refractory"" < ""railway"" < ""silvery"".",0.037353515625,0.2021484375
+,,step 2,So the answer is abramson bangui carlisle cavalier contextual dustbin emacs implementor islamabad magistrate nudge picnic refractory railway silvery.,0.6796875,0.65234375
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""implementor"": ""i"" (9th letter). ""bangui"": ""b"" (2nd letter). ""nudge"": ""n"" (14th letter). ""cavalier"": ""c"" (3rd letter). ""refractory"": ""r"" (18th letter). ""islamabad"": ""i"" (9th letter). ""contextual"": ""c"" (3rd letter). ""abramson"": ""a"" (1st letter). ""waite"": ""w"" (23rd letter). ""railway"": ""r"" (18th letter). ""carlisle"": ""c"" (3rd letter). ""magistrate"": ""m"" (13th letter). ""silvery"": ""s"" (19th letter). ""picnicking"": ""p"" (16th letter). ""dustbin"": ""d"" (4th letter). ""emacs"": ""e"" (5th letter). We now have: ""abramson"" < ""bangui"" < ""carlisle"" < ""cavalier"" < ""contextual"" < ""dustbin"" < ""emacs"" < ""implementor"" < ""islamabad"" < ""magistrate"" < ""nudge"" < ""picnicking"" < ""refractory"" < ""railway"" < ""silvery"" < ""waite"".",0.005218505859375,0.2451171875
+,,step 1,So the answer is abramson bangui carlisle cavalier contextual dustbin emacs implementor islamabad magistrate nudge picnic refractory railway silvery waite.,0.93359375,0.8671875
+,,annotation
+

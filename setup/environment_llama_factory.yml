@@ -1,0 +1,9 @@
+name: llama_factory_fover
+channels:
+  - defaults
+dependencies:
+  - python=3.11.11
+  - pip=25.0
+  - pip:
+      - ipython==9.0.2
+      - typed-argument-parser==1.10.1

@@ -1,0 +1,56 @@
+{
+    "performance": {
+        "instance_level": {
+            "auroc": NaN,
+            "accuracy": 0.25,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "threshold": 0.94140625
+        },
+        "step_level": {
+            "auroc": 0.5,
+            "accuracy": 0.5555555555555556,
+            "f1": 0.7142857142857143,
+            "precision": 0.5555555555555556,
+            "recall": 1.0,
+            "threshold": 0.00360107421875
+        }
+    },
+    "num_instances": 4,
+    "num_all_steps": 9,
+    "y_pred_step_level": [
+        1.0,
+        1.0,
+        1.0,
+        0.9609375,
+        1.0,
+        1.0,
+        1.0,
+        0.77734375,
+        1.0
+    ],
+    "y_true_step_level": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        false
+    ],
+    "y_pred_instance_level": [
+        1.0,
+        0.9609375,
+        1.0,
+        0.77734375
+    ],
+    "y_true_instance_level": [
+        false,
+        false,
+        false,
+        false
+    ]
+}

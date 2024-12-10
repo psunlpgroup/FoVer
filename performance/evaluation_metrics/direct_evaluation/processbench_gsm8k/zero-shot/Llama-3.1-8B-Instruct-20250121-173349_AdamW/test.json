@@ -1,0 +1,49 @@
+{
+    "performance": {
+        "instance_level": {
+            "accuracy": 0.49,
+            "f1": 0.1774193548387097,
+            "precision": 0.5365853658536586,
+            "recall": 0.10628019323671498
+        },
+        "step_level": {
+            "accuracy": 0.8501275510204082,
+            "f1": 0.1391941391941392,
+            "precision": 0.2878787878787879,
+            "recall": 0.09178743961352658
+        }
+    },
+    "majority_label_baseline": {
+        "instance_level": {
+            "accuracy": 0.4825,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+        },
+        "step_level": {
+            "accuracy": 0.8679846938775511,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+        }
+    },
+    "num_instances": 400,
+    "num_all_steps": 1568,
+    "num_y_pred_step_level": {
+        "true": 1499,
+        "false": 66,
+        "null": 3
+    },
+    "num_y_true_step_level": {
+        "true": 1361,
+        "false": 207
+    },
+    "num_y_pred_instance_level": {
+        "true": 359,
+        "false": 41
+    },
+    "num_y_true_instance_level": {
+        "false": 207,
+        "true": 193
+    }
+}

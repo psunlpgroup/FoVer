@@ -1,0 +1,304 @@
+data_idx,id,type,value,baseline,finetuned
+19,bbh_word_sorting_00019
+,,question,Sort the following words alphabetically: List: bituminous ami decadent knickerbocker exeter
+,,y_true,ami bituminous decadent exeter knickerbocker
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""bituminous"": ""b"" (2nd letter). ""ami"": ""a"" (1st letter). ""decadent"": ""d"" (4th letter). ""knickerbocker"": ""k"" (11th letter). ""exeter"": ""e"" (5th letter). We now have: ""ami"" < ""exeter"" < ""decadent"" < [""bituminous"" ""knickerbocker""].",0.59375,0.349609375
+,,step 1,"Now let's sort this subpart [""bituminous"" ""knickerbocker""] by looking at their second letters. The second letter: ""bituminous"": ""i"" (9th letter). ""knickerbocker"": ""n"" (14th letter). We now have: ""ami"" < ""exeter"" < ""decadent"" < ""bituminous"" < ""knickerbocker"".",0.97265625,0.75390625
+,,step 2,"Now let's sort this subpart [""decadent"" ""exeter""] by looking at their second letters. The second letter: ""decadent"": ""e"" (5th letter). ""exeter"": ""x"" (24th letter). We now have: ""ami"" < ""exeter"" < ""decadent"" < ""bituminous"" < ""knickerbocker"".",0.5625,0.81640625
+,,step 3,So the answer is ami < decadent < exeter < bituminous < knickerbocker.,0.98828125,0.8515625
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""bituminous"": ""b"" (2nd letter). ""ami"": ""a"" (1st letter). ""decadent"": ""d"" (4th letter). ""knickerbocker"": ""k"" (11th letter). ""exeter"": ""e"" (5th letter).",0.408203125,0.77734375
+,,step 1,"We now have: ""ami"" < ""bituminous"" < ""decadent"" < ""exeter"" < ""knickerbocker"".",0.92578125,0.5
+,,step 2,So the answer is ami < bituminous < decadent < exeter < knickerbocker.,0.984375,0.98046875
+,,annotation
+
+26,bbh_word_sorting_00026
+,,question,Sort the following words alphabetically: List: dynastic inflammable prick tristan vitiate tackle stagnate conglomerate nebulae phosphide
+,,y_true,conglomerate dynastic inflammable nebulae phosphide prick stagnate tackle tristan vitiate
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""dynastic"": ""d"" (4th letter). ""inflammable"": ""i"" (9th letter). ""prick"": ""p"" (16th letter). ""tristan"": ""t"" (20th letter). ""vitiate"": ""v"" (22nd letter). ""tackle"": ""t"" (20th letter). ""stagnate"": ""s"" (19th letter). ""conglomerate"": ""c"" (3rd letter). ""nebulae"": ""n"" (14th letter). ""phosphide"": ""p"" (16th letter). We now have: [""conglomerate""] < ""dynastic"" < [""inflammable"" ""nebulae""] < [""prick"" ""phosphide""] < [""stagnate"" ""tackle"" ""tristan""] < ""vitiate"".",0.62109375,0.1826171875
+,,step 1,"Now let's sort this subpart [""inflammable"" ""nebulae""] by looking at their second letters. The second letter: ""inflammable"": ""n"" (14th letter). ""nebulae"": ""e"" (5th letter). We now have:  ""nebulae"" < ""inflammable"" < ""conglomerate"" < ""dynastic"" < [""prick"" ""phosphide""] < [""stagnate"" ""tackle"" ""tristan""] < ""vitiate"".",0.984375,0.75390625
+,,step 2,"Now let's sort this subpart [""prick"" ""phosphide""] by looking at their second letters. The second letter: ""prick"": ""r"" (18th letter). ""phosphide"": ""h"" (8th letter). We now have:  ""phosphide"" < ""prick"" < ""conglomerate"" < ""dynastic"" < ""inflammable"" < ""nebulae"" < [""stagnate"" ""tackle"" ""tristan""] < ""vitiate"".",0.984375,0.90625
+,,step 3,"Now let's sort this subpart [""stagnate"" ""tackle"" ""tristan""] by looking at their second letters. The second letter: ""stagnate"": ""t"" (20th letter). ""tackle"": ""a"" (1st letter). ""tristan"": ""r"" (18th letter). We now have: ""tackle"" < ""stagnate"" < ""tristan"" < ""conglomerate"" < ""dynastic"" < ""inflammable"" < ""nebulae"" < ""phosphide"" < ""prick"" < ""vitiate"".",0.9609375,0.89453125
+,,step 4,So the answer is conglomerate < dynastic < inflammable < nebulae < phosphide < prick < tackle < stagnate < tristan < vitiate.,0.99609375,0.59375
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""dynastic"": ""d"" (4th letter). ""inflammable"": ""i"" (9th letter). ""prick"": ""p"" (16th letter). ""tristan"": ""t"" (20th letter). ""vitiate"": ""v"" (22nd letter). ""tackle"": ""t"" (20th letter). ""stagnate"": ""s"" (19th letter). ""conglomerate"": ""c"" (3rd letter). ""nebulae"": ""n"" (14th letter). ""phosphide"": ""p"" (16th letter). We now have: ""conglomerate"" < ""dynastic"" < [""inflammable"" ""nebulae""] < [""prick"" ""phosphide""] < [""stagnate"" ""tackle"" ""tristan"" ""vitiate""].",0.65234375,0.2021484375
+,,step 1,"Now let's sort this subpart [""inflammable"" ""nebulae""] by looking at their second letters. The second letter: ""inflammable"": ""n"" (14th letter). ""nebulae"": ""e"" (5th letter). We now have: ""inflammable"" < ""nebulae"" < ""conglomerate"" < ""dynastic"" < [""prick"" ""phosphide""] < [""stagnate"" ""tackle"" ""tristan"" ""vitiate""].",1.0,0.796875
+,,step 2,"Now let's sort this subpart [""prick"" ""phosphide""] by looking at their second letters. The second letter: ""prick"": ""r"" (18th letter). ""phosphide"": ""h"" (8th letter). We now have: ""phosphide"" < ""prick"" < ""inflammable"" < ""nebulae"" < ""conglomerate"" < ""dynastic"" < [""stagnate"" ""tackle"" ""tristan"" ""vitiate""].",0.953125,0.90625
+,,step 3,"Now let's sort this subpart [""stagnate"" ""tackle"" ""tristan"" ""vitiate""] by looking at their second letters. The second letter: ""stagnate"": ""t"" (20th letter). ""tackle"": ""a"" (1st letter). ""tristan"": ""r"" (18th letter). ""vitiate"": ""i"" (9th letter). We now have: ""tackle"" < ""stagnate"" < ""tristan"" < ""vitiate"" < ""phosphide"" < ""prick"" < ""inflammable"" < ""nebulae"" < ""conglomerate"" < ""dynastic"".",0.46875,0.77734375
+,,step 4,So the answer is conglomerate < dynastic < inflammable < nebulae < phosphide < prick < stagnate < tackle < tristan < vitiate.,0.9921875,0.70703125
+,,annotation
+
+27,bbh_word_sorting_00027
+,,question,Sort the following words alphabetically: List: dateline jill langmuir pipette household
+,,y_true,dateline household jill langmuir pipette
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""dateline"": ""d"" (4th letter). ""jill"": ""j"" (10th letter). ""langmuir"": ""l"" (12th letter). ""pipette"": ""p"" (16th letter). ""household"": ""h"" (8th letter). We now have: ""dateline"" < ""household"" < [""jill"" ""langmuir""] < ""pipette"".",0.4375,0.22265625
+,,step 1,"Now let's sort this subpart [""jill"" ""langmuir""] by looking at their second letters. The second letter: ""jill"": ""i"" (9th letter). ""langmuir"": ""a"" (1st letter). We now have: ""jill"" < ""langmuir"" < ""dateline"" < ""household"" < ""pipette"".",0.98828125,0.6796875
+,,step 2,So the answer is dateline < jill < langmuir < household < pipette.,0.98828125,0.77734375
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""dateline"": ""d"" (4th letter). ""jill"": ""j"" (10th letter). ""langmuir"": ""l"" (12th letter). ""pipette"": ""p"" (16th letter). ""household"": ""h"" (8th letter). We now have: [""dateline"" ""household""] < ""jill"" < ""langmuir"" < ""pipette"".",0.392578125,0.4375
+,,step 1,"Now let's sort this subpart [""dateline"" ""household""] by looking at their second letters. The second letter: ""dateline"": ""a"" (1st letter). ""household"": ""o"" (15th letter). We now have: ""dateline"" < ""household"" < ""jill"" < ""langmuir"" < ""pipette"".",0.77734375,0.8671875
+,,step 2,So the answer is dateline < household < jill < langmuir < pipette.,0.984375,0.92578125
+,,annotation
+
+34,bbh_word_sorting_00034
+,,question,Sort the following words alphabetically: List: dulse kowalewski yew politician
+,,y_true,dulse kowalewski politician yew
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""dulse"": ""d"" (4th letter). ""kowalewski"": ""k"" (11th letter). ""yew"": ""y"" (25th letter). ""politician"": ""p"" (16th letter). We now have: [""dulse"" ""yew""] < ""kowalewski"" < ""politician"".",0.2021484375,0.26953125
+,,step 1,"Now let's sort this subpart [""dulse"" ""yew""] by looking at their second letters. The second letter: ""dulse"": ""u"" (21st letter). ""yew"": ""e"" (5th letter). We now have: ""yew"" < ""dulse"" < ""kowalewski"" < ""politician"".",0.96875,0.796875
+,,step 2,So the answer is yew < dulse < kowalewski < politician.,0.9765625,0.87890625
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""dulse"": ""d"" (4th letter). ""kowalewski"": ""k"" (11th letter). ""yew"": ""y"" (25th letter). ""politician"": ""p"" (16th letter). We now have: ""dulse"" < ""kowalewski"" < ""politician"" < ""yew"".",0.2021484375,0.294921875
+,,step 1,So the answer is dulse < kowalewski < politician < yew.,0.4375,0.9609375
+,,annotation
+
+64,bbh_word_sorting_00064
+,,question,Sort the following words alphabetically: List: million boone chalcedony sinai satin genteel alternate charity olden
+,,y_true,alternate boone chalcedony charity genteel million olden satin sinai
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""million"": ""m"" (13th letter). ""boone"": ""b"" (2nd letter). ""chalcedony"": ""c"" (3rd letter). ""sinai"": ""s"" (19th letter). ""satin"": ""s"" (19th letter). ""genteel"": ""g"" (7th letter). ""alternate"": ""a"" (1st letter). ""charity"": ""c"" (3rd letter). ""olden"": ""o"" (15th letter). We now have: [""alternate""] < [""boone"" ""charity"" ""olden""] < [""chalcedony"" ""genteel""] < [""million"" ""satin"" ""sinai""].",0.75390625,0.22265625
+,,step 1,"Now let's sort the subpart [""boone"" ""charity"" ""olden""] by looking at their second letters. The second letter: ""boone"": ""o"" (15th letter). ""charity"": ""h"" (8th letter). ""olden"": ""o"" (15th letter). We now have: ""boone"" = ""olden"" < ""charity"".",0.9453125,0.6796875
+,,step 2,"Now let's sort the subpart [""million"" ""satin"" ""sinai""] by looking at their second letters. The second letter: ""million"": ""i"" (9th letter). ""satin"": ""a"" (1st letter). ""sinai"": ""i"" (9th letter). We now have: ""satin"" < [""million"" ""sinai""].",0.93359375,0.9140625
+,,step 3,"Now let's sort the subpart [""million"" ""sinai""] by looking at their third letters. The third letter: ""million"": ""l"" (12th letter). ""sinai"": ""n"" (14th letter). We now have: ""million"" < ""sinai"".",0.98046875,0.98046875
+,,step 4,"We now have: [""alternate""] < [""boone"" ""charity"" ""olden""] < [""chalcedony"" ""genteel""] < [""million"" ""satin"" ""sinai""].",1.0,0.8671875
+,,step 5,So the answer is alternate < boone < charity < olden < chalcedony < genteel < million < satin < sinai.,0.99609375,0.62109375
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""million"": ""m"" (13th letter). ""boone"": ""b"" (2nd letter). ""chalcedony"": ""c"" (3rd letter). ""sinai"": ""s"" (19th letter). ""satin"": ""s"" (19th letter). ""genteel"": ""g"" (7th letter). ""alternate"": ""a"" (1st letter). ""charity"": ""c"" (3rd letter). ""olden"": ""o"" (15th letter). We now have: [""alternate""] < [""boone"" ""charity"" ""chalcedony""] < [""genteel"" ""million""] < [""olden"" ""sinai"" ""satin""].",0.71875,0.26953125
+,,step 1,"Now let's sort the subpart [""boone"" ""charity"" ""chalcedony""] by looking at their second letters. The second letter: ""boone"": ""o"" (15th letter). ""charity"": ""h"" (8th letter). ""chalcedony"": ""h"" (8th letter). We now have: ""boone"" < ""charity"" < ""chalcedony"".",0.99609375,0.81640625
+,,step 2,"Now let's sort the subpart [""genteel"" ""million""] by looking at their second letters. The second letter: ""genteel"": ""e"" (5th letter). ""million"": ""i"" (9th letter). We now have: ""genteel"" < ""million"".",1.0,0.9921875
+,,step 3,"Now let's sort the subpart [""olden"" ""sinai"" ""satin""] by looking at their second letters. The second letter: ""olden"": ""l"" (12th letter). ""sinai"": ""i"" (9th letter). ""satin"": ""a"" (1st letter). We now have: ""satin"" < ""sinai"" < ""olden"".",0.92578125,0.9765625
+,,step 4,"Now let's sort the subpart [""alternate"" ""boone"" ""charity"" ""chalcedony""] by looking at their third letters. The third letter: ""alternate"": ""l"" (12th letter). ""boone"": ""o"" (15th letter). ""charity"": ""a"" (1st letter). ""chalcedony"": ""l"" (12th letter). We now have: ""alternate"" < ""charity"" < [""boone"" ""chalcedony""].",0.953125,0.92578125
+,,step 5,"Now let's sort the subpart [""boone"" ""chalcedony""] by looking at their fourth letters. The fourth letter: ""boone"": ""o"" (15th letter). ""chalcedony"": ""c"" (3rd letter). We now have: ""boone"" < ""chalcedony"".",0.376953125,0.953125
+,,step 6,"Now we have: ""alternate"" < ""boone"" < ""chalcedony"" < ""charity"" < ""genteel"" < ""million"" < ""olden"" < ""satin"" < ""sinai"".",0.99609375,0.6796875
+,,step 7,So the answer is alternate < boone < chalcedony < charity < genteel < million < olden < satin < sinai.,1.0,0.9609375
+,,annotation
+
+116,bbh_word_sorting_00116
+,,question,Sort the following words alphabetically: List: stanhope sisyphus fungi purpose midwinter mendelevium studious driveway symmetry despond trample wring strip clearheaded encapsulate vs gob christen
+,,y_true,christen clearheaded despond driveway encapsulate fungi gob mendelevium midwinter purpose sisyphus stanhope strip studious symmetry trample vs wring
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""stanhope"": ""s"" (19th letter). ""sisyphus"": ""s"" (19th letter). ""fungi"": ""f"" (6th letter). ""purpose"": ""p"" (16th letter). ""midwinter"": ""m"" (13th letter). ""mendelevium"": ""m"" (13th letter). ""studious"": ""s"" (19th letter). ""driveway"": ""d"" (4th letter). ""symmetry"": ""s"" (19th letter). ""despond"": ""d"" (4th letter). ""trample"": ""t"" (20th letter). ""wring"": ""w"" (23rd letter). ""strip"": ""s"" (19th letter). ""clearheaded"": ""c"" (3rd letter). ""encapsulate"": ""e"" (5th letter). ""vs"": ""v"" (22nd letter). ""gob"": ""g"" (7th letter). ""christen"": ""c"" (3rd letter).",0.5,0.73046875
+,,step 1,"Now we have: [""christen"" ""clearheaded""] < [""despond"" ""driveway""] < [""encapsulate""] < [""fungi""] < [""gob""] < [""mendelevium"" ""midwinter""] < [""stanhope"" ""sisyphus"" ""studious"" ""strip"" ""symmetry""] < ""trample"" < ""vs"" < ""wring"".",0.953125,0.1484375
+,,step 2,"Now let's sort the subpart [""christen"" ""clearheaded""] by looking at their second letters. The second letter: ""christen"": ""h"" (8th letter). ""clearheaded"": ""l"" (12th letter). We now have: ""christen"" < ""clearheaded"".",0.9921875,0.92578125
+,,step 3,"Now let's sort the subpart [""despond"" ""driveway""] by looking at their second letters. The second letter: ""despond"": ""e"" (5th letter). ""driveway"": ""r"" (18th letter). We now have: ""despond"" < ""driveway"".",1.0,0.9921875
+,,step 4,"Now let's sort the subpart [""mendelevium"" ""midwinter""] by looking at their second letters. The second letter: ""mendelevium"": ""e"" (5th letter). ""midwinter"": ""i"" (9th letter). We now have: ""mendelevium"" < ""midwinter"".",1.0,0.95703125
+,,step 5,"Now let's sort the subpart [""stanhope"" ""sisyphus"" ""studious"" ""strip"" ""symmetry""] by looking at their second letters. The second letter: ""stanhope"": ""t"" (20th letter). ""sisyphus"": ""i"" (9th letter). ""studious"": ""t"" (20th letter). ""strip"": ""t"" (20th letter). ""symmetry"": ""y"" (25th letter). We now have: ""sisyphus"" < [""stanhope"" ""studious"" ""strip""] < ""symmetry"".",0.98828125,0.90625
+,,step 6,"Now let's sort this subpart [""stanhope"" ""studious"" ""strip""] by looking at their third letters. The third letter: ""stanhope"": ""n"" (14th letter). ""studious"": ""d"" (4th letter). ""strip"": ""r"" (18th letter). We now have: ""studious"" < ""strip"" < ""stanhope"".",0.94140625,0.98046875
+,,step 7,"Now we have: ""christen"" < ""clearheaded"" < ""despond"" < ""driveway"" < ""encapsulate"" < ""fungi"" < ""gob"" < ""mendelevium"" < ""midwinter"" < [""sisyphus"" ""stanhope"" ""studious"" ""strip""] < ""symmetry"" < ""trample"" < ""vs"" < ""wring"".",1.0,0.8671875
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""stanhope"": ""s"" (19th letter). ""sisyphus"": ""s"" (19th letter). ""fungi"": ""f"" (6th letter). ""purpose"": ""p"" (16th letter). ""midwinter"": ""m"" (13th letter). ""mendelevium"": ""m"" (13th letter). ""studious"": ""s"" (19th letter). ""driveway"": ""d"" (4th letter). ""symmetry"": ""s"" (19th letter). ""despond"": ""d"" (4th letter). ""trample"": ""t"" (20th letter). ""wring"": ""w"" (23rd letter). ""strip"": ""s"" (19th letter). ""clearheaded"": ""c"" (3rd letter). ""encapsulate"": ""e"" (5th letter). ""vs"": ""v"" (22nd letter). ""gob"": ""g"" (7th letter). ""christen"": ""c"" (3rd letter).",0.5,0.73046875
+,,step 1,"Now let's sort the words starting with ""c"". We have: ""christen"" < ""clearheaded"".",0.98046875,0.89453125
+,,step 2,"Now let's sort the words starting with ""d"". We have: ""despond"" < ""driveway"".",0.99609375,0.9921875
+,,step 3,"Now let's sort the words starting with ""e"". We have: ""encapsulate"".",0.99609375,1.0
+,,step 4,"Now let's sort the words starting with ""f"". We have: ""fungi"".",1.0,1.0
+,,step 5,"Now let's sort the words starting with ""g"". We have: ""gob"".",1.0,1.0
+,,step 6,"Now let's sort the words starting with ""m"". We have: ""mendelevium"" < ""midwinter"".",0.99609375,0.9140625
+,,step 7,"Now let's sort the words starting with ""p"". We have: ""purpose"".",1.0,1.0
+,,step 8,"Now let's sort the words starting with ""s"". We have: [""sisyphus"" ""stanhope"" ""strip"" ""studious"" ""symmetry""].",0.9921875,0.92578125
+,,step 9,"Now let's sort this subpart [""sisyphus"" ""stanhope"" ""strip"" ""studious"" ""symmetry""] by looking at their second letters. The second letter: ""sisyphus"": ""i"" (9th letter). ""stanhope"": ""t"" (20th letter). ""strip"": ""t"" (20th letter). ""studious"": ""t"" (20th letter). ""symmetry"": ""y"" (25th letter). We now have: ""sisyphus"" < [""stanhope"" ""strip"" ""studious""] < ""symmetry"".",0.98828125,0.8359375
+,,step 10,"Now let's sort this subpart [""stanhope"" ""strip"" ""studious""] by looking at their third letters. The third letter: ""stanhope"": ""n"" (14th letter). ""strip"": ""r"" (18th letter). ""studious"": ""d"" (4th letter). We now have: ""studious"" < ""strip"" < ""stanhope"".",0.99609375,0.98828125
+,,step 11,"Now let's sort this subpart [""stanhope"" ""strip"" ""studious""] by looking at their fourth letters. The fourth letter: ""stanhope"": ""h"" (8th letter). ""strip"": ""i"" (9th letter). ""studious"": ""u"" (21st letter). We now have: ""stanhope"" < ""strip"" < ""studious"".",0.99609375,0.984375
+,,step 12,"Now let's sort the words starting with ""t"". We have: ""trample"".",1.0,1.0
+,,step 13,"Now let's sort the words starting with ""v"". We have: ""vs"".",1.0,1.0
+,,step 14,"Now let's sort the words starting with ""w"". We have: ""wring"".",1.0,1.0
+,,step 15,"Now we have: ""christen"" < ""clearheaded"" < ""despond"" < ""driveway"" < ""encapsulate"" < ""fungi"" < ""gob"" < ""mendelevium"" < ""midwinter"" < ""purpose"" < ""sisyphus"" < ""stanhope"" < ""strip"" < ""studious"" < ""symmetry"" < ""trample"" < ""vs"" < ""wring"".",0.98828125,0.46875
+,,annotation
+
+120,bbh_word_sorting_00120
+,,question,Sort the following words alphabetically: List: pea yonkers darkle quadrant moldboard instant olsen hookup erudite lip
+,,y_true,darkle erudite hookup instant lip moldboard olsen pea quadrant yonkers
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""pea"": ""p"" (16th letter). ""yonkers"": ""y"" (25th letter). ""darkle"": ""d"" (4th letter). ""quadrant"": ""q"" (17th letter). ""moldboard"": ""m"" (13th letter). ""instant"": ""i"" (9th letter). ""olsen"": ""o"" (15th letter). ""hookup"": ""h"" (8th letter). ""erudite"": ""e"" (5th letter). ""lip"": ""l"" (12th letter). We now have: [""erudite""] < [""darkle"" ""hookup"" ""instant"" ""lip""] < [""moldboard"" ""olsen""] < [""pea"" ""quadrant"" ""yonkers""].",0.546875,0.119140625
+,,step 1,"Now let's sort this subpart [""darkle"" ""hookup"" ""instant"" ""lip""] by looking at their second letters. The second letter: ""darkle"": ""a"" (1st letter). ""hookup"": ""o"" (15th letter). ""instant"": ""n"" (14th letter). ""lip"": ""i"" (9th letter). We now have: ""darkle"" < ""hookup"" < ""instant"" < ""lip"".",1.0,0.8515625
+,,step 2,"Now let's sort this subpart [""moldboard"" ""olsen""] by looking at their second letters. The second letter: ""moldboard"": ""o"" (15th letter). ""olsen"": ""l"" (12th letter). We now have: ""moldboard"" < ""olsen"".",0.9453125,0.94140625
+,,step 3,"Now let's sort this subpart [""pea"" ""quadrant"" ""yonkers""] by looking at their second letters. The second letter: ""pea"": ""e"" (5th letter). ""quadrant"": ""u"" (21st letter). ""yonkers"": ""o"" (15th letter). We now have: ""pea"" < ""yonkers"" < ""quadrant"".",0.98828125,0.96875
+,,step 4,Now let's put it all together: erudite < darkle < hookup < instant < lip < moldboard < olsen < pea < yonkers < quadrant.,0.99609375,0.796875
+,,step 5,So the answer is erudite < darkle < hookup < instant < lip < moldboard < olsen < pea < yonkers < quadrant.,1.0,0.98046875
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""pea"": ""p"" (16th letter). ""yonkers"": ""y"" (25th letter). ""darkle"": ""d"" (4th letter). ""quadrant"": ""q"" (17th letter). ""moldboard"": ""m"" (13th letter). ""instant"": ""i"" (9th letter). ""olsen"": ""o"" (15th letter). ""hookup"": ""h"" (8th letter). ""erudite"": ""e"" (5th letter). ""lip"": ""l"" (12th letter). We now have: ""darkle"" < ""erudite"" < ""hookup"" < ""instant"" < [""lip"" ""moldboard""] < [""olsen"" ""pea""] < ""quadrant"" < ""yonkers"".",0.5625,0.1640625
+,,step 1,"Now let's sort the subpart [""lip"" ""moldboard""] by looking at their second letters. The second letter: ""lip"": ""i"" (9th letter). ""moldboard"": ""o"" (15th letter). We now have: ""lip"" < ""moldboard"" < ""olsen"" < ""pea"" < ""quadrant"" < ""darkle"" < ""erudite"" < ""hookup"" < ""instant"" < ""yonkers"".",0.9765625,0.59375
+,,step 2,"Now let's sort the subpart [""olsen"" ""pea""] by looking at their second letters. The second letter: ""olsen"": ""l"" (12th letter). ""pea"": ""e"" (5th letter). We now have: ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""quadrant"" < ""darkle"" < ""erudite"" < ""hookup"" < ""instant"" < ""yonkers"".",0.6796875,0.89453125
+,,step 3,"Now let's sort the subpart [""darkle"" ""erudite""] by looking at their third letters. The third letter: ""darkle"": ""r"" (18th letter). ""erudite"": ""u"" (21st letter). We now have: ""darkle"" < ""erudite"" < ""lip"" < ""moldboard"" < ""olsen"" < ""pea"" < ""quadrant"" < ""hookup"" < ""instant"" < ""yonkers"".",0.3203125,0.9140625
+,,step 4,"Now let's sort the subpart [""hookup"" ""instant""] by looking at their third letters. The third letter: ""hookup"": ""o"" (15th letter). ""instant"": ""n"" (14th letter). We now have: ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""lip"" < ""moldboard"" < ""olsen"" < ""pea"" < ""quadrant"" < ""yonkers"".",0.62109375,0.953125
+,,step 5,"Now let's sort the subpart [""lip"" ""moldboard""] by looking at their fourth letters. The fourth letter: ""lip"": ""p"" (16th letter). ""moldboard"": ""l"" (12th letter). We now have: ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""olsen"" < ""pea"" < ""quadrant"" < ""yonkers"".",0.06005859375,0.8671875
+,,step 6,"Now let's sort the subpart [""olsen"" ""pea""] by looking at their third letters. The third letter: ""olsen"": ""l"" (12th letter). ""pea"": ""a"" (1st letter). We now have: ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""quadrant"" < ""yonkers"".",0.89453125,0.94140625
+,,step 7,"Now let's sort the subpart [""darkle"" ""erudite""] by looking at their fourth letters. The fourth letter: ""darkle"": ""k"" (11th letter). ""erudite"": ""d"" (4th letter). We now have: ""darkle"" < ""erudite"" < ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""quadrant"" < ""yonkers"".",0.6796875,0.94140625
+,,step 8,"Now let's sort the subpart [""hookup"" ""instant""] by looking at their fourth letters. The fourth letter: ""hookup"": ""u"" (21st letter). ""instant"": ""n"" (14th letter). We now have: ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""quadrant"" < ""yonkers"".",0.96875,0.984375
+,,step 9,"Now let's sort the subpart [""lip"" ""moldboard""] by looking at their fifth letters. The fifth letter: ""lip"": ""b"" (2nd letter). ""moldboard"": ""o"" (15th letter). We now have: ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""pea"" < ""olsen"" < ""quadrant"" < ""yonkers"".",0.87890625,0.984375
+,,step 10,"Now let's sort the subpart [""pea"" ""olsen""] by looking at their fourth letters. The fourth letter: ""pea"": ""a"" (1st letter). ""olsen"": ""s"" (19th letter). We now have: ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""quadrant"" < ""yonkers"".",0.93359375,0.94140625
+,,step 11,"Now let's sort the subpart [""darkle"" ""erudite""] by looking at their fifth letters. The fifth letter: ""darkle"": ""k"" (11th letter). ""erudite"": ""u"" (21st letter). We now have: ""darkle"" < ""erudite"" < ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""quadrant"" < ""yonkers"".",0.9765625,0.984375
+,,step 12,"Now let's sort the subpart [""hookup"" ""instant""] by looking at their fifth letters. The fifth letter: ""hookup"": ""k"" (11th letter). ""instant"": ""n"" (14th letter). We now have: ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""quadrant"" < ""yonkers"".",0.98828125,0.97265625
+,,step 13,"Now let's sort the subpart [""lip"" ""moldboard""] by looking at their sixth letters. The sixth letter: ""lip"": ""p"" (16th letter). ""moldboard"": ""d"" (4th letter). We now have: ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""pea"" < ""olsen"" < ""quadrant"" < ""yonkers"".",0.037353515625,0.984375
+,,step 14,"Now let's sort the subpart [""pea"" ""olsen""] by looking at their fifth letters. The fifth letter: ""pea"": ""a"" (1st letter). ""olsen"": ""n"" (14th letter). We now have: ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""quadrant"" < ""yonkers"".",0.9140625,0.96875
+,,step 15,"Now let's sort the subpart [""darkle"" ""erudite""] by looking at their sixth letters. The sixth letter: ""darkle"": ""l"" (12th letter). ""erudite"": ""d"" (4th letter). We now have: ""darkle"" < ""erudite"" < ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""quadrant"" < ""yonkers"".",0.26953125,0.98828125
+,,step 16,"Now let's sort the subpart [""hookup"" ""instant""] by looking at their sixth letters. The sixth letter: ""hookup"": ""p"" (16th letter). ""instant"": ""n"" (14th letter). We now have: ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""quadrant"" < ""yonkers"".",0.984375,0.9921875
+,,step 17,"Now let's sort the subpart [""lip"" ""moldboard""] by looking at their seventh letters. The seventh letter: ""lip"": ""p"" (16th letter). ""moldboard"": ""r"" (18th letter). We now have: ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < ""pea"" < ""olsen"" < ""quadrant"" < ""yonkers"".",0.984375,0.9921875
+,,step 18,"Now let's sort the subpart [""pea"" ""olsen""] by looking at their sixth letters. The sixth letter: ""pea"": ""a"" (1st letter). ""olsen"": ""n"" (14th letter). We now have: ""pea"" < ""olsen"" < ""lip"" < ""moldboard"" < ""instant"" < ""hookup"" < ""darkle"" < ""erudite"" < """,0.10693359375,0.26953125
+,,annotation
+
+129,bbh_word_sorting_00129
+,,question,Sort the following words alphabetically: List: lethe bilk perturb tactual
+,,y_true,bilk lethe perturb tactual
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""lethe"": ""l"" (12th letter). ""bilk"": ""b"" (2nd letter). ""perturb"": ""p"" (16th letter). ""tactual"": ""t"" (20th letter). We now have: ""bilk"" < ""lethe"" < [""perturb"" ""tactual""].",0.53125,0.376953125
+,,step 1,"Now let's sort this subpart [""perturb"" ""tactual""] by looking at their second letters. The second letter: ""perturb"": ""e"" (5th letter). ""tactual"": ""a"" (1st letter). We now have: ""a"" < ""e"", but ""a"" is before ""e"", so ""a"" < ""e"" is correct. ""a"" is before ""e"", so ""tactual"" < ""perturb"". We now have: ""bilk"" < ""lethe"" < ""tactual"" < ""perturb"".",0.99609375,0.77734375
+,,step 2,So the answer is bilk < lethe < tactual < perturb.,0.99609375,0.98046875
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""lethe"": ""l"" (12th letter). ""bilk"": ""b"" (2nd letter). ""perturb"": ""p"" (16th letter). ""tactual"": ""t"" (20th letter). We now have: ""bilk"" < ""lethe"" < ""perturb"" < ""tactual"".",0.46875,0.5625
+,,step 1,So the answer is bilk < lethe < perturb < tactual.,0.984375,0.9765625
+,,annotation
+
+131,bbh_word_sorting_00131
+,,question,Sort the following words alphabetically: List: erudite marriageable stahl coach inadvisable vicksburg virgo brownian eosine magnesium flax
+,,y_true,brownian coach eosine erudite flax inadvisable magnesium marriageable stahl vicksburg virgo
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""erudite"": ""e"" (5th letter). ""marriageable"": ""m"" (13th letter). ""stahl"": ""s"" (19th letter). ""coach"": ""c"" (3rd letter). ""inadvisable"": ""i"" (9th letter). ""vicksburg"": ""v"" (22nd letter). ""virgo"": ""v"" (22nd letter). ""eosine"": ""e"" (5th letter). ""magnesium"": ""m"" (13th letter). ""flax"": ""f"" (6th letter). We now have: [""coach"" ""erudite"" ""flax""] < [""eosine"" ""inadvisable""] < [""marriageable"" ""magnesium""] < [""stahl"" ""vicksburg"" ""virgo""].",0.484375,0.1640625
+,,step 1,"Now let's sort this subpart [""coach"" ""erudite"" ""flax""] by looking at their second letters. The second letter: ""coach"": ""o"" (15th letter). ""erudite"": ""r"" (18th letter). ""flax"": ""l"" (12th letter). We now have: ""flax"" < ""coach"" < ""erudite"".",0.99609375,0.953125
+,,step 2,"Now let's sort this subpart [""eosine"" ""inadvisable""] by looking at their second letters. The second letter: ""eosine"": ""o"" (15th letter). ""inadvisable"": ""n"" (14th letter). We now have: ""eosine"" < ""inadvisable"".",0.8671875,0.98828125
+,,step 3,"Now let's sort this subpart [""marriageable"" ""magnesium""] by looking at their second letters. The second letter: ""marriageable"": ""a"" (1st letter). ""magnesium"": ""a"" (1st letter). They are equal, so we need to look at the third letters.",0.94140625,0.9140625
+,,step 4,"Now let's sort this subpart [""marriageable"" ""magnesium""] by looking at their third letters. The third letter: ""marriageable"": ""r"" (18th letter). ""magnesium"": ""g"" (7th letter). We now have: ""magnesium"" < ""marriageable"".",0.98828125,0.9921875
+,,step 5,"Now let's sort this subpart [""stahl"" ""vicksburg"" ""virgo""] by looking at their second letters. The second letter: ""stahl"": ""t"" (20th letter). ""vicksburg"": ""i"" (9th letter). ""virgo"": ""i"" (9th letter). We now have: ""vicksburg"" < ""virgo"" < ""stahl"".",0.93359375,0.9609375
+,,step 6,"Now we have: ""flax"" < ""coach"" < ""erudite"" < ""eosine"" < ""inadvisable"" < ""magnesium"" < ""marriageable"" < ""stahl"" < ""vicksburg"" < ""virgo"".",1.0,0.8515625
+,,step 7,So the answer is flax < coach < erudite < eosine < inadvisable < magnesium < marriageable < stahl < vicksburg < virgo.,1.0,0.98046875
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""erudite"": ""e"" (5th letter). ""marriageable"": ""m"" (13th letter). ""stahl"": ""s"" (19th letter). ""coach"": ""c"" (3rd letter). ""inadvisable"": ""i"" (9th letter). ""vicksburg"": ""v"" (22nd letter). ""virgo"": ""v"" (22nd letter). ""brownian"": ""b"" (2nd letter). ""eosine"": ""e"" (5th letter). ""magnesium"": ""m"" (13th letter). ""flax"": ""f"" (6th letter). We now have: ""brownian"" < ""coach"" < [""erudite"" ""eosine""] < [""flax""] < [""inadvisable""] < [""marriageable"" ""magnesium""] < [""stahl"" ""vicksburg"" ""virgo""].",0.5625,0.1640625
+,,step 1,"Now let's sort this subpart [""erudite"" ""eosine""] by looking at their second letters. The second letter: ""erudite"": ""r"" (18th letter). ""eosine"": ""o"" (15th letter). We now have: ""eosine"" < ""erudite"" < ""brownian"" < ""coach"" < ""flax"" < ""inadvisable"" < [""marriageable"" ""magnesium""] < [""stahl"" ""vicksburg"" ""virgo""].",0.9921875,0.75390625
+,,step 2,"Now let's sort this subpart [""marriageable"" ""magnesium""] by looking at their second letters. The second letter: ""marriageable"": ""a"" (1st letter). ""magnesium"": ""a"" (1st letter). They are equal, so we need to look at the third letters.",0.95703125,0.8671875
+,,step 3,"Now let's sort this subpart [""marriageable"" ""magnesium""] by looking at their third letters. The third letter: ""marriageable"": ""r"" (18th letter). ""magnesium"": ""g"" (7th letter). We now have: ""magnesium"" < ""marriageable"" < ""eosine"" < ""erudite"" < ""brownian"" < ""coach"" < ""flax"" < ""inadvisable"" < [""stahl"" ""vicksburg"" ""virgo""].",0.984375,0.77734375
+,,step 4,"Now let's sort this subpart [""stahl"" ""vicksburg"" ""virgo""] by looking at their second letters. The second letter: ""stahl"": ""t"" (20th letter). ""vicksburg"": ""i"" (9th letter). ""virgo"": ""i"" (9th letter). We now have: ""stahl"" < ""vicksburg"" < ""virgo"" < ""eosine"" < ""erudite"" < ""brownian"" < ""coach"" < ""flax"" < ""inadvisable"" < ""magnesium"" < ""marriageable"".",0.053466796875,0.796875
+,,step 5,So the answer is brownian < coach < eosine < erudite < flax < inadvisable < magnesium < marriageable < stahl < vicksburg < virgo.,0.984375,0.70703125
+,,annotation
+
+153,bbh_word_sorting_00153
+,,question,Sort the following words alphabetically: List: no spokane cartilaginous that'd science
+,,y_true,cartilaginous no science spokane that'd
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""no"": ""n"" (14th letter). ""spokane"": ""s"" (19th letter). ""cartilaginous"": ""c"" (3rd letter). ""that'd"": ""t"" (20th letter). ""science"": ""s"" (19th letter). We now have: ""cartilaginous"" < [""no"" ""science""] < [""spokane"" ""that'd""].",0.5625,0.26953125
+,,step 1,"Now let's sort this subpart [""no"" ""science""] by looking at their second letters. The second letter: ""no"": ""o"" (15th letter). ""science"": ""c"" (3rd letter). We now have: ""no"" < ""science"" < ""cartilaginous"" < [""spokane"" ""that'd""].",0.9921875,0.59375
+,,step 2,"Now let's sort this subpart [""spokane"" ""that'd""] by looking at their second letters. The second letter: ""spokane"": ""p"" (16th letter). ""that'd"": ""h"" (8th letter). We now have: ""that'd"" < ""spokane"" < ""cartilaginous"" < ""no"" < ""science"".",0.5625,0.62109375
+,,step 3,So the answer is that'd < spokane < cartilaginous < no < science.,0.984375,0.81640625
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""no"": ""n"" (14th letter). ""spokane"": ""s"" (19th letter). ""cartilaginous"": ""c"" (3rd letter). ""that'd"": ""t"" (20th letter). ""science"": ""s"" (19th letter). We now have: ""cartilaginous"" < [""no"" ""science"" ""spokane""] < ""that'd"".",0.53125,0.294921875
+,,step 1,"Now let's sort this subpart [""no"" ""science"" ""spokane""] by looking at their second letters. The second letter: ""no"": ""o"" (15th letter). ""science"": ""c"" (3rd letter). ""spokane"": ""p"" (16th letter). We now have: ""science"" < ""spokane"" < ""no"".",0.98046875,0.87890625
+,,step 2,"Now let's sort this subpart [""no"" ""science"" ""spokane""] by looking at their third letters. The third letter: ""no"": ""o"" (15th letter). ""science"": ""i"" (9th letter). ""spokane"": ""o"" (15th letter). We now have: ""no"" < ""science"" < ""spokane"".",0.9609375,0.92578125
+,,step 3,"Now let's sort this subpart [""no"" ""science"" ""spokane""] by looking at their fourth letters. The fourth letter: ""no"": ""o"" (15th letter). ""science"": ""e"" (5th letter). ""spokane"": ""k"" (11th letter). We now have: ""science"" < ""no"" < ""spokane"".",0.10693359375,0.93359375
+,,step 4,"Now let's sort this subpart [""no"" ""science"" ""spokane""] by looking at their fifth letters. The fifth letter: ""no"": ""o"" (15th letter). ""science"": ""n"" (14th letter). ""spokane"": ""e"" (5th letter). We now have: ""spokane"" < ""science"" < ""no"".",0.1826171875,0.97265625
+,,step 5,"Now let's sort this subpart [""no"" ""science"" ""spokane""] by looking at their sixth letters. The sixth letter: ""no"": ""o"" (15th letter). ""science"": ""c"" (3rd letter). ""spokane"": ""n"" (14th letter). We now have: ""science"" < ""no"" < ""spokane"".",0.294921875,0.96875
+,,step 6,"Now let's sort this subpart [""no"" ""science"" ""spokane""] by looking at their seventh letters. The seventh letter: ""no"": ""o"" (15th letter). ""science"": ""e"" (5th letter). ""spokane"": ""a"" (1st letter). We now have: ""spokane"" < ""science"" < ""no"".",0.62109375,0.9921875
+,,step 7,"Now let's sort this subpart [""no"" ""science"" ""spokane""] by looking at their eighth letters. The eighth letter: ""no"": ""o"" (15th letter). ""science"": ""c"" (3rd letter). ""spokane"": ""n"" (14th letter). We now have: ""science"" < ""no"" < ""spokane"".",0.029296875,1.0
+,,step 8,"Now let's sort this subpart [""no"" ""science"" ""spokane""] by looking at their ninth letters. The ninth letter: ""no"": ""o"" (15th letter). ""science"": ""e"" (5th letter). ""spokane"": ""a"" (1st letter). We now have: ""spokane"" < ""science"" < ""no"".",0.1826171875,1.0
+,,step 9,"We already know that ""cartilaginous"" < ""spokane"", ""science"" < ""spokane"" and ""spokane"" < ""that'd"". We also know that ""no"" < ""science"" and ""science"" < ""spokane"". We now have: ""cartilaginous"" < ""no"" < ""science"" < ""spokane"" < ""that'd"".",0.98046875,0.62109375
+,,step 10,So the answer is cartilaginous < no < science < spokane < that'd.,1.0,0.90625
+,,annotation
+
+171,bbh_word_sorting_00171
+,,question,Sort the following words alphabetically: List: saprophytic confident pam stowaway stupor foundling compton
+,,y_true,compton confident foundling pam saprophytic stowaway stupor
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""saprophytic"": ""s"" (19th letter). ""confident"": ""c"" (3rd letter). ""pam"": ""p"" (16th letter). ""stowaway"": ""s"" (19th letter). ""stupor"": ""s"" (19th letter). ""foundling"": ""f"" (6th letter). ""compton"": ""c"" (3rd letter). We now have: ""confident"" < ""compton"" < ""foundling"" < [""saprophytic"" ""stowaway"" ""stupor""].",0.609375,0.22265625
+,,step 1,"Now let's sort this subpart [""saprophytic"" ""stowaway"" ""stupor""] by looking at their second letters. The second letter: ""saprophytic"": ""a"" (1st letter). ""stowaway"": ""t"" (20th letter). ""stupor"": ""t"" (20th letter). We now have: ""saprophytic"" < [""stowaway"" ""stupor""].",0.99609375,0.92578125
+,,step 2,"Now let's sort this subpart [""stowaway"" ""stupor""] by looking at their third letters. The third letter: ""stowaway"": ""o"" (15th letter). ""stupor"": ""u"" (21st letter). We now have: ""stowaway"" < ""stupor"" < ""saprophytic"" < ""confident"" < ""compton"" < ""foundling"".",0.8359375,0.5
+,,step 3,So the answer is confident < compton < foundling < saprophytic < stowaway < stupor.,0.98046875,0.796875
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""saprophytic"": ""s"" (19th letter). ""confident"": ""c"" (3rd letter). ""pam"": ""p"" (16th letter). ""stowaway"": ""s"" (19th letter). ""stupor"": ""s"" (19th letter). ""foundling"": ""f"" (6th letter). ""compton"": ""c"" (3rd letter). We now have: [""confident"" ""compton""] < ""foundling"" < [""pam"" ""stowaway"" ""saprophytic"" ""stupor""].",0.578125,0.2451171875
+,,step 1,"Now let's sort this subpart [""confident"" ""compton""] by looking at their second letters. The second letter: ""confident"": ""o"" (15th letter). ""compton"": ""o"" (15th letter). They are equal, so we need to look at the third letters.",0.99609375,0.9140625
+,,step 2,"Now let's sort this subpart [""confident"" ""compton""] by looking at their third letters. The third letter: ""confident"": ""n"" (14th letter). ""compton"": ""m"" (13th letter). We now have: ""compton"" < ""confident"".",0.9921875,0.93359375
+,,step 3,"Now let's sort this subpart [""pam"" ""stowaway"" ""saprophytic"" ""stupor""] by looking at their second letters. The second letter: ""pam"": ""a"" (1st letter). ""stowaway"": ""t"" (20th letter). ""saprophytic"": ""a"" (1st letter). ""stupor"": ""t"" (20th letter). We now have: ""pam"" < ""saprophytic"" < ""stowaway"" < ""stupor"".",0.99609375,0.92578125
+,,step 4,"Now let's sort this subpart [""pam"" ""saprophytic""] by looking at their third letters. The third letter: ""pam"": ""m"" (13th letter). ""saprophytic"": ""p"" (16th letter). We now have: ""pam"" < ""saprophytic"".",0.98828125,0.96875
+,,step 5,"We now have: ""compton"" < ""confident"" < ""foundling"" < ""pam"" < ""saprophytic"" < ""stowaway"" < ""stupor"".",0.99609375,0.8515625
+,,step 6,So the answer is compton < confident < foundling < pam < saprophytic < stowaway < stupor.,1.0,0.953125
+,,annotation
+
+192,bbh_word_sorting_00192
+,,question,Sort the following words alphabetically: List: acidify antagonism asteria
+,,y_true,acidify antagonism asteria
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""acidify"": ""a"" (1st letter). ""antagonism"": ""a"" (1st letter). ""asteria"": ""a"" (1st letter). We now have: [""acidify"" ""antagonism"" ""asteria""].",0.984375,0.984375
+,,step 1,"Now let's sort this subpart [""acidify"" ""antagonism"" ""asteria""] by looking at their second letters. The second letter: ""acidify"": ""c"" (3rd letter). ""antagonism"": ""n"" (14th letter). ""asteria"": ""s"" (19th letter). We now have: ""acidify"" < ""asteria"" < ""antagonism"".",0.6796875,0.3203125
+,,step 2,So the answer is acidify < antagonism < asteria.,0.73046875,0.75390625
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""acidify"": ""a"" (1st letter). ""antagonism"": ""a"" (1st letter). ""asteria"": ""a"" (1st letter). We now have: [""acidify"" ""antagonism"" ""asteria""].",0.984375,0.984375
+,,step 1,"Now let's sort this subpart [""acidify"" ""antagonism"" ""asteria""] by looking at their second letters. The second letter: ""acidify"": ""c"" (3rd letter). ""antagonism"": ""n"" (14th letter). ""asteria"": ""s"" (19th letter). We now have: ""acidify"" < ""antagonism"" < ""asteria"".",0.59375,0.376953125
+,,step 2,So the answer is acidify < antagonism < asteria.,0.81640625,0.93359375
+,,annotation
+
+199,bbh_word_sorting_00199
+,,question,Sort the following words alphabetically: List: rowley midshipman saline furl geld locomote exhumation anarchic bstj gradual riddance j liniment pantheist elution profess
+,,y_true,anarchic bstj elution exhumation furl geld gradual j liniment locomote midshipman pantheist profess riddance rowley saline
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""bstj"" is not a word, so we ignore it. ""rowley"": ""r"" (18th letter). ""midshipman"": ""m"" (13th letter). ""saline"": ""s"" (19th letter). ""furl"": ""f"" (6th letter). ""locomote"": ""l"" (12th letter). ""exhumation"": ""e"" (5th letter). ""anarchic"": ""a"" (1st letter). ""gradual"": ""g"" (7th letter). ""riddance"": ""r"" (18th letter). ""liniment"": ""l"" (12th letter). ""pantheist"": ""p"" (16th letter). ""elution"": ""e"" (5th letter). ""profess"": ""p"" (16th letter).",0.765625,0.70703125
+,,step 1,"We now have: [""anarchic"" ""elution"" ""exhumation""] < [""furl"" ""gradual""] < [""locomote"" ""liniment""] < [""pantheist"" ""profess""] < [""riddance"" ""rowley""] < ""midshipman"" < ""saline"".",0.96875,0.119140625
+,,step 2,"Now let's sort this subpart [""anarchic"" ""elution"" ""exhumation""] by looking at their second letters. The second letter: ""anarchic"": ""n"" (14th letter). ""elution"": ""l"" (12th letter). ""exhumation"": ""x"" (24th letter). We now have: ""elution"" < ""anarchic"" < ""exhumation"".",0.9921875,0.9140625
+,,step 3,"Now let's sort this subpart [""furl"" ""gradual""] by looking at their second letters. The second letter: ""furl"": ""u"" (21st letter). ""gradual"": ""r"" (18th letter). We now have: ""furl"" < ""gradual"".",0.98046875,0.98828125
+,,step 4,"Now let's sort this subpart [""locomote"" ""liniment""] by looking at their second letters. The second letter: ""locomote"": ""l"" (12th letter). ""liniment"": ""i"" (9th letter). We now have: ""liniment"" < ""locomote"".",0.98046875,0.98828125
+,,step 5,"Now let's sort this subpart [""pantheist"" ""profess""] by looking at their second letters. The second letter: ""pantheist"": ""a"" (1st letter). ""profess"": ""r"" (18th letter). We now have: ""pantheist"" < ""profess"".",0.9609375,0.9609375
+,,step 6,"Now let's sort this subpart [""riddance"" ""rowley""] by looking at their second letters. The second letter: ""riddance"": ""i"" (9th letter). ""rowley"": ""o"" (15th letter). We now have: ""riddance"" < ""rowley"".",1.0,0.99609375
+,,step 7,"We now have: ""elution"" < ""anarchic"" < ""exhumation"" < ""furl"" < ""gradual"" < ""liniment"" < ""locomote"" < ""pantheist"" < ""profess"" < ""riddance"" < ""rowley"" < ""midshipman"" < ""saline"".",1.0,0.81640625
+,,step 8,So the answer is elution < anarchic < exhumation < furl < gradual < liniment < locomote < pantheist < profess < riddance < rowley < midshipman < saline.,0.984375,0.92578125
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""rowley"": ""r"" (18th letter). ""midshipman"": ""m"" (13th letter). ""saline"": ""s"" (19th letter). ""furl"": ""f"" (6th letter). ""geld"": ""g"" (7th letter). ""locomote"": ""l"" (12th letter). ""exhumation"": ""e"" (5th letter). ""anarchic"": ""a"" (1st letter). ""bstj"": ""b"" (2nd letter). ""gradual"": ""g"" (7th letter). ""riddance"": ""r"" (18th letter). ""j"": ""j"" (10th letter) does not have a first letter, so it is considered as a word that starts with the letter ""j"" (10th letter). ""liniment"": ""l"" (12th letter). ""pantheist"": ""p"" (16th letter). ""elution"": ""e"" (5th letter). ""profess"": ""p"" (16th letter).",0.59375,0.77734375
+,,step 1,"We now have: [""anarchic""] < [""bstj""] < [""elution"" ""exhumation""] < ""furl"" < ""geld"" < ""gradual"" < [""j"" ""liniment""] < ""locomote"" < [""midshipman"" ""pantheist"" ""profess""] < [""riddance"" ""rowley"" ""saline""].",0.97265625,0.1640625
+,,step 2,Now let's sort the subparts:,0.94921875,0.2021484375
+,,step 3,"Now let's sort this subpart [""elution"" ""exhumation""] by looking at their second letters. The second letter: ""elution"": ""l"" (12th letter). ""exhumation"": ""x"" (24th letter). We now have: ""elution"" < ""exhumation"".",0.984375,0.90625
+,,step 4,"Now let's sort this subpart [""midshipman"" ""pantheist"" ""profess""] by looking at their second letters. The second letter: ""midshipman"": ""i"" (9th letter). ""pantheist"": ""a"" (1st letter). ""profess"": ""r"" (18th letter). We now have: ""pantheist"" < ""midshipman"" < ""profess"".",0.9921875,0.95703125
+,,step 5,"Now let's sort this subpart [""j"" ""liniment""] by looking at their second letters. The second letter: ""j"": no second letter. ""liniment"": ""i"" (9th letter). We now have: ""j"" < ""liniment"".",0.98828125,0.8671875
+,,step 6,"Now let's sort this subpart [""riddance"" ""rowley"" ""saline""] by looking at their second letters. The second letter: ""riddance"": ""i"" (9th letter). ""rowley"": ""o"" (15th letter). ""saline"": ""a"" (1st letter). We now have: ""saline"" < ""riddance"" < ""rowley"".",1.0,0.9921875
+,,step 7,"Now let's sort the words: ""anarchic"" < ""bstj"" < ""elution"" < ""exhumation"" < ""furl"" < ""geld"" < ""gradual"" < ""j"" < ""liniment"" < ""locomote"" < ""midshipman"" < ""pantheist"" < ""profess"" < ""riddance"" < ""rowley"" < ""saline"".",0.99609375,0.70703125
+,,step 8,So the answer is anarchic < bstj < elution < exhumation < furl < geld < gradual < j < liniment < locomote < midshipman < pantheist < profess < riddance < rowley < saline,0.9921875,0.96875
+,,annotation
+
+202,bbh_word_sorting_00202
+,,question,Sort the following words alphabetically: List: resignation dormouse bathos walt amethyst obtuse
+,,y_true,amethyst bathos dormouse obtuse resignation walt
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""resignation"": ""r"" (18th letter). ""dormouse"": ""d"" (4th letter). ""bathos"": ""b"" (2nd letter). ""walt"": ""w"" (23rd letter). ""amethyst"": ""a"" (1st letter). ""obtuse"": ""o"" (15th letter). We now have: ""amethyst"" < ""bathos"" < [""dormouse"" ""obtuse""] < ""resignation"" < ""walt"".",0.53125,0.26953125
+,,step 1,"Now let's sort this subpart [""dormouse"" ""obtuse""] by looking at their second letters. The second letter: ""dormouse"": ""o"" (15th letter). ""obtuse"": ""b"" (2nd letter). We now have: ""bathos"" < ""obtuse"" < ""amethyst"" < ""dormouse"" < ""resignation"" < ""walt"".",0.9921875,0.62109375
+,,step 2,So the answer is amethyst < bathos < obtuse < dormouse < resignation < walt.,0.98046875,0.8671875
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""resignation"": ""r"" (18th letter). ""dormouse"": ""d"" (4th letter). ""bathos"": ""b"" (2nd letter). ""walt"": ""w"" (23rd letter). ""amethyst"": ""a"" (1st letter). ""obtuse"": ""o"" (15th letter). We now have: ""amethyst"" < [""bathos"" ""dormouse""] < ""obtuse"" < ""resignation"" < ""walt"".",0.515625,0.26953125
+,,step 1,"Now let's sort this subpart [""bathos"" ""dormouse""] by looking at their second letters. The second letter: ""bathos"": ""a"" (1st letter). ""dormouse"": ""o"" (15th letter). We now have: ""amethyst"" < ""bathos"" < ""dormouse"" < ""obtuse"" < ""resignation"" < ""walt"".",0.73046875,0.46875
+,,step 2,"Now let's sort this subpart [""bathos"" ""dormouse""] by looking at their third letters. The third letter: ""bathos"": ""t"" (20th letter). ""dormouse"": ""r"" (18th letter). We now have: ""bathos"" < ""dormouse"" < ""amethyst"" < ""obtuse"" < ""resignation"" < ""walt"".",0.2451171875,0.5625
+,,step 3,So the answer is amethyst < bathos < dormouse < obtuse < resignation < walt.,0.96875,0.75390625
+,,annotation
+
+204,bbh_word_sorting_00204
+,,question,Sort the following words alphabetically: List: transgressor sidewinder tacky casualty shouldn't courtier leprosy avoidance gibbon merge
+,,y_true,avoidance casualty courtier gibbon leprosy merge shouldn't sidewinder tacky transgressor
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""transgressor"": ""t"" (20th letter). ""sidewinder"": ""s"" (19th letter). ""tacky"": ""t"" (20th letter). ""casualty"": ""c"" (3rd letter). ""shouldn't"": ""s"" (19th letter). ""courtier"": ""c"" (3rd letter). ""leprosy"": ""l"" (12th letter). ""avoidance"": ""a"" (1st letter). ""gibbon"": ""g"" (7th letter). ""merge"": ""m"" (13th letter). We now have: [""avoidance""] < ""casualty"" < [""courtier"" ""shouldn't""] < ""gibbon"" < [""leprosy"" ""merge""] < [""sidewinder"" ""tacky"" ""transgressor""].",0.62109375,0.1640625
+,,step 1,"Now let's sort this subpart [""avoidance""] by looking at its second letter. Since there is only one word in this subpart, we can ignore this step. ",0.984375,0.89453125
+,,step 2,"Now let's sort this subpart [""courtier"" ""shouldn't""] by looking at their second letters. The second letter: ""courtier"": ""o"" (15th letter). ""shouldn't"": ""h"" (8th letter). We now have: ""shouldn't"" < ""courtier"".",1.0,0.9453125
+,,step 3,"Now let's sort this subpart [""leprosy"" ""merge""] by looking at their second letters. The second letter: ""leprosy"": ""e"" (5th letter). ""merge"": ""m"" (13th letter). We now have: ""leprosy"" < ""merge"".",1.0,0.98828125
+,,step 4,"Now let's sort this subpart [""sidewinder"" ""tacky"" ""transgressor""] by looking at their second letters. The second letter: ""sidewinder"": ""i"" (9th letter). ""tacky"": ""a"" (1st letter). ""transgressor"": ""r"" (18th letter). We now have: ""tacky"" < ""sidewinder"" < ""transgressor"".",0.98828125,0.98828125
+,,step 5,So the answer is avoidance < casualty < courtier < shouldn't < gibbon < leprosy < merge < sidewinder < tacky < transgressor.,0.99609375,0.75390625
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""transgressor"": ""t"" (20th letter). ""sidewinder"": ""s"" (19th letter). ""tacky"": ""t"" (20th letter). ""casualty"": ""c"" (3rd letter). ""shouldn't"": ""s"" (19th letter). ""courtier"": ""c"" (3rd letter). ""leprosy"": ""l"" (12th letter). ""avoidance"": ""a"" (1st letter). ""gibbon"": ""g"" (7th letter). ""merge"": ""m"" (13th letter). We now have: [""avoidance""] < [""casualty"" ""courtier""] < [""gibbon"" ""leprosy"" ""merge""] < [""shouldn't"" ""sidewinder"" ""tacky"" ""transgressor""].",0.59375,0.294921875
+,,step 1,"Now let's sort this subpart [""avoidance""] by itself. ""avoidance"" is already in order.",1.0,0.98828125
+,,step 2,"Now let's sort this subpart [""casualty"" ""courtier""] by looking at their second letters. The second letter: ""casualty"": ""a"" (1st letter). ""courtier"": ""o"" (15th letter). We now have: ""casualty"" < ""courtier"".",0.97265625,0.62109375
+,,step 3,"Now let's sort this subpart [""gibbon"" ""leprosy"" ""merge""] by looking at their first letters. ""gibbon"": ""g"" (7th letter). ""leprosy"": ""l"" (12th letter). ""merge"": ""m"" (13th letter). We now have: ""gibbon"" < ""leprosy"" < ""merge"".",0.96875,0.97265625
+,,step 4,"Now let's sort this subpart [""shouldn't"" ""sidewinder"" ""tacky"" ""transgressor""] by looking at their first letters. ""shouldn't"": ""s"" (19th letter). ""sidewinder"": ""s"" (19th letter). ""tacky"": ""t"" (20th letter). ""transgressor"": ""t"" (20th letter). We now have: [""shouldn't"" ""sidewinder""] < [""tacky"" ""transgressor""].",0.98046875,0.89453125
+,,step 5,"Now let's sort this subpart [""shouldn't"" ""sidewinder""] by looking at their second letters. The second letter: ""shouldn't"": ""h"" (8th letter). ""sidewinder"": ""i"" (9th letter). We now have: ""shouldn't"" < ""sidewinder"".",0.99609375,0.984375
+,,step 6,"Now let's sort this subpart [""tacky"" ""transgressor""] by looking at their second letters. The second letter: ""tacky"": ""a"" (1st letter). ""transgressor"": ""r"" (18th letter). We now have: ""tacky"" < ""transgressor"".",0.984375,0.9921875
+,,step 7,"We now have: ""avoidance"" < ""casualty"" < ""courtier"" < ""gibbon"" < ""leprosy"" < ""merge"" < ""shouldn't"" < ""sidewinder"" < ""tacky"" < ""transgressor"".",1.0,0.75390625
+,,step 8,So the answer is avoidance < casualty < courtier < gibbon < leprosy < merge < shouldn't < sidewinder < tacky < transgressor.,1.0,0.9609375
+,,annotation
+
+212,bbh_word_sorting_00212
+,,question,Sort the following words alphabetically: List: automate abner shampoo gurgle none exquisite abramson amity fruitful shorten waterproof
+,,y_true,abner abramson amity automate exquisite fruitful gurgle none shampoo shorten waterproof
+,,solution selected by baseline
+,,step 0,"First, we look at the first letters of each word. ""automate"": ""a"" (1st letter). ""abner"": ""a"" (1st letter). ""shampoo"": ""s"" (19th letter). ""gurgle"": ""g"" (7th letter). ""none"": ""n"" (14th letter). ""exquisite"": ""e"" (5th letter). ""abramson"": ""a"" (1st letter). ""amity"": ""a"" (1st letter). ""fruitful"": ""f"" (6th letter). ""shorten"": ""s"" (19th letter). ""waterproof"": ""w"" (23rd letter). We now have: [""abner"" ""abramson"" ""amity""] < ""automate"" < ""exquisite"" < [""gurgle"" ""none""] < [""shampoo"" ""shorten""] < ""waterproof"".",0.73046875,0.1826171875
+,,step 1,"Now let's sort this subpart [""abner"" ""abramson"" ""amity""] by looking at their second letters. The second letter: ""abner"": ""b"" (2nd letter). ""abramson"": ""b"" (2nd letter). ""amity"": ""m"" (13th letter). We now have: ""abner"" < ""abramson"" < ""amity"" < ""automate"" < ""exquisite"" < [""gurgle"" ""none""] < [""shampoo"" ""shorten""] < ""waterproof"".",0.98828125,0.8359375
+,,step 2,"Now let's sort this subpart [""gurgle"" ""none""] by looking at their second letters. The second letter: ""gurgle"": ""u"" (21st letter). ""none"": ""o"" (15th letter). We now have: ""gurgle"" < ""none"" < ""abner"" < ""abramson"" < ""amity"" < ""automate"" < ""exquisite"" < [""shampoo"" ""shorten""] < ""waterproof"".",0.89453125,0.81640625
+,,step 3,"Now let's sort this subpart [""shampoo"" ""shorten""] by looking at their second letters. The second letter: ""shampoo"": ""h"" (8th letter). ""shorten"": ""h"" (8th letter). We now have: ""shampoo"" < ""shorten"" < ""gurgle"" < ""none"" < ""abner"" < ""abramson"" < ""amity"" < ""automate"" < ""exquisite"" < ""waterproof"".",0.9140625,0.8515625
+,,step 4,So the answer is abner < abramson < amity < automate < exquisite < gurgle < none < shampoo < shorten < waterproof.,0.99609375,0.77734375
+,,solution selected by finetuned
+,,step 0,"First, we look at the first letters of each word. ""automate"": ""a"" (1st letter). ""abner"": ""a"" (1st letter). ""shampoo"": ""s"" (19th letter). ""gurgle"": ""g"" (7th letter). ""none"": ""n"" (14th letter). ""exquisite"": ""e"" (5th letter). ""abramson"": ""a"" (1st letter). ""amity"": ""a"" (1st letter). ""fruitful"": ""f"" (6th letter). ""shorten"": ""s"" (19th letter). ""waterproof"": ""w"" (23rd letter). We now have: [""abner"" ""abramson"" ""amity""] < ""automate"" < ""exquisite"" < ""fruitful"" < [""gurgle"" ""none"" ""shampoo"" ""shorten""] < ""waterproof"".",0.75390625,0.2021484375
+,,step 1,"Now let's sort this subpart [""abner"" ""abramson"" ""amity""] by looking at their second letters. The second letter: ""abner"": ""b"" (2nd letter). ""abramson"": ""b"" (2nd letter). ""amity"": ""m"" (13th letter). We now have: ""abner"" < ""abramson"" < ""amity"" < ""automate"" < ""exquisite"" < ""fruitful"" < [""gurgle"" ""none"" ""shampoo"" ""shorten""] < ""waterproof"".",0.98828125,0.81640625
+,,step 2,"Now let's sort this subpart [""gurgle"" ""none"" ""shampoo"" ""shorten""] by looking at their second letters. The second letter: ""gurgle"": ""u"" (21st letter). ""none"": ""o"" (15th letter). ""shampoo"": ""h"" (8th letter). ""shorten"": ""h"" (8th letter). We now have: ""gurgle"" < ""none"" < [""shampoo"" ""shorten""].",0.98828125,0.8671875
+,,step 3,"Now let's sort this subpart [""shampoo"" ""shorten""] by looking at their third letters. The third letter: ""shampoo"": ""a"" (1st letter). ""shorten"": ""o"" (15th letter). We now have: ""shampoo"" < ""shorten"" < ""waterproof"".",0.2021484375,0.65234375
+,,annotation
+

@@ -1,0 +1,831 @@
+data_idx,id,type,value,baseline,finetuned
+16,bbh_temporal_sequences_00016,,,,
+,,question,"Today, Jessica went to the basketball court. Between what times could they have gone?
+We know that:
+Jessica woke up at 5am.
+Michael saw Jessica buying clothes at the mall from 5am to 6am.
+Steven saw Jessica buying a bike at the bike shop from 6am to 7am.
+Sean saw Jessica waiting at the train station from 7am to 2pm.
+Elizabeth saw Jessica taking photos near the Eiffel Tower from 2pm to 6pm.
+Sarah saw Jessica walking towards the Statue of Liberty from 6pm to 9pm.
+The basketball court was closed after 10pm.
+Between what times could Jessica have gone to the basketball court?
+Options:
+(A) 6pm to 9pm
+(B) 5am to 6am
+(C) 9pm to 10pm
+(D) 2pm to 6pm",,
+,,y_true,(C),,
+,,solution selected by baseline,,,
+,,step 0,"Jessica wake up at 5am, so she did not go to the basketball court before 5am.",0.93359375,0.73046875
+,,step 1,"Michael saw Jessica buying clothes at the mall from 5am to 6am, so Jessica did not go to the basketball court from 5am to 6am.",0.98046875,0.9140625
+,,step 2,"Steven saw Jessica buying a bike at the bike shop from 6am to 7am, so Jessica did not go to the basketball court from 6am to 7am.",1.0,1.0
+,,step 3,"Sean saw Jessica waiting at the train station from 7am to 2pm, but there is no information about Jessica's activities from 2pm to 7am. However, there is no information about the basketball court being open before 7am or after 10pm. Therefore, Jessica could have gone to the basketball court from 7am to 2pm.",0.77734375,0.294921875
+,,step 4,"Elizabeth saw Jessica taking photos near the Eiffel Tower from 2pm to 6pm, so Jessica did not go to the basketball court from 2pm to 6pm.",0.9609375,0.97265625
+,,step 5,"Sarah saw Jessica walking towards the Statue of Liberty from 6pm to 9pm, so Jessica did not go to the basketball court from 6pm to 9pm.",0.9921875,0.96875
+,,step 6,"The basketball court was closed after 10pm, so Jessica did not go to the basketball court after 10pm.",0.99609375,1.0
+,,step 7,"Im summary, the only time when Jessica could have gone to the basketball court was 7am to 2pm.",0.953125,0.96875
+,,step 8,"From the options, we can see that 2pm to 6pm is the only option that fits this time frame.",0.90625,0.294921875
+,,step 9,So the answer is (D).,0.99609375,0.9765625
+,,solution selected by finetuned,,,
+,,step 0,"Jessica wake up at 5am, so she did not go to the basketball court before 5am.",0.93359375,0.73046875
+,,step 1,"Michael saw Jessica buying clothes at the mall from 5am to 6am, so Jessica did not go to the basketball court from 5am to 6am.",0.98046875,0.9140625
+,,step 2,"Steven saw Jessica buying a bike at the bike shop from 6am to 7am, so Jessica did not go to the basketball court from 6am to 7am.",1.0,1.0
+,,step 3,"Sean saw Jessica waiting at the train station from 7am to 2pm, so Jessica did not go to the basketball court from 7am to 2pm.",1.0,1.0
+,,step 4,"Elizabeth saw Jessica taking photos near the Eiffel Tower from 2pm to 6pm, so Jessica did not go to the basketball court from 2pm to 6pm.",1.0,0.9921875
+,,step 5,"Sarah saw Jessica walking towards the Statue of Liberty from 6pm to 9pm, so Jessica did not go to the basketball court from 6pm to 9pm.",0.98828125,0.96875
+,,step 6,"There is no information about Jessica's activities from 9pm to 10pm, so Jessica could have gone to the basketball court from 9pm to 10pm.",0.97265625,0.77734375
+,,step 7,"The basketball court was closed after 10pm, so Jessica did not go to the basketball court after 10pm.",0.98046875,1.0
+,,step 8,"Im summary, the only time when Jessica could have gone to the basketball court was 9pm to 10pm.",0.4375,0.94140625
+,,step 9,"From the options, we can see that 9pm to 10pm is the only option that fits this time frame.",0.98046875,0.96875
+,,step 10,So the answer is (C).,0.99609375,1.0
+,,annotation,baseline_wrong,,
+26,bbh_temporal_sequences_00026,,,,
+,,question,"Today, David went to the gas station. Between what times could they have gone?
+We know that:
+David woke up at 7am.
+Michael saw David waiting at the train station from 7am to 12pm.
+Thomas saw David sitting on a rooftop from 12pm to 2pm.
+Tiffany saw David getting a coffee at the cafe from 2pm to 3pm.
+James saw David fixing their computer at the electronic store from 3pm to 5pm.
+Mark saw David reading at the library from 5pm to 6pm.
+The gas station was closed after 8pm.
+Between what times could David have gone to the gas station?
+Options:
+(A) 2pm to 3pm
+(B) 6pm to 8pm
+(C) 5pm to 6pm
+(D) 7am to 12pm",,
+,,y_true,(B),,
+,,solution selected by baseline,,,
+,,step 0,"David wake up at 7am, so he did not go to the gas station before 7am.",0.95703125,0.89453125
+,,step 1,"Michael saw David waiting at the train station from 7am to 12pm, so David could have gone to the gas station from 7am to 12pm.",0.95703125,0.294921875
+,,step 2,"There is no information about David's activities from 12pm to 2pm, so David could have gone to the gas station from 12pm to 2pm.",0.98046875,0.65234375
+,,step 3,"Tiffany saw David getting a coffee at the cafe from 2pm to 3pm, so David did not go to the gas station from 2pm to 3pm.",0.984375,0.8515625
+,,step 4,"James saw David fixing their computer at the electronic store from 3pm to 5pm, so David did not go to the gas station from 3pm to 5pm.",1.0,0.9921875
+,,step 5,"Mark saw David reading at the library from 5pm to 6pm, so David did not go to the gas station from 5pm to 6pm.",1.0,1.0
+,,step 6,"There is no information about David's activities from 6pm to 8pm, so David could have gone to the gas station from 6pm to 8pm.",0.99609375,0.9765625
+,,step 7,"The gas station was closed after 8pm, so David did not go to the gas station after 8pm.",0.9921875,1.0
+,,step 8,"Im summary, the times when David could have gone to the gas station were 7am to 12pm and 6pm to 8pm.",0.9140625,0.95703125
+,,step 9,"From the options, we can see that both 7am to 12pm and 6pm to 8pm are options, but (D) is the only option that includes the time 7am to 12pm.",0.9765625,0.8359375
+,,step 10,So the answer is (D).,0.99609375,0.75390625
+,,solution selected by finetuned,,,
+,,step 0,"David wake up at 7am, so he did not go to the gas station before 7am.",0.95703125,0.89453125
+,,step 1,"Michael saw David waiting at the train station from 7am to 12pm, so David did not go to the gas station from 7am to 12pm.",0.98828125,0.65234375
+,,step 2,"Thomas saw David sitting on a rooftop from 12pm to 2pm, so David did not go to the gas station from 12pm to 2pm.",1.0,0.99609375
+,,step 3,"Tiffany saw David getting a coffee at the cafe from 2pm to 3pm, so David did not go to the gas station from 2pm to 3pm.",0.99609375,0.98828125
+,,step 4,"James saw David fixing their computer at the electronic store from 3pm to 5pm, so David did not go to the gas station from 3pm to 5pm.",1.0,0.99609375
+,,step 5,"Mark saw David reading at the library from 5pm to 6pm, so David did not go to the gas station from 5pm to 6pm.",1.0,1.0
+,,step 6,"There is no information about David's activities from 6pm to 8pm, so David could have gone to the gas station from 6pm to 8pm.",0.9609375,0.81640625
+,,step 7,"The gas station was closed after 8pm, so David did not go to the gas station after 8pm.",0.98046875,1.0
+,,step 8,"Im summary, the only time when David could have gone to the gas station was 6pm to 8pm.",0.70703125,0.9453125
+,,step 9,"From the options, we can see that 6pm to 8pm is the only option that fits this time frame.",0.9765625,0.98046875
+,,step 10,So the answer is (B).,0.99609375,0.99609375
+,,annotation,baseline_wrong,,
+33,bbh_temporal_sequences_00033,,,,
+,,question,"Today, Ashley went to the amusement park. Between what times could they have gone?
+We know that:
+Ashley woke up at 7am.
+Kimberly saw Ashley driving to the water park from 7am to 8am.
+Lisa saw Ashley buying clothes at the mall from 8am to 10am.
+Hannah saw Ashley taking photos near the Eiffel Tower from 10am to 3pm.
+Jessica saw Ashley walking in the garden from 3pm to 4pm.
+William saw Ashley getting a coffee at the cafe from 4pm to 7pm.
+The amusement park was closed after 9pm.
+Between what times could Ashley have gone to the amusement park?
+Options:
+(A) 7am to 8am
+(B) 8am to 10am
+(C) 4pm to 7pm
+(D) 7pm to 9pm",,
+,,y_true,(D),,
+,,solution selected by baseline,,,
+,,step 0,"Ashley wake up at 7am, and Kimberly saw Ashley driving to the water park from 7am to 8am, so Ashley did not go to the amusement park from 7am to 8am.",0.6640625,0.4375
+,,step 1,"Lisa saw Ashley buying clothes at the mall from 8am to 10am, so Ashley did not go to the amusement park from 8am to 10am.",0.99609375,0.984375
+,,step 2,"Hannah saw Ashley taking photos near the Eiffel Tower from 10am to 3pm, so Ashley did not go to the amusement park from 10am to 3pm.",0.99609375,0.96875
+,,step 3,"Jessica saw Ashley walking in the garden from 3pm to 4pm, so Ashley did not go to the amusement park from 3pm to 4pm.",1.0,0.99609375
+,,step 4,"William saw Ashley getting a coffee at the cafe from 4pm to 7pm, so Ashley did not go to the amusement park from 4pm to 7pm.",0.89453125,0.9765625
+,,step 5,"There is no information about Ashley's activities from 10am to 3pm or 3pm to 4pm, but we know that the amusement park was closed after 9pm, so Ashley could not have gone to the amusement park from 7pm to 9pm.",0.87890625,0.59375
+,,step 6,"Im summary, the only time when Ashley could not have gone to the amusement park was 7am to 10am and 4pm to 7pm.",0.87890625,0.73046875
+,,step 7,"From the options, we can see that 7am to 8am and 8am to 10am and 4pm to 7pm are the options that do not fit this time frame.",0.96875,0.796875
+,,solution selected by finetuned,,,
+,,step 0,"Ashley wake up at 7am, and Kimberly saw Ashley driving to the water park from 7am to 8am, so Ashley did not go to the amusement park from 7am to 8am.",0.6640625,0.46875
+,,step 1,"Lisa saw Ashley buying clothes at the mall from 8am to 10am, so Ashley did not go to the amusement park from 8am to 10am.",0.99609375,0.984375
+,,step 2,"Hannah saw Ashley taking photos near the Eiffel Tower from 10am to 3pm, so Ashley did not go to the amusement park from 10am to 3pm.",0.99609375,0.96875
+,,step 3,"Jessica saw Ashley walking in the garden from 3pm to 4pm, so Ashley did not go to the amusement park from 3pm to 4pm.",1.0,0.99609375
+,,step 4,"William saw Ashley getting a coffee at the cafe from 4pm to 7pm, so Ashley did not go to the amusement park from 4pm to 7pm.",0.89453125,0.9765625
+,,step 5,"There is no information about Ashley's activities from 7pm to 9pm, so Ashley could have gone to the amusement park from 7pm to 9pm.",0.90625,0.75390625
+,,step 6,"The amusement park was closed after 9pm, so Ashley did not go to the amusement park after 9pm.",0.9609375,1.0
+,,step 7,"Im summary, the only time when Ashley could have gone to the amusement park was 7pm to 9pm.",0.77734375,0.953125
+,,step 8,"From the options, we can see that 7pm to 9pm is the only option that fits this time frame.",0.9765625,0.96875
+,,step 9,So the answer is (D).,1.0,1.0
+,,annotation,both_wrong_scores,,
+37,bbh_temporal_sequences_00037,,,,
+,,question,"Today, James went to the dance studio. Between what times could they have gone?
+We know that:
+James woke up at 7am.
+Thomas saw James taking photos near the Eiffel Tower from 7am to 12pm.
+Mark saw James driving to the water park from 12pm to 2pm.
+Anthony saw James buying a phone at the electronics store from 2pm to 4pm.
+Sarah saw James buying lunch at the deli from 5pm to 6pm.
+The dance studio was closed after 6pm.
+Between what times could James have gone to the dance studio?
+Options:
+(A) 2pm to 4pm
+(B) 7am to 12pm
+(C) 4pm to 5pm
+(D) 12pm to 2pm",,
+,,y_true,(C),,
+,,solution selected by baseline,,,
+,,step 0,"James wake up at 7am, so he did not go to the dance studio before 7am.",0.94140625,0.77734375
+,,step 1,"James wake up at 7am, and Thomas saw James taking photos near the Eiffel Tower from 7am to 12pm, so James did not go to the dance studio from 7am to 12pm.",0.98828125,0.87890625
+,,step 2,"Mark saw James driving to the water park from 12pm to 2pm, so James did not go to the dance studio from 12pm to 2pm.",0.99609375,0.9921875
+,,step 3,"Anthony saw James buying a phone at the electronics store from 2pm to 4pm, so James did not go to the dance studio from 2pm to 4pm.",0.99609375,0.99609375
+,,step 4,"Sarah saw James buying lunch at the deli from 5pm to 6pm, so James did not go to the dance studio from 5pm to 6pm.",1.0,0.9921875
+,,step 5,"The dance studio was closed after 6pm, so James did not go to the dance studio after 6pm.",1.0,1.0
+,,step 6,"Im summary, there is no time frame when James is not accounted for, but we can see that the time frame 12pm to 2pm is the only time frame that is not accounted for by the other activities and is not after 6pm.",0.94921875,0.2451171875
+,,step 7,So the answer is (D).,0.99609375,0.65234375
+,,solution selected by finetuned,,,
+,,step 0,"James wake up at 7am, so he did not go to the dance studio before 7am.",0.94140625,0.77734375
+,,step 1,"Thomas saw James taking photos near the Eiffel Tower from 7am to 12pm, so James did not go to the dance studio from 7am to 12pm.",0.984375,0.87890625
+,,step 2,"Mark saw James driving to the water park from 12pm to 2pm, so James did not go to the dance studio from 12pm to 2pm.",1.0,0.99609375
+,,step 3,"Anthony saw James buying a phone at the electronics store from 2pm to 4pm, so James did not go to the dance studio from 2pm to 4pm.",0.99609375,0.99609375
+,,step 4,"Sarah saw James buying lunch at the deli from 5pm to 6pm, so James did not go to the dance studio from 5pm to 6pm.",1.0,0.9921875
+,,step 5,"There is no information about James' activities from 4pm to 5pm, so James could have gone to the dance studio from 4pm to 5pm.",0.98828125,0.75390625
+,,step 6,"The dance studio was closed after 6pm, so James did not go to the dance studio after 6pm.",1.0,1.0
+,,step 7,"Im summary, the only time when James could have gone to the dance studio was 4pm to 5pm.",0.8515625,0.96875
+,,step 8,"From the options, we can see that 4pm to 5pm is the only option that fits this time frame.",0.984375,0.98046875
+,,step 9,So the answer is (C).,1.0,1.0
+,,annotation,baseline_wrong,,
+46,bbh_temporal_sequences_00046,,,,
+,,question,"Today, Mark went to the bookstore. Between what times could they have gone?
+We know that:
+Mark woke up at 5am.
+Mary saw Mark stretching at a yoga studio from 5am to 10am.
+Betty saw Mark attending class at the school from 10am to 5pm.
+Emily saw Mark sitting on a rooftop from 5pm to 8pm.
+Jessica saw Mark walking in the garden from 9pm to 10pm.
+The bookstore was closed after 10pm.
+Between what times could Mark have gone to the bookstore?
+Options:
+(A) 8pm to 9pm
+(B) 9pm to 10pm
+(C) 5pm to 8pm
+(D) 10am to 5pm",,
+,,y_true,(A),,
+,,solution selected by baseline,,,
+,,step 0,"Mark wake up at 5am, so he did not go to the bookstore before 5am.",0.96484375,0.95703125
+,,step 1,"Mark wake up at 5am, and Mary saw Mark stretching at a yoga studio from 5am to 10am, so Mark did not go to the bookstore from 5am to 10am.",0.99609375,0.9609375
+,,step 2,"Mary saw Mark stretching at a yoga studio from 5am to 10am, and Betty saw Mark attending class at the school from 10am to 5pm, so Mark did not go to the bookstore from 10am to 5pm.",0.98046875,0.95703125
+,,step 3,"Emily saw Mark sitting on a rooftop from 5pm to 8pm, so Mark did not go to the bookstore from 5pm to 8pm.",0.9921875,0.93359375
+,,step 4,"Jessica saw Mark walking in the garden from 9pm to 10pm, so Mark did not go to the bookstore from 9pm to 10pm.",0.99609375,0.99609375
+,,step 5,"The bookstore was closed after 10pm, so Mark did not go to the bookstore after 10pm.",1.0,1.0
+,,step 6,"Im summary, there is no time frame when Mark could have gone to the bookstore that is not already ruled out. However, we can see that none of the options (A), (B), or (C) are ruled out, while option (D) is ruled out.",0.99609375,0.22265625
+,,step 7,So the answer is (D).,0.99609375,0.053466796875
+,,solution selected by finetuned,,,
+,,step 0,"Mark wake up at 5am, so he did not go to the bookstore before 5am.",0.96484375,0.95703125
+,,step 1,"Mary saw Mark stretching at a yoga studio from 5am to 10am, so Mark did not go to the bookstore from 5am to 10am.",0.99609375,0.95703125
+,,step 2,"Betty saw Mark attending class at the school from 10am to 5pm, so Mark did not go to the bookstore from 10am to 5pm.",1.0,0.98828125
+,,step 3,"Emily saw Mark sitting on a rooftop from 5pm to 8pm, so Mark did not go to the bookstore from 5pm to 8pm.",0.99609375,0.9921875
+,,step 4,"Jessica saw Mark walking in the garden from 9pm to 10pm, so Mark did not go to the bookstore from 9pm to 10pm.",0.99609375,0.99609375
+,,step 5,"The bookstore was closed after 10pm, so Mark did not go to the bookstore after 10pm.",1.0,1.0
+,,step 6,"Im summary, there is no time frame that is not blocked by other activities, but we can see that from 5am to 10am, 10am to 5pm, 5pm to 8pm, and 9pm to 10pm are not possible. The only time frame left is 8pm to 9pm.",0.81640625,0.53125
+,,step 7,"From the options, we can see that 8pm to 9pm is the only option that fits this time frame.",0.9765625,0.96875
+,,step 8,So the answer is (A).,0.99609375,0.98046875
+,,annotation,baseline_wrong,,
+54,bbh_temporal_sequences_00054,,,,
+,,question,"Today, Emily went to the bakery. Between what times could they have gone?
+We know that:
+Emily woke up at 5am.
+Nancy saw Emily sitting on a rooftop from 6am to 7am.
+Betty saw Emily reading at the library from 7am to 8am.
+Jason saw Emily buying lunch at the deli from 8am to 6pm.
+David saw Emily attending class at the school from 6pm to 7pm.
+Samantha saw Emily driving to the water park from 7pm to 10pm.
+The bakery was closed after 10pm.
+Between what times could Emily have gone to the bakery?
+Options:
+(A) 5am to 6am
+(B) 8am to 6pm
+(C) 6pm to 7pm
+(D) 7am to 8am",,
+,,y_true,(A),,
+,,solution selected by baseline,,,
+,,step 0,"Emily wake up at 5am, so she did not go to the bakery before 5am.",0.95703125,0.70703125
+,,step 1,"Nancy saw Emily sitting on a rooftop from 6am to 7am, so Emily did not go to the bakery from 6am to 7am.",0.9921875,0.9140625
+,,step 2,"Betty saw Emily reading at the library from 7am to 8am, so Emily did not go to the bakery from 7am to 8am.",1.0,1.0
+,,step 3,"Jason saw Emily buying lunch at the deli from 8am to 6pm, so Emily did not go to the bakery from 8am to 6pm.",0.1484375,0.796875
+,,step 4,"David saw Emily attending class at the school from 6pm to 7pm, so Emily did not go to the bakery from 6pm to 7pm.",1.0,1.0
+,,step 5,"Samantha saw Emily driving to the water park from 7pm to 10pm, so Emily did not go to the bakery from 7pm to 10pm.",0.984375,0.99609375
+,,step 6,"The bakery was closed after 10pm, so Emily did not go to the bakery after 10pm.",1.0,1.0
+,,step 7,"Im summary, there is no time frame when Emily could have gone to the bakery without conflicting with the other activities.",0.73046875,0.5
+,,step 8,"However, we can see that Emily could have gone to the bakery from 10pm onwards, but the bakery was closed after 10pm, so that option is not available.",0.376953125,0.62109375
+,,step 9,"From the given options, there is no time frame that fits this situation.",0.796875,0.73046875
+,,step 10,"However, considering the information given, it can be inferred that (B) 8am to 6pm is the only option that fits this time frame, as Emily was not seen at the deli during this time.",0.65234375,0.0849609375
+,,solution selected by finetuned,,,
+,,step 0,"Emily wake up at 5am, so she did not go to the bakery before 5am.",0.95703125,0.70703125
+,,step 1,"Nancy saw Emily sitting on a rooftop from 6am to 7am, so Emily did not go to the bakery from 6am to 7am.",0.9921875,0.9140625
+,,step 2,"Betty saw Emily reading at the library from 7am to 8am, so Emily did not go to the bakery from 7am to 8am.",1.0,1.0
+,,step 3,"Jason saw Emily buying lunch at the deli from 8am to 6pm, so Emily did not go to the bakery from 8am to 6pm.",0.1484375,0.796875
+,,step 4,"David saw Emily attending class at the school from 6pm to 7pm, so Emily did not go to the bakery from 6pm to 7pm.",1.0,0.99609375
+,,step 5,"Samantha saw Emily driving to the water park from 7pm to 10pm, so Emily did not go to the bakery from 7pm to 10pm.",0.984375,0.99609375
+,,step 6,"The bakery was closed after 10pm, so Emily did not go to the bakery after 10pm.",1.0,1.0
+,,step 7,"Im summary, there is a gap in the time frame when Emily could have gone to the bakery, but there is no information about Emily's activities from 5am to 6am or 7am to 8am or 6pm to 7pm.",0.96875,0.294921875
+,,step 8,The only time when Emily could have gone to the bakery is from 5am to 6am.,0.75390625,0.53125
+,,step 9,"From the options, we can see that 5am to 6am is the only option that fits this time frame.",0.984375,0.96875
+,,step 10,So the answer is (A).,1.0,0.9921875
+,,annotation,baseline_wrong,,
+63,bbh_temporal_sequences_00063,,,,
+,,question,"Today, Samantha went to the coffee shop. Between what times could they have gone?
+We know that:
+Samantha woke up at 6am.
+Richard saw Samantha watching a movie at the theater from 6am to 10am.
+Mark saw Samantha driving to the water park from 10am to 11am.
+John saw Samantha stretching at a yoga studio from 11am to 6pm.
+The coffee shop was closed after 8pm.
+Between what times could Samantha have gone to the coffee shop?
+Options:
+(A) 11am to 6pm
+(B) 10am to 11am
+(C) 6am to 10am
+(D) 6pm to 8pm",,
+,,y_true,(D),,
+,,solution selected by baseline,,,
+,,step 0,"Samantha wake up at 6am, and Richard saw Samantha watching a movie at the theater from 6am to 10am, so Samantha did not go to the coffee shop from 6am to 10am.",0.46875,0.953125
+,,step 1,"Mark saw Samantha driving to the water park from 10am to 11am, so Samantha did not go to the coffee shop from 10am to 11am.",1.0,0.9921875
+,,step 2,"John saw Samantha stretching at a yoga studio from 11am to 6pm, so Samantha did not go to the coffee shop from 11am to 6pm.",0.97265625,0.87890625
+,,step 3,"The coffee shop was closed after 8pm, so Samantha did not go to the coffee shop after 8pm.",1.0,1.0
+,,step 4,"Im summary, there is no time when Samantha could have gone to the coffee shop based on the given information.",0.81640625,0.796875
+,,step 5,"However, since the options are provided, we can see that the time slots provided do not match the given information.",0.59375,0.796875
+,,step 6,"However, considering the answer choices, we see that none of the provided time slots match the available time when Samantha could have gone to the coffee shop.",0.5,0.8671875
+,,solution selected by finetuned,,,
+,,step 0,"Samantha wake up at 6am, and Richard saw Samantha watching a movie at the theater from 6am to 10am, so Samantha did not go to the coffee shop from 6am to 10am.",0.46875,0.953125
+,,step 1,"Mark saw Samantha driving to the water park from 10am to 11am, so Samantha did not go to the coffee shop from 10am to 11am.",1.0,0.9921875
+,,step 2,"John saw Samantha stretching at a yoga studio from 11am to 6pm, so Samantha did not go to the coffee shop from 11am to 6pm.",0.97265625,0.87890625
+,,step 3,"There is no information about Samantha's activities from 6pm to 8pm, so Samantha could have gone to the coffee shop from 6pm to 8pm.",0.9609375,0.81640625
+,,step 4,"The coffee shop was closed after 8pm, so Samantha did not go to the coffee shop after 8pm.",0.9609375,1.0
+,,step 5,"Im summary, the only time when Samantha could have gone to the coffee shop was 6pm to 8pm.",0.70703125,0.97265625
+,,step 6,"From the options, we can see that 6pm to 8pm is the only option that fits this time frame.",0.9765625,0.96875
+,,step 7,So the answer is (D).,1.0,1.0
+,,annotation,baseline_wrong,,
+76,bbh_temporal_sequences_00076,,,,
+,,question,"Today, Thomas went to the football field. Between what times could they have gone?
+We know that:
+Thomas woke up at 8am.
+David saw Thomas fixing their computer at the electronic store from 8am to 10am.
+Jennifer saw Thomas buying lunch at the deli from 10am to 12pm.
+Lisa saw Thomas walking towards the Statue of Liberty from 12pm to 2pm.
+Sarah saw Thomas buying a phone at the electronics store from 2pm to 5pm.
+Kimberly saw Thomas buying a bike at the bike shop from 6pm to 9pm.
+The football field was closed after 9pm.
+Between what times could Thomas have gone to the football field?
+Options:
+(A) 12pm to 2pm
+(B) 8am to 10am
+(C) 2pm to 5pm
+(D) 5pm to 6pm",,
+,,y_true,(D),,
+,,solution selected by baseline,,,
+,,step 0,"Thomas wake up at 8am, so he did not go to the football field before 8am.",0.95703125,0.8671875
+,,step 1,"David saw Thomas fixing their computer at the electronic store from 8am to 10am, so Thomas did not go to the football field from 8am to 10am.",0.9921875,0.984375
+,,step 2,"Jennifer saw Thomas buying lunch at the deli from 10am to 12pm, so Thomas did not go to the football field from 10am to 12pm.",0.99609375,0.99609375
+,,step 3,"Lisa saw Thomas walking towards the Statue of Liberty from 12pm to 2pm, so Thomas did not go to the football field from 12pm to 2pm.",1.0,0.9765625
+,,step 4,"Sarah saw Thomas buying a phone at the electronics store from 2pm to 5pm, so Thomas did not go to the football field from 2pm to 5pm.",1.0,0.99609375
+,,step 5,"Kimberly saw Thomas buying a bike at the bike shop from 6pm to 9pm, so Thomas did not go to the football field from 6pm to 9pm.",1.0,0.98828125
+,,step 6,"The football field was closed after 9pm, so Thomas did not go to the football field after 9pm.",1.0,1.0
+,,step 7,"Im summary, there is no time frame when Thomas could have gone to the football field. However, from the options, 8am to 10am is the only option that is not immediately ruled out.",0.98046875,0.1640625
+,,step 8,So the answer is (B).,0.99609375,0.62109375
+,,solution selected by finetuned,,,
+,,step 0,"Thomas wake up at 8am, so he did not go to the football field before 8am.",0.95703125,0.8671875
+,,step 1,"David saw Thomas fixing their computer at the electronic store from 8am to 10am, so Thomas did not go to the football field from 8am to 10am.",0.9921875,0.984375
+,,step 2,"Jennifer saw Thomas buying lunch at the deli from 10am to 12pm, so Thomas did not go to the football field from 10am to 12pm.",0.99609375,0.99609375
+,,step 3,"Lisa saw Thomas walking towards the Statue of Liberty from 12pm to 2pm, so Thomas did not go to the football field from 12pm to 2pm.",1.0,0.97265625
+,,step 4,"Sarah saw Thomas buying a phone at the electronics store from 2pm to 5pm, so Thomas did not go to the football field from 2pm to 5pm.",1.0,0.99609375
+,,step 5,"Kimberly saw Thomas buying a bike at the bike shop from 6pm to 9pm, so Thomas did not go to the football field from 6pm to 9pm.",1.0,0.98828125
+,,step 6,"The football field was closed after 9pm, so Thomas did not go to the football field after 9pm.",1.0,1.0
+,,step 7,"Im summary, there is no time interval where we are certain that Thomas could have gone to the football field.",0.6796875,0.59375
+,,step 8,"However, based on the given options, we can see that the only time interval that does not conflict with the information is 5pm to 6pm.",0.89453125,0.8515625
+,,step 9,So the answer is (D).,0.9921875,0.95703125
+,,annotation,baseline_wrong,,
+78,bbh_temporal_sequences_00078,,,,
+,,question,"Today, Sarah went to the art show. Between what times could they have gone?
+We know that:
+Sarah woke up at 11am.
+Lisa saw Sarah working at the office from 11am to 2pm.
+Hannah saw Sarah reading at the library from 2pm to 4pm.
+Elizabeth saw Sarah fixing their computer at the electronic store from 4pm to 7pm.
+The art show was closed after 9pm.
+Between what times could Sarah have gone to the art show?
+Options:
+(A) 11am to 2pm
+(B) 7pm to 9pm
+(C) 2pm to 4pm
+(D) 4pm to 7pm",,
+,,y_true,(B),,
+,,solution selected by baseline,,,
+,,step 0,"Sarah woke up at 11am, so she did not go to the art show before 11am.",0.9609375,0.93359375
+,,step 1,"Lisa saw Sarah working at the office from 11am to 2pm, so Sarah could have gone to the art show from 2pm onwards.",0.984375,0.8515625
+,,step 2,"Hannah saw Sarah reading at the library from 2pm to 4pm, so Sarah did not go to the art show from 2pm to 4pm.",0.92578125,0.8671875
+,,step 3,"Elizabeth saw Sarah fixing their computer at the electronic store from 4pm to 7pm, so Sarah did not go to the art show from 4pm to 7pm.",1.0,0.984375
+,,step 4,"The art show was closed after 9pm, so Sarah did not go to the art show after 9pm.",1.0,1.0
+,,step 5,"Im summary, the only time when Sarah could have gone to the art show was 2pm onwards, but not including 2pm to 4pm and not including 4pm to 7pm.",0.98828125,0.89453125
+,,step 6,"From the options, we can see that 11am to 2pm is the only option that fits this time frame.",0.94140625,0.1328125
+,,step 7,So the answer is (A).,1.0,0.77734375
+,,solution selected by finetuned,,,
+,,step 0,"Sarah wake up at 11am, so she did not go to the art show before 11am.",0.96484375,0.94140625
+,,step 1,"Lisa saw Sarah working at the office from 11am to 2pm, so Sarah did not go to the art show from 11am to 2pm.",0.9921875,0.96875
+,,step 2,"Hannah saw Sarah reading at the library from 2pm to 4pm, so Sarah did not go to the art show from 2pm to 4pm.",1.0,0.99609375
+,,step 3,"Elizabeth saw Sarah fixing their computer at the electronic store from 4pm to 7pm, so Sarah did not go to the art show from 4pm to 7pm.",1.0,0.99609375
+,,step 4,"There is no information about Sarah's activities from 7pm to 9pm, so Sarah could have gone to the art show from 7pm to 9pm.",0.97265625,0.796875
+,,step 5,"The art show was closed after 9pm, so Sarah did not go to the art show after 9pm.",0.9921875,1.0
+,,step 6,"Im summary, the only time when Sarah could have gone to the art show was 7pm to 9pm.",0.8515625,0.97265625
+,,step 7,"From the options, we can see that 7pm to 9pm is the only option that fits this time frame.",0.98828125,0.98828125
+,,step 8,So the answer is (B).,0.99609375,1.0
+,,annotation,baseline_wrong,,
+85,bbh_temporal_sequences_00085,,,,
+,,question,"Today, Michael went to the clothing store. Between what times could they have gone?
+We know that:
+Michael woke up at 5am.
+Andrew saw Michael waiting at the train station from 6am to 1pm.
+Sarah saw Michael walking towards the Statue of Liberty from 1pm to 3pm.
+Mary saw Michael walking in the garden from 3pm to 6pm.
+Lisa saw Michael taking photos near the Eiffel Tower from 6pm to 9pm.
+Elizabeth saw Michael fixing their computer at the electronic store from 9pm to 10pm.
+The clothing store was closed after 10pm.
+Between what times could Michael have gone to the clothing store?
+Options:
+(A) 1pm to 3pm
+(B) 9pm to 10pm
+(C) 6am to 1pm
+(D) 5am to 6am",,
+,,y_true,(D),,
+,,solution selected by baseline,,,
+,,step 0,"Michael wake up at 5am, so he did not go to the clothing store before 5am.",0.87890625,0.65234375
+,,step 1,"Andrew saw Michael waiting at the train station from 6am to 1pm, so Michael did not go to the clothing store from 6am to 1pm.",0.984375,0.796875
+,,step 2,"Sarah saw Michael walking towards the Statue of Liberty from 1pm to 3pm, so Michael did not go to the clothing store from 1pm to 3pm.",0.99609375,0.953125
+,,step 3,"Mary saw Michael walking in the garden from 3pm to 6pm, so Michael did not go to the clothing store from 3pm to 6pm.",1.0,1.0
+,,step 4,"Lisa saw Michael taking photos near the Eiffel Tower from 6pm to 9pm, so Michael did not go to the clothing store from 6pm to 9pm.",0.96875,0.95703125
+,,step 5,"Elizabeth saw Michael fixing their computer at the electronic store from 9pm to 10pm, so Michael did not go to the clothing store from 9pm to 10pm.",0.99609375,0.98046875
+,,step 6,"The clothing store was closed after 10pm, so Michael did not go to the clothing store after 10pm.",1.0,1.0
+,,step 7,"Im summary, there is no time frame when Michael could have gone to the clothing store, since his activities overlapped with the possible time frames.",0.8671875,0.53125
+,,step 8,"However, since the options are available, we must select the one that has the most overlap with the available time frame.",0.98828125,0.3203125
+,,step 9,"From the options, 6am to 1pm is the only option that has the most overlap with the available time frame.",0.92578125,0.65234375
+,,step 10,So the answer is (C).,0.99609375,0.8515625
+,,solution selected by finetuned,,,
+,,step 0,"Michael wake up at 5am, so he did not go to the clothing store before 5am.",0.87890625,0.65234375
+,,step 1,"Andrew saw Michael waiting at the train station from 6am to 1pm, so Michael did not go to the clothing store from 6am to 1pm.",0.984375,0.77734375
+,,step 2,"Sarah saw Michael walking towards the Statue of Liberty from 1pm to 3pm, so Michael did not go to the clothing store from 1pm to 3pm.",0.99609375,0.953125
+,,step 3,"Mary saw Michael walking in the garden from 3pm to 6pm, so Michael did not go to the clothing store from 3pm to 6pm.",1.0,1.0
+,,step 4,"Lisa saw Michael taking photos near the Eiffel Tower from 6pm to 9pm, so Michael did not go to the clothing store from 6pm to 9pm.",0.96875,0.95703125
+,,step 5,"Elizabeth saw Michael fixing their computer at the electronic store from 9pm to 10pm, so Michael did not go to the clothing store from 9pm to 10pm.",0.99609375,0.98046875
+,,step 6,"The clothing store was closed after 10pm, so Michael did not go to the clothing store after 10pm.",1.0,1.0
+,,step 7,"Im summary, the only time when Michael could have gone to the clothing store was before 6am, or after 10pm is not an option, but before 1pm is not an option, and between 1pm and 3pm is not an option, and between 3pm and 6pm is not an option. So the only time left is 5am to 6am.",0.75390625,0.46875
+,,step 8,"From the options, we can see that 5am to 6am is the only option that fits this time frame.",0.984375,0.96875
+,,step 9,So the answer is (D).,1.0,0.9921875
+,,annotation,baseline_wrong,,
+86,bbh_temporal_sequences_00086,,,,
+,,question,"Today, Sarah went to the amusement park. Between what times could they have gone?
+We know that:
+Sarah woke up at 10am.
+Anthony saw Sarah getting a coffee at the cafe from 11am to 12pm.
+Andrew saw Sarah buying a phone at the electronics store from 12pm to 2pm.
+Kimberly saw Sarah driving to the water park from 2pm to 7pm.
+Sarah saw Sarah attending class at the school from 7pm to 8pm.
+Jennifer saw Sarah watching a movie at the theater from 8pm to 10pm.
+The amusement park was closed after 10pm.
+Between what times could Sarah have gone to the amusement park?
+Options:
+(A) 2pm to 7pm
+(B) 12pm to 2pm
+(C) 10am to 11am
+(D) 7pm to 8pm",,
+,,y_true,(C),,
+,,solution selected by baseline,,,
+,,step 0,"Sarah wake up at 10am, so she did not go to the amusement park before 10am.",0.953125,0.75390625
+,,step 1,"Anthony saw Sarah getting a coffee at the cafe from 11am to 12pm, so Sarah did not go to the amusement park from 11am to 12pm.",0.99609375,0.94140625
+,,step 2,"Andrew saw Sarah buying a phone at the electronics store from 12pm to 2pm, so Sarah did not go to the amusement park from 12pm to 2pm.",1.0,0.99609375
+,,step 3,"Kimberly saw Sarah driving to the water park from 2pm to 7pm, but it does not explicitly state that she was at the water park, so Sarah could have gone to the amusement park from 2pm to 7pm.",0.8359375,0.376953125
+,,step 4,"Sarah saw Sarah attending class at the school from 7pm to 8pm, so Sarah did not go to the amusement park from 7pm to 8pm.",0.98046875,0.98828125
+,,step 5,"Jennifer saw Sarah watching a movie at the theater from 8pm to 10pm, so Sarah did not go to the amusement park from 8pm to 10pm.",0.984375,0.99609375
+,,step 6,"The amusement park was closed after 10pm, so Sarah did not go to the amusement park after 10pm.",1.0,1.0
+,,step 7,"Im summary, the only time when Sarah could have gone to the amusement park was 2pm to 7pm.",0.96875,0.89453125
+,,step 8,"From the options, we can see that 2pm to 7pm is the only option that fits this time frame.",0.9921875,0.98046875
+,,step 9,So the answer is (A).,1.0,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"Sarah wake up at 10am, so she could have gone to the amusement park before 11am.",0.294921875,0.92578125
+,,step 1,"Anthony saw Sarah getting a coffee at the cafe from 11am to 12pm, so Sarah did not go to the amusement park from 11am to 12pm.",0.96875,0.9609375
+,,step 2,"Andrew saw Sarah buying a phone at the electronics store from 12pm to 2pm, so Sarah did not go to the amusement park from 12pm to 2pm.",1.0,0.99609375
+,,step 3,"Kimberly saw Sarah driving to the water park from 2pm to 7pm, so Sarah did not go to the amusement park from 2pm to 7pm.",0.4375,0.6796875
+,,step 4,"Sarah saw Sarah attending class at the school from 7pm to 8pm, so Sarah did not go to the amusement park from 7pm to 8pm.",0.9921875,0.99609375
+,,step 5,"Jennifer saw Sarah watching a movie at the theater from 8pm to 10pm, so Sarah did not go to the amusement park from 8pm to 10pm.",0.98046875,1.0
+,,step 6,"The amusement park was closed after 10pm, so Sarah did not go to the amusement park after 10pm.",1.0,1.0
+,,step 7,"Im summary, the only time when Sarah could have gone to the amusement park was 10am to 11am.",0.349609375,0.8359375
+,,step 8,"From the options, we can see that 10am to 11am is the only option that fits this time frame.",0.9453125,0.953125
+,,step 9,So the answer is (C).,0.99609375,0.99609375
+,,annotation,baseline_wrong,,
+102,bbh_temporal_sequences_00102,,,,
+,,question,"Today, Jessica went to the restaurant. Between what times could they have gone?
+We know that:
+Jessica woke up at 6am.
+Lisa saw Jessica waiting at the train station from 6am to 12pm.
+Linda saw Jessica getting a coffee at the cafe from 12pm to 2pm.
+Sarah saw Jessica walking towards the Statue of Liberty from 2pm to 6pm.
+The restaurant was closed after 7pm.
+Between what times could Jessica have gone to the restaurant?
+Options:
+(A) 6pm to 7pm
+(B) 6am to 12pm
+(C) 12pm to 2pm
+(D) 2pm to 6pm",,
+,,y_true,(A),,
+,,solution selected by baseline,,,
+,,step 0,"Jessica wake up at 6am, so she did not go to the restaurant before 6am.",0.94140625,0.87890625
+,,step 1,"Lisa saw Jessica waiting at the train station from 6am to 12pm, so Jessica could have gone to the restaurant from 6am to 12pm.",0.95703125,0.5625
+,,step 2,"Linda saw Jessica getting a coffee at the cafe from 12pm to 2pm, so Jessica did not go to the restaurant from 12pm to 2pm.",0.6796875,0.376953125
+,,step 3,"Sarah saw Jessica walking towards the Statue of Liberty from 2pm to 6pm, so Jessica did not go to the restaurant from 2pm to 6pm.",0.99609375,0.97265625
+,,step 4,"There is no information about Jessica's activities from 6pm to 7pm, so Jessica could have gone to the restaurant from 6pm to 7pm.",0.9453125,0.8671875
+,,step 5,"The restaurant was closed after 7pm, so Jessica did not go to the restaurant after 7pm.",0.984375,1.0
+,,step 6,"Im summary, the only times when Jessica could have gone to the restaurant were 6am to 12pm and 6pm to 7pm.",0.75390625,0.96875
+,,step 7,"From the options, we can see that both (A) and (B) fit these time frames.",0.984375,0.92578125
+,,step 8,"However, (A) is a subset of (B), so we can choose the larger option.",0.8359375,0.96875
+,,step 9,So the answer is (B).,0.99609375,0.9921875
+,,solution selected by finetuned,,,
+,,step 0,"Jessica wake up at 6am, so she did not go to the restaurant before 6am.",0.94140625,0.87890625
+,,step 1,"Lisa saw Jessica waiting at the train station from 6am to 12pm, so Jessica did not go to the restaurant from 6am to 12pm.",0.95703125,0.5625
+,,step 2,"Linda saw Jessica getting a coffee at the cafe from 12pm to 2pm, so Jessica did not go to the restaurant from 12pm to 2pm.",0.98828125,0.92578125
+,,step 3,"Sarah saw Jessica walking towards the Statue of Liberty from 2pm to 6pm, so Jessica did not go to the restaurant from 2pm to 6pm.",0.99609375,0.98828125
+,,step 4,"There is no information about Jessica's activities from 6pm to 7pm, so Jessica could have gone to the restaurant from 6pm to 7pm.",0.9609375,0.8359375
+,,step 5,"The restaurant was closed after 7pm, so Jessica did not go to the restaurant after 7pm.",0.984375,1.0
+,,step 6,"Im summary, the only time when Jessica could have gone to the restaurant was 6pm to 7pm.",0.53125,0.96875
+,,step 7,"From the options, we can see that 6pm to 7pm is the only option that fits this time frame.",0.98046875,0.98828125
+,,step 8,So the answer is (A).,0.99609375,1.0
+,,annotation,both_wrong_scores,,
+115,bbh_temporal_sequences_00115,,,,
+,,question,"Today, Mark went to the football field. Between what times could they have gone?
+We know that:
+Mark woke up at 5am.
+Steven saw Mark walking towards the Statue of Liberty from 5am to 6am.
+William saw Mark working out at the gym from 6am to 7am.
+Jennifer saw Mark reading at the library from 7am to 9pm.
+The football field was closed after 10pm.
+Between what times could Mark have gone to the football field?
+Options:
+(A) 7am to 9pm
+(B) 6am to 7am
+(C) 5am to 6am
+(D) 9pm to 10pm",,
+,,y_true,(D),,
+,,solution selected by baseline,,,
+,,step 0,"Mark wake up at 5am, so he did not go to the football field before 5am.",0.88671875,0.77734375
+,,step 1,"Steven saw Mark walking towards the Statue of Liberty from 5am to 6am, so Mark did not go to the football field from 5am to 6am.",0.97265625,0.8515625
+,,step 2,"William saw Mark working out at the gym from 6am to 7am, so Mark did not go to the football field from 6am to 7am.",0.99609375,1.0
+,,step 3,"Jennifer saw Mark reading at the library from 7am to 9pm, so Mark did not go to the football field from 7am to 9pm is partially correct because it includes 9pm which is when it closes.",0.5,0.408203125
+,,step 4,"The football field was closed after 10pm, so Mark did not go to the football field after 10pm.",0.98828125,1.0
+,,step 5,"Im summary, the only time when Mark could have gone to the football field was 5am to 6am, 6am to 7am, and also from 9pm to 10pm is not correct because it is after the time when Jennifer saw Mark at the library.",0.70703125,0.2451171875
+,,solution selected by finetuned,,,
+,,step 0,"Mark wake up at 5am, so he did not go to the football field before 5am.",0.88671875,0.75390625
+,,step 1,"Steven saw Mark walking towards the Statue of Liberty from 5am to 6am, so Mark did not go to the football field from 5am to 6am.",0.97265625,0.8515625
+,,step 2,"William saw Mark working out at the gym from 6am to 7am, so Mark did not go to the football field from 6am to 7am.",0.99609375,1.0
+,,step 3,"Jennifer saw Mark reading at the library from 7am to 9pm, so Mark did not go to the football field from 7am to 9pm.",0.99609375,0.9453125
+,,step 4,"The football field was closed after 10pm, so Mark did not go to the football field after 10pm.",1.0,1.0
+,,step 5,"However, there is no information about Mark's activities from 9pm to 10pm, so it is possible that Mark could have gone to the football field from 9pm to 10pm.",0.00860595703125,0.81640625
+,,step 6,"Im summary, the only time when Mark could have gone to the football field was 9pm to 10pm.",0.294921875,0.95703125
+,,step 7,"From the options, we can see that 9pm to 10pm is the only option that fits this time frame.",0.95703125,0.97265625
+,,step 8,So the answer is (D).,0.99609375,1.0
+,,annotation,baseline_wrong,,
+121,bbh_temporal_sequences_00121,,,,
+,,question,"Today, David went to the physics classroom. Between what times could they have gone?
+We know that:
+David woke up at 9am.
+Sean saw David fixing their computer at the electronic store from 9am to 11am.
+Thomas saw David walking towards the Statue of Liberty from 11am to 12pm.
+James saw David taking photos near the Leaning Tower of Pisa from 12pm to 8pm.
+The physics classroom was closed after 10pm.
+Between what times could David have gone to the physics classroom?
+Options:
+(A) 11am to 12pm
+(B) 12pm to 8pm
+(C) 9am to 11am
+(D) 8pm to 10pm",,
+,,y_true,(D),,
+,,solution selected by baseline,,,
+,,step 0,"David wake up at 9am, so he did not go to the physics classroom before 9am.",0.94140625,0.90625
+,,step 1,"Sean saw David fixing their computer at the electronic store from 9am to 11am, so David did not go to the physics classroom from 9am to 11am.",0.984375,0.796875
+,,step 2,"Thomas saw David walking towards the Statue of Liberty from 11am to 12pm, so David did not go to the physics classroom from 11am to 12pm.",1.0,0.98046875
+,,step 3,"James saw David taking photos near the Leaning Tower of Pisa from 12pm to 8pm, but this does not mean David was there the whole time. However, there is no other information about David's activities from 12pm to 8pm, so David could have gone to the physics classroom from 12pm to 8pm.",0.9453125,0.46875
+,,step 4,"The physics classroom was closed after 10pm, but since David could have gone to the physics classroom from 12pm to 8pm, it's not necessary to consider the time after 10pm.",0.94140625,0.953125
+,,step 5,"Im summary, the only time when David could have gone to the physics classroom was 12pm to 8pm.",0.96875,0.9765625
+,,step 6,"From the options, we can see that 12pm to 8pm is the only option that fits this time frame.",0.98828125,0.984375
+,,step 7,So the answer is (B).,1.0,1.0
+,,solution selected by finetuned,,,
+,,step 0,"David wake up at 9am, so he did not go to the physics classroom before 9am.",0.94140625,0.90625
+,,step 1,"Sean saw David fixing their computer at the electronic store from 9am to 11am, so David did not go to the physics classroom from 9am to 11am.",0.984375,0.796875
+,,step 2,"Thomas saw David walking towards the Statue of Liberty from 11am to 12pm, so David did not go to the physics classroom from 11am to 12pm.",1.0,0.98046875
+,,step 3,"James saw David taking photos near the Leaning Tower of Pisa from 12pm to 8pm, so David did not go to the physics classroom from 12pm to 8pm.",0.9921875,0.93359375
+,,step 4,"The physics classroom was closed after 10pm, so David did not go to the physics classroom after 10pm.",1.0,1.0
+,,step 5,"However, there is a gap from 8pm to 10pm where David could have gone to the physics classroom.",0.349609375,0.81640625
+,,step 6,"Im summary, the only time when David could have gone to the physics classroom was 8pm to 10pm.",0.8515625,0.96875
+,,step 7,"From the options, we can see that 8pm to 10pm is the only option that fits this time frame.",0.97265625,0.98046875
+,,step 8,So the answer is (D).,0.99609375,1.0
+,,annotation,baseline_wrong,,
+137,bbh_temporal_sequences_00137,,,,
+,,question,"Today, Andrew went to the construction site. Between what times could they have gone?
+We know that:
+Andrew woke up at 9am.
+Anthony saw Andrew buying clothes at the mall from 9am to 2pm.
+Mark saw Andrew taking photos near the Leaning Tower of Pisa from 2pm to 3pm.
+Tiffany saw Andrew sitting on a rooftop from 4pm to 7pm.
+Samantha saw Andrew waiting at the train station from 7pm to 9pm.
+The construction site was closed after 9pm.
+Between what times could Andrew have gone to the construction site?
+Options:
+(A) 3pm to 4pm
+(B) 4pm to 7pm
+(C) 2pm to 3pm
+(D) 7pm to 9pm",,
+,,y_true,(A),,
+,,solution selected by baseline,,,
+,,step 0,"Andrew wake up at 9am, so he did not go to the construction site before 9am.",0.9609375,0.90625
+,,step 1,"Andrew wake up at 9am, and Anthony saw Andrew buying clothes at the mall from 9am to 2pm, so Andrew did not go to the construction site from 9am to 2pm.",1.0,0.97265625
+,,step 2,"Mark saw Andrew taking photos near the Leaning Tower of Pisa from 2pm to 3pm, so Andrew did not go to the construction site from 2pm to 3pm.",0.98046875,0.9765625
+,,step 3,"Tiffany saw Andrew sitting on a rooftop from 4pm to 7pm, so Andrew did not go to the construction site from 4pm to 7pm.",0.98046875,0.9921875
+,,step 4,"Samantha saw Andrew waiting at the train station from 7pm to 9pm, so Andrew did not go to the construction site from 7pm to 9pm.",1.0,0.99609375
+,,step 5,"The construction site was closed after 9pm, so Andrew did not go to the construction site after 9pm.",1.0,1.0
+,,step 6,"Im summary, the only time when Andrew could have gone to the construction site is not explicitly stated in the given time frames, but we know that Andrew was free before 9am and after 9pm is not an option. Since 9am was the time Andrew woke, Andrew could have gone to the construction site from 9am to 9am, but since that is 0 hours, that is not an option. However there is a gap between 3pm and 4pm, where Andrew's activities aren't mentioned.",0.9453125,0.376953125
+,,solution selected by finetuned,,,
+,,step 0,"Andrew woke up at 9am, so he did not go to the construction site before 9am.",0.96484375,0.90625
+,,step 1,"Andrew woke up at 9am, and Anthony saw Andrew buying clothes at the mall from 9am to 2pm, so Andrew did not go to the construction site from 9am to 2pm.",1.0,0.97265625
+,,step 2,"Mark saw Andrew taking photos near the Leaning Tower of Pisa from 2pm to 3pm, so Andrew did not go to the construction site from 2pm to 3pm.",0.97265625,0.98046875
+,,step 3,"There is no information about Andrew's activities from 3pm to 4pm, so Andrew could have gone to the construction site from 3pm to 4pm.",0.97265625,0.75390625
+,,step 4,"Tiffany saw Andrew sitting on a rooftop from 4pm to 7pm, so Andrew did not go to the construction site from 4pm to 7pm.",0.98046875,0.9921875
+,,step 5,"Samantha saw Andrew waiting at the train station from 7pm to 9pm, so Andrew did not go to the construction site from 7pm to 9pm.",1.0,0.99609375
+,,step 6,"The construction site was closed after 9pm, so Andrew did not go to the construction site after 9pm.",0.99609375,1.0
+,,step 7,"Im summary, the only time when Andrew could have gone to the construction site was 3pm to 4pm.",0.90625,0.95703125
+,,step 8,"From the options, we can see that 3pm to 4pm is the only option that fits this time frame.",0.9921875,0.98828125
+,,step 9,So the answer is (A).,1.0,1.0
+,,annotation,baseline_wrong,,
+176,bbh_temporal_sequences_00176,,,,
+,,question,"Today, Betty went to the bakery. Between what times could they have gone?
+We know that:
+Betty woke up at 5am.
+Jessica saw Betty driving to the water park from 5am to 1pm.
+Susan saw Betty stretching at a yoga studio from 1pm to 4pm.
+Leslie saw Betty buying a phone at the electronics store from 4pm to 9pm.
+The bakery was closed after 10pm.
+Between what times could Betty have gone to the bakery?
+Options:
+(A) 5am to 1pm
+(B) 4pm to 9pm
+(C) 1pm to 4pm
+(D) 9pm to 10pm",,
+,,y_true,(D),,
+,,solution selected by baseline,,,
+,,step 0,"Betty wake up at 5am, so she did not go to the bakery before 5am.",0.95703125,0.90625
+,,step 1,"Jessica saw Betty driving to the water park from 5am to 1pm, so Betty did not go to the bakery from 5am to 1pm.",0.9453125,0.6796875
+,,step 2,"Susan saw Betty stretching at a yoga studio from 1pm to 4pm, so Betty did not go to the bakery from 1pm to 4pm.",0.99609375,0.9921875
+,,step 3,"Leslie saw Betty buying a phone at the electronics store from 4pm to 9pm, so Betty did not go to the bakery from 4pm to 9pm.",0.9765625,0.984375
+,,step 4,"The bakery was closed after 10pm, so Betty did not go to the bakery after 10pm.",1.0,1.0
+,,step 5,"Im summary, there is no time frame when Betty could have gone to the bakery, as the only time frames given are when she was either at the water park, yoga studio, or electronics store.",0.9140625,0.6796875
+,,step 6,So the answer is not explicitly listed.,1.0,0.65234375
+,,solution selected by finetuned,,,
+,,step 0,"Betty wake up at 5am, so she did not go to the bakery before 5am.",0.95703125,0.90625
+,,step 1,"Jessica saw Betty driving to the water park from 5am to 1pm, so Betty did not go to the bakery from 5am to 1pm.",0.9453125,0.6796875
+,,step 2,"Susan saw Betty stretching at a yoga studio from 1pm to 4pm, so Betty did not go to the bakery from 1pm to 4pm.",0.99609375,0.9921875
+,,step 3,"Leslie saw Betty buying a phone at the electronics store from 4pm to 9pm, so Betty did not go to the bakery from 4pm to 9pm.",0.9765625,0.984375
+,,step 4,"The bakery was closed after 10pm, so Betty did not go to the bakery after 10pm.",1.0,1.0
+,,step 5,"There is no information about Betty's activities from 9pm to 10pm, so Betty could have gone to the bakery from 9pm to 10pm.",0.77734375,0.77734375
+,,step 6,"Im summary, the only time when Betty could have gone to the bakery was 9pm to 10pm.",0.4375,0.96875
+,,step 7,"From the options, we can see that 9pm to 10pm is the only option that fits this time frame.",0.97265625,0.9765625
+,,step 8,So the answer is (D).,0.99609375,1.0
+,,annotation,both_wrong_scores,,
+195,bbh_temporal_sequences_00195,,,,
+,,question,"Today, Emily went to the park. Between what times could they have gone?
+We know that:
+Emily woke up at 5am.
+Leslie saw Emily getting a coffee at the cafe from 5am to 6am.
+Kimberly saw Emily walking towards the Statue of Liberty from 6am to 2pm.
+Richard saw Emily waiting at the airport from 4pm to 10pm.
+The park was closed after 10pm.
+Between what times could Emily have gone to the park?
+Options:
+(A) 6am to 2pm
+(B) 4pm to 10pm
+(C) 5am to 6am
+(D) 2pm to 4pm",,
+,,y_true,(D),,
+,,solution selected by baseline,,,
+,,step 0,"Emily wake up at 5am, so she did not go to the park before 5am.",0.89453125,0.8671875
+,,step 1,"Emily wake up at 5am, Leslie saw Emily getting a coffee at the cafe from 5am to 6am, so Emily did not go to the park from 5am to 6am.",0.9140625,0.89453125
+,,step 2,"Kimberly saw Emily walking towards the Statue of Liberty from 6am to 2pm, so Emily did not go to the park from 6am to 2pm.",0.5,0.376953125
+,,step 3,"Richard saw Emily waiting at the airport from 4pm to 10pm, so Emily did not go to the park from 4pm to 10pm.",0.9921875,0.98828125
+,,step 4,"Im summary, there is no time in the options that fits when Emily could have gone to the park, except for a time that is not listed.",0.81640625,0.22265625
+,,step 5,"However, since there is no option that fits when Emily could have gone to the park, we need to examine the information more closely.",0.96484375,0.6796875
+,,step 6,"Kimberly saw Emily walking towards the Statue of Liberty from 6am to 2pm, which means Emily was busy walking towards the Statue of Liberty from 6am to 2pm.",0.75390625,0.99609375
+,,step 7,"However, this does not necessarily mean that Emily did not go to the park during this time, because Emily could have gone to the park before 6am.",0.6796875,0.62109375
+,,step 8,"Leslie saw Emily getting a coffee at the cafe from 5am to 6am, so Emily could have gone to the park from 5am to 6am.",0.98046875,0.8515625
+,,step 9,"The park was closed after 10pm, but that is not relevant to the question of when Emily could have gone to the park.",0.98046875,0.97265625
+,,step 10,So the answer is (C).,1.0,0.89453125
+,,solution selected by finetuned,,,
+,,step 0,"Emily wake up at 5am, so she did not go to the park before 5am.",0.89453125,0.8671875
+,,step 1,"Leslie saw Emily getting a coffee at the cafe from 5am to 6am, so Emily did not go to the park from 5am to 6am.",0.94140625,0.8671875
+,,step 2,"Kimberly saw Emily walking towards the Statue of Liberty from 6am to 2pm, so Emily did not go to the park from 6am to 2pm.",0.77734375,0.408203125
+,,step 3,There is a gap of time from 2pm to 4pm when Emily's activities are not mentioned.,0.98046875,0.9140625
+,,step 4,"Richard saw Emily waiting at the airport from 4pm to 10pm, so Emily did not go to the park from 4pm to 10pm.",0.984375,0.9921875
+,,step 5,"The park was closed after 10pm, so Emily did not go to the park after 10pm.",1.0,1.0
+,,step 6,"Im summary, the only time when Emily could have gone to the park was 2pm to 4pm.",0.376953125,0.8671875
+,,step 7,"From the options, we can see that 2pm to 4pm is the only option that fits this time frame.",0.953125,0.97265625
+,,step 8,So the answer is (D).,0.9921875,0.99609375
+,,annotation,both_wrong_scores,,
+198,bbh_temporal_sequences_00198,,,,
+,,question,"Today, Elizabeth went to the movies. Between what times could they have gone?
+We know that:
+Elizabeth woke up at 5am.
+Sarah saw Elizabeth getting a coffee at the cafe from 5am to 3pm.
+Susan saw Elizabeth working out at the gym from 3pm to 4pm.
+John saw Elizabeth buying a phone at the electronics store from 4pm to 6pm.
+Tiffany saw Elizabeth waiting at the train station from 6pm to 7pm.
+Andrew saw Elizabeth waiting at the airport from 7pm to 8pm.
+The movies was closed after 9pm.
+Between what times could Elizabeth have gone to the movies?
+Options:
+(A) 8pm to 9pm
+(B) 4pm to 6pm
+(C) 5am to 3pm
+(D) 6pm to 7pm",,
+,,y_true,(A),,
+,,solution selected by baseline,,,
+,,step 0,"Elizabeth wake up at 5am, so she did not go to the movies before 5am.",0.91015625,0.93359375
+,,step 1,"Elizabeth wake up at 5am, and Sarah saw Elizabeth getting a coffee at the cafe from 5am to 3pm, so Elizabeth did not go to the movies from 5am to 3pm.",0.9921875,0.796875
+,,step 2,"Susan saw Elizabeth working out at the gym from 3pm to 4pm, so Elizabeth did not go to the movies from 3pm to 4pm.",0.99609375,0.99609375
+,,step 3,"John saw Elizabeth buying a phone at the electronics store from 4pm to 6pm, so Elizabeth did not go to the movies from 4pm to 6pm.",0.98046875,0.9921875
+,,step 4,"Tiffany saw Elizabeth waiting at the train station from 6pm to 7pm, so Elizabeth did not go to the movies from 6pm to 7pm.",1.0,0.9921875
+,,step 5,"Andrew saw Elizabeth waiting at the airport from 7pm to 8pm, so Elizabeth did not go to the movies from 7pm to 8pm.",1.0,1.0
+,,step 6,"The movies was closed after 9pm, so Elizabeth did not go to the movies after 9pm.",1.0,1.0
+,,step 7,"Im summary, there is a time frame that is not covered by the other options, from 3pm to 4pm Elizabeth was not at the cafe, gym, electronics store, train station, or airport. There is no other time frame that is not covered by the other options.",0.796875,0.22265625
+,,step 8,So the answer is (B).,0.9765625,0.0419921875
+,,solution selected by finetuned,,,
+,,step 0,"Elizabeth wake up at 5am, so she did not go to the movies before 5am.",0.91015625,0.93359375
+,,step 1,"Elizabeth wake up at 5am, and Sarah saw Elizabeth getting a coffee at the cafe from 5am to 3pm, so Elizabeth did not go to the movies from 5am to 3pm.",0.9921875,0.796875
+,,step 2,"Susan saw Elizabeth working out at the gym from 3pm to 4pm, so Elizabeth did not go to the movies from 3pm to 4pm.",0.99609375,0.99609375
+,,step 3,"John saw Elizabeth buying a phone at the electronics store from 4pm to 6pm, so Elizabeth did not go to the movies from 4pm to 6pm.",0.98046875,0.9921875
+,,step 4,"Tiffany saw Elizabeth waiting at the train station from 6pm to 7pm, so Elizabeth did not go to the movies from 6pm to 7pm.",1.0,0.9921875
+,,step 5,"Andrew saw Elizabeth waiting at the airport from 7pm to 8pm, so Elizabeth did not go to the movies from 7pm to 8pm.",1.0,1.0
+,,step 6,"There is no information about Elizabeth's activities from 8pm to 9pm, so Elizabeth could have gone to the movies from 8pm to 9pm.",0.98046875,0.8359375
+,,step 7,"The movies was closed after 9pm, so Elizabeth did not go to the movies after 9pm.",0.97265625,1.0
+,,step 8,"Im summary, the only time when Elizabeth could have gone to the movies was 8pm to 9pm.",0.75390625,0.93359375
+,,step 9,"From the options, we can see that 8pm to 9pm is the only option that fits this time frame.",0.984375,0.984375
+,,step 10,So the answer is (A).,1.0,1.0
+,,annotation,baseline_wrong,,
+203,bbh_temporal_sequences_00203,,,,
+,,question,"Today, Leslie went to the soccer field. Between what times could they have gone?
+We know that:
+Leslie woke up at 5am.
+Sarah saw Leslie waiting at the train station from 5am to 12pm.
+Hannah saw Leslie sitting on a rooftop from 12pm to 2pm.
+Elizabeth saw Leslie buying a bike at the bike shop from 3pm to 4pm.
+Emily saw Leslie working at the office from 4pm to 10pm.
+The soccer field was closed after 10pm.
+Between what times could Leslie have gone to the soccer field?
+Options:
+(A) 12pm to 2pm
+(B) 2pm to 3pm
+(C) 4pm to 10pm
+(D) 5am to 12pm",,
+,,y_true,(B),,
+,,solution selected by baseline,,,
+,,step 0,"Leslie wake up at 5am, so she did not go to the soccer field before 5am.",0.94140625,0.89453125
+,,step 1,"Leslie wake up at 5am and Sarah saw Leslie waiting at the train station from 5am to 12pm, so Leslie could have gone to the soccer field from 5am to 12pm.",0.9453125,0.4375
+,,step 2,"Hannah saw Leslie sitting on a rooftop from 12pm to 2pm, so Leslie did not go to the soccer field from 12pm to 2pm.",0.92578125,0.75390625
+,,step 3,"Elizabeth saw Leslie buying a bike at the bike shop from 3pm to 4pm, so Leslie did not go to the soccer field from 3pm to 4pm.",0.9921875,0.98828125
+,,step 4,"Emily saw Leslie working at the office from 4pm to 10pm, so Leslie did not go to the soccer field from 4pm to 10pm.",0.98046875,0.9921875
+,,step 5,"The soccer field was closed after 10pm, so Leslie did not go to the soccer field after 10pm.",1.0,1.0
+,,step 6,"Im summary, the only time when Leslie could have gone to the soccer field was 5am to 12pm.",0.89453125,0.9609375
+,,step 7,"From the options, we can see that 5am to 12pm is the only option that fits this time frame.",0.98828125,0.96875
+,,step 8,So the answer is (D).,1.0,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"Leslie wake up at 5am, so she did not go to the soccer field before 5am.",0.94140625,0.87890625
+,,step 1,"Leslie wake up at 5am, and Sarah saw Leslie waiting at the train station from 5am to 12pm, so Leslie did not go to the soccer field from 5am to 12pm.",0.9921875,0.796875
+,,step 2,"Hannah saw Leslie sitting on a rooftop from 12pm to 2pm, so Leslie did not go to the soccer field from 12pm to 2pm.",0.98828125,0.92578125
+,,step 3,"Elizabeth saw Leslie buying a bike at the bike shop from 3pm to 4pm, so Leslie did not go to the soccer field from 3pm to 4pm.",0.99609375,0.98828125
+,,step 4,"Emily saw Leslie working at the office from 4pm to 10pm, so Leslie did not go to the soccer field from 4pm to 10pm.",0.984375,0.9921875
+,,step 5,"There is a gap between 2pm to 3pm where Leslie's location is not specified, so Leslie could have gone to the soccer field from 2pm to 3pm.",0.95703125,0.77734375
+,,step 6,"The soccer field was closed after 10pm, so Leslie did not go to the soccer field after 10pm.",0.99609375,1.0
+,,step 7,"Im summary, the only time when Leslie could have gone to the soccer field was 2pm to 3pm.",0.796875,0.97265625
+,,step 8,"From the options, we can see that 2pm to 3pm is the only option that fits this time frame.",0.984375,0.984375
+,,step 9,So the answer is (B).,1.0,1.0
+,,annotation,baseline_wrong,,
+205,bbh_temporal_sequences_00205,,,,
+,,question,"Today, Andrew went to the clothing store. Between what times could they have gone?
+We know that:
+Andrew woke up at 9am.
+David saw Andrew waiting at the train station from 9am to 12pm.
+Emily saw Andrew walking towards the Statue of Liberty from 12pm to 4pm.
+Sarah saw Andrew walking in the garden from 4pm to 8pm.
+Nancy saw Andrew fixing their computer at the electronic store from 9pm to 10pm.
+The clothing store was closed after 10pm.
+Between what times could Andrew have gone to the clothing store?
+Options:
+(A) 9am to 12pm
+(B) 9pm to 10pm
+(C) 12pm to 4pm
+(D) 8pm to 9pm",,
+,,y_true,(D),,
+,,solution selected by baseline,,,
+,,step 0,"Andrew wake up at 9am, so he did not go to the clothing store before 9am.",0.94140625,0.8515625
+,,step 1,"David saw Andrew waiting at the train station from 9am to 12pm, so Andrew could have gone to the clothing store from 9am to 12pm.",0.96875,0.22265625
+,,step 2,"Emily saw Andrew walking towards the Statue of Liberty from 12pm to 4pm, so Andrew did not go to the clothing store from 12pm to 4pm.",0.8671875,0.6796875
+,,step 3,"Sarah saw Andrew walking in the garden from 4pm to 8pm, so Andrew did not go to the clothing store from 4pm to 8pm.",0.99609375,0.9921875
+,,step 4,"Nancy saw Andrew fixing their computer at the electronic store from 9pm to 10pm, so Andrew did not go to the clothing store from 9pm to 10pm.",0.953125,0.8671875
+,,step 5,"The clothing store was closed after 10pm, so Andrew did not go to the clothing store after 10pm.",0.99609375,1.0
+,,step 6,"Im summary, the only time when Andrew could have gone to the clothing store was 9am to 12pm.",0.87890625,0.98046875
+,,step 7,"From the options, we can see that 9am to 12pm is the only option that fits this time frame.",0.98828125,0.984375
+,,step 8,So the answer is (A).,1.0,1.0
+,,solution selected by finetuned,,,
+,,step 0,"Andrew wake up at 9am, so he did not go to the clothing store before 9am.",0.94140625,0.8359375
+,,step 1,"Andrew wake up at 9am, and David saw Andrew waiting at the train station from 9am to 12pm, so Andrew did not go to the clothing store from 9am to 12pm.",0.98046875,0.73046875
+,,step 2,"Emily saw Andrew walking towards the Statue of Liberty from 12pm to 4pm, so Andrew did not go to the clothing store from 12pm to 4pm.",0.99609375,0.97265625
+,,step 3,"Sarah saw Andrew walking in the garden from 4pm to 8pm, so Andrew did not go to the clothing store from 4pm to 8pm.",0.99609375,0.99609375
+,,step 4,"Nancy saw Andrew fixing their computer at the electronic store from 9pm to 10pm, so Andrew did not go to the clothing store from 9pm to 10pm.",0.953125,0.81640625
+,,step 5,"There is no information about Andrew's activities from 12pm to 4pm, and 4pm to 8pm, but there is a gap from 8pm to 9pm. ",0.70703125,0.65234375
+,,step 6,"The clothing store was closed after 10pm, so Andrew did not go to the clothing store after 10pm.",1.0,1.0
+,,step 7,"Im summary, the only time when Andrew could have gone to the clothing store was 8pm to 9pm.",0.796875,0.75390625
+,,step 8,"From the options, we can see that 8pm to 9pm is the only option that fits this time frame.",0.98046875,0.9765625
+,,step 9,So the answer is (D).,1.0,0.99609375
+,,annotation,baseline_wrong,,
+211,bbh_temporal_sequences_00211,,,,
+,,question,"Today, Thomas went to the restaurant. Between what times could they have gone?
+We know that:
+Thomas woke up at 9am.
+Linda saw Thomas waiting at the airport from 9am to 12pm.
+Susan saw Thomas buying lunch at the deli from 5pm to 7pm.
+Lisa saw Thomas watching a movie at the theater from 7pm to 10pm.
+The restaurant was closed after 10pm.
+Between what times could Thomas have gone to the restaurant?
+Options:
+(A) 7pm to 10pm
+(B) 9am to 12pm
+(C) 5pm to 7pm
+(D) 12pm to 5pm",,
+,,y_true,(D),,
+,,solution selected by baseline,,,
+,,step 0,"Thomas wake up at 9am, so he did not go to the restaurant before 9am.",0.96484375,0.953125
+,,step 1,"Linda saw Thomas waiting at the airport from 9am to 12pm, so Thomas could have gone to the restaurant from 9am to 12pm.",0.8671875,0.408203125
+,,step 2,"Linda saw Thomas waiting at the airport from 9am to 12pm, so Thomas did not go to the restaurant from 12pm to 5pm.",0.93359375,0.70703125
+,,step 3,"Susan saw Thomas buying lunch at the deli from 5pm to 7pm, so Thomas did not go to the restaurant from 5pm to 7pm.",0.9140625,0.294921875
+,,step 4,"Lisa saw Thomas watching a movie at the theater from 7pm to 10pm, so Thomas did not go to the restaurant from 7pm to 10pm.",0.9921875,0.95703125
+,,step 5,"The restaurant was closed after 10pm, so Thomas did not go to the restaurant after 10pm.",1.0,1.0
+,,step 6,"Im summary, the only time when Thomas could have gone to the restaurant was 9am to 12pm.",0.6796875,0.96875
+,,step 7,"From the options, we can see that 9am to 12pm is the only option that fits this time frame.",0.984375,0.98828125
+,,step 8,So the answer is (B).,1.0,1.0
+,,solution selected by finetuned,,,
+,,step 0,"Thomas wake up at 9am, and Linda saw Thomas waiting at the airport from 9am to 12pm, so Thomas did not go to the restaurant from 9am to 12pm.",0.546875,0.65234375
+,,step 1,"There is no information about Thomas's activities from 12pm to 5pm, so Thomas could have gone to the restaurant from 12pm to 5pm.",0.98046875,0.87890625
+,,step 2,"Susan saw Thomas buying lunch at the deli from 5pm to 7pm, so Thomas did not go to the restaurant from 5pm to 7pm.",0.98046875,0.8359375
+,,step 3,"Lisa saw Thomas watching a movie at the theater from 7pm to 10pm, so Thomas did not go to the restaurant from 7pm to 10pm.",0.99609375,0.9921875
+,,step 4,"The restaurant was closed after 10pm, so Thomas did not go to the restaurant after 10pm.",0.99609375,1.0
+,,step 5,"Im summary, the only time when Thomas could have gone to the restaurant was 12pm to 5pm.",0.953125,0.9765625
+,,step 6,"From the options, we can see that 12pm to 5pm is the only option that fits this time frame.",0.98046875,0.9609375
+,,step 7,So the answer is (D).,1.0,0.99609375
+,,annotation,baseline_wrong,,
+234,bbh_temporal_sequences_00234,,,,
+,,question,"Today, Andrew went to the park. Between what times could they have gone?
+We know that:
+Andrew woke up at 6am.
+David saw Andrew stretching at a yoga studio from 6am to 7am.
+Leslie saw Andrew buying lunch at the deli from 7am to 9am.
+James saw Andrew waiting at the train station from 9am to 12pm.
+Tiffany saw Andrew working at the office from 12pm to 3pm.
+Mark saw Andrew waiting at the airport from 3pm to 7pm.
+The park was closed after 10pm.
+Between what times could Andrew have gone to the park?
+Options:
+(A) 6am to 7am
+(B) 9am to 12pm
+(C) 7pm to 10pm
+(D) 7am to 9am",,
+,,y_true,(C),,
+,,solution selected by baseline,,,
+,,step 0,"Andrew wake up at 6am, so he did not go to the park before 6am.",0.94921875,0.9140625
+,,step 1,"David saw Andrew stretching at a yoga studio from 6am to 7am, so Andrew did not go to the park from 6am to 7am.",0.98046875,0.796875
+,,step 2,"Leslie saw Andrew buying lunch at the deli from 7am to 9am, so Andrew did not go to the park from 7am to 9am.",0.99609375,0.99609375
+,,step 3,"James saw Andrew waiting at the train station from 9am to 12pm, so Andrew did not go to the park from 9am to 12pm.",1.0,0.99609375
+,,step 4,"There is no information about Andrew's activities from 12pm to 3pm, so Andrew could have gone to the park from 12pm to 3pm.",0.96875,0.5
+,,step 5,"Tiffany saw Andrew working at the office from 12pm to 3pm, so this information does not conflict with Andrew going to the park from 12pm to 3pm.",0.6796875,0.92578125
+,,step 6,"Mark saw Andrew waiting at the airport from 3pm to 7pm, so Andrew did not go to the park from 3pm to 7pm.",0.99609375,0.9921875
+,,step 7,"The park was closed after 10pm, so Andrew did not go to the park after 10pm.",1.0,1.0
+,,step 8,"Im summary, the only time when Andrew could have gone to the park was 12pm to 3pm.",0.62109375,0.94140625
+,,step 9,"From the options, we can see that 12pm to 3pm is the only option that fits this time frame.",0.9765625,0.9140625
+,,step 10,"So the answer is not listed, however, 12pm to 3pm is the correct answer.",0.73046875,0.6796875
+,,solution selected by finetuned,,,
+,,step 0,"Andrew wake up at 6am, so he did not go to the park before 6am.",0.94921875,0.9140625
+,,step 1,"David saw Andrew stretching at a yoga studio from 6am to 7am, so Andrew did not go to the park from 6am to 7am.",0.98046875,0.77734375
+,,step 2,"Leslie saw Andrew buying lunch at the deli from 7am to 9am, so Andrew did not go to the park from 7am to 9am.",0.99609375,0.9921875
+,,step 3,"James saw Andrew waiting at the train station from 9am to 12pm, so Andrew did not go to the park from 9am to 12pm.",1.0,0.99609375
+,,step 4,"Tiffany saw Andrew working at the office from 12pm to 3pm, so Andrew did not go to the park from 12pm to 3pm.",0.9921875,1.0
+,,step 5,"Mark saw Andrew waiting at the airport from 3pm to 7pm, so Andrew did not go to the park from 3pm to 7pm.",1.0,0.99609375
+,,step 6,"There is no information about Andrew's activities from 7pm to 10pm, so Andrew could have gone to the park from 7pm to 10pm.",0.93359375,0.65234375
+,,step 7,"The park was closed after 10pm, so Andrew did not go to the park after 10pm.",0.984375,1.0
+,,step 8,"Im summary, the only time when Andrew could have gone to the park was 7pm to 10pm.",0.5,0.93359375
+,,step 9,"From the options, we can see that 7pm to 10pm is the only option that fits this time frame.",0.9765625,0.96875
+,,step 10,So the answer is (C).,0.99609375,1.0
+,,annotation,baseline_wrong,,

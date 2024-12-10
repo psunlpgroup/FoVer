@@ -1,0 +1,69 @@
+data_idx,id,type,value,baseline,finetuned
+103,bbh_word_sorting_00103,,,,
+,,question,Sort the following words alphabetically: List: deadwood macedonia foxtail block hexadecimal guaranty rubaiyat victoria custodian,,
+,,y_true,block custodian deadwood foxtail guaranty hexadecimal macedonia rubaiyat victoria,,
+,,solution selected by baseline,,,
+,,step 0,"First, we look at the first letters of each word. ""deadwood"": ""d"" (4th letter). ""macedonia"": ""m"" (13th letter). ""foxtail"": ""f"" (6th letter). ""block"": ""b"" (2nd letter). ""hexadecimal"": ""h"" (8th letter). ""guaranty"": ""g"" (7th letter). ""rubaiyat"": ""r"" (18th letter). ""victoria"": ""v"" (22nd letter). ""custodian"": ""c"" (3rd letter). We now have: ""block"" < ""custodian"" < ""deadwood"" < ""foxtail"" < ""guaranty"" < ""hexadecimal"" < ""macedonia"" < ""rubaiyat"" < ""victoria"".",0.96875,0.349609375
+,,step 1,So the answer is block custodian deadwood foxtail guaranty hexadecimal macedonia rubaiyat victoria.,1.0,0.99609375
+,,solution selected by finetuned,,,
+,,step 0,"First, we look at the first letters of each word. ""deadwood"": ""d"" (4th letter). ""macedonia"": ""m"" (13th letter). ""foxtail"": ""f"" (6th letter). ""block"": ""b"" (2nd letter). ""hexadecimal"": ""h"" (8th letter). ""guaranty"": ""g"" (7th letter). ""rubaiyat"": ""r"" (18th letter). ""victoria"": ""v"" (22nd letter). ""custodian"": ""c"" (3rd letter). We now have: [""block"" ""custodian"" ""deadwood"" ""foxtail"" ""guaranty"" ""hexadecimal"" ""macedonia"" ""rubaiyat"" ""victoria""].",0.010986328125,0.62109375
+,,step 1,"Now we sort the subpart [""block"" ""custodian""] by their second letters. The second letter: ""block"": ""o"" (15th letter). ""custodian"": ""u"" (21st letter). We now have: [""block"" ""custodian""] sorted as ""block"" < ""custodian"".",0.99609375,0.8515625
+,,step 2,"Next, we sort the subpart [""deadwood"" ""foxtail""] by their second letters. The second letter: ""deadwood"": ""e"" (5th letter). ""foxtail"": ""o"" (15th letter). We now have: [""deadwood"" ""foxtail""] sorted as ""deadwood"" < ""foxtail"".",1.0,0.92578125
+,,step 3,"Next, we sort the subpart [""guaranty"" ""hexadecimal""] by their second letters. The second letter: ""guaranty"": ""u"" (21st letter). ""hexadecimal"": ""e"" (5th letter). We now have: [""guaranty"" ""hexadecimal""] sorted as ""hexadecimal"" < ""guaranty"".",0.033203125,0.92578125
+,,step 4,"Next, we sort the subpart [""macedonia"" ""rubaiyat""] by their second letters. The second letter: ""macedonia"": ""a"" (1st letter). ""rubaiyat"": ""u"" (21st letter). We now have: [""macedonia"" ""rubaiyat""] sorted as ""macedonia"" < ""rubaiyat"".",1.0,0.9765625
+,,step 5,"Finally, we have the full sorted list: ""block"" < ""custodian"" < ""deadwood"" < ""foxtail"" < ""hexadecimal"" < ""guaranty"" < ""macedonia"" < ""rubaiyat"" < ""victoria"".",0.00970458984375,0.62109375
+,,step 6,So the answer is block custodian deadwood foxtail hexadecimal guaranty macedonia rubaiyat victoria.,1.0,0.9921875
+,,annotation,finetuned_wrong,,
+119,bbh_word_sorting_00119,,,,
+,,question,Sort the following words alphabetically: List: gloriana milord rendezvous schnabel allegoric loge lollipop salle collate prolix mast euphony,,
+,,y_true,allegoric collate euphony gloriana loge lollipop mast milord prolix rendezvous salle schnabel,,
+,,solution selected by baseline,,,
+,,step 0,"First, we look at the first letters of each word. ""gloriana"": ""g"" (7th letter). ""milord"": ""m"" (13th letter). ""rendezvous"": ""r"" (18th letter). ""schnabel"": ""s"" (19th letter). ""allegoric"": ""a"" (1st letter). ""loge"": ""l"" (12th letter). ""lollipop"": ""l"" (12th letter). ""salle"": ""s"" (19th letter). ""collate"": ""c"" (3rd letter). ""prolix"": ""p"" (16th letter). ""mast"": ""m"" (13th letter). ""euphony"": ""e"" (5th letter).",0.99609375,0.70703125
+,,step 1,"We now have: ""allegoric"" < ""collate"" < ""euphony"" < ""gloriana"" < ""loge"" < ""lollipop"" < ""mast"" < ""milord"" < ""prolix"" < ""rendezvous"" < ""salle"" < ""schnabel"".",0.119140625,0.2021484375
+,,step 2,"Now let's sort the subpart [""loge"" ""lollipop""] by looking at their second letters. The second letter: ""loge"": ""o"" (15th letter). ""lollipop"": ""o"" (15th letter). They are equal, so we need to look at the third letters.",0.0260009765625,0.75390625
+,,step 3,"Now let's sort the subpart [""loge"" ""lollipop""] by looking at their third letters. The third letter: ""loge"": ""g"" (7th letter). ""lollipop"": ""p"" (16th letter). We now have: ""loge"" < ""lollipop"".",0.97265625,0.95703125
+,,step 4,So the answer is allegoric < collate < euphony < gloriana < loge < lollipop < mast < milord < prolix < rendezvous < salle < schnabel.,0.62109375,0.81640625
+,,solution selected by finetuned,,,
+,,step 0,"First, we look at the first letters of each word. ""gloriana"": ""g"" (7th letter). ""milord"": ""m"" (13th letter). ""rendezvous"": ""r"" (18th letter). ""schnabel"": ""s"" (19th letter). ""allegoric"": ""a"" (1st letter). ""loge"": ""l"" (12th letter). ""lollipop"": ""l"" (12th letter). ""salle"": ""s"" (19th letter). ""collate"": ""c"" (3rd letter). ""prolix"": ""p"" (16th letter). ""mast"": ""m"" (13th letter). ""euphony"": ""e"" (5th letter).",1.0,0.6796875
+,,step 1,"We now have: ""allegoric"" < ""euphony"" < ""gloriana"" < ""loge"" < ""lollipop"" < ""mast"" < ""milord"" < ""rendezvous"" < ""salle"" < ""schnabel"" < ""collate"" < ""prolix"".",0.004058837890625,0.22265625
+,,step 2,So the answer is allegoric euphony gloriana loge lollipop mast milord rendezvous salle schnabel collate prolix.,0.796875,0.9765625
+,,annotation,wrong_intermediate,,
+156,bbh_word_sorting_00156,,,,
+,,question,Sort the following words alphabetically: List: confidential ursa fiction heterozygous faery overture horehound,,
+,,y_true,confidential faery fiction heterozygous horehound overture ursa,,
+,,solution selected by baseline,,,
+,,step 0,"First, we look at the first letters of each word. ""confidential"": ""c"" (3rd letter). ""ursa"": ""u"" (21st letter). ""fiction"": ""f"" (6th letter). ""heterozygous"": ""h"" (8th letter). ""faery"": ""f"" (6th letter). ""overture"": ""o"" (15th letter). ""horehound"": ""h"" (8th letter). We now have: ""confidential"" < [""fiction"" ""faery""] < [""heterozygous"" ""horehound""] < ""overture"" < ""ursa"".",0.0140380859375,0.2021484375
+,,step 1,"Now let's sort this subpart [""fiction"" ""faery""] by looking at their second letters. The second letter: ""fiction"": ""i"" (9th letter). ""faery"": ""i"" (9th letter). They are equal, so we need to look at the third letters.",0.22265625,0.5625
+,,step 2,"The third letter: ""fiction"": ""c"" (3rd letter). ""faery"": ""a"" (1st letter). We now have: ""faery"" < ""fiction"".",1.0,0.953125
+,,step 3,"So the subpart is now: ""faery"" < ""fiction"".",1.0,1.0
+,,step 4,"Now let's sort this subpart [""heterozygous"" ""horehound""] by looking at their second letters. The second letter: ""heterozygous"": ""e"" (5th letter). ""horehound"": ""o"" (15th letter). We now have: ""heterozygous"" < ""horehound"".",1.0,0.953125
+,,step 5,"So the subpart is now: ""heterozygous"" < ""horehound"".",1.0,1.0
+,,step 6,So the answer is confidential < faery < fiction < heterozygous < horehound < overture < ursa.,0.92578125,0.81640625
+,,solution selected by finetuned,,,
+,,step 0,"First, we look at the first letters of each word. ""confidential"": ""c"" (3rd letter). ""ursa"": ""u"" (21st letter). ""fiction"": ""f"" (6th letter). ""heterozygous"": ""h"" (8th letter). ""faery"": ""f"" (6th letter). ""overture"": ""o"" (15th letter). ""horehound"": ""h"" (8th letter). We now have: ""confidential"" < ""fiction"" < ""faery"" < ""heterozygous"" < ""horehound"" < [""overture"" ""ursa""].",0.0179443359375,0.2021484375
+,,step 1,"Now let's sort this subpart [""overture"" ""ursa""] by looking at their second letters. The second letter: ""overture"": ""v"" (22nd letter). ""ursa"": ""r"" (18th letter). We now have: ""confidential"" < ""fiction"" < ""faery"" < ""heterozygous"" < ""horehound"" < ""overture"" < ""ursa"".",0.75390625,0.8515625
+,,step 2,So the answer is confidential fiction faery heterozygous horehound overture ursa.,0.000804901123046875,0.93359375
+,,annotation,both_wrong_scores,,
+206,bbh_word_sorting_00206,,,,
+,,question,Sort the following words alphabetically: List: wink envious scotia planetaria pooh emancipate army,,
+,,y_true,army emancipate envious planetaria pooh scotia wink,,
+,,solution selected by baseline,,,
+,,step 0,"First, we look at the first letters of each word. ""wink"": ""w"" (23rd letter). ""envious"": ""e"" (5th letter). ""scotia"": ""s"" (19th letter). ""planetaria"": ""p"" (16th letter). ""pooh"": ""p"" (16th letter). ""emancipate"": ""e"" (5th letter). ""army"": ""a"" (1st letter). We now have: ""army"" < [""envious"" ""emancipate""] < ""planetaria"" < ""pooh"" < ""scotia"" < ""wink"".",0.1826171875,0.26953125
+,,step 1,"Now let's sort this subpart [""envious"" ""emancipate""] by looking at their second letters. The second letter: ""envious"": ""n"" (14th letter). ""emancipate"": ""m"" (13th letter). We now have: ""army"" < ""emancipate"" < ""envious"" < ""planetaria"" < ""pooh"" < ""scotia"" < ""wink"".",1.0,0.70703125
+,,step 2,So the answer is army < emancipate < envious < planetaria < pooh < scotia < wink.,0.8515625,0.96875
+,,solution selected by finetuned,,,
+,,step 0,"First, we look at the first letters of each word. ""wink"": ""w"" (23rd letter). ""envious"": ""e"" (5th letter). ""scotia"": ""s"" (19th letter). ""planetaria"": ""p"" (16th letter). ""pooh"": ""p"" (16th letter). ""emancipate"": ""e"" (5th letter). ""army"": ""a"" (1st letter). We now have: ""army"" < [""envious"" ""emancipate""] < [""planetaria"" ""pooh""] < ""scotia"" < ""wink"".",0.5,0.294921875
+,,step 1,"Now let's sort this subpart [""envious"" ""emancipate""] by looking at their second letters. The second letter: ""envious"": ""n"" (14th letter). ""emancipate"": ""m"" (13th letter). We now have: ""army"" < ""emancipate"" < ""envious"" < [""planetaria"" ""pooh""] < ""scotia"" < ""wink"".",1.0,0.70703125
+,,step 2,"Now let's sort this subpart [""planetaria"" ""pooh""] by looking at their second letters. The second letter: ""planetaria"": ""l"" (12th letter). ""pooh"": ""o"" (15th letter). We now have: ""army"" < ""emancipate"" < ""envious"" < ""pooh"" < ""planetaria"" < ""scotia"" < ""wink"".",0.96875,0.90625
+,,step 3,So the answer is army < emancipate < envious < pooh < planetaria < scotia < wink.,0.037353515625,0.9609375
+,,annotation,wrong_intermediate,,
+208,bbh_word_sorting_00208,,,,
+,,question,Sort the following words alphabetically: List: infantrymen knob yaounde aqueous deregulate lysergic gala,,
+,,y_true,aqueous deregulate gala infantrymen knob lysergic yaounde,,
+,,solution selected by baseline,,,
+,,step 0,"First, we look at the first letters of each word. ""infantrymen"": ""i"" (9th letter). ""knob"": ""k"" (11th letter). ""yaounde"": ""y"" (25th letter). ""aqueous"": ""a"" (1st letter). ""deregulate"": ""d"" (4th letter). ""lysergic"": ""l"" (12th letter). ""gala"": ""g"" (7th letter). We now have: ""aqueous"" < ""deregulate"" < ""gala"" < ""infantrymen"" < ""knob"" < ""lysergic"" < ""yaounde"".",0.984375,0.46875
+,,step 1,So the answer is aqueous deregulate gala infantrymen knob lysergic yaounde.,0.9921875,0.9921875
+,,solution selected by finetuned,,,
+,,step 0,"First, we look at the first letters of each word. ""infantrymen"": ""i"" (9th letter). ""knob"": ""k"" (11th letter). ""yaounde"": ""y"" (25th letter). ""aqueous"": ""a"" (1st letter). ""deregulate"": ""d"" (4th letter). ""lysergic"": ""l"" (12th letter). ""gala"": ""g"" (7th letter). We now have: ""aqueous"" < ""deregulate"" < ""gala"" < ""infantrymen"" < ""lysergic"" < ""knob"" < ""yaounde"".",0.95703125,0.5
+,,step 1,So the answer is aqueous deregulate gala infantrymen lysergic knob yaounde.,0.97265625,0.9921875
+,,annotation,both_wrong_scores,,

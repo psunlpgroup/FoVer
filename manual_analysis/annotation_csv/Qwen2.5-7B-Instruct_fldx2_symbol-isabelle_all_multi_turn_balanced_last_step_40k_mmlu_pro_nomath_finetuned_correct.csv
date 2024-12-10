@@ -1,0 +1,521 @@
+data_idx,id,type,value,baseline,finetuned
+29,mmlu_pro_nomath_test_09717
+,,question,"A very slow-moving positron interacts with a stationary electron. Which of the following statements correctly describes a possible outcome of this reaction and why it would occur?
+(A) Conservation of momentum suggests that the reaction could result in three identical gamma rays moving in different directions.
+(B) Conservation of mass indicates that if a single new particle were created in the reaction, it must have a total mass equal to the combined masses of the electron and positron.
+(C) Conservation of momentum indicates that two identical gamma rays moving off in opposite directions could be created.
+(D) Conservation of mass indicates that the reaction could not occur as the masses of the electron and positron are too different.
+(E) Conservation of energy indicates that the reaction would result in the positron gaining momentum and the electron remaining stationary.
+(F) Conservation of charge indicates that the reaction would create a new particle with a positive charge.
+(G) Conservation of mass indicates that the reaction would result in the creation of a new particle with a mass larger than the combined masses of the electron and positron.
+(H) Conservation of charge indicates that all new particles created in the reaction would have no electric charge.
+(I) Conservation of energy indicates that the antimatter positron could annihilate into energy, leaving the stationary electron behind.
+(J) Conservation of energy indicates that the reaction would result in the creation of a single gamma ray."
+,,y_true,C
+,,solution selected by baseline
+,,step 0,"The interaction between a very slow-moving positron and a stationary electron can be analyzed using the principles of conservation of momentum, conservation of energy, and conservation of charge.",0.95703125,0.98828125
+,,step 1,"- **Conservation of momentum**: The total momentum before the interaction must equal the total momentum after the interaction. Since the electron is initially stationary, the momentum of the positron must be conserved. If two identical gamma rays were created, they would need to move in opposite directions to conserve momentum. However, this would require the total energy of the gamma rays to equal the rest mass energy of the electron and positron, which is not the case in this scenario.",0.70703125,0.349609375
+,,step 2,"- **Conservation of energy**: The total energy before the interaction (rest mass energy of the electron and positron) must equal the total energy after the interaction. The annihilation of a positron and an electron results in the conversion of their rest mass energy into gamma rays. The energy of the gamma rays would be \(2m_e c^2\), where \(m_e\) is the mass of the electron (or positron) and \(c\) is the speed of light.",1.0,0.8359375
+,,step 3,"- **Conservation of charge**: The total charge before the interaction must equal the total charge after the interaction. Since the electron and positron have opposite charges, they will annihilate each other, resulting in no net charge.",1.0,0.98046875
+,,step 4,"Given these principles, the most accurate statement is:",0.9921875,0.26953125
+,,step 5,"- **Conservation of energy indicates that the antimatter positron could annihilate into energy, leaving the stationary electron behind.**",1.0,0.8671875
+,,step 6,The answer is (I).,1.0,0.97265625
+,,solution selected by finetuned
+,,step 0,"The interaction of a positron (antimatter) with a stationary electron is a classic example of annihilation, where both particles are converted into energy in the form of gamma rays.",0.306640625,0.796875
+,,step 1,"1. **Conservation of momentum**: The total momentum before the reaction is zero (since the electron is stationary and the positron has some momentum). After the reaction, the momentum must still be conserved. Therefore, two gamma rays moving in opposite directions would result in zero net momentum, which satisfies this conservation law.",1.0,0.8515625
+,,step 2,"2. **Conservation of mass**: The masses of the electron and positron are converted to energy. The resulting gamma rays carry this energy away, and the total mass before and after the reaction is conserved.",1.0,0.87890625
+,,step 3,"3. **Conservation of charge**: The electron and positron have opposite charges, so the total charge before the reaction is zero. After the reaction, the resulting gamma rays have no charge, satisfying this conservation law.",1.0,0.97265625
+,,step 4,4. **Conservation of energy**: The energy before the reaction (sum of the rest masses of the electron and positron) is converted into the energy of the gamma rays after the reaction.,1.0,0.93359375
+,,step 5,"The correct statement is (C): Conservation of momentum indicates that two identical gamma rays moving off in opposite directions could be created. This is because the total momentum before the reaction is zero, and to conserve momentum, the gamma rays must move in opposite directions with equal momentum.",1.0,0.98046875
+,,step 6,The answer is (C).,1.0,0.98046875
+,,annotation
+
+40,mmlu_pro_nomath_test_09535
+,,question,"Two electrically charged balls are separated by a short distance, producing a force of 50 μN between them. Keeping the charge of each ball the same, the mass of one of the balls but not the other is doubled. What is the new electric force between the balls?
+(A) 75 μN
+(B) 150 μN
+(C) 600 μN
+(D) 100 μN
+(E) 25 μN
+(F) 300 μN
+(G) 400 μN
+(H) 50 μN
+(I) 200 μN
+(J) 500 μN"
+,,y_true,H
+,,solution selected by baseline
+,,step 0,The electric force between two charged particles is given by Coulomb's law:,0.81640625,0.81640625
+,,step 1,\[ F = k \frac{q_1 q_2}{r^2} \],1.0,0.87890625
+,,step 2,"where \( F \) is the force, \( k \) is Coulomb's constant, \( q_1 \) and \( q_2 \) are the charges, and \( r \) is the distance between the charges.",1.0,0.984375
+,,step 3,"If the charges of the balls remain the same but the mass of one of the balls is doubled, the charges do not change, and thus the force remains the same as long as the distance and charges do not change.",1.0,0.75390625
+,,step 4,The new force is:,0.94140625,0.6796875
+,,step 5,\[ F_{\text{new}} = k \frac{q_1 q_2}{r^2} \],1.0,0.98828125
+,,step 6,"Since the charges \( q_1 \) and \( q_2 \) and the distance \( r \) remain the same, the new force is the same as the original force.",1.0,0.98828125
+,,step 7,The answer is (H) 50 μN.,1.0,1.0
+,,solution selected by finetuned
+,,step 0,The electric force \( F \) between two charged objects is given by Coulomb's law:,0.765625,0.8359375
+,,step 1,\[ F = k \frac{q_1 q_2}{r^2} \],1.0,0.87890625
+,,step 2,"where \( k \) is Coulomb's constant, \( q_1 \) and \( q_2 \) are the charges of the objects, and \( r \) is the distance between them.",1.0,0.98046875
+,,step 3,"Given that the initial force is 50 μN, and the charges remain the same but the mass of one ball is doubled, the force will not be affected by the mass change as the charges remain the same. Therefore, the new force will still be 50 μN.",0.119140625,0.89453125
+,,step 4,The answer is (H) 50 μN.,1.0,1.0
+,,annotation
+
+57,mmlu_pro_nomath_test_04789
+,,question,"This question refers to the following information.
+On Being Brought from Africa to America
+'Twas mercy brought me from my Pagan land,
+Taught my benighted soul to understand
+That there's a God, that there's a Saviour too;
+Once I redemption neither sought nor knew.
+Some view our sable race with scornful eye,
+""Their colour is a diabolic die.""
+Remember, Christians, Negroes, black as Cain,
+May be refin'd, and join th' angelic train.
+—Phillis Wheatley, Poems on Various Subjects, Religious and Moral, 1773
+The point of Wheatley's poem can best be compared to which of the following?
+(A) Malcolm X's ""The Ballot or the Bullet"" speech
+(B) Martin Luther King, Jr.'s ""I Have a Dream” speech
+(C) Abraham Lincoln's ""Emancipation Proclamation""
+(D) The Seneca Falls Declaration of Rights and Sentiments
+(E) Thomas Paine's ""Common Sense""
+(F) Nelson Mandela's ""I Am Prepared to Die"" speech
+(G) Frederick Douglass's ""What to the Slave is the Fourth of July?""
+(H) Jonathan Edwards's sermon ""Sinners in the Hands of an Angry God""
+(I) John F. Kennedy's ""Ich bin ein Berliner"" speech
+(J) The Declaration of Independence"
+,,y_true,B
+,,solution selected by baseline
+,,step 0,"Wheatley's poem, ""On Being Brought from Africa to America,"" speaks to the transformation of a person from a state of ignorance and slavery to one of understanding and faith. It emphasizes the potential for spiritual and moral improvement, regardless of one's racial background.",0.81640625,0.9609375
+,,step 1,Let's analyze each option to see which best aligns with Wheatley's message:,0.9921875,0.65234375
+,,step 2,"(A) Malcolm X's ""The Ballot or the Bullet"" speech - This speech focuses on the urgency of using political power to achieve civil rights and self-determination, which is not the primary focus of Wheatley's poem.",0.6796875,0.9609375
+,,step 3,"(B) Martin Luther King, Jr.'s ""I Have a Dream” speech - This speech emphasizes the dream of racial equality and the moral high ground of civil rights, but it does not focus on the transformation from ignorance to understanding and faith.",1.0,0.93359375
+,,step 4,"(C) Abraham Lincoln's ""Emancipation Proclamation"" - This document is about legal and political action to end slavery, not about the spiritual or moral transformation of individuals.",1.0,0.98046875
+,,step 5,"(D) The Seneca Falls Declaration of Rights and Sentiments - This document focuses on women's rights and equality, not on the transformation of individuals from a state of ignorance to one of understanding and faith.",1.0,0.96875
+,,step 6,"(E) Thomas Paine's ""Common Sense"" - This pamphlet argues for the separation of the colonies from Britain and the establishment of a new nation, not about individual transformation.",1.0,0.984375
+,,step 7,"(F) Nelson Mandela's ""I Am Prepared to Die"" speech - This speech emphasizes the principle of sacrifice for one's beliefs and the fight against apartheid, not the transformation from ignorance to understanding and faith.",1.0,0.96875
+,,step 8,"(G) Frederick Douglass's ""What to the Slave is the Fourth of July?"" - This speech critiques the hypocrisy of American democracy and the institution of slavery, not about the transformation of individuals.",1.0,0.9609375
+,,step 9,"(H) Jonathan Edwards's sermon ""Sinners in the Hands of an Angry God"" - This sermon focuses on the fear of divine judgment and the need for salvation, which aligns more closely with Wheatley's emphasis on spiritual transformation and the potential for all to join the ""angelic train.""",1.0,0.75390625
+,,step 10,"(I) John F. Kennedy's ""Ich bin ein Berliner"" speech - This speech emphasizes unity and the shared values of freedom and democracy, not about individual transformation.",1.0,0.99609375
+,,step 11,"(J) The Declaration of Independence - This document outlines the principles of liberty and self-determination, not about the transformation of individuals from a state of ignorance to one of understanding and faith.",1.0,0.98828125
+,,step 12,The answer is (H).,1.0,0.96875
+,,solution selected by finetuned
+,,step 0,"Wheatley's poem, ""On Being Brought from Africa to America,"" addresses the transformation of a slave's perspective through the lens of religious enlightenment and redemption. It emphasizes the idea of racial equality and the potential for all people to be refined and join the angelic train, despite their current circumstances.",0.1484375,0.8671875
+,,step 1,Let's analyze each option:,0.98046875,0.6796875
+,,step 2,"(A) Malcolm X's ""The Ballot or the Bullet"" speech: This speech emphasizes the urgency of political action and the right to self-determination, which does not align with the theme of religious redemption in Wheatley's poem.",0.408203125,0.94140625
+,,step 3,"(B) Martin Luther King, Jr.'s ""I Have a Dream” speech: This speech calls for an end to racial inequality and envisions a future where people are judged not by the color of their skin but by the content of their character. This theme of racial equality and transformation through moral and spiritual means is closely aligned with Wheatley's poem.",1.0,0.953125
+,,step 4,"(C) Abraham Lincoln's ""Emancipation Proclamation"": This document legally freed slaves, focusing on legal and political action rather than the spiritual or moral transformation emphasized in Wheatley's poem.",1.0,0.98828125
+,,step 5,"(D) The Seneca Falls Declaration of Rights and Sentiments: This document calls for women's rights and equality, which is not the focus of Wheatley's poem.",1.0,0.96875
+,,step 6,"(E) Thomas Paine's ""Common Sense"": This pamphlet argues for American independence from Britain, focusing on political and social change rather than spiritual or moral transformation.",1.0,0.98828125
+,,step 7,"(F) Nelson Mandela's ""I Am Prepared to Die"" speech: This speech focuses on the struggle against apartheid and the moral stance of the anti-apartheid movement, which does not align with the spiritual transformation in Wheatley's poem.",1.0,0.9609375
+,,step 8,"(G) Frederick Douglass's ""What to the Slave is the Fourth of July?"": This speech critiques American society for its hypocrisy in claiming liberty while enslaving black people, focusing more on social and political critique.",1.0,0.92578125
+,,step 9,"(H) Jonathan Edwards's sermon ""Sinners in the Hands of an Angry God"": This sermon emphasizes the fear of divine judgment and the need for conversion, which aligns with the theme of spiritual redemption in Wheatley's poem.",1.0,0.73046875
+,,step 10,"(I) John F. Kennedy's ""Ich bin ein Berliner"" speech: This speech emphasizes unity and the fight against communism, focusing on political and social unity rather than spiritual transformation.",1.0,0.9921875
+,,step 11,"(J) The Declaration of Independence: This document focuses on the political independence of the colonies from Britain, which does not align with the spiritual and moral themes in Wheatley's poem.",1.0,0.9921875
+,,step 12,"The best comparison is (B) Martin Luther King, Jr.'s ""I Have a Dream” speech, as it similarly calls for racial equality and transformation through moral and spiritual means.",1.0,0.984375
+,,step 13,The answer is (B).,1.0,1.0
+,,annotation
+
+67,mmlu_pro_nomath_test_11091
+,,question," Suppose two athletes, A and B, are equally skilled. Suppose also that A naturally inherited certain traits from her father that made playing the sport easier for her, and thus she didn't have to train as hard as B. According to the ethic of willfulness,
+(A) A is a better athlete.
+(B) B is a better athlete.
+(C) B doesn't count as an athlete because training precludes athleticism.
+(D) A and B are equally good athletes."
+,,y_true,B
+,,solution selected by baseline
+,,step 0,"According to the ethic of willfulness, the quality of an athlete is determined by the effort and willpower they put into their training and performance, rather than innate abilities or inherited traits.",0.77734375,0.796875
+,,step 1,Given the scenario:,0.99609375,0.97265625
+,,step 2,- Both athletes A and B are equally skilled.,1.0,0.99609375
+,,step 3,- Athlete A inherited certain traits that made playing the sport easier and required less training.,1.0,0.9921875
+,,step 4,- Athlete B had to train harder due to a lack of inherited traits that made the sport easier.,1.0,0.9921875
+,,step 5,"Since the ethic of willfulness emphasizes effort and willpower, and both athletes are equally skilled, it implies that they have put in equivalent effort to achieve the same level of skill despite different starting conditions.",1.0,0.6796875
+,,step 6,"Therefore, according to the ethic of willfulness:",1.0,0.98046875
+,,step 7,(D) A and B are equally good athletes.,1.0,0.98828125
+,,solution selected by finetuned
+,,step 0,"The ethic of willfulness emphasizes the effort, determination, and the will to succeed rather than innate abilities or inherited traits.",0.94140625,0.9140625
+,,step 1,"Given that both athletes A and B are equally skilled, and athlete A did not have to train as hard as B due to inherited traits, the ethic of willfulness would focus on the effort and determination shown by athlete B.",1.0,0.9765625
+,,step 2,"Therefore, according to the ethic of willfulness, B is a better athlete.",0.73046875,0.9453125
+,,step 3,The answer is (B).,1.0,0.99609375
+,,annotation
+
+75,mmlu_pro_nomath_test_01021
+,,question,"A toxicologist employed at the state crime laboratory testifies at a murder trial about the autopsy he performed on the victim. His testimony is that he detected traces of succinic acid and choline, the components of succinylcholine, in the victim's brain tissues. Over defense objections, he testified further that, in his opinion, the victim's cause of death was succinylcholine poisoning. On cross-examination, the toxicologist admitted that up until his findings, it had been universally accepted in the medical community that succinylcholine would be undetectable in the brain within a few minutes of its injection. He also admitted that his methods of detecting succinylcholine were experimental and that his results were not presently publishable because they were not complete enough. The defense attorney then makes a motion to strike the toxicologist's testimony regarding the cause of death. The court will most likely
+(A) deny the motion, because he was qualified to give an opinion on the ultimate issue of the case.
+(B) deny the motion, because the toxicologist's findings were based on his professional expertise.
+(C) deny the motion, because the toxicologist was qualified as an expert in medical matters.
+(D) deny the motion, because the court values the opinion of the state-employed expert.
+(E) grant the motion, because the toxicologist's opinion could not be substantiated.
+(F) deny the motion, because the toxicologist's opinion is the only evidence of the cause of death.
+(G) grant the motion, because the toxicologist was not properly qualified as an expert.
+(H) grant the motion, because the toxicologist admitted his findings contradicted accepted medical knowledge.
+(I) grant the motion, because the toxicologist's results were not complete enough to be published."
+,,y_true,E
+,,solution selected by baseline
+,,step 0,"The court's decision will most likely depend on whether the toxicologist's testimony meets the standards for expert testimony, which include the expert's qualifications and the reliability of the methods used.",1.0,0.98046875
+,,step 1,"1. The toxicologist was qualified as an expert in the field of toxicology, which is relevant to the case.",1.0,0.59375
+,,step 2,"2. His findings were based on his professional expertise, even though the methods were experimental and not yet publishable.",1.0,0.92578125
+,,step 3,"3. The toxicologist's opinion on the cause of death, though based on experimental methods, is still relevant and valuable given his expertise.",1.0,0.8671875
+,,step 4,4. The fact that his findings contradicted accepted medical knowledge does not automatically disqualify his testimony if his methods are reliable and his qualifications are valid.,1.0,0.89453125
+,,step 5,"5. The incompletion of his results, while a concern, does not necessarily mean his testimony cannot be considered if the methods used are still within the realm of professional expertise.",1.0,0.93359375
+,,step 6,"Given these points, the court is more likely to deny the motion to strike the toxicologist's testimony.",1.0,0.8515625
+,,step 7,The answer is (B).,0.70703125,0.81640625
+,,solution selected by finetuned
+,,step 0,"The toxicologist's testimony regarding the cause of death is based on his professional expertise and the results of his experimental methods. However, the key issue here is the reliability and admissibility of his opinion given the context.",0.294921875,0.75390625
+,,step 1,1. **Expert Qualification**: The toxicologist was qualified to give an opinion based on his professional expertise in toxicology. This supports the admissibility of his testimony.,1.0,0.90625
+,,step 2,"2. **Admissibility of Opinion**: His opinion on the cause of death, while based on his expertise, must be reliable and supported by sufficient evidence. The fact that his findings contradicted universally accepted medical knowledge and that his methods were experimental and not yet publishable raises questions about the reliability of his opinion.",1.0,0.96875
+,,step 3,"3. **Contradiction of Accepted Medical Knowledge**: The toxicologist admitted that his findings contradicted accepted medical knowledge, which is a significant factor in determining the admissibility of his opinion.",1.0,0.9921875
+,,step 4,4. **Completeness of Results**: The fact that his results were not yet publishable because they were not complete enough also suggests that his testimony may not be fully substantiated.,1.0,0.98046875
+,,step 5,"Given these points, the court is likely to grant the motion to strike the toxicologist's testimony regarding the cause of death due to the lack of substantial and reliable evidence to support his opinion.",0.00592041015625,0.796875
+,,step 6,The answer is (E).,0.9921875,0.97265625
+,,annotation
+
+121,mmlu_pro_nomath_test_11174
+,,question,"Arguing that someone couldn't have done something good because she holds a particular position commits the fallacy of
+(A) Guilt by association
+(B) False dilemma
+(C) Reprehensible personality
+(D) False dichotomy"
+,,y_true,C
+,,solution selected by baseline
+,,step 0,Arguing that someone couldn't have done something good because she holds a particular position is known as the fallacy of **attacking the position** rather than the person's actions. This specific type of fallacy is called **Guilt by association**.,0.003173828125,0.1484375
+,,step 1,Here’s the reasoning step by step:,0.0419921875,0.5
+,,step 2,"1. **Identifying the Fallacy**: The statement is making a judgment about the person's actions based on their position, not on the actions themselves.",0.77734375,0.90625
+,,step 3,2. **Guilt by Association**: This fallacy occurs when someone is judged or accused of something based on the association with a group or position rather than on their own merits or actions.,0.70703125,0.953125
+,,step 4,"Therefore, the correct answer is:",0.376953125,0.9140625
+,,step 5,(A) Guilt by association,0.99609375,1.0
+,,solution selected by finetuned
+,,step 0,Arguing that someone couldn't have done something good because she holds a particular position is an example of assuming that the position itself taints the individual's actions or character.,0.02294921875,0.6796875
+,,step 1,"This is known as the fallacy of **reprehensible personality**, which suggests that a person's character or position makes their actions invalid or immoral, regardless of the evidence to the contrary.",2.562999725341797e-06,0.26953125
+,,step 2,The answer is (C).,6.628036499023438e-05,0.97265625
+,,annotation
+
+132,mmlu_pro_nomath_test_10845
+,,question,"In the case of the debtors, the moral argument against imprisoning A relies on:
+(A) fear.
+(B) the principle of retributive justice.
+(C) universalizability.
+(D) considerations of the debtor's mental health.
+(E) all of the above.
+(F) the potential for societal backlash."
+,,y_true,C
+,,solution selected by baseline
+,,step 0,The moral argument against imprisoning a debtor typically relies on several principles:,0.2021484375,0.53125
+,,step 1,"1. Retributive justice suggests that punishment should fit the crime, but in the case of debt, the act of not paying is not necessarily a crime, making imprisonment unjust.",0.9921875,0.4375
+,,step 2,"2. Universalizability, a principle from Immanuel Kant's philosophy, argues that a moral rule should be applicable to everyone. Imprisoning debtors based on their inability to pay does not apply a consistent rule across all similar situations.",1.0,0.94140625
+,,step 3,"3. Considerations of the debtor's mental health could be a part of the argument, as imprisonment might exacerbate mental health issues, but this is a secondary consideration.",1.0,0.77734375
+,,step 4,"Combining these, the primary moral arguments are based on the principles of retributive justice and universalizability.",0.9609375,0.8515625
+,,step 5,"The answer is (B) and (C), which together can be represented as (C) universalizability.",0.00048828125,0.73046875
+,,solution selected by finetuned
+,,step 0,"The moral argument against imprisoning a debtor typically relies on a principle that extends beyond a single case and applies universally, which points to the principle of universalizability.",0.515625,0.6796875
+,,step 1,"- **Fear** (A) is not a core moral principle in this context, as the argument is more about ethical principles than emotional responses.",8.487701416015625e-05,0.93359375
+,,step 2,"- **The principle of retributive justice** (B) focuses on punishment fitting the crime, which might not directly address the broader ethical implications of imprisoning debtors.",1.0,0.93359375
+,,step 3,"- **Universalizability** (C) is a key concept in Kantian ethics, which suggests that an action is morally right if it can be universalized. This principle can apply to the argument against imprisoning debtors.",1.0,0.97265625
+,,step 4,- **Considerations of the debtor's mental health** (D) are important but do not encompass the broader ethical argument.,1.0,0.8515625
+,,step 5,"- **All of the above** (E) includes the concept of universalizability, which is a strong moral argument against imprisoning debtors.",0.029296875,0.81640625
+,,step 6,- **The potential for societal backlash** (F) is a practical concern rather than a moral argument.,1.0,0.97265625
+,,step 7,The answer is (C) because the moral argument against imprisoning a debtor is best supported by the principle of universalizability.,1.0,0.93359375
+,,annotation
+
+137,mmlu_pro_nomath_test_04244
+,,question,"What is the conjugate acid of the H2PO4- ion?
+(A) PO43-
+(B) H3PO42-
+(C) H3PO43-
+(D) H4PO4-
+(E) H2PO4-
+(F) H2PO43-
+(G) HPO42-
+(H) H4PO4+
+(I) H3PO4
+(J) H2PO42-"
+,,y_true,I
+,,solution selected by baseline
+,,step 0,"To find the conjugate acid of \( \text{H}_2\text{PO}_4^- \), we need to add a proton (H\(^+\)) to the ion.",0.99609375,0.90625
+,,step 1,1. Start with the given ion: \( \text{H}_2\text{PO}_4^- \).,1.0,0.99609375
+,,step 2,2. Add a proton (H\(^+\)) to the ion: \( \text{H}_2\text{PO}_4^- + \text{H}^+ \rightarrow \text{H}_3\text{PO}_4 \).,0.0028076171875,0.294921875
+,,step 3,"The resulting species is \( \text{H}_3\text{PO}_4 \), which is phosphoric acid.",0.0203857421875,0.953125
+,,step 4,The answer is (H).,9.632110595703125e-05,0.0849609375
+,,solution selected by finetuned
+,,step 0,"To find the conjugate acid of the \( \text{H}_2\text{PO}_4^- \) ion, we need to add a proton (H\(^+\)) to it.",0.99609375,0.9140625
+,,step 1,\[,0.98046875,0.349609375
+,,step 2,\text{H}_2\text{PO}_4^- + \text{H}^+ \rightarrow \text{H}_3\text{PO}_4,0.00070953369140625,0.4375
+,,step 3,\],0.99609375,0.59375
+,,step 4,The resulting compound is \( \text{H}_3\text{PO}_4 \).,4.5299530029296875e-05,0.73046875
+,,step 5,"Thus, the conjugate acid of \( \text{H}_2\text{PO}_4^- \) is \( \text{H}_3\text{PO}_4 \).",7.486343383789062e-05,0.3203125
+,,step 6,The answer is (I).,0.004608154296875,0.26953125
+,,annotation
+
+162,mmlu_pro_nomath_test_05154
+,,question,"In their study of depression, Brown & Harris (1978) found that:
+(A) men and women have fairly similar levels of diagnosed depression
+(B) depression is less likely in individuals with high levels of social support regardless of gender
+(C) women's susceptibility to stress depended on their levels of social support
+(D) men and women have drastically different levels of diagnosed depression
+(E) men's susceptibility to stress depended on their levels of social support
+(F) depression is more common in women due to hormonal differences
+(G) women are more prone to depression due to societal pressures
+(H) men are more vulnerable to depression because of conventional gender roles
+(I) self-reported depression is highest amongst women and the economically disadvantaged
+(J) self-reported depression is highest amongst men and the relatively affluent"
+,,y_true,C
+,,solution selected by baseline
+,,step 0,Brown & Harris (1978) found that:,0.349609375,0.3203125
+,,step 1,- The study focused on the relationship between social support and depression.,1.0,0.6796875
+,,step 2,"- They observed that depression is less likely in individuals with high levels of social support, regardless of gender.",1.0,0.96875
+,,step 3,This means that the presence of social support can buffer against depression for both men and women.,1.0,0.99609375
+,,step 4,The answer is (B).,1.0,0.9921875
+,,solution selected by finetuned
+,,step 0,Brown & Harris (1978) found that women's susceptibility to depression is influenced by their levels of social support.,0.0028076171875,0.953125
+,,step 1,This means that the study highlighted the role of social support in the context of women's mental health.,1.0,0.9921875
+,,step 2,The answer is (C).,1.0,0.984375
+,,annotation
+
+170,mmlu_pro_nomath_test_09422
+,,question,"A nonconducting sphere is given a nonzero net electric charge, +Q, and then brought close to a neutral conducting sphere of the same radius. Which of the following will be true?
+(A) An electric field will be induced within the conducting sphere.
+(B) The spheres will experience an electrostatic attraction.
+(C) The nonconducting sphere will lose all its charge to the conducting sphere.
+(D) The spheres will not experience any electrostatic force.
+(E) The spheres will experience an electrostatic force, but it will not be significant.
+(F) The conducting sphere will develop a net electric charge of +Q.
+(G) The conducting sphere will remain neutral, regardless of the nonconducting sphere's charge.
+(H) The conducting sphere will develop a net electric charge of –Q.
+(I) An electric field will be induced within the nonconducting sphere.
+(J) The spheres will experience an electrostatic repulsion."
+,,y_true,B
+,,solution selected by baseline
+,,step 0,"When a nonconducting sphere with a net electric charge +Q is brought close to a neutral conducting sphere of the same radius, the following will occur:",0.5,0.408203125
+,,step 1,1. An electric field will be induced within the conducting sphere. This is because the electric field from the nonconducting sphere will cause the free electrons in the conducting sphere to redistribute themselves.,1.0,0.95703125
+,,step 2,"2. The conducting sphere will develop a net electric charge distribution, with one side becoming positively charged and the other side becoming negatively charged, due to the induced electric field.",1.0,0.8515625
+,,step 3,3. The neutral conducting sphere will not remain neutral; it will develop a net electric charge.,0.93359375,0.87890625
+,,step 4,4. The nonconducting sphere will not lose all its charge to the conducting sphere; it will retain its charge +Q.,1.0,0.9140625
+,,step 5,"Given these steps, the correct answer is:",0.9921875,0.73046875
+,,step 6,(A) An electric field will be induced within the conducting sphere.,0.98046875,1.0
+,,solution selected by finetuned
+,,step 0,"When a nonconducting sphere with a net electric charge +Q is brought close to a neutral conducting sphere of the same radius, several things will happen due to the principles of electrostatic induction:",0.546875,0.81640625
+,,step 1,1. An electric field will be induced within the conducting sphere. This is because the external electric field from the nonconducting sphere will cause the free electrons in the conducting sphere to redistribute themselves.,1.0,0.9765625
+,,step 2,"2. The conducting sphere will develop a net electric charge. However, it will not remain neutral. The conducting sphere will develop a net electric charge, but it will be induced on its surface, not a net charge of +Q or -Q.",0.0140380859375,0.70703125
+,,step 3,3. The spheres will experience an electrostatic attraction. This is because the induced charges on the conducting sphere will create an electric field that attracts the nonconducting sphere.,0.9921875,0.70703125
+,,step 4,The correct answer is (B) The spheres will experience an electrostatic attraction.,0.94140625,0.98828125
+,,annotation
+
+182,mmlu_pro_nomath_test_04118
+,,question,"Balance the following by filling in missing species and proper coefficient: (a) NaOH + _____\rightarrow NaHSO_4 + HOH; (b)PCI_3 +__ HOH \rightarrow _____ + 3HCl, (c) CH_4 + ____ \rightarrowCC1_4 + 4HCl.
+(A) H_2SO_4, P(OH)_3, 2 Cl_2
+(B) H_2SO_3, P(OH)_3, 3 Cl_2
+(C) HClO_4, P(OH)_3, 5 Cl_2
+(D) H_2SO_4, P(OH)_4, 2 Cl_2
+(E) H_2SO_4, P(OH)_3, 4 Cl_2
+(F) H_2SO_4, H_3PO_4, Cl_2
+(G) H_2SO_4, PCl_3, Cl_2
+(H) H_2O_2, P(OH)_3, 4 Cl_2
+(I) H_2SO_4, P(OH)_2, 3 Cl_2
+(J) H_2O, P(OH)_3, Cl_2"
+,,y_true,E
+,,solution selected by baseline
+,,step 0,"To balance the given chemical equations, let's analyze each one step by step.",0.70703125,0.2451171875
+,,step 1,### (a) NaOH + _____ \rightarrow NaHSO_4 + HOH,0.53125,0.07568359375
+,,step 2,1. **Identify the reactant and products**: ,1.0,0.77734375
+,,step 3,   - Reactant: NaOH,1.0,0.9921875
+,,step 4,"   - Products: NaHSO_4, HOH (water)",1.0,0.9765625
+,,step 5,2. **Balance the sodium (Na)**:,1.0,0.93359375
+,,step 6,   - NaOH has 1 Na.,1.0,0.99609375
+,,step 7,   - NaHSO_4 has 1 Na.,1.0,0.9921875
+,,step 8,   - Sodium is balanced.,1.0,0.9921875
+,,step 9,3. **Balance the sulfur (S)**:,1.0,0.8515625
+,,step 10,   - NaHSO_4 has 1 S.,1.0,0.94140625
+,,step 11,   - There is no S in NaOH.,1.0,0.95703125
+,,step 12,   - Sulfur is balanced.,0.98828125,0.75390625
+,,step 13,4. **Balance the hydrogen (H)**:,1.0,0.81640625
+,,step 14,   - NaOH has 1 H.,1.0,0.98046875
+,,step 15,   - NaHSO_4 has 1 H.,0.99609375,0.70703125
+,,step 16,   - HOH (water) has 1 H.,1.0,0.77734375
+,,step 17,   - Hydrogen is balanced.,1.0,0.59375
+,,step 18,5. **Balance the oxygen (O)**:,1.0,0.8671875
+,,step 19,   - NaOH has 1 O.,1.0,0.98046875
+,,step 20,   - NaHSO_4 has 1 O.,1.0,0.408203125
+,,step 21,   - HOH (water) has 1 O.,1.0,0.9140625
+,,step 22,   - Oxygen is balanced.,1.0,0.62109375
+,,step 23,6. **Determine the missing species**:,0.98046875,0.3203125
+,,step 24,   - The missing species is H_2SO_4.,0.8671875,0.4375
+,,step 25,   - The balanced equation is: NaOH + H_2SO_4 \rightarrow NaHSO_4 + HOH.,0.9921875,0.81640625
+,,step 26,### (b) PCI_3 +__ HOH \rightarrow _____ + 3HCl,0.99609375,0.81640625
+,,step 27,1. **Identify the reactant and products**:,1.0,0.9921875
+,,step 28,   - Reactant: PCI_3,0.9921875,0.9609375
+,,step 29,"   - Products: HCl, HOH (water)",0.9921875,0.5
+,,step 30,2. **Balance the phosphorus (P)**:,1.0,0.9453125
+,,step 31,   - PCI_3 has 1 P.,1.0,0.9921875
+,,step 32,   - There is no P in the products.,0.70703125,0.70703125
+,,step 33,   - Phosphorus is balanced.,0.9921875,0.93359375
+,,step 34,3. **Balance the chlorine (Cl)**:,1.0,0.9453125
+,,step 35,   - There are 3 Cl in PCI_3.,1.0,0.98046875
+,,step 36,   - There are 3 Cl in 3HCl.,1.0,0.9921875
+,,step 37,   - Chlorine is balanced.,1.0,0.96875
+,,step 38,4. **Balance the hydrogen (H)**:,1.0,0.89453125
+,,step 39,   - PCI_3 has no H.,1.0,0.9765625
+,,step 40,   - HOH (water) has 2 H.,1.0,0.90625
+,,step 41,   - 3HOH (3 water molecules) has 6 H.,1.0,0.9453125
+,,step 42,   - Hydrogen is balanced.,1.0,0.75390625
+,,step 43,5. **Balance the oxygen (O)**:,1.0,0.9765625
+,,step 44,   - HOH (water) has 3 O.,1.0,0.0673828125
+,,step 45,   - There is no O in the products.,0.9921875,0.408203125
+,,step 46,   - Oxygen is balanced.,1.0,0.65234375
+,,step 47,6. **Determine the missing species**:,1.0,0.77734375
+,,step 48,   - The missing species is P(OH)_3.,1.0,0.4375
+,,step 49,   - The balanced equation is: PCI_3 + 3HOH \rightarrow P(OH)_3 + 3HCl.,1.0,0.796875
+,,step 50,### (c) CH_4 + ____ \rightarrow CC1_4 + 4HCl,1.0,0.9140625
+,,step 51,1. **Identify the reactant and products**:,1.0,0.99609375
+,,step 52,   - Reactant: CH_4,1.0,0.99609375
+,,step 53,"   - Products: CC1_4, 4HCl",1.0,0.984375
+,,step 54,2. **Balance the carbon (C)**:,1.0,0.9765625
+,,step 55,   - CH_4 has 1 C.,1.0,0.99609375
+,,step 56,   - CC1_4 has 1 C.,1.0,0.98828125
+,,step 57,   - Carbon is balanced.,1.0,0.984375
+,,step 58,3. **Balance the chlorine (Cl)**:,1.0,0.9453125
+,,step 59,   - There are 4 Cl in 4HCl.,1.0,0.98046875
+,,step 60,   - There are 4 Cl in CC1_4.,0.9921875,0.5
+,,step 61,   - Chlorine is balanced.,1.0,0.95703125
+,,step 62,4. **Balance the hydrogen (H)**:,1.0,0.9609375
+,,step 63,   - CH_4 has 4 H.,1.0,0.9921875
+,,step 64,   - 4HCl has 4 H.,1.0,0.9140625
+,,step 65,   - Hydrogen is balanced.,1.0,0.90625
+,,step 66,5. **Determine the missing species**:,1.0,0.8671875
+,,step 67,   - The missing species is Cl_2.,0.0849609375,0.5
+,,step 68,   - The balanced equation is: CH_4 + 4Cl_2 \rightarrow CC1_4 + 4HCl.,0.96875,0.8359375
+,,step 69,The correct answer is:,1.0,0.22265625
+,,step 70,"(A) H_2SO_4, P(OH)_3, 2 Cl_2",0.0673828125,0.5
+,,solution selected by finetuned
+,,step 0,"To balance the equations, we need to ensure that the number of atoms of each element is the same on both sides of the equation.",0.80859375,0.9609375
+,,step 1,(a) \( \text{NaOH} + \_\_\_\_ \rightarrow \text{NaHSO}_4 + \text{HOH} \),0.9921875,0.119140625
+,,step 2,- Sodium (Na): 1 on both sides.,1.0,0.9765625
+,,step 3,"- Oxygen (O): 1 on the left, 5 on the right.",0.46875,0.65234375
+,,step 4,"- Hydrogen (H): 1 on the left, 2 on the right.",1.0,0.95703125
+,,step 5,- Sulfur (S): 1 on the right.,1.0,0.87890625
+,,step 6,To balance oxygen and hydrogen:,1.0,0.5
+,,step 7,- Add \( \text{H}_2\text{SO}_4 \) to the left side to balance oxygen and hydrogen.,1.0,0.6796875
+,,step 8,- The equation becomes: \( \text{NaOH} + \text{H}_2\text{SO}_4 \rightarrow \text{NaHSO}_4 + \text{HOH} \).,0.70703125,0.62109375
+,,step 9,(b) \( \text{PCI}_3 + \_\_\_\_ \text{HOH} \rightarrow \_\_\_\_ + 3\text{HCl} \),1.0,0.87890625
+,,step 10,- Phosphorus (P): 1 on both sides.,1.0,0.70703125
+,,step 11,"- Chlorine (Cl): 3 on the left, 3 on the right.",1.0,0.9609375
+,,step 12,"- Oxygen (O): 3 on the left, 1 on the right.",1.0,0.8671875
+,,step 13,"- Hydrogen (H): 3 on the left, 3 on the right.",0.1484375,0.93359375
+,,step 14,To balance oxygen:,1.0,0.97265625
+,,step 15,- Add \( \text{H}_3\text{PO}_3 \) to the right side.,0.2021484375,0.1826171875
+,,step 16,- The equation becomes: \( \text{PCI}_3 + 3\text{HOH} \rightarrow \text{H}_3\text{PO}_3 + 3\text{HCl} \).,0.9453125,0.53125
+,,step 17,(c) \( \text{CH}_4 + \_\_\_\_ \rightarrow \text{CCl}_4 + 4\text{HCl} \),1.0,0.9453125
+,,step 18,- Carbon (C): 1 on both sides.,1.0,0.99609375
+,,step 19,"- Chlorine (Cl): 4 on the right, 4 on the left.",1.0,0.5
+,,step 20,"- Hydrogen (H): 4 on the left, 0 on the right.",1.0,0.9453125
+,,step 21,To balance hydrogen:,1.0,0.98046875
+,,step 22,- Add \( 4\text{HCl} \) to the right side.,0.00193023681640625,0.3203125
+,,step 23,- The equation becomes: \( \text{CH}_4 + 4\text{Cl}_2 \rightarrow \text{CCl}_4 + 4\text{HCl} \).,0.0260009765625,0.46875
+,,step 24,Combining all the parts:,1.0,0.408203125
+,,step 25,- (a) \( \text{NaOH} + \text{H}_2\text{SO}_4 \rightarrow \text{NaHSO}_4 + \text{HOH} \),0.953125,0.9140625
+,,step 26,- (b) \( \text{PCI}_3 + 3\text{HOH} \rightarrow \text{H}_3\text{PO}_3 + 3\text{HCl} \),1.0,0.87890625
+,,step 27,- (c) \( \text{CH}_4 + 4\text{Cl}_2 \rightarrow \text{CCl}_4 + 4\text{HCl} \),1.0,0.89453125
+,,step 28,The correct combination that matches the choices is:,0.9921875,0.1328125
+,,step 29,"\( \text{H}_2\text{SO}_4, \text{POH}_3, 4\text{Cl}_2 \).",0.0849609375,0.09521484375
+,,step 30,The answer is (E).,1.0,0.73046875
+,,annotation
+
+210,mmlu_pro_nomath_test_00632
+,,question,"What does situational theory of leadership emphasise?
+(A) Individual skills
+(B) Cultural influences
+(C) Economic conditions
+(D) Political situation
+(E) Personality traits
+(F) Organizational structure
+(G) Social trends
+(H) Events"
+,,y_true,H
+,,solution selected by baseline
+,,step 0,Situational theory of leadership focuses on the context and specific circumstances in which leadership occurs.,0.89453125,0.9140625
+,,step 1,It emphasizes that the effectiveness of a leader depends on the match between the leader's style and the situational factors.,1.0,0.9921875
+,,step 2,The answer is (D).,2.753734588623047e-05,0.0260009765625
+,,solution selected by finetuned
+,,step 0,Situational theory of leadership focuses on the context and specific circumstances under which leadership is applied.,0.59375,0.90625
+,,step 1,It emphasizes that the most effective leadership style is contingent upon the situation.,1.0,0.9921875
+,,step 2,The answer is (H).,1.150369644165039e-05,0.029296875
+,,annotation
+
+224,mmlu_pro_nomath_test_10372
+,,question,"How many trees are there on 5 unlabeled vertices?
+(A) 3
+(B) 6
+(C) 8
+(D) 10
+(E) 11
+(F) 12
+(G) 15
+(H) 9
+(I) 7
+(J) 5"
+,,y_true,A
+,,solution selected by baseline
+,,step 0,"To determine the number of trees on 5 unlabeled vertices, we need to use the concept of Cayley's formula, which states that the number of distinct trees that can be formed with \( n \) labeled vertices is \( n^{n-2} \). However, since the vertices are unlabeled, we need to consider the distinct unlabeled trees.",0.1826171875,0.0849609375
+,,step 1,"For \( n = 5 \), we need to count the distinct unlabeled trees. The number of distinct unlabeled trees on 5 vertices is known to be 6. Here is a step-by-step reasoning:",0.376953125,0.2021484375
+,,step 2,"1. **List all possible labeled trees**: Using Cayley's formula, there are \( 5^{5-2} = 5^3 = 125 \) labeled trees on 5 vertices.",1.0,0.9453125
+,,step 3,"2. **Account for unlabeled trees**: Since the vertices are unlabeled, we need to count the distinct trees up to isomorphism. This is a combinatorial problem that requires considering the symmetries of the trees.",1.0,0.984375
+,,step 4,The distinct unlabeled trees on 5 vertices are:,0.89453125,0.26953125
+,,step 5,- A star (one central vertex connected to four others),1.0,0.8515625
+,,step 6,- A path of 5 vertices,1.0,0.9453125
+,,step 7,"- A tree with one vertex of degree 3, two vertices of degree 2, and two vertices of degree 1",1.0,0.75390625
+,,step 8,"- A tree with one vertex of degree 4, one vertex of degree 2, and three vertices of degree 1",1.0,0.8671875
+,,step 9,"- A tree with one vertex of degree 3, one vertex of degree 3, and three vertices of degree 1",0.9921875,0.59375
+,,step 10,"- A tree with one vertex of degree 3, one vertex of degree 2, one vertex of degree 2, and two vertices of degree 1",0.98046875,0.81640625
+,,step 11,"Counting these distinct trees, we find there are 6 distinct unlabeled trees.",1.0,0.8515625
+,,step 12,"Therefore, the number of trees on 5 unlabeled vertices is \(\boxed{6}\).",1.0,0.99609375
+,,solution selected by finetuned
+,,step 0,"To determine the number of trees on 5 unlabeled vertices, we need to use the concept of Cayley's formula, which states that the number of trees that can be formed with \( n \) labeled vertices is \( n^{n-2} \). However, since the vertices are unlabeled, we need to use the formula for the number of distinct trees on \( n \) unlabeled vertices, which is given by the sequence in the OEIS (Online Encyclopedia of Integer Sequences) sequence A000055.",0.59375,0.1328125
+,,step 1,For \( n = 5 \):,0.94140625,0.2451171875
+,,step 2,1. The number of distinct trees on 5 unlabeled vertices is 3.,6.628036499023438e-05,0.2451171875
+,,step 3,The answer is (A).,1.0,1.0
+,,annotation
+
+239,mmlu_pro_nomath_test_04699
+,,question,"This question refers to the following information.
+""At least one of the [world's] societies would have to somehow enormously increase its productivity [in order to achieve global hegemony]. That quantum jump would have to be made before the various scientific, technological, agricultural, and industrial revolutions on which our post-quantum-leap world rests. It could only be accomplished by exploiting the ecosystems, mineral resources, and human assets of whole continents outside the lands of the society making the jump. Western Europe did just that by means of its brutality and guns and, more important, by geographical and ecological luck.""
+Copyright © 2015 Cambridge University Press.
+Alfred Crosby, historian, Ecological Imperialism, 2004
+Based on your knowledge of world history, which of the following contributed LEAST to Western European global hegemony between 1450 and 1750 C.E.?
+(A) The implementation of joint-stock companies
+(B) The exploitation of labor in colonized regions
+(C) The exploration of new sea routes to Asia and the Americas
+(D) The establishment of trading posts along Asian and African coasts
+(E) The exchange of food sources between the Americas and Europe
+(F) The spread of Christianity to non-European regions
+(G) The development and application of steam-powered technologies
+(H) The discovery and colonization of the Americas
+(I) The development of advanced naval technology
+(J) Refinement of gunpowder technologies"
+,,y_true,G
+,,solution selected by baseline
+,,step 0,"To determine which factor contributed the least to Western European global hegemony between 1450 and 1750 C.E., we need to assess the importance of each option in the context of the provided historical information.",0.515625,0.94140625
+,,step 1,"(A) The implementation of joint-stock companies: This was crucial as it allowed for the pooling of resources and risk-sharing, which was essential for long-distance trade and colonization.",0.81640625,0.90625
+,,step 2,"(B) The exploitation of labor in colonized regions: This provided a significant labor force for plantations and other economic activities, which was essential for the economic growth of Europe.",1.0,0.984375
+,,step 3,(C) The exploration of new sea routes to Asia and the Americas: This was fundamental in establishing trade routes and opening up new markets for European goods.,1.0,0.9921875
+,,step 4,"(D) The establishment of trading posts along Asian and African coasts: This facilitated direct trade and control over key trade routes, enhancing economic power.",1.0,0.9921875
+,,step 5,"(E) The exchange of food sources between the Americas and Europe: This, such as the potato and maize, significantly increased agricultural productivity in Europe, contributing to population growth and economic development.",1.0,0.92578125
+,,step 6,"(F) The spread of Christianity to non-European regions: While religious influence was important, its direct economic impact on global hegemony was less significant compared to economic and military factors.",1.0,0.87890625
+,,step 7,(G) The development and application of steam-powered technologies: This was not developed until the late 18th century and thus did not contribute to Western European global hegemony between 1450 and 1750 C.E.,0.99609375,0.81640625
+,,step 8,"(H) The discovery and colonization of the Americas: This provided new resources and markets, significantly contributing to Europe's economic and military power.",1.0,0.98828125
+,,step 9,(I) The development of advanced naval technology: This was crucial for establishing and maintaining control over trade routes and colonies.,1.0,0.99609375
+,,step 10,"(J) Refinement of gunpowder technologies: This was important for military dominance and conquest, which was key to establishing colonies and maintaining control over them.",1.0,0.98046875
+,,step 11,The factor that contributed the least to Western European global hegemony between 1450 and 1750 C.E. is (F) The spread of Christianity to non-European regions.,0.96875,0.98046875
+,,solution selected by finetuned
+,,step 0,"To determine which factor contributed least to Western European global hegemony between 1450 and 1750 C.E., we need to analyze each option in the context of the provided historical information and world history.",0.376953125,0.90625
+,,step 1,- (A) **The implementation of joint-stock companies**: Joint-stock companies were crucial for funding and organizing large-scale exploration and colonization efforts. This contributed significantly to global hegemony.,0.90625,0.94140625
+,,step 2,"- (B) **The exploitation of labor in colonized regions**: The exploitation of labor, such as through the encomienda system in the Americas, was a key factor in the economic success of European powers.",1.0,0.9609375
+,,step 3,"- (C) **The exploration of new sea routes to Asia and the Americas**: The discovery of new sea routes, such as those by Columbus and Vasco da Gama, opened up new trade opportunities and laid the groundwork for global hegemony.",1.0,0.984375
+,,step 4,"- (D) **The establishment of trading posts along Asian and African coasts**: Establishing trading posts facilitated trade and the exchange of goods, which was essential for economic growth and power.",1.0,0.9921875
+,,step 5,"- (E) **The exchange of food sources between the Americas and Europe**: The Columbian Exchange introduced new crops like potatoes and maize to Europe, which significantly impacted agriculture and population growth.",1.0,0.9140625
+,,step 6,"- (F) **The spread of Christianity to non-European regions**: While spreading Christianity was a significant cultural and political goal, its direct economic impact on global hegemony was less direct compared to the other factors.",1.0,0.8671875
+,,step 7,"- (G) **The development and application of steam-powered technologies**: Steam-powered technologies were not developed until the late 18th century, well after 1750. Thus, they did not contribute to Western European global hegemony between 1450 and 1750 C.E.",0.9921875,0.90625
+,,step 8,"- (H) **The discovery and colonization of the Americas**: The discovery and colonization of the Americas were foundational to European global hegemony, providing resources and new markets.",1.0,0.9921875
+,,step 9,"- (I) **The development of advanced naval technology**: Advanced naval technology was crucial for exploration, colonization, and trade, significantly contributing to global hegemony.",1.0,0.98828125
+,,step 10,"- (J) **Refinement of gunpowder technologies**: The refinement of gunpowder technologies was important for military conquest and control, contributing to global hegemony.",1.0,0.9609375
+,,step 11,"Among these, the development and application of steam-powered technologies (G) contributed the least to Western European global hegemony between 1450 and 1750 C.E.",0.9609375,0.98828125
+,,step 12,The answer is (G).,1.0,0.99609375
+,,annotation
+

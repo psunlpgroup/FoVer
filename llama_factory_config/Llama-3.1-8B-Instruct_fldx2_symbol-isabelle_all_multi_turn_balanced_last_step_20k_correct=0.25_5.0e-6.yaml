@@ -1,0 +1,45 @@
+### model
+model_name_or_path: meta-llama/Llama-3.1-8B-Instruct
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+deepspeed: examples/deepspeed/ds_z3_config.json  # choices: [ds_z0_config.json, ds_z2_config.json, ds_z3_config.json]
+
+### dataset
+dataset: FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_20k_correct=0.25_Llama-3.1-8B-Instruct
+template: llama3
+cutoff_len: 2048
+max_samples: 1000000000 # no limit
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: ../FoVer/llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.25_5.0e-6
+logging_steps: 10
+save_steps: 1000000000 # never save
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+mask_history: True
+
+### train
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 2
+learning_rate: 5.0e-6
+num_train_epochs: 1.0
+lr_scheduler_type: linear  # cosine
+warmup_ratio: 0.5
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+optim: adamw_torch
+
+### eval
+eval_dataset: FoVer_PRM_FormalLogic-FormalProof_10k_Llama-3.1-8B-Instruct_validation
+per_device_eval_batch_size: 4
+eval_strategy: steps
+eval_steps: 100

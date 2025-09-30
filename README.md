@@ -4,7 +4,7 @@
 <a href="https://fover-prm.github.io/">Project Website</a> | 📄 <a href="https://arxiv.org/abs/2505.15960">Paper</a> | 🛠️ <a href="https://github.com/psunlpgroup/FoVer">GitHub</a> | 🤗 <a href="https://huggingface.co/collections/ryokamoi/fover-682e28cc9f6200c7dfd5342f">Dataset</a> | 🤗 <a href="https://huggingface.co/collections/ryokamoi/fover-682e28cc9f6200c7dfd5342f">Models</a>
 </p>
 
-This repository includes code and materials for the paper "Training Step-Level Reasoning Verifiers with Formal Verification Tools".
+This repository includes code and materials for the paper "Generalizable Process Reward Models via Formally Verified Training Data".
 
 Please refer to [Quick Start](#quick-start) for a quick start guide to evaluate your models on the FoVer dataset or evaluate the FoVer models on your dataset.
 
@@ -29,7 +29,7 @@ Please refer to [Quick Start](#quick-start) for a quick start guide to evaluate 
 
 ```bibtex
 @article{kamoi2025fover,
-  title   = {Training Step-Level Reasoning Verifiers with Formal Verification Tools},
+  title   = {Generalizable Process Reward Models via Formally Verified Training Data},
   author  = {Ryo Kamoi and Yusen Zhang and Nan Zhang and Sarkar Snigdha Sarathi Das and Rui Zhang},
   journal = {arXiv preprint arXiv:2505.15960},
   year    = {2025},

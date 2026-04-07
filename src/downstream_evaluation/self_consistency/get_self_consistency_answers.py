@@ -26,7 +26,7 @@ def main():
         )
         with open(initial_responses_path.with_suffix(".postprocessed.jsonl"), "r") as f:
             initial_responses = [json.loads(line) for line in f]
-        
+
         # initialize
         if sample_idx == 0:
             all_final_answers = [[None, []] for _ in initial_responses]

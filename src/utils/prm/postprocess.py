@@ -1,3 +1,5 @@
+import copy
+
 import numpy as np
 import torch
 
@@ -105,6 +107,8 @@ def get_postprocessed_prm_output_format(
         verification_score_type: str) -> dict:
     """ Get the postprocessed output format for the PRM. """
     
+    raw_y_pred_step_level = copy.deepcopy(y_pred_step_level)
+    
     # check if all step-level predictions are valid
     is_y_pred_step_level_valid = [
         y_pred is not None for y_pred in y_pred_step_level
@@ -135,6 +139,11 @@ def get_postprocessed_prm_output_format(
         # if all step-level predictions are "correct", we consider the instance-level prediction as "correct"
         # if there is no valid prediction, we consider the instance-level prediction as "correct" (i.e., None -> "correct")
         y_pred_instance_level = get_verification_score_from_binary_prediction(y_pred_step_level)
+    elif verification_score_type == "num_incorrect_steps":
+        num_incorrect = sum(
+            y_pred is False for y_pred in y_pred_step_level if y_pred is not None
+        )
+        y_pred_instance_level = -num_incorrect
     elif "logprob" in verification_score_type:
         # remove None from y_pred_step_level
         # e.g., if <step_1>correct</step_1> is not found, y_pred_step_level[0] is None
@@ -167,6 +176,7 @@ def get_postprocessed_prm_output_format(
     return {
         # step level
         "y_pred_step_level": y_pred_step_level,
+        "raw_y_pred_step_level": raw_y_pred_step_level,
         "is_y_pred_step_level_valid": is_y_pred_step_level_valid,
         "y_true_step_level": y_true_step_level,
         # instance level
@@ -239,7 +249,7 @@ def postprocess_prm_output(verification_score_type: str,
             raise ValueError(
                 f"Unknown verification_score_type: {verification_score_type}"
             )
-    
+
     return get_postprocessed_prm_output_format(
         y_pred_step_level=y_pred_step_level,
         y_true_step_level=y_true_step_level,
@@ -252,7 +262,8 @@ def postprocess_prm_output_from_vllm_reward_model(
         verification_output: dict, verification_model: str,
         verification_score_type: str,
         original_y_true: list[PRM_PRED] | None = None,
-        remove_step_if_y_true_is_none: bool=False) -> dict:
+        remove_step_if_y_true_is_none: bool=False,
+    ) -> dict:
     
     # get step level predictions
     if verification_model in []:
@@ -292,7 +303,6 @@ def postprocess_prm_output_from_vllm_reward_model(
     else:
         y_true_step_level = original_y_true
 
-    # get format
     postprocessed = get_postprocessed_prm_output_format(
         y_pred_step_level=y_pred_step_level,
         y_true_step_level=y_true_step_level,

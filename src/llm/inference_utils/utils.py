@@ -12,6 +12,7 @@ class LlmInferenceParamsTap(Tap):
     top_k: int = 40
     seed: int = 68
     logprobs: bool = False
+    enable_thinking: bool = False  # for qwen3
     not_use_vllm_reward_task: bool = False
 
 
@@ -24,7 +25,7 @@ def encode_image_base64(image: PIL.Image.Image):
         return base64.b64encode(image_file.read()).decode('utf-8')
 
 
-hf_model_names_list = ["Llama-3", "gemma-2", "gemma-3", "Qwen2", "Qwen-2", "RLHFlow", "Skywork"]
+hf_model_names_list = ["Llama-3", "gemma-2", "gemma-3", "Qwen2", "Qwen3", "Qwen-2", "RLHFlow", "Skywork"]
 
 
 def get_llm_input_dict(model: str, prompt: str, params: LlmInferenceParamsTap,

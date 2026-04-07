@@ -1,4 +1,4 @@
-from src.config import get_downstream_evaluation_datasets_lsit
+from src.config import get_downstream_evaluation_datasets_list
 
 
 def extract_from_box(answer: str) -> str | None:
@@ -6,18 +6,19 @@ def extract_from_box(answer: str) -> str | None:
     
     # get \\boxed{answer}
     prefix = "\\boxed{"
-    start_index = answer.find(prefix) + len(prefix)
+    start_index = answer.rfind(prefix) + len(prefix)
     end_index = answer.rfind("}")
     
     if start_index - len(prefix) == -1 or end_index == -1:
+        # not found
         return None
     else:
         return answer[start_index:end_index]
 
 
 full_downstream_evaluation_datasets_list = \
-    get_downstream_evaluation_datasets_lsit("model_selection") + \
-    get_downstream_evaluation_datasets_lsit("final_evaluation") + \
+    get_downstream_evaluation_datasets_list("model_selection") + \
+    get_downstream_evaluation_datasets_list("final_evaluation") + \
     ["bigmath_math_word_problems", "metamathqa_gsm8k"]
 
 def extract_final_answer_for_downstream_evaluation(

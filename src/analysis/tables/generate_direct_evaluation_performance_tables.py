@@ -42,10 +42,6 @@ def main():
     
     for train_data_name in [None] + selected_train_dataset_names_list:
         print(f"Generating tables for {train_data_name}...")
-        # remove this part later
-        if train_data_name is not None:
-            continue
-        #
 
         direct_evaluation_tables_dir = tables_dir / "direct_evaluation"
         direct_optimizer_list: list[OPTIMIZERS] = [
@@ -54,7 +50,7 @@ def main():
         
         for evaluation_unit in ["step_level", "instance_level"]:
             for metric_name in ["auroc"]:  # , "f1", "precision", "recall"]:  # todo
-                for dataset_type in ["in-distribution", "out-of-distribution"]:
+                for dataset_type in ["out-of-distribution"]:
                     print(f"Generating tables for {evaluation_unit} {metric_name} on {dataset_type}...")
 
                     metric_table_dir: Path = direct_evaluation_tables_dir / \
@@ -64,7 +60,10 @@ def main():
                     metric_table_dir.mkdir(parents=True, exist_ok=True)
 
                     # make tables
-                    for base_model_name in base_model_names + sota_prms_list + ["meta-llama/Llama-3.1-70B-Instruct", "Qwen/Qwen2.5-72B-Instruct"]:
+                    for base_model_name in base_model_names:
+                        
+                        if base_model_name not in ["meta-llama/Llama-3.1-8B-Instruct", "Qwen/Qwen2.5-7B-Instruct"]:
+                            continue
 
                         print(f"Generating tables for {base_model_name}...")
                         
@@ -107,42 +106,6 @@ def main():
                         first_row += ["Average"]
                         table.append(first_row)
                         
-                        # This is an old version. To be removed later.
-                        # # majority label baseline performance
-                        # if metric_name != "auroc":
-                        #     row = ["\\multicolumn{2}{c}{Majority Label Baseline}"]
-                        #     all_metrics: list[float] = []
-                        #     for dataset_name in evaluation_datasets_list:
-                        #         for split in splits_list:
-                        #             # evaluation metrics file for any model includes the majority label baseline performance
-                        #             evaluation_metrics_path = get_direct_evaluation_metrics_path(
-                        #                 dataset_name=dataset_name, base_model_name=base_model_name, verification_model_name=base_model_name, split=split, verification_prompt_type=args.verification_prompt_type
-                        #             )
-                                    
-                        #             # add metric to row
-                        #             if evaluation_metrics_path.exists():
-                        #                 with open(evaluation_metrics_path, "r") as f:
-                        #                     evaluation_metrics: dict[str, dict[str, dict[str, float]]] = json.load(f)
-                                        
-                        #                 if metric_name in evaluation_metrics["majority_label_baseline"][evaluation_unit].keys():
-                        #                     metric = evaluation_metrics["majority_label_baseline"][evaluation_unit][metric_name]
-
-                        #                     row.append(f"{metric*100:5.1f}")
-                                        
-                        #                     # for average calculation
-                        #                     all_metrics.append(metric)
-                        #                 else:
-                        #                     row.append("  -- ")
-                        #             else:
-                        #                 row.append("  -- ")
-
-                        #     # average
-                        #     row.append(f"{np.mean(all_metrics)*100:5.1f}")
-                        #     table.append(row)
-                            
-                        #     # midrule
-                        #     table.append(["\\midrule"])
-                        
                         # rows
                         for optimizer in direct_optimizer_list:
 
@@ -166,6 +129,7 @@ def main():
                                     base_model_name=base_model_name,
                                     train_data_name=train_data_name,
                                     optimizer=optimizer,
+                                    sample_k=7
                                 )
                                 if verifier_name is not None:
                                     verification_models_list.append(verifier_name)
@@ -270,7 +234,7 @@ def main():
                                 
                                 # p-value for average
                                 if len(all_y_pred_1) == 0 or len(all_y_pred_2) == 0:
-                                    print(f"y_pred_1 or y_pred_2 is empty for {verification_model_name} on {dataset_name}.")
+                                    print(f"y_pred_1 or y_pred_2 is empty for {verification_model_name}.")
                                     p_value = 1.0
                                 elif verification_model_name == verification_models_list[0]:
                                     p_value = 1.0

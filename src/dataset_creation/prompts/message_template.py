@@ -6,3 +6,6 @@ def get_assistant_message(content: str, model_name: str):
 
 def get_user_message(content: str):
     return {"role": "user", "content": content}
+
+def get_system_message(content: str):
+    return {"role": "system", "content": content}

@@ -254,6 +254,7 @@ class InferenceModel():
             model_type={
                 "LlamaForCausalLM": "llama",
                 "Qwen2ForCausalLM": "qwen",
+                "Qwen3ForCausalLM": "qwen",
             }[architectures_config[0]]
         )
         

@@ -29,7 +29,9 @@ def get_model_selection_performance_list(
             verifier_names_list: list[str],
             verification_score_type: str,
             verification_prompt_type: str,
-            metric_name: str="accuracy"
+            metric_name: str="accuracy",
+            sample_k: int=5,
+            selection_method: str="max"
         ) -> tuple[list[float], dict[str, list[float]]]:
     """ Get the performance list of verification models for hyperparemeter
     selection. """
@@ -48,6 +50,9 @@ def get_model_selection_performance_list(
                 verification_model_name=verifier_name,
                 split="test", verification_prompt_type=verification_prompt_type,
                 verification_score_type=verification_score_type,
+                sample_k=sample_k,
+                selection_method=selection_method,
+                few_shot_verification=False
             )
             metrics_path = get_downstream_evaluation_metrics_path(
                 dataset_name=evaluation_dataset_name,
@@ -57,6 +62,7 @@ def get_model_selection_performance_list(
             )
             
             if metrics_path.exists():
+                print(f"Loading metrics from: {metrics_path}")
                 with open(metrics_path, "r") as f:
                     metrics = json.load(f)[metric_name]
                 metrics_list.append(metrics)
@@ -78,7 +84,8 @@ def get_best_performance_verifier(
         base_model_name: BASE_MODEL,
         train_data_name: Union[TRAIN_DATA, TRAIN_DATA_MULTI_TURN],
         optimizer: str="AdamW",
-        verification_score_type: str="logprob_min") -> str | None:
+        verification_score_type: str="logprob_min",
+        sample_k: int=5) -> str | None:
     """ Get verification model with the best performance in validation tasks."""
     
     if train_data_name not in finetuned_verification_models_dict[
@@ -113,6 +120,7 @@ def get_best_performance_verifier(
                     verification_score_type=verification_score_type,
                     metric_name="accuracy",
                     verification_prompt_type=verification_prompt_type,
+                    sample_k=sample_k
                 )
             
             # get the index of the best verifier

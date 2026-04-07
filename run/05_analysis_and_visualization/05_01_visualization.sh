@@ -5,4 +5,7 @@ python src/analysis/figures/generate_model_selection_performance_graph.py
 python src/analysis/figures/generate_ablation_study_performance_graph.py
 
 # bar plot
-python src/analysis/figures/generate_downstream_performance_graph.py
+python src/analysis/figures/generate_downstream_performance_graph.py --sample_k 7
+
+# data size ablation
+python src/analysis/figures/generate_data_size_ablation.py

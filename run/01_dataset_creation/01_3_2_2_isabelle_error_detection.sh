@@ -1,12 +1,19 @@
-export CONVERSION_MODEL=meta-llama/Llama-3.3-70B-Instruct
+for MODEL_NAME in "meta-llama/Llama-3.1-8B-Instruct" "Qwen/Qwen2.5-7B-Instruct"
+do
+
+export MODEL=$MODEL_NAME
+export CONVERSION_MODEL=$MODEL_NAME
+export FORMAL_PROOF_MODEL=$MODEL_NAME
 
 conda activate fover_data_creation
 
+for BASE_DATASET in gsm8k bigmath_math_word_problems metamathqa_gsm8k
+do
+
 # run this script for each dataset, model, and split
 
-export BASE_DATASET=metamathqa_gsm8k # gsm8k bigmath_math_word_problems metamathqa_gsm8k
-export MODEL=meta-llama/Llama-3.1-8B-Instruct # meta-llama/Llama-3.1-8B-Instruct Qwen/Qwen2.5-7B-Instruct
-export SPLIT=validation # train validation test
+for SPLIT in train validation test
+do
 
 # for training, there are 64 batches
 # for test and validation, there are 16 batches
@@ -18,6 +25,11 @@ export BATCH_END=15
 # automatic verification using isabelle
 python src/dataset_creation/base_dataset_specific/isabelle/error_detection/run_error_detection_in_parallel.py \
     --base_model_name $MODEL --dataset_name $BASE_DATASET \
-    --conversion_model_name $CONVERSION_MODEL --split $SPLIT \
+    --conversion_model_name $CONVERSION_MODEL --formal_proof_generation_model_name $FORMAL_PROOF_MODEL \
+    --split $SPLIT \
     --batch_idx_start $BATCH_START --batch_idx_end $BATCH_END \
     # --overwrite_results
+
+done
+done
+done

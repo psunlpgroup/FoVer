@@ -3,6 +3,7 @@
 import json
 import traceback
 import signal
+import random
 
 from tqdm import tqdm
 
@@ -119,11 +120,16 @@ if __name__ == "__main__":
                         continue
                 
                 # add final conclusion to the proof steps
+                selected_last_message = random.Random(data_id).choice(
+                    ["The final answer is", "Therefore, the final answer is", "Thus, the final answer is",
+                    "The answer is", "Therefore, the answer is", "Thus, the answer is"]
+                )
                 verification_result_dict["proof_steps"].append(
-                    f"The final answer is {verification_result_dict['y_pred']}"
+                    f"{selected_last_message} {verification_result_dict['y_pred']}"
                 )
                 verification_result_dict["proof_step_correctness"].append(
-                    verification_result_dict["y_correct"]
+                    # verification_result_dict["y_correct"]
+                    all(verification_result_dict["proof_step_correctness"] + [verification_result_dict["y_correct"]])
                 )
                 
                 # save the verification results
@@ -150,7 +156,7 @@ if __name__ == "__main__":
             output_path = get_error_labels_path(
                 dataset_name=args.dataset_name, model_name=args.model_name,
                 split=split, seed=seed
-            ).with_suffix(".full.jsonl")
+            )
             output_path.parent.mkdir(parents=True, exist_ok=True)
             
             with open(output_path, "w") as f:

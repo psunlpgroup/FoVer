@@ -14,10 +14,15 @@ from src.config import base_model_names, downstream_evaluation_datasets_list, \
 class SampleAndRankTap(Tap):
     evaluation_mode: DOWNSTREAM_EVALUATION_MODE = "final_evaluation"
     overwrite_cache: bool = False
+    evaluate_skywork: bool = False
+    sample_k: int = 5
 
 
 def main():
     args = SampleAndRankTap().parse_args()
+    
+    if args.evaluate_skywork:
+        print("Skywork PRM requires running vllm serve Skywork/Skywork-o1-Open-PRM-Qwen-2.5-7B at another terminal. Refer to setup/setup.sh")
     
     evaluation_datasets_list = {
         "final_evaluation": downstream_evaluation_datasets_list,
@@ -28,14 +33,16 @@ def main():
         for initial_generation_prompt_type in ["few-shot"]:
             
             for dataset_name in evaluation_datasets_list:
+                
+                if base_model_name not in sota_prms_dict:
+                    print(f"Skipping {base_model_name} as it has no PRM verification models.")
+                    continue
 
                 # verification
                 for verification_model in sota_prms_dict[base_model_name]:
-
-                    # remove this part later
-                    if verification_model != "Skywork/Skywork-o1-Open-PRM-Qwen-2.5-7B":
-                        continue
-                    #
+                    if args.evaluate_skywork:
+                        if verification_model != "Skywork/Skywork-o1-Open-PRM-Qwen-2.5-7B":
+                            continue
                     
                     verification_arguments_list = [
                         "--base_model_name", base_model_name,
@@ -43,7 +50,7 @@ def main():
                         "--verification_model_name", verification_model,
                         "--dataset_name", dataset_name,
                         "--verification_prompt_type", "multi-turn",
-                        "--sample_k", "5",
+                        "--sample_k", str(args.sample_k),
                     ]
                     
                     if args.overwrite_cache:
@@ -52,7 +59,7 @@ def main():
                     subprocess.run(["python", "src/downstream_evaluation/sample_and_rank/run_verification.py"] + verification_arguments_list)
                     
                     # postprocess
-                    subprocess.run(["python", "src/downstream_evaluation/sample_and_rank/postprocess_verification_outputs_sota_prms.py"] + verification_arguments_list)
+                    subprocess.run(["python", "src/downstream_evaluation/sample_and_rank/postprocess_verification_outputs_multi_turn_and_sota.py"] + verification_arguments_list)
                     subprocess.run(["python", "src/downstream_evaluation/sample_and_rank/get_final_verification_scores.py"] + verification_arguments_list)
 
 

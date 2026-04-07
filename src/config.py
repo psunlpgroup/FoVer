@@ -1,8 +1,10 @@
 import os
 from typing import Union
 
-from src.typing import TRAIN_DATA, TRAIN_DATA_MULTI_TURN, TRAIN_DATA_ABLATION, \
-    SPLIT, BASE_MODEL, OPTIMIZERS, DOWNSTREAM_EVALUATION_MODE
+from src.typing import TRAIN_DATA, \
+    TRAIN_DATA_MULTI_TURN, TRAIN_DATA_MULTI_TURN_NO_VERSION, \
+    TRAIN_DATA_ABLATION, \
+    SPLIT, BASE_MODEL, OPTIMIZERS, DOWNSTREAM_EVALUATION_MODE, BOK_MODEL
 
 
 ###
@@ -10,77 +12,63 @@ from src.typing import TRAIN_DATA, TRAIN_DATA_MULTI_TURN, TRAIN_DATA_ABLATION, \
 splits_list: tuple[SPLIT] = (SPLIT.__args__)
 
 # base datasets
-train_dataset_names_list: list[TRAIN_DATA] = list(TRAIN_DATA.__args__)
-train_dataset_names_list_multi_turn: list[TRAIN_DATA_MULTI_TURN] = list(
-    TRAIN_DATA_MULTI_TURN.__args__
-)
+train_dataset_names_list: list[TRAIN_DATA] = \
+    list(sorted(list(TRAIN_DATA.__args__)))
+train_dataset_names_list_multi_turn: list[TRAIN_DATA_MULTI_TURN] = \
+    list(sorted(list(TRAIN_DATA_MULTI_TURN.__args__)))
+train_dataset_names_list_reasoning = []  # TODO
+
+train_dataset_names_list_multi_turn_no_version: list[TRAIN_DATA_MULTI_TURN_NO_VERSION] = \
+    list(sorted(list(TRAIN_DATA_MULTI_TURN_NO_VERSION.__args__)))
 
 full_names_dict = {
     "fldx2_symbol": "hitachi-nlp/FLDx2",
 }
 base_datasets_display_name_dict: dict[Union[TRAIN_DATA, TRAIN_DATA_MULTI_TURN, TRAIN_DATA_ABLATION], str] = {
-    "fldx2_symbol_multi_turn_balanced_last_step_20k": "FLDx2 (symbol) balanced last step 20k",
-    "isabelle_all_multi_turn_balanced_last_step_20k": "Isabelle balanced last step 20k",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k": "FLDx2 (symbol) + Isabelle balanced last step 40k",
-    #
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.25": "FLDx2 (symbol) + Isabelle balanced last step 20k (correct=0.25)",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.50": "FLDx2 (symbol) + Isabelle balanced last step 20k (correct=0.50)",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.75": "FLDx2 (symbol) + Isabelle balanced last step 20k (correct=0.75)",
-    #
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_5k_duplicated_40k": "FLDx2 (symbol) + Isabelle balanced last step 5k (duplicated=40k)",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_10k_duplicated_40k": "FLDx2 (symbol) + Isabelle balanced last step 10k (duplicated=40k)",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_duplicated_40k": "FLDx2 (symbol) + Isabelle balanced last step 20k (duplicated=40k)",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_duplicated_40k": "FLDx2 (symbol) + Isabelle balanced last step 40k (duplicated=40k)",
+    "FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512": "FoVer PRM FormalLogic-FormalProof balanced last step 40k 202512"
 }
 
 base_model_names: list[BASE_MODEL] = list(BASE_MODEL.__args__)
 base_model_names = [
-    name for name in base_model_names if name not in ["google/gemma-3-27b-it"]
+    name for name in base_model_names  # if name not in ["google/gemma-3-27b-it"]
 ]
 
+bok_model_names: list[BOK_MODEL] = list(BOK_MODEL.__args__)
 
-dataset_name_to_hf_name_dict = {
-    "fldx2_symbol_multi_turn_10k": "FormalLogic_10k",
-    "isabelle_all_multi_turn_10k": "FormalProof_10k",
-    "fldx2_symbol-isabelle_all_multi_turn_10k": "PRM_FormalLogic-FormalProof_10k",
-    #
-    "fldx2_symbol_multi_turn_balanced_last_step_20k": "PRM_FormalLogic_balanced_last_step_20k",
-    "isabelle_all_multi_turn_balanced_last_step_20k": "PRM_FormalProof_balanced_last_step_20k",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k": "FormalLogic-FormalProof_LastStepBalanced_20k",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k": "FormalLogic-FormalProof_LastStepBalanced_40k",
-    #
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.25": "PRM_FormalLogic-FormalProof_balanced_last_step_20k_correct=0.25",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.75": "PRM_FormalLogic-FormalProof_balanced_last_step_20k_correct=0.75",
-    #
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_5k_duplicated_40k": "PRM_FormalLogic-FormalProof_balanced_last_step_5k_duplicated=40k",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_10k_duplicated_40k": "PRM_FormalLogic-FormalProof_balanced_last_step_10k_duplicated=40k",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_duplicated_40k": "PRM_FormalLogic-FormalProof_balanced_last_step_20k_duplicated=40k",
-    #
-    "fldx2_symbol_multi_turn": "PRM_FormalLogic",
-    "isabelle_all_multi_turn": "PRM_FormalProof",
-    "fldx2_symbol_multi_turn,isabelle_all_multi_turn": "PRM_FormalLogic-FormalProof",
+
+dataset_name_to_dataset_info_key = {
+    "FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512": "FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512",
 }
 
+update_key_value = []
+for key, value in dataset_name_to_dataset_info_key.items():
+    for version in ["1.1"]:
+        update_key_value.append(
+            (f"{key}_{version}", f"{value}_{version}")
+        )
+for key, value in update_key_value:
+    dataset_name_to_dataset_info_key[key] = value
+
 # this function is used to get key for llama-factory
-def get_fover_dataset_name(base_model_name: str, base_dataset_name: str) -> str:
+def get_fover_dataset_info_key(base_model_name: str, base_dataset_name: str) -> str:
     """ Get a pretty dataset name for the given base model and dataset names. """
     
     # Validate the base model name
-    if base_dataset_name not in dataset_name_to_hf_name_dict.keys():
+    if base_dataset_name not in dataset_name_to_dataset_info_key.keys():
         raise ValueError(f"Invalid dataset name: {base_dataset_name}")
-    hf_dataset_name = dataset_name_to_hf_name_dict.get(base_dataset_name)
+    hf_dataset_name = dataset_name_to_dataset_info_key.get(base_dataset_name)
     
     # Validate the model name
-    if base_model_name not in base_model_names:
+    if base_model_name not in base_model_names + ["ground_truth"]:
         raise ValueError(f"Invalid model name: {base_model_name}")
     short_model_name = base_model_name.split("/")[-1]
     
-    # HF_ACCOUNT environment variable must be set
-    hf_account = os.getenv("HF_ACCOUNT")
-    if hf_account is None:
-        raise ValueError("Please set your HuggingFace to HF_ACCOUNT environment variable: export HF_ACCOUNT=your_username")
-    
-    return f"{hf_account}/FoVer_{hf_dataset_name}_{short_model_name}"
+    if "prm800k" in base_dataset_name:
+        base_key_name = f"{hf_dataset_name}_{short_model_name}"
+    else:
+        base_key_name = f"FoVer_{hf_dataset_name}_{short_model_name}"
+
+    return base_key_name
 
 ###
 # evaluation datasets
@@ -100,43 +88,6 @@ def get_direct_evaluation_datasets_list(base_model_name: str, train_data_name: s
     # add processbench datasets
     for processbench_split in processbench_splits:
         direct_evaluation_datasets_list.append(str(direct_evaluation_datasets_dir / f"processbench_{processbench_split}"))
-    
-    # add fover datasets
-    if train_data_name is None:
-        # This is a base model. Evaluate on all training datasets.
-        train_data_names_list_ = {
-            "zero-shot": train_dataset_names_list,
-            "multi-turn": [
-                d for d in train_dataset_names_list_multi_turn
-                if "balanced" not in d
-            ],
-        }[verification_prompt_type]
-    
-    else:
-        # This is a fine-tuned model. Evaluated only on the training dataset.
-        if "balanced" in train_data_name:
-            # balanced dataset is only for training
-            # we use the original dataset for evaluation
-            if "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step" in train_data_name:
-                evaluation_train_data_name = "fldx2_symbol-isabelle_all_multi_turn_10k"
-            elif "fldx2_symbol_multi_turn_balanced_last_step" in train_data_name:
-                evaluation_train_data_name = "fldx2_symbol_multi_turn_10k"
-            elif "isabelle_all_multi_turn_balanced_last_step" in train_data_name:
-                evaluation_train_data_name = "isabelle_all_multi_turn_10k"
-            else:
-                raise ValueError(f"Invalid training dataset name: {train_data_name}")
-        else:
-            evaluation_train_data_name = train_data_name
-        
-        train_data_names_list_ = [evaluation_train_data_name]
-    
-    for train_data_name_ in train_data_names_list_:
-        direct_evaluation_datasets_list.append(
-            str(get_fover_dataset_path(
-                dataset_name=train_data_name_,
-                model_name=base_model_name, split=""
-            ).parent)
-        )
     
     return direct_evaluation_datasets_list
 
@@ -177,7 +128,7 @@ downstream_evaluation_datasets_list = [
     "bbh_temporal_sequences", "bbh_tracking_shuffled_objects_three_objects",
     "bbh_word_sorting",
 ]
-def get_downstream_evaluation_datasets_lsit(
+def get_downstream_evaluation_datasets_list(
         evaluation_mode: DOWNSTREAM_EVALUATION_MODE
     ) -> list[str]:
     if evaluation_mode == "model_selection":
@@ -207,11 +158,8 @@ display_name_of_downstream_evaluation_dataset_dict = {
     "bbh_boolean_expressions": "Boolean",
 }
 def get_downstream_evaluation_datasets_display_name_list(
-        evaluation_mode: DOWNSTREAM_EVALUATION_MODE
+        dataset_names_list: list[str]
     ) -> list[str]:
-    dataset_names_list = get_downstream_evaluation_datasets_lsit(
-        evaluation_mode
-    )
     return [
         display_name_of_downstream_evaluation_dataset_dict[dataset_name]
         for dataset_name in dataset_names_list
@@ -259,109 +207,25 @@ optimizers_list = OPTIMIZERS.__args__
 finetuned_verification_models_dict: dict[BASE_MODEL, dict[str, dict[Union[TRAIN_DATA, TRAIN_DATA_MULTI_TURN, TRAIN_DATA_ABLATION], list[str]]]] = {
     "meta-llama/Llama-3.1-8B-Instruct": {
         "AdamW": {
-            "fldx2_symbol_multi_turn_balanced_last_step_20k": [
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol_multi_turn_balanced_last_step_20k_1.0e-6_0426",
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol_multi_turn_balanced_last_step_20k_2.0e-6_0426",
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol_multi_turn_balanced_last_step_20k_5.0e-6_0426",
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol_multi_turn_balanced_last_step_20k_1.0e-5_0426",
-            ],
-            "isabelle_all_multi_turn_balanced_last_step_20k": [
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_isabelle_all_multi_turn_balanced_last_step_20k_1.0e-6_0429",
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_isabelle_all_multi_turn_balanced_last_step_20k_2.0e-6_0429",
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_isabelle_all_multi_turn_balanced_last_step_20k_5.0e-6_0429",
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_isabelle_all_multi_turn_balanced_last_step_20k_1.0e-5_0429",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k": [
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_1.0e-6_0430",
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_2.0e-6_0430",
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_5.0e-6_0430",
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_1.0e-5_0430",
-            ],
-            #
-            #
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_5k_duplicated_40k": [
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_5k_duplicated_40k_1.0e-6",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_10k_duplicated_40k": [
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_10k_duplicated_40k_1.0e-6",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_duplicated_40k": [
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_duplicated_40k_1.0e-6",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_duplicated_40k": [
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_1.0e-6_0430",
-            ],
-            #
-            #
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.25": [
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.25_1.0e-6",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.50": [
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_1.0e-6_0429",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.75": [
-                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.75_1.0e-6",
-            ],
+            "FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512": [
+                "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512_2.0e-6_0102",
+            ]
         }
     },
     "Qwen/Qwen2.5-7B-Instruct": {
         "AdamW": {
-            "fldx2_symbol_multi_turn_balanced_last_step_20k": [
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol_multi_turn_balanced_last_step_20k_1.0e-6_0427",
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol_multi_turn_balanced_last_step_20k_2.0e-6_0427",
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol_multi_turn_balanced_last_step_20k_5.0e-6_0427",
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol_multi_turn_balanced_last_step_20k_1.0e-5_0427",
-            ],
-            "isabelle_all_multi_turn_balanced_last_step_20k": [
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_isabelle_all_multi_turn_balanced_last_step_20k_1.0e-6_0429",
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_isabelle_all_multi_turn_balanced_last_step_20k_2.0e-6_0429",
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_isabelle_all_multi_turn_balanced_last_step_20k_5.0e-6_0429",
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_isabelle_all_multi_turn_balanced_last_step_20k_1.0e-5_0429",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k": [
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_1.0e-6_0430",
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_2.0e-6_0430",
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_5.0e-6_0430",
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_1.0e-5_0430",
-            ],
-            #
-            #
-            #
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_5k_duplicated_40k": [
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_5k_duplicated_40k_2.0e-6",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_10k_duplicated_40k": [
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_10k_duplicated_40k_2.0e-6",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_duplicated_40k": [
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_duplicated_40k_2.0e-6",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_duplicated_40k": [
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_1.0e-6_0430",
-            ],
-            #
-            #
-            #
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.25": [
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.25_2.0e-6",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.50": [
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_1.0e-6_0429",
-            ],
-            "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.75": [
-                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.75_2.0e-6",
-            ],
+            "FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512": [
+                "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512_1.0e-6_0103",
+                # "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512_2.0e-6_1230",
+            ]
         },
-    },
+    }
 }
 
 
 model_display_name_dict = {
     "meta-llama/Llama-3.1-8B-Instruct": "Llama 3.1 8B",
-    "Qwen/Qwen2-7B-Instruct": "Qwen2 7B",
     "Qwen/Qwen2.5-7B-Instruct": "Qwen2.5 7B",
-    "google/gemma-2-9b-it": "Gemma 2 9B",
-    "google/gemma-3-27b-it": "Gemma 3 27B",
 }
 
 

@@ -5,6 +5,8 @@ from src.config import splits_list, base_model_names
 
 
 def main():
+    suffix = "step_merged.with_non_reasoning_steps"
+
     # latex table for error perceptage
     table = []
     for base_model_name in base_model_names:
@@ -19,6 +21,7 @@ def main():
                     dataset_name=dataset_name,
                     model_name=base_model_name,
                     split=split,
+                    suffix=suffix,
                 ).with_suffix(".stats.json")
                 with open(stat_path, "r") as f:
                     stats = json.load(f)

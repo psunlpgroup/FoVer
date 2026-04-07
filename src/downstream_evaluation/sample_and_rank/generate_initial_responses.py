@@ -7,7 +7,8 @@ from tap import Tap
 
 from src.path import get_prompt_for_downstream_evaluation_initial_responses_path, \
     get_downstream_evaluation_initial_responses_path, \
-    get_prompt_for_extracting_answers_from_downstream_evaluation_initial_responses_path
+    get_prompt_for_extracting_answers_from_downstream_evaluation_initial_responses_path, \
+    get_initial_answers_path
 from src.llm.utils import save_md5_hash
 from src.load_dataset import load_existing_dataset
 from src.downstream_evaluation.prompts import \
@@ -29,6 +30,9 @@ class SampleAndRankInitialResponsesTap(SampleAndRankPromptGenerationTap):
     batch_size: int = 16  # batch size for generation
     answer_extraction_model: str = "meta-llama/Llama-3.1-8B-Instruct"
     overwrite_cache: bool = False
+    generating_responses_for_dataset_creation: bool = False # this code is also used for generating initial responses for dataset creation. If true, save prompts and responses to specified directories.
+    updated_save_directory_for_answer_extraction_prompts: str | None = None # if specified, save prompts for answer extraction to this directory. e.g., generating initial responses for training data creation
+    updated_save_directory_for_response_generation_prompts: str | None = None # if specified, save prompts for response generation to this directory. e.g., generating initial responses for training data creation
     split: str = "test"
 
 
@@ -66,7 +70,8 @@ def main():
     # save prompts
     prompt_path = get_prompt_for_downstream_evaluation_initial_responses_path(
         dataset_name=args.dataset_name, model_name=args.model_name,
-        split=args.split, prompt_type=args.prompt_type
+        split=args.split, prompt_type=args.prompt_type,
+        updated_save_directory=args.updated_save_directory_for_response_generation_prompts
     )
     prompt_path.parent.mkdir(parents=True, exist_ok=True)
     with open(prompt_path, "w") as f:
@@ -79,10 +84,17 @@ def main():
     print("Generating responses...")
     for sample_idx in range(args.sample_k):
         print(f"Sample {sample_idx + 1}/{args.sample_k}")
-        output_path = get_downstream_evaluation_initial_responses_path(
-            dataset_name=args.dataset_name, model_name=args.model_name,
-            split=args.split, prompt_type=args.prompt_type, sample_idx=sample_idx
-        )
+        if not args.generating_responses_for_dataset_creation:
+            output_path = get_downstream_evaluation_initial_responses_path(
+                dataset_name=args.dataset_name, model_name=args.model_name,
+                split=args.split, prompt_type=args.prompt_type, sample_idx=sample_idx,
+            )
+        else:
+            output_path = get_initial_answers_path(
+                dataset_name=args.dataset_name, model_name=args.model_name,
+                split=args.split, seed=sample_idx,
+            )
+        output_path.parent.mkdir(parents=True, exist_ok=True)
         
         arguments_list = [
             "--dataset_path", prompt_path,
@@ -93,6 +105,7 @@ def main():
             "--temperature", str(args.temperature),
             "--top_k", str(args.top_k),
             "--seed", str(sample_idx),
+            "--not_use_vllm_reward_task",
         ]
         if args.overwrite_cache:
             arguments_list.append("--overwrite_cache")
@@ -119,7 +132,8 @@ def main():
         # save prompts
         answer_extraction_prompt_path = get_prompt_for_extracting_answers_from_downstream_evaluation_initial_responses_path(
             dataset_name=args.dataset_name, model_name=args.model_name,
-            split=args.split, sample_idx=sample_idx
+            split=args.split, sample_idx=sample_idx,
+            updated_save_directory=args.updated_save_directory_for_answer_extraction_prompts
         )
         answer_extraction_prompt_path.parent.mkdir(parents=True, exist_ok=True)
         with open(answer_extraction_prompt_path, "w") as f:
@@ -135,6 +149,7 @@ def main():
             "--batch_size", str(args.batch_size),
             "--max_tokens", str(128),
             "--temperature", str(0.0),
+            "--not_use_vllm_reward_task",
         ]
         if args.overwrite_cache:
             arguments_list.append("--overwrite_cache")

@@ -5,7 +5,7 @@ import subprocess
 
 from tap import Tap
 
-from src.config import base_model_names, sota_prms_list, \
+from src.config import base_model_names, \
     train_dataset_names_list, train_dataset_names_list_multi_turn, \
     get_direct_evaluation_datasets_list
 from src.utils.model_selection import get_best_performance_verifier
@@ -44,6 +44,7 @@ def main():
                             base_model_name=base_model_name,
                             train_data_name=train_data,
                             optimizer=optimizer,
+                            sample_k=5
                         )
                         if verifier_name is not None:
                             verification_models_list.append(verifier_name)

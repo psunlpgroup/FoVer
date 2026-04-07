@@ -27,8 +27,8 @@ mmlu_pro_nomath_fewshot_prompt: list[FewShotPrompt] = [
         ),
         "solution": """A characteristic of a ring is R is $n$ if the statement $ka = 0$ for all $a \in 2Z$ implies that $k$ is a multiple of $n$.
 Assume that $ka = 0$ for all $a \in 2Z$ for some $k$.
-In particular $2k = 0$.
-Hence $k = 0$ and $n = 0$.
+In particular, $2k = 0$.
+Hence, $k = 0$ and $n = 0$.
 The answer is (A).""",
         "answer": "A"
     },
@@ -49,22 +49,31 @@ The answer is (E).""",
             question="In contrast to _______, _______ aim to reward favourable behaviour by companies. The success of such campaigns have been heightened through the use of ___________, which allow campaigns to facilitate the company in achieving _________ .",
             options=[ "Boycotts, Buyalls, Blockchain technology, Increased Sales", "Buycotts, Boycotts, Digital technology, Decreased Sales", "Boycotts, Buycotts, Digital technology, Decreased Sales", "Buycotts, Boycotts, Blockchain technology, Charitable donations", "Boycotts, Buyalls, Blockchain technology, Charitable donations", "Boycotts, Buycotts, Digital technology, Increased Sales", "Buycotts, Boycotts, Digital technology, Increased Sales", "Boycotts, Buycotts, Physical technology, Increased Sales", "Buycotts, Buyalls, Blockchain technology, Charitable donations", "Boycotts, Buycotts, Blockchain technology, Decreased Sales" ],
         ),
-        "solution": """The sentence that best uses the possible options above for the first part is "In contrast to *Boycotts*, *Buycotts* aim to reward favourable behavior by companies."
-The sentence that best uses the possible options above for the second part is "The success of such campaigns have been heightened through the use of *Digital technology*,"
-The sentence that best uses the possible options above for the third part is "which allow campaigns to facilitate the company in achieving *Increased Sales*."
+        "solution": """The sentence that best uses the available options for the first part, because it fits the contrast in the context, is "In contrast to *Boycotts*, *Buycotts* aim to reward favourable behavior by companies."
+The sentence that best uses the available options for the second part, because it fits the context of how campaigns grow in effectiveness, is "The success of such campaigns have been heightened through the use of *Digital technology*,"
+The sentence that best uses the available options for the third part, because it fits the intended positive business outcome in the context, is "which allow campaigns to facilitate the company in achieving *Increased Sales*."
+Therefore, the best option is "Boycotts, Buycotts, Digital technology, Increased Sales".
 The answer is (F)""",
         "answer": "F"
     },
     {
-        # question_id=18
+        # question_id=17
         "problem": get_mmlu_instruction(
-            question="Although the content and quality can be as controlled as direct mail, response rates of this medium are lower because of the lack of a personal address mechanism. This media format is known as:",
-            options=[ "Online banners.", "Television advertising.", "Email marketing.", "Care lines.", "Direct mail.", "Inserts.", "Door to door.", "Radio advertising.", "Billboards.", "Social media advertising." ],
+            question="How can organisational structures that are characterised by democratic and inclusive styles of management be described?",
+            options=["Flat", "Bureaucratic", "Autocratic", "Hierarchical", "Functional", "Decentralized", "Matrix", "Network", "Divisional", "Centralized"],
         ),
-        "solution": """Door to door marketing delivers non-addressed items within all buildings within a geographic area.
-While it can control the content and quality as well as direct mail marketing, its response rate is lower because of the lack of a personal address mechanism.
-The answer is (G).""",
-        "answer": "G"
+        "solution": """Option (A) Flat organisational structures have few management layers and promote shared decision making and open communication. Authority is distributed more evenly, supporting democratic and inclusive management. This matches the description in the question.
+Option (B) Bureaucratic organisational structures rely on strict rules and formal hierarchies. Decision making is rigid and not inclusive. This does not match the description in the question.
+Option (C) Autocratic organisational structures concentrate power in a single leader. Employee participation in decisions is minimal. This does not match the description in the question.
+Option (D) Hierarchical organisational structures have many levels of authority with top down decision making. This limits inclusiveness. This does not match the description in the question.
+Option (E) Functional organisational structures group employees by specialist roles. They focus on efficiency rather than inclusive decision making. This does not match the description in the question.
+Option (F) Decentralized organisational structures spread decision making across units. They increase autonomy but do not necessarily ensure democratic management. This does not match the description in the question.
+Option (G) Matrix organisational structures use dual reporting lines. They emphasize coordination rather than democratic leadership. This does not match the description in the question.
+Option (H) Network organisational structures emphasize external partnerships and flexibility. They are not defined by inclusive internal management. This does not match the description in the question.
+Option (I) Divisional organisational structures are organized by product or region. Authority remains structured within each division. This does not match the description in the question.
+Option (J) Centralized organisational structures keep decision making at the top. Employee involvement is limited. This does not match the description in the question.
+The answer is (A).""",
+        "answer": "A"
     }
 ]
 

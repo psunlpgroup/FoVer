@@ -15,6 +15,8 @@ isabelle_dataset_names_list = [
 
 
 def main():
+    saved_path_for_printing = []
+    
     for base_model_name in base_model_names:
         for split in splits_list:
             merged_error_labels = []
@@ -69,6 +71,11 @@ def main():
             stats = get_error_labels_stats(merged_error_labels)
             with open(stats_path, "w") as f:
                 json.dump(stats, f, indent=4)
+            
+            saved_path_for_printing.append(str(merged_error_labels_path))
+    
+    for path in saved_path_for_printing:
+        print(f"Saved merged error labels at: {path}")
 
 
 if __name__ == "__main__":

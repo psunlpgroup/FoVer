@@ -3,6 +3,7 @@
 import json
 import csv
 
+from tap import Tap
 import numpy as np
 
 from src.typing import TRAIN_DATA_MULTI_TURN
@@ -20,21 +21,33 @@ from src.downstream_evaluation.utils import get_solution_steps_from_response
 
 
 train_data_name: TRAIN_DATA_MULTI_TURN = \
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k"
+    "FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512"
+    # "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k"
+    # "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_1.1"
 optimizer = "AdamW"
 prompt_type = "multi-turn"
 verification_score_type = "logprob_min"
 
-sample_k = 5
-
 manual_analysis_datasets_list = [
-    "gsm8k", "anli", "bbh_temporal_sequences", "bbh_word_sorting", "mmlu_pro_nomath"
+    "gsm8k", "anli", "math", "aime", "aqua", "logicnli", "hans",
+    "folio", "bbh_temporal_sequences", "bbh_word_sorting", "mmlu_pro_nomath"
 ]
 
+
+class CsvForManualAnalysisTap(Tap):
+    sample_k: int = 7
+
+
 def main():
+    base_args = CsvForManualAnalysisTap().parse_args()
+    
     for base_model_name in base_model_names:
+        if base_model_name not in ["meta-llama/Llama-3.1-8B-Instruct", "Qwen/Qwen2.5-7B-Instruct"]:
+            continue
+        
         args = SampleAndRankPerformanceAndTableTap().parse_args(
             [
+                "--sample_k", str(base_args.sample_k),
                 "--verification_prompt", prompt_type,
             ]
         )
@@ -43,6 +56,7 @@ def main():
             base_model_name=base_model_name,
             train_data_name=train_data_name,
             optimizer=optimizer,
+            sample_k=args.sample_k,
         )
 
         for dataset_name in manual_analysis_datasets_list:
@@ -61,7 +75,7 @@ def main():
 
             # load initial responses
             initial_generation_dict = {}
-            for initial_response_idx in range(sample_k):
+            for initial_response_idx in range(args.sample_k):
                 initial_generation_path = get_downstream_evaluation_initial_responses_path(
                     dataset_name=dataset_name,
                     model_name=base_model_name,
@@ -110,6 +124,7 @@ def main():
                     verification_score_type=verification_score_type,
                     split="test",
                     prompt_type=prompt_type,
+                    few_shot_verification=args.few_shot_verification,
                 )
 
                 with open(verification_scores_path, "r") as f:
@@ -118,7 +133,7 @@ def main():
                     ]
                 
                 # load scores for each sample
-                for sample_idx in range(sample_k):
+                for sample_idx in range(args.sample_k):
                     sample_score_path = verification_scores_path.with_suffix(
                         f".intermediate.idx={sample_idx}.jsonl"
                     )

@@ -36,3 +36,18 @@ def save_md5_hash(file_path: Union[str, Path]) -> None:
     hash_file_path = file_path + ".md5"
     with open(hash_file_path, 'w') as hash_file:
         hash_file.write(md5_hash)
+
+
+import time
+
+def save_time_stamp(file_path: Union[str, Path]) -> None:
+    """
+    Save the current time stamp to a file.
+
+    :param file_path: Path to the file where the time stamp is to be saved.
+    """
+    file_path = str(file_path)
+    time_stamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    time_file_path = file_path + ".timestamp"
+    with open(time_file_path, 'w') as time_file:
+        time_file.write(time_stamp)

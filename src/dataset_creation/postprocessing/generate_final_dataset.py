@@ -1,6 +1,7 @@
 """ This module is used to generate a verification dataset (the FoVer dataset) for FLDx2 """
 
 import json
+import math
 import random
 from typing import Literal
 from copy import deepcopy
@@ -248,17 +249,40 @@ def get_last_step_balanced_dataset(
         output (list[dict]): The last step balanced dataset.
     """
     
-    last_step_labels_dict: dict[str, list[dict]] = {
-        "correct": [], "incorrect": [],
-        "last_step_correct": [], "last_step_incorrect": []
+    # in the new version, we use correct solutions for correct last step data
+    
+    last_step_labels_dict: dict[str, dict[str, list[dict]]] = {
+        "correct_solution": {
+            "intermediate_correct": [],
+            "intermediate_incorrect": [],
+            "last_step_correct": [],
+            "last_step_incorrect": []
+        },
+        "incorrect_solution": {
+            "intermediate_correct": [],
+            "intermediate_incorrect": [],
+            "last_step_correct": [],
+            "last_step_incorrect": []
+        }
     }
     for d in llm_generate_data:
+        # get solution correctness
+        if all(d["proof_step_correctness"]):
+            solution_correctness_key = "correct_solution"
+        else:
+            solution_correctness_key = "incorrect_solution"
+        
         for step_id in range(1, len(d["proof_steps"]) + 1):
             # only use the steps up to step_id
             new_d = deepcopy(d)
             new_d["proof_steps"] = d["proof_steps"][:step_id]
             new_d["proof_step_correctness"] = \
                 d["proof_step_correctness"][:step_id]
+
+            # retain the remaining steps for downstream use
+            new_d["future_proof_steps"] = d["proof_steps"][step_id:]
+            new_d["future_proof_step_correctness"] = \
+                d["proof_step_correctness"][step_id:]
             
             if "cot_steps" in d.keys():
                 new_d["cot_steps"] = d["cot_steps"][:step_id]
@@ -269,25 +293,33 @@ def get_last_step_balanced_dataset(
 
             # last step correctness
             last_step_correct = new_d["proof_step_correctness"][-1]
+            assert type(last_step_correct) == bool
             
             # the last steps are the final answers, which are different from
             # intermediate steps
             # we will store the last steps in a separate list
-            if step_id == len(d["proof_steps"]) - 1:
+            if step_id == len(d["proof_steps"]):
                 if last_step_correct:
-                    last_step_labels_dict["last_step_correct"].append(new_d)
+                    last_step_labels_dict[solution_correctness_key]["last_step_correct"].append(new_d)
                 else:
-                    last_step_labels_dict["last_step_incorrect"].append(new_d)
+                    last_step_labels_dict[solution_correctness_key]["last_step_incorrect"].append(new_d)
             else:
                 if last_step_correct:
-                    last_step_labels_dict["correct"].append(new_d)
+                    last_step_labels_dict[solution_correctness_key]["intermediate_correct"].append(new_d)
                 else:
-                    last_step_labels_dict["incorrect"].append(new_d)
+                    last_step_labels_dict[solution_correctness_key]["intermediate_incorrect"].append(new_d)
+    
+    # print number of instances in each category
+    for solution_correctness_key in ["correct_solution", "incorrect_solution"]:
+        for step_correctness_key in ["last_step_correct", "last_step_incorrect", "intermediate_correct", "intermediate_incorrect"]:
+            print(
+                f"{solution_correctness_key}, {step_correctness_key}: {len(last_step_labels_dict[solution_correctness_key][step_correctness_key])}"
+            )
     
     # last step data
     # make the last step data also balanced
-    last_step_correct_num = len(last_step_labels_dict["last_step_correct"])
-    last_step_incorrect_num = len(last_step_labels_dict["last_step_incorrect"])
+    last_step_correct_num = len(last_step_labels_dict["correct_solution"]["last_step_correct"])
+    last_step_incorrect_num = len(last_step_labels_dict["incorrect_solution"]["last_step_incorrect"])
 
     if round((last_step_correct_num / last_step_correct_ratio) * 
             (1 - last_step_correct_ratio)) <= last_step_incorrect_num:
@@ -299,18 +331,24 @@ def get_last_step_balanced_dataset(
         last_step_target_data_size = round(
             last_step_incorrect_num / (1 - last_step_correct_ratio))
 
+    last_step_correct_num = round(
+        last_step_target_data_size * last_step_correct_ratio
+    )
     last_step_correct_data = random.Random(68).sample(
-        last_step_labels_dict["last_step_correct"],
-        round(last_step_target_data_size * last_step_correct_ratio)
+        last_step_labels_dict["correct_solution"]["last_step_correct"],
+        last_step_correct_num
     )
     last_step_incorrect_data = random.Random(68).sample(
-        last_step_labels_dict["last_step_incorrect"],
-        round(last_step_target_data_size * (1 - last_step_correct_ratio))
+        last_step_labels_dict["incorrect_solution"]["last_step_incorrect"],
+        last_step_target_data_size - last_step_correct_num
     )
     
+    print(f"Balancing: Last step correct data size: {len(last_step_correct_data)}")
+    print(f"Balancing: Last step incorrect data size: {len(last_step_incorrect_data)}")
+    
     # intermediate data
-    correct_num = len(last_step_labels_dict["correct"])
-    incorrect_num = len(last_step_labels_dict["incorrect"])
+    correct_num = len(last_step_labels_dict["correct_solution"]["intermediate_correct"])
+    incorrect_num = len(last_step_labels_dict["incorrect_solution"]["intermediate_incorrect"])
 
     if round((correct_num / last_step_correct_ratio) * 
             (1 - last_step_correct_ratio)) <= incorrect_num:
@@ -320,14 +358,96 @@ def get_last_step_balanced_dataset(
         # correct_num is large
         target_data_size = round(incorrect_num / (1 - last_step_correct_ratio))
     
-    correct_data = random.Random(68).sample(
-        last_step_labels_dict["correct"],
-        round(target_data_size * last_step_correct_ratio)
+    target_incorrect_total = round(
+        target_data_size * (1 - last_step_correct_ratio)
     )
     incorrect_data = random.Random(68).sample(
-        last_step_labels_dict["incorrect"],
-        round(target_data_size * (1 - last_step_correct_ratio))
+        last_step_labels_dict["incorrect_solution"]["intermediate_incorrect"],
+        target_incorrect_total
     )
+    
+    # select correct data to match the number of steps distribution of incorrect data
+    correct_candidates = last_step_labels_dict["correct_solution"]["intermediate_correct"]
+    target_correct_total = target_data_size - target_incorrect_total
+
+    correct_data = []
+    if target_correct_total > 0:
+        if len(correct_candidates) < target_correct_total:
+            raise ValueError(
+                "Not enough intermediate correct instances: "
+                f"{len(correct_candidates)} < {target_correct_total}"
+            )
+
+        # Define coarse length buckets so we can align distributions flexibly.
+        bucket_definitions: list[tuple[str, int, int | None]] = [
+            ("len=11+", 11, None),
+            ("len=6-10", 6, 10),
+            ("len=3-5", 3, 5),
+            ("len=1-2", 1, 2),
+        ]
+
+        def get_bucket_key(length: int) -> str:
+            for name, lower, upper in bucket_definitions:
+                upper_bound = upper if upper is not None else math.inf
+                if lower <= length <= upper_bound:
+                    return name
+            
+            raise ValueError(f"Length {length} does not fit in any bucket.")
+
+        def init_bucket_dict() -> dict[str, list[dict]]:
+            return {name: [] for name, _, _ in bucket_definitions}
+
+        # Group incorrect intermediates to capture their proof length profile.
+        incorrect_buckets = init_bucket_dict()
+        for instance in incorrect_data:
+            bucket_key = get_bucket_key(len(instance["proof_steps"]))
+            incorrect_buckets[bucket_key].append(instance)
+
+        # Pre-partition correct candidates into the same buckets.
+        correct_buckets = init_bucket_dict()
+        for instance in correct_candidates:
+            bucket_key = get_bucket_key(len(instance["proof_steps"]))
+            correct_buckets[bucket_key].append(instance)
+
+        total_incorrect = len(incorrect_data)
+
+        # Allocate per-bucket targets based on incorrect proportions.
+        for name, _, _ in bucket_definitions:
+            incorrect_count = len(incorrect_buckets[name])
+            if incorrect_count == 0:
+                correct_target_num = 0
+            else:
+                ratio = incorrect_count / total_incorrect
+                correct_target_num = int(math.floor(ratio * target_correct_total))
+
+            available = len(correct_buckets[name])
+            if name != bucket_definitions[-1][0]:  # not the last bucket
+                if correct_target_num > available:
+                    print(
+                        f"Warning: Bucket {name} has only {available} correct "
+                        f"instances but target is {correct_target_num}."
+                    )
+                base_allocation = min(available, correct_target_num)
+                
+                correct_data.extend(random.Random(68).sample(correct_buckets[name], base_allocation))
+            else:  # last bucket
+                remaining_num = target_correct_total - len(correct_data)
+                
+                # allocate all remaining needed instances to last bucket
+                # if there is no enough cases, raise error
+                if available < remaining_num:
+                    raise ValueError(
+                        f"Not enough correct instances in the last bucket: "
+                        f"{available} < {remaining_num}"
+                    )
+                
+                correct_data.extend(random.Random(68).sample(correct_buckets[name], remaining_num))
+
+        # shuffle
+        correct_data = random.Random(68).sample(correct_data, len(correct_data))
+
+    print(f"Balancing: Intermediate correct data size: {len(correct_data)}")
+    print(f"Balancing: Intermediate incorrect data size: {len(incorrect_data)}")
 
     # merge
     all_correct_data = last_step_correct_data + correct_data
@@ -423,6 +543,8 @@ def get_verification_data(
         "solution_steps": error_labels_instance["proof_steps"],
         "error_labels": error_labels_instance["proof_step_correctness"],
         "problem_witout_definition": error_labels_instance["problem"],
+        "future_proof_steps": error_labels_instance.get("future_proof_steps", []),
+        "future_proof_step_correctness": error_labels_instance.get("future_proof_step_correctness", []),
         "messages": conversation,
         "base_dataset": base_dataset_name,
     }
@@ -516,19 +638,36 @@ def get_final_dataset_name(dataset_name: str, data_type: str) -> str:
         return f"{dataset_name}_multi_turn"
     elif data_type == "multi_turn_balanced_last_step":
         return f"{dataset_name}_multi_turn_balanced_last_step"
+    elif "multi_turn_balanced_last_step_noise" in data_type:
+        for noise_prob in [10, 20, 30]:
+            if data_type == f"multi_turn_balanced_last_step_noise={noise_prob}%":
+                return f"{dataset_name}_multi_turn_balanced_last_step_noise={noise_prob}%"
+
+            if data_type == f"multi_turn_balanced_last_step_noise_in_correct={noise_prob}%":
+                return f"{dataset_name}_multi_turn_balanced_last_step_noise_in_correct={noise_prob}%"
+        raise ValueError(f"Unknown data type: {data_type}")
     else:
         assert data_type == "with_cot"
         return f"{dataset_name}_with_cot"
 
 
-data_types_list = ["no_cot", "with_cot", "multi_turn",
-                      "multi_turn_balanced_last_step"]
+data_types_list = [
+    # "multi_turn", "multi_turn_balanced_last_step",
+    # "multi_turn_balanced_last_step_noise=10%",
+    # "multi_turn_balanced_last_step_noise=20%",
+    # "multi_turn_balanced_last_step_noise=30%",
+    # "multi_turn_balanced_last_step_noise_in_correct=10%",
+    "multi_turn_balanced_last_step_noise_in_correct=20%",
+    # "multi_turn_balanced_last_step_noise_in_correct=30%",
+]
+
+# old data types: "no_cot", "with_cot", 
 
 def main():
     args = GenerateVerificationDatasetTap().parse_args()
     
     if args.dataset_name in ["fldx2_symbol", "fldx2_text"]:
-        target_data_size_dict = {"train": 60000, "validation": 360, "test": 360}
+        target_data_size_dict = {"train": 48000, "validation": 360, "test": 360}
         model_names_list = ["ground_truth", args.model_name]
     elif args.dataset_name in ["isabelle_all"]:
         target_data_size_dict = {"train": None, "validation": 360, "test": 360}
@@ -545,7 +684,7 @@ def main():
         conversation_type = "multi_turn" if "multi_turn" in data_type \
             else "single_turn"
 
-        if data_type == "multi_turn_balanced_last_step":
+        if "multi_turn_balanced_last_step" in data_type:
             # this type is only for training
             selected_splits = ["train"]
         else:
@@ -575,40 +714,86 @@ def main():
                 error_labels_dict[model_name] = error_labels
             
             # make balanced dataset
-            if args.dataset_name in ["fldx2_symbol", "fldx2_text"]:
-                balanced_dataset = get_balanced_error_label_dataset_fldx2(
-                    llm_generated_data=error_labels_dict[args.model_name],
-                    ground_truth_data=error_labels_dict["ground_truth"],
-                    base_dataset_name=args.dataset_name,
-                    target_data_size=target_data_size_dict[split],
-                    instance_correct_ratio=args.instance_correct_ratio
-                )
-            elif args.dataset_name in ["isabelle_all"]:
-                if split in target_data_size_dict.keys():
-                    target_data_size = target_data_size_dict[split]
-                else:
-                    target_data_size = None
-                
-                print("target_data_size", target_data_size)
-
-                balanced_dataset = get_balanced_error_label_dataset(
-                    error_labels_dict[args.model_name],
-                    instance_correct_ratio=args.instance_correct_ratio,
-                    target_data_size=target_data_size,
-                )
-            elif args.dataset_name in ["prm800k"]:
-                balanced_dataset = error_labels_dict["ground_truth"]
-            else:
-                raise ValueError(f"Unknown base dataset name: {args.dataset_name}")
-
-            # last step dataset
-            # this type includes datas with balanced last step
-            # during training, only the last step is used
-            # e.g., in llama-factory, set mask_history=True
-            if data_type == "multi_turn_balanced_last_step":
+            if "multi_turn_balanced_last_step" in data_type:
+                # balanced last step dataset
+                # this type includes datas with balanced last step
+                # during training, only the last step is used
+                # e.g., in llama-factory, set mask_history=True
                 balanced_dataset = get_last_step_balanced_dataset(
-                    balanced_dataset
+                    error_labels_dict[args.model_name]
                 )
+            else:
+                # balance instance-level correctness
+                if args.dataset_name in ["fldx2_symbol", "fldx2_text"]:
+                    balanced_dataset = get_balanced_error_label_dataset_fldx2(
+                        llm_generated_data=error_labels_dict[args.model_name],
+                        ground_truth_data=error_labels_dict["ground_truth"],
+                        base_dataset_name=args.dataset_name,
+                        target_data_size=target_data_size_dict[split],
+                        instance_correct_ratio=args.instance_correct_ratio
+                    )
+                elif args.dataset_name in ["isabelle_all"]:
+                    if split in target_data_size_dict.keys():
+                        target_data_size = target_data_size_dict[split]
+                    else:
+                        target_data_size = None
+                    
+                    print("target_data_size", target_data_size)
+
+                    balanced_dataset = get_balanced_error_label_dataset(
+                        error_labels_dict[args.model_name],
+                        instance_correct_ratio=args.instance_correct_ratio,
+                        target_data_size=target_data_size,
+                    )
+                elif args.dataset_name in ["prm800k"]:
+                    balanced_dataset = error_labels_dict["ground_truth"]
+                else:
+                    raise ValueError(f"Unknown base dataset name: {args.dataset_name}")
+            
+            # if noise is added, we will add noise to the last step
+            if "multi_turn_balanced_last_step_noise" in data_type:
+                noise_ratio_dict = {
+                    "10%": 0.1, "20%": 0.2, "30%": 0.3
+                }
+                
+                noise_ratio = None
+                for key, value in noise_ratio_dict.items():
+                    if key in data_type:
+                        noise_ratio = value
+                        break
+                if noise_ratio is None:
+                    raise ValueError(
+                        f"Cannot find noise ratio in data type: {data_type}"
+                    )
+                
+                for idx in range(len(balanced_dataset)):
+                    # add noise to the last step
+                    if len(balanced_dataset[idx]["proof_steps"]) > 0:
+                        last_step_correct = balanced_dataset[idx]["proof_step_correctness"][-1]
+                        
+                        if "in_correct" in data_type:
+                            if not last_step_correct:
+                                # only add noise to correct last steps
+                                balanced_dataset[idx]["noise"] = False
+                                continue
+                            threshold = noise_ratio * 2
+                        elif "in_incorrect" in data_type:
+                            if last_step_correct:
+                                # only add noise to incorrect last steps
+                                balanced_dataset[idx]["noise"] = False
+                                continue
+                            threshold = noise_ratio * 2
+                        else:
+                            threshold = noise_ratio
+                        
+                        if random.Random(idx).random() < threshold:
+                            # flip the last step correctness
+                            balanced_dataset[idx]["proof_step_correctness"][-1] = not last_step_correct
+                            balanced_dataset[idx]["y_correct"] = None
+                            balanced_dataset[idx]["y_true"] = None
+                            balanced_dataset[idx]["noise"] = True
+                        else:
+                            balanced_dataset[idx]["noise"] = False
 
             # generate final dataset
             output: list[dict] = []
@@ -620,6 +805,9 @@ def main():
                         conversation_type=conversation_type,
                     )
                 )
+                
+                if "noise" in d.keys():
+                    output[-1]["noise"] = d["noise"]
             
             # save final dataset
             final_dataset_name = get_final_dataset_name(
@@ -628,7 +816,8 @@ def main():
             
             verification_dataset_path = get_fover_dataset_path(
                 dataset_name=final_dataset_name, model_name=args.model_name,
-                split=split
+                split=split,
+                suffix=args.suffix,
             )
             verification_dataset_path.parent.mkdir(parents=True, exist_ok=True)
             with open(verification_dataset_path, "w") as f:
@@ -646,11 +835,17 @@ def main():
             # multiple size versions
             for size_name, size_num in sampled_dataset_size_list:
                 if len(output) > size_num:
-                    if data_type == "multi_turn_balanced_last_step":
-                        sampled_dataset = sample_dataset(
-                            output, target_data_size=size_num,
-                            last_step_correct_ratio=0.5,
-                        )
+                    if "multi_turn_balanced_last_step" in data_type:
+                        if "noise" not in data_type:
+                            sampled_dataset = sample_dataset(
+                                output, target_data_size=size_num,
+                                last_step_correct_ratio=0.5,
+                            )
+                        else:
+                            # keep noise ratio
+                            sampled_dataset = random.Random(68).sample(
+                                output, size_num
+                            )
                     else:
                         sampled_dataset = sample_dataset(
                             output, target_data_size=size_num,
@@ -662,7 +857,8 @@ def main():
                 sampled_dataset_path = get_fover_dataset_path(
                     dataset_name=f"{final_dataset_name}_{size_name}",
                     model_name=args.model_name,
-                    split=split
+                    split=split,
+                    suffix=args.suffix,
                 )
                 sampled_dataset_path.parent.mkdir(
                     parents=True, exist_ok=True)

@@ -56,7 +56,8 @@ def main():
             verification_model_name=args.verification_model_name,
             verification_score_type=verification_score_type,
             split="test",
-            prompt_type=args.verification_prompt_type
+            prompt_type=args.verification_prompt_type,
+            few_shot_verification=args.few_shot_verification,
         )
         verification_scores_path.parent.mkdir(parents=True, exist_ok=True)
         

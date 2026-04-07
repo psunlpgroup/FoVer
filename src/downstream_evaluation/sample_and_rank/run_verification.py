@@ -4,31 +4,75 @@ import subprocess
 import json
 from tqdm import tqdm
 
-from src.typing import BASE_MODEL
+from src.typing import BOK_MODEL
 from src.config import base_model_names, sota_prms_list
 from src.path import get_downstream_evaluation_initial_responses_path, \
     get_prompt_for_verification_for_sample_and_rank_path, \
     get_verification_for_sample_and_rank_outputs_path, \
     get_prompt_for_verification_for_sample_and_rank_by_sota_prms_path
-from src.direct_evaluation.run_direct_evaluation import DirectEvaluationTap
+from src.direct_evaluation.run_direct_evaluation import PrmEvaluationBaseTap
 from src.load_dataset import load_existing_dataset
 from src.dataset_creation.prompts import get_verification_prompt_for_single_turn_data
 from src.dataset_creation.prompts import get_user_message
 from src.downstream_evaluation.utils import get_solution_steps_from_response
 from src.llm.utils import save_md5_hash
 from src.utils.sota_prms import get_verification_prompt_for_sota_prms
+from src.prm.preprocessing import get_fover_input_format, get_fover_with_reasoning_input_format
 
 
-class EvaluationForSampleAndRankTap(DirectEvaluationTap):
-    initial_generation_model_name: BASE_MODEL
+class EvaluationForSampleAndRankTap(PrmEvaluationBaseTap):
+    initial_generation_model_name: BOK_MODEL
     sample_k: int=5  # number of samples for sample-and-rank
+    few_shot_verification: bool = False
+    logprobs: bool = False
 
 
 def main():
     args = EvaluationForSampleAndRankTap().parse_args()
     print(args)
     
+    # check validity of the arguments
+    if args.verification_prompt_type == "reasoning":
+        if "Qwen3" not in args.base_model_name:
+            raise ValueError("Reasoning prompt type should be used with Qwen3 models.")
+
+        if args.max_tokens < 2048:
+            raise ValueError("max_tokens should be at least 2048 for reasoning prompt type.")
+        
+        if args.verification_model_name in sota_prms_list:
+            raise ValueError("SOTA PRMs (i.e., existing models in prior work) do not support reasoning prompt type.")
+
+        if not args.not_use_vllm_reward_task:
+            raise ValueError("Reasoning prompt type should be used with --not_use_vllm_reward_task because it uses generation model.")
+    
+    # load dataset
     base_dataset = load_existing_dataset(args.dataset_name)
+
+    # prepare few-shot examples for verification prompt if args.few_shot_verification
+    # this is not a standard setting, only used for ablation
+    few_shot_examples = []
+    if args.few_shot_verification:
+        if args.verification_prompt_type != "multi-turn":
+            raise ValueError("Few-shot verification should use multi-turn prompt.")
+        if args.verification_model_name in sota_prms_list:
+            raise ValueError(
+                "SOTA PRMs should not use few-shot verification. "\
+                "Use --few_shot_verification=False flag."
+            )
+
+        with open("few_shot_example/few_shot_example.jsonl", "r") as f:
+            few_shot_examples_raw = [json.loads(line) for line in f]
+        for example in few_shot_examples_raw:
+            few_shot_examples.extend(
+                get_fover_input_format(
+                    problem=example["problem"],
+                    solution_steps=example["solution_steps"],
+                    reference_error_labels=example["error_labels"],
+                    user_role_name="user",
+                    model_role_name="assistant" if "gemma" not in args.verification_model_name else "model",
+                )
+            )
+
 
     for sample_idx in range(args.sample_k):
         ###
@@ -86,8 +130,6 @@ def main():
                     )
                 
                 # new version of our models
-                from src.prm.preprocessing import get_fover_input_format
-                
                 for idx, d in tqdm(enumerate(initial_responses), total=len(initial_responses)):
                     prompt_conversation = get_fover_input_format(
                         problem=base_dataset[idx]["question"],
@@ -95,10 +137,35 @@ def main():
                         reference_error_labels=None,  # this is a dummy labels we use for inference
                         model_role_name="assistant" if "gemma" not in args.verification_model_name else "model",
                     )
+
+                    if args.few_shot_verification:
+                        if len(few_shot_examples) == 0:
+                            raise ValueError("Few-shot examples are empty. "\
+                                             "Check few-shot_example/few_shot_example.jsonl file.")
+
+                        # add few-shot examples
+                        prompt_conversation = few_shot_examples + prompt_conversation
                     
                     prompts.append(
                         {"id": d["id"], "prompt": prompt_conversation}
                     )
+            elif args.verification_prompt_type == "reasoning":
+                for idx, d in tqdm(enumerate(initial_responses), total=len(initial_responses)):
+                    solution_steps = get_solution_steps_from_response(d["response"])
+                    reasoning_conversations = get_fover_with_reasoning_input_format(
+                        problem=base_dataset[idx]["question"],
+                        solution_steps=solution_steps,
+                        user_role_name="user",
+                    )
+
+                    for step_idx, conversation in enumerate(reasoning_conversations, start=1):
+                        prompts.append(
+                            {
+                                "id": f"{d['id']}-step-{step_idx}",
+                                "prompt": conversation,
+                            }
+                        )
+                
             elif args.verification_prompt_type == "zero-shot":
                 raise ValueError("This is an old version. Please use multi-turn prompt.")
 
@@ -131,6 +198,7 @@ def main():
             prompt_for_evaluation_path = get_prompt_for_verification_for_sample_and_rank_path(
                 dataset_name=args.dataset_name, model_name=args.initial_generation_model_name,
                 split="test", prompt_type=args.verification_prompt_type, sample_idx=sample_idx,
+                few_shot_verification=args.few_shot_verification
             )
         
         # save prompts
@@ -147,7 +215,8 @@ def main():
             dataset_name=args.dataset_name,
             initial_response_model_name=args.initial_generation_model_name,
             verification_model_name=args.verification_model_name,
-            split="test", prompt_type=args.verification_prompt_type, sample_idx=sample_idx
+            split="test", prompt_type=args.verification_prompt_type, sample_idx=sample_idx,
+            few_shot_verification=args.few_shot_verification
         )
         
         # arguments
@@ -167,13 +236,16 @@ def main():
         if args.overwrite_cache:
             command.append("--overwrite_cache")
         
-        if (args.verification_model_name not in sota_prms_list) \
-                and args.not_use_vllm_reward_task:
-            # our models
+        if args.logprobs:
+            # old setting
             command.append("--logprobs")
         
         if args.debug:
             command.append("--debug")
+        
+        # for reasoning prompts, enable 
+        if args.verification_prompt_type == "reasoning":
+            command.append("--enable_thinking")
         
         # run command
         subprocess.run(" ".join(command), shell=True, text=True)

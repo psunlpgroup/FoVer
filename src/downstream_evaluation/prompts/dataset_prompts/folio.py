@@ -9,7 +9,7 @@ from src.downstream_evaluation.prompts.typing import FewShotPrompt
 def get_folio_instruction(premise: str, hypothesis: str) -> str:
     return f"""Premise: {premise}
 Conclusion: {hypothesis}
-Question: do the premises derive the conclusion? Provide reasoning and answer with either \"True\", \"False\" or \"Uncertain\"."""
+Question: do the premises derive the conclusion? Provide reasoning and answer with either "True", "False" or "Uncertain"."""
 
 
 folio_fewshot_prompt: list[FewShotPrompt] = [

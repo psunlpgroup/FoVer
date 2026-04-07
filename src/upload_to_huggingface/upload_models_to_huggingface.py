@@ -7,17 +7,17 @@ from src.upload_to_huggingface.upload_datasets_to_huggingface \
 
 
 upload_models_dict = {
-    "Llama-3.1-8B-FoVer-PRM": "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_5.0e-6_0430",
-    "Qwen-2.5-7B-FoVer-PRM": "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_2.0e-6_0430"
+    "Llama-3.1-8B-FoVer-PRM-2026": "llama_factory_finetuned_models/Llama-3.1-8B-Instruct_FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512_2.0e-6_0102",
+    "Qwen-2.5-7B-FoVer-PRM-2026": "llama_factory_finetuned_models/Qwen2.5-7B-Instruct_FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512_1.0e-6_0103"
 }
 
 
 model_readme_config_dict = {
-    "Llama-3.1-8B-FoVer-PRM": {
+    "Llama-3.1-8B-FoVer-PRM-2026": {
         "base_model": "meta-llama/Llama-3.1-8B-Instruct",
         "license": "llama3.1",
     },
-    "Qwen-2.5-7B-FoVer-PRM": {
+    "Qwen-2.5-7B-FoVer-PRM-2026": {
         "base_model": "Qwen/Qwen2.5-7B-Instruct",
         "license": "apache-2.0",
     }

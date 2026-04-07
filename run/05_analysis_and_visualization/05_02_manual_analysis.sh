@@ -1,2 +1,2 @@
-python src/analysis/manual_analysis/generate_csv_for_manual_analysis.py
+python src/analysis/manual_analysis/generate_csv_for_manual_analysis.py --sample_k 7
 python src/analysis/manual_analysis/postprocess_manual_analysis.py

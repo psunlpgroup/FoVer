@@ -2,6 +2,7 @@ import json
 
 import numpy as np
 import matplotlib.pyplot as plt
+from tap import Tap
 
 from src.config import base_model_names, \
     downstream_evaluation_datasets_list, \
@@ -16,19 +17,27 @@ from src.downstream_evaluation.sample_and_rank.get_performance_and_table \
 categories = ["math", "logic", "nli", "mmlu", "bbh"]
 categories_display_names = [
     "Math\nReasoning", "Logical\nReasoning", "NLI", "MMLU-Pro\nNoMath",
-    "BBH\n(3 tasks)"
+    "BBH"
 ]
 
-methods_display_name = ["Original", "Ours"]
+methods_display_name = ["Baseline", "Ours"]
 
 bar_colors = ["darkgray", "blueviolet"]
 
+
+class BarGraphGenerationTap(Tap):
+    sample_k: int = 7
+
+
 def main():
+    base_args = BarGraphGenerationTap().parse_args()
+    
     args = SampleAndRankPerformanceAndTableTap().parse_args(
         [
             "--evaluation_mode", "final_evaluation",
             "--initial_generation_prompt", "few-shot",
-            "--verification_prompt", "multi-turn"
+            "--verification_prompt", "multi-turn",
+            "--sample_k", str(base_args.sample_k),
         ]
     )
     verification_score_type = "logprob_min"
@@ -39,7 +48,8 @@ def main():
                 # "isabelle_all_multi_turn_10k",
                 # "fldx2_symbol-isabelle_all_multi_turn_10k",
                 # "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k",
-                "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k"
+                # "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k",
+                "FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512"
             ]:
         print("Using train data name:", train_data_name)
 
@@ -47,6 +57,9 @@ def main():
 
         # load downstream evaluation performance
         for base_model_name in base_model_names:
+            if base_model_name not in ["meta-llama/Llama-3.1-8B-Instruct", "Qwen/Qwen2.5-7B-Instruct"]:
+                continue
+            
             category_performance_dict: dict[str, dict[str, list[float]]] = {}
 
             for evaluation_dataset_name in downstream_evaluation_datasets_list:
@@ -56,8 +69,11 @@ def main():
                 outputs_path_dict = get_sample_and_rank_selected_output_path_dict(
                     args, base_model_name=base_model_name,
                     evaluation_dataset_name=evaluation_dataset_name,
-                    verification_score_type=verification_score_type
+                    verification_score_type=verification_score_type,
+                    initial_response_model_name=base_model_name,
                 )
+                
+                print(outputs_path_dict.keys())
 
                 for method_name in methods:
                     prediction_path = outputs_path_dict[method_name]
@@ -90,7 +106,7 @@ def main():
                 m: [np.mean(category_performance_dict[m].get(cat, [])) * 100 for cat in categories]
                 for m in methods
             }
-
+            
             # ── 3. set up bar positions ─────────────────────────────────────────────────────
             n_cat    = len(categories)
             n_meth   = len(methods)
@@ -101,14 +117,18 @@ def main():
             offsets = np.arange(n_meth) * bar_w
 
             # ── 4. plot ─────────────────────────────────────────────────────────────────────
-            fig, ax = plt.subplots(figsize=(10, 3))
+            fig, ax = plt.subplots(figsize=(10, 2.8))
 
             for i, m in enumerate(methods):
+                # Add stripes to the second bar (index 1)
+                hatch_pattern = '/' if i == 1 else None
+                
                 bars = ax.bar(x_groups + offsets[i],
                     means[m],
                     width=bar_w,
-                    label=m,
+                    label=methods_display_name[i],
                     color=bar_colors[i],
+                    hatch=hatch_pattern,
                 )
 
                 for bar in bars:
@@ -129,25 +149,18 @@ def main():
             group_centers = x_groups + bar_w*(n_meth-1)/2
             ax.set_xticks(group_centers)
             ax.set_xticklabels(categories_display_names, fontsize=19)
-            ax.tick_params(axis='x', which='major', pad=24)
+            ax.tick_params(axis='x', which='major', pad=8)
 
-            # minor ticks: one per bar, label = method name
-            # flatten all bar positions and corresponding method labels
-            bar_positions = []
-            bar_labels    = []
-            for j, cat in enumerate(categories):
-                for m in methods_display_name:
-                    bar_positions.append(j + methods_display_name.index(m)*bar_w)
-                    bar_labels.append(m)
-
-            ax.set_xticks(bar_positions, minor=True)
-            ax.set_xticklabels(bar_labels, minor=True, rotation=0, fontsize=14)
-            ax.tick_params(axis='x', which='minor', pad=4)
+            # Remove minor ticks for method names since we now have a legend
 
             # ── 6. polish ───────────────────────────────────────────────────────────────────
-            # ax.set_ylabel("Accuracy", fontsize=14)
+            ax.set_ylabel("")  # Remove y-axis label
+            ax.set_yticklabels([])  # Remove y-axis tick labels
+            ax.tick_params(axis='y', which='both', left=False, right=False)  # Remove y-axis tick marks
             # ax.set_title("Per-category performance by method")
-            ax.legend().set_visible(False)   # legend not needed: methods shown on x-axis
+            # Only show legend for the first model (Llama)
+            if base_model_name == "meta-llama/Llama-3.1-8B-Instruct":
+                ax.legend(fontsize=19, loc='upper left')
             plt.tight_layout(pad=-1)
 
             model_short_name = base_model_name.split("/")[-1]

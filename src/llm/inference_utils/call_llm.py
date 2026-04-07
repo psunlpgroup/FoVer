@@ -198,10 +198,14 @@ def call_llm(model: InferenceModel, prompt: Union[str, list[str], list[dict], li
                         
                         output = step_rewards  # list[list[float]]
                     else:
+                        if params.enable_thinking:
+                            raise ValueError("Reward models do not support 'enable_thinking'")
+                        
                         # reward models
                         text_prompt = model.tokenizer.apply_chat_template(
-                            prompt, tokenize=False
+                            prompt, tokenize=False, enable_thinking=False
                         )
+                        # output = vllm_model.encode(text_prompt, pooling_task="token_classify")
                         output = vllm_model.encode(text_prompt)
                 else:
                     # standard models
@@ -214,7 +218,21 @@ def call_llm(model: InferenceModel, prompt: Union[str, list[str], list[dict], li
                         logprobs=20 if params.logprobs else None,
                     )
                     
-                    output = vllm_model.chat(prompt, sampling_params)
+                    from packaging.version import Version
+                    if Version(vllm.__version__) >= Version("0.9.0"):  # chat template kwargs supported
+                        output = vllm_model.chat(
+                            prompt, sampling_params,
+                            chat_template_kwargs={
+                                "enable_thinking": params.enable_thinking
+                            }  # upgrade vllm to use this feature, but our code does not work with the latest vllm yet
+                        )
+                    else:
+                        if not params.enable_thinking:
+                            raise ValueError("To disable 'thinking' in chat template, please upgrade vLLM to version >= 0.9.0")
+                        
+                        output = vllm_model.chat(
+                            prompt, sampling_params,
+                        )
                 
                 if model.is_reward_model:
                     processed_output = [

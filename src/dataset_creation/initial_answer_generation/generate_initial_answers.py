@@ -2,6 +2,7 @@
 
 import subprocess
 import json
+from typing import Literal
 
 from tap import Tap
 import datasets
@@ -18,7 +19,7 @@ class DatasetCreationTap(Tap):
 
 
 class GenerateInitialAnswersTap(DatasetCreationTap):
-    model_name: BASE_MODEL = "meta-llama/Llama-3.1-8B-Instruct"
+    model_name: Literal[BASE_MODEL, Literal["ground_truth"]] = "meta-llama/Llama-3.1-8B-Instruct"
     split: SPLIT
     batch_size: int = 16
     max_tokens: int = 256
@@ -76,6 +77,7 @@ if __name__ == "__main__":
             f"--batch_size {args.batch_size}",
             f"--max_token {args.max_tokens}",
             f"--overwrite_cache" if args.overwrite_cache else "",
+            "--not_use_vllm_reward_task"
         ]
         
         if args.debug:

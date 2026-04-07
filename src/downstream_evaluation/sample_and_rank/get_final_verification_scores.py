@@ -12,6 +12,7 @@ from src.path import get_downstream_evaluation_initial_responses_path, \
 from src.load_dataset import load_existing_dataset
 from src.downstream_evaluation.sample_and_rank.run_verification import EvaluationForSampleAndRankTap
 from src.llm.utils import save_md5_hash
+from src.downstream_evaluation.evaluation.utils.extract_final_answer import extract_final_answer_for_downstream_evaluation
 
 
 def main():
@@ -19,7 +20,14 @@ def main():
     
     dataset = load_existing_dataset(args.dataset_name)
     
-    for verification_score_type in ["logprob_min"]:
+    for verification_score_type in ["logprob_min", "num_incorrect_steps"]:
+        if verification_score_type == "logprob_min":
+            if args.verification_prompt_type == "reasoning":
+                continue
+        
+        if verification_score_type == "num_incorrect_steps":
+            if args.verification_prompt_type != "reasoning":
+                continue
         
         # if the verification model is not a base model, we filter out
         # cases where the baseline model generates invalid format
@@ -42,20 +50,12 @@ def main():
                 verification_score_type=verification_score_type,
                 split="test",
                 prompt_type=args.verification_prompt_type,
+                few_shot_verification=args.few_shot_verification,
             )
             with open(baseline_verification_scores_path, "r") as f:
                 baseline_verification_scores = [
                     json.loads(line) for line in f
                 ]
-        
-        best_sample_and_rank_output_path = get_best_sample_and_rank_output_path(
-            dataset_name=args.dataset_name,
-            base_model_name=args.initial_generation_model_name,
-            verification_model_name=args.verification_model_name,
-            verification_prompt_type=args.verification_prompt_type,
-            verification_score_type=verification_score_type,
-            split="test",
-        )
         
         # load the intermediate scores and save the final verification scores
         verification_scores_path = get_verification_scores_for_sample_and_rank_path(
@@ -65,6 +65,7 @@ def main():
             verification_score_type=verification_score_type,
             split="test",
             prompt_type=args.verification_prompt_type,
+            few_shot_verification=args.few_shot_verification,
         )
         
         sample_idx_initial_answers: dict[int, list] = {}
@@ -214,34 +215,84 @@ def main():
         stats_path.parent.mkdir(parents=True, exist_ok=True)
         with open(stats_path, "w") as f:
             json.dump(stats, f, indent=4)
-
-        # select the best output based on the verification scores
-        best_outputs = []
-        for data_idx in range(len(initial_responses)):
-            best_sample_idx = np.argmax(
-                [
-                    score if score is not None else -1000000000 for score in
-                    verification_scores_list[data_idx]["verification_scores"]
-                ]
-            )
-            best_verification_output = sample_idx_initial_answers[
-                best_sample_idx][data_idx]
-            best_outputs.append(best_verification_output)
         
-        # save the best verification output
-        best_sample_and_rank_output_path = get_best_sample_and_rank_output_path(
-            dataset_name=args.dataset_name,
-            base_model_name=args.initial_generation_model_name,
-            verification_model_name=args.verification_model_name,
-            verification_prompt_type=args.verification_prompt_type,
-            verification_score_type=verification_score_type,
-            split="test",
-        )
-        best_sample_and_rank_output_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(best_sample_and_rank_output_path, "w") as f:
-            for best_output in best_outputs:
-                f.write(json.dumps(best_output) + "\n")
-        save_md5_hash(best_sample_and_rank_output_path)
+        # check if k scores exist
+        if not all(
+            len(verification_scores["verification_scores"]) >= args.sample_k
+            for verification_scores in verification_scores_list
+        ):
+            import warnings
+            warnings.warn(
+                f"Verification scores for {args.initial_generation_model_name} on " \
+                f"{args.dataset_name} with {args.verification_model_name} " \
+                "verifier do not have the expected number of samples. " \
+                "Skipping best-of-k selection."
+            )
+            continue
+
+        for selection_method in ["max", "weighted_majority"]:
+            # select the best output based on the verification scores
+            best_outputs = []
+            for data_idx in range(len(initial_responses)):
+                if selection_method == "max":
+                    best_sample_idx = np.argmax(
+                        [
+                            score if score is not None else -1000000000 for score in
+                            verification_scores_list[data_idx]["verification_scores"][:args.sample_k]
+                        ]
+                    )
+                else:
+                    final_answers = [
+                        extract_final_answer_for_downstream_evaluation(
+                            dataset_name=args.dataset_name,
+                            prediction={"response": initial_answer},
+                        )
+                        for initial_answer in verification_scores_list[data_idx]["initial_responses"][:args.sample_k]
+                    ]
+
+                    # weighted majority vote
+                    verification_scores = {}
+                    for sample_idx in range(args.sample_k):
+                        final_answer = final_answers[sample_idx]
+                        if final_answer not in verification_scores:
+                            verification_scores[final_answer] = {"weight": 0, "sample_indices": []}
+                        verification_scores[final_answer]["weight"] += \
+                            verification_scores_list[data_idx]["verification_scores"][sample_idx]
+                        verification_scores[final_answer]["sample_indices"].append(sample_idx)
+                    # select the final answer with the highest weight
+                    best_sample_idx = max(
+                        verification_scores.items(),
+                        key=lambda x: x[1]["weight"]
+                    )[1]["sample_indices"][0]
+                
+                best_verification_output = sample_idx_initial_answers[
+                    best_sample_idx][data_idx]
+                best_outputs.append(best_verification_output)
+            
+            # save the best verification output
+            best_sample_and_rank_output_path = get_best_sample_and_rank_output_path(
+                dataset_name=args.dataset_name,
+                base_model_name=args.initial_generation_model_name,
+                verification_model_name=args.verification_model_name,
+                verification_prompt_type=args.verification_prompt_type,
+                verification_score_type=verification_score_type,
+                sample_k=args.sample_k,  # pass sample_k to
+                split="test",
+                selection_method=selection_method,
+                few_shot_verification=args.few_shot_verification,
+            )
+            best_sample_and_rank_output_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(best_sample_and_rank_output_path, "w") as f:
+                for best_output in best_outputs:
+                    f.write(json.dumps(best_output) + "\n")
+            save_md5_hash(best_sample_and_rank_output_path)
+            
+            print(
+                f"Saved best-of-{args.sample_k} outputs selected by {selection_method} "
+                f"using {args.verification_model_name} verifier "
+                f"on {args.initial_generation_model_name} for {args.dataset_name} "
+                f"to {best_sample_and_rank_output_path}"
+            )
 
 
 if __name__ == "__main__":

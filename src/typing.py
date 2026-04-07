@@ -10,29 +10,14 @@ TRAIN_DATA = Literal[
 
 # this is a new version of the dataset
 TRAIN_DATA_MULTI_TURN = Literal[
-    "fldx2_symbol_multi_turn_balanced_last_step_20k",
-    "isabelle_all_multi_turn_balanced_last_step_20k",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k",
+    "FoVer_PRM_FormalLogic-FormalProof_balanced_last_step_40k_202512",
 ]
-
-TRAIN_DATA_ABLATION = Literal[
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.25",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.50",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_correct=0.75",
-    #
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_5k_duplicated_40k",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_10k_duplicated_40k",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_20k_duplicated_40k",
-    "fldx2_symbol-isabelle_all_multi_turn_balanced_last_step_40k_duplicated_40k",
-]
-
 
 SPLIT = Literal["train", "validation", "test"]
 
 BASE_MODEL = Literal[
     "meta-llama/Llama-3.1-8B-Instruct",
     "Qwen/Qwen2.5-7B-Instruct",
-    "google/gemma-3-27b-it",
 ]
 OPTIMIZERS = Literal["AdamW", "RecAdam"]
 
@@ -41,6 +26,11 @@ PRM_PRED = Literal[True, False, None]
 PROMPT_TYPE = Literal["few-shot", "zero-shot", "multi-turn"]
 
 DOWNSTREAM_EVALUATION_MODE = Literal["model_selection", "final_evaluation"]
+
+BOK_MODEL = Literal[
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "Qwen/Qwen2.5-7B-Instruct",
+]
 
 
 class ErrorLabelInstance(TypedDict):

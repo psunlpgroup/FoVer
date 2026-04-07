@@ -37,9 +37,3 @@ bf16: true
 ddp_timeout: 180000000
 resume_from_checkpoint: null
 optim: adamw_torch
-
-### eval
-eval_dataset: {validation_dataset_name}
-per_device_eval_batch_size: {per_device_train_batch_size}
-eval_strategy: steps
-eval_steps: 100

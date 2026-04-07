@@ -2,11 +2,11 @@ import json
 
 from src.typing import PRM_PRED
 from src.path import get_direct_evaluation_outputs_path, get_direct_evaluation_metrics_path
-from src.direct_evaluation.run_direct_evaluation import DirectEvaluationTap
+from src.direct_evaluation.run_direct_evaluation import PrmEvaluationBaseTap
 from src.utils.datasets import load_dataset
 from src.utils.prm import postprocess_prm_output, postprocess_prm_output_from_vllm_reward_model
 from src.utils.evaluation import get_binary_evaluation_metrics, get_float_evaluation_metrics, get_threshold_for_f1
-from src.downstream_evaluation.sample_and_rank.postprocess_verification_outputs_sota_prms import get_verification_from_hidden_states_of_causal_model
+from src.downstream_evaluation.sample_and_rank.postprocess_verification_outputs_multi_turn_and_sota import get_verification_from_hidden_states_of_causal_model
 
 
 def convert_y_to_binary(y_list: list[PRM_PRED]) -> list[int]:
@@ -33,15 +33,26 @@ def get_metrics_dict(y_true: list[bool], y_pred: list, threshold: float | None =
 
 
 def main():
-    args = DirectEvaluationTap().parse_args()
+    args = PrmEvaluationBaseTap().parse_args()
     
     splits_list = ["test"]
     if "fover" in args.dataset_name:  # our dataset
         splits_list.append("train")
     
+    if ".jsonl" in args.dataset_name:
+        splits_list = ["none"]  # dummy split
+    
     for split in splits_list:
         # load dataset
-        dataset = load_dataset(args.dataset_name, split=split)
+        if ".jsonl" in args.dataset_name:
+            import datasets
+            dataset = datasets.load_dataset(
+                "json", data_files=args.dataset_name,
+                split="train"  # this is a psudo-split
+            )
+        else:
+            dataset = load_dataset(args.dataset_name, split=split)
+        
         if args.max_num_evaluation_instances is not None:
             if len(dataset) > args.max_num_evaluation_instances:
                 dataset = dataset.shuffle(seed=68)

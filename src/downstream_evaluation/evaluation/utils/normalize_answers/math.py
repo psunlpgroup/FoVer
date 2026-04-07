@@ -34,7 +34,14 @@ def normalize_math_final_answer(final_answer: str) -> str:
     final_answer = re.sub(r'(\\overline\{)(.*?)(\})', '\\2', final_answer)
     final_answer = re.sub(r'(\\boxed\{)(.*)(\})', '\\2', final_answer)
 
+    # Normalize dfrac -> frac, tfrac -> frac
+    final_answer = final_answer.replace('\\dfrac', '\\frac')
+    final_answer = final_answer.replace('\\tfrac', '\\frac')
+
     # Normalize shorthand TeX:
+    # \frac{a}b -> \frac{a}{b}
+    final_answer = re.sub(
+        r'\\frac\{([^}]+)\}([A-Za-z0-9])', r'\\frac{\1}{\2}', final_answer)
     # \fracab -> \frac{a}{b}
     # \frac{abc}{bef} -> \frac{abc}{bef}
     # \fracabc -> \frac{a}{b}c

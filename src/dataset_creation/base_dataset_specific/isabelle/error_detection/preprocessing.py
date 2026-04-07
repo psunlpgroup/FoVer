@@ -2,12 +2,18 @@ import json
 from pathlib import Path
 import shutil
 import random
+import copy
 
 from src.path import intermediate_dir
 from src.config import splits_list
 from src.dataset_creation.base_dataset_specific.isabelle.informal_to_formal.\
-    convert_to_formal import IsabelleInformalToFormalTap, \
-        get_converted_formal_statement_or_proofs_path
+    generate_statement_and_proof import IsabelleInformalToFormalTap, \
+        get_converted_formal_statement_or_proofs_path, \
+        get_generated_formal_proof_path
+from src.dataset_creation.base_dataset_specific.isabelle.informal_to_formal.\
+    utils import clean_up_isabelle_statement_and_proof
+from src.dataset_creation.base_dataset_specific.isabelle.informal_to_formal.\
+    get_few_shot_prompt import get_formal_statement_and_proof_from_full_theorem
 
 
 class IsabelleErrorDetectionPreprocessingTap(IsabelleInformalToFormalTap):
@@ -17,44 +23,149 @@ class IsabelleErrorDetectionPreprocessingTap(IsabelleInformalToFormalTap):
 isabelle_generated_thy_files_dir = intermediate_dir / "isabelle" \
     / "formal_proofs"
 
-def get_formal_proofs_for_error_detection_dir(
+def get_formal_theorems_for_error_detection_dir(
         dataset_name: str, initial_generation_model_name: str,
-        conversion_model_name: str, split: str, data_id: str) -> Path:
+        conversion_model_name: str, formal_proof_model_name: str,
+        split: str, data_id: str) -> Path:
     """ Get the path to the thy file of the converted formal proofs for the
     given dataset, model, and split. """
     
     initial_model_short_name = initial_generation_model_name.split("/")[-1]
     conversion_model_short_name = conversion_model_name.split("/")[-1]
+    formal_proof_model_short_name = formal_proof_model_name.split("/")[-1]
+    
     return isabelle_generated_thy_files_dir / \
         dataset_name / f"initial_generation={initial_model_short_name}" / \
-        f"conversion={conversion_model_short_name}" / split / data_id
-
-def clean_up_isabelle_statement_and_proof(statement_or_proof: str) -> str:
-    """ Remove comments from the proof. """
-    lines = statement_or_proof.split("\n")
-    cleaned_lines = []
-    for line in lines:
-        if "(*" in line and "*)" in line:
-            continue
-        cleaned_lines.append(line)
-    return "\n".join(cleaned_lines)
+        f"conversion={conversion_model_short_name}" / \
+        f"formal_proof_generation={formal_proof_model_short_name}" / \
+            split / data_id
 
 
-def generate_proofs_for_each_step(proof: str) -> list[str]:
-    """ Generate proofs for each step in the proof. """
+def is_proof_valid_format(raw_proof: str) -> bool:
+    lines_list = raw_proof.split("\n")
+    
+    # the first line is "proof -"
+    # the last line is "qed"
+    # each step has 2 lines and lemma line is the second line in each step
+    
+    if "proof -" not in lines_list[0]:
+        print(f"Expected 'proof -' in the first line but got: {lines_list[0]}")
+        return False
+    
+    if "qed" not in lines_list[-1]:
+        print(f"Expected 'qed' in the last line but got: {lines_list[-1]}")
+        return False
+    
+    number_of_steps = (len(lines_list) - 2) // 2
+    for step in range(number_of_steps):
+        step_line_num = 1 + step * 2
+        if step >= 1 and step != number_of_steps - 1:
+            # after the second step and before the last step should be "then have"
+            if "then have" not in lines_list[step_line_num]:
+                print(
+                    f"Expected 'then have' in line {step_line_num} but got: "
+                    f"{lines_list[step_line_num]}"
+                )
+                return False
+
+            # intermediate steps should not be "thus ?thesis"
+            if "thus ?thesis" in lines_list[step_line_num]:
+                print(
+                    f"Did not expect 'thus ?thesis' in line {step_line_num} but got: "
+                    f"{lines_list[step_line_num]}"
+                )
+                return False
+        
+        if step == number_of_steps - 1:
+            # last step should be "thus ?thesis"
+            if "thus ?thesis" not in lines_list[step_line_num]:
+                print(
+                    f"Expected 'thus ?thesis' in line {step_line_num} but got: "
+                    f"{lines_list[step_line_num]}"
+                )
+                return False
+        
+        # lemma should include "by"
+        lemma_line_num = step_line_num + 1
+        if "by" not in lines_list[lemma_line_num]:
+            print(f"Expected 'by' in line {lemma_line_num} but got: {lines_list[lemma_line_num]}")
+            return False
+    
+    return True
+
+
+def replace_step_lemma_with_sorry(raw_proof: str, step: int) -> str:
+    """ Replace the step-th sledgehammer with sorry in the theorem. """
+    
+    lines_list = raw_proof.split("\n")
+    
+    # the first line is "proof -"
+    # the last line is "qed"
+    # each step has 2 lines and lemma line is the second line in each step
+    step_line_num = 1 + step * 2 + 1
+    
+    # check
+    if len(lines_list) <= step_line_num:
+        raise ValueError(
+            f"Step line number {step_line_num} exceeds the number of lines "
+            f"in the proof: {len(lines_list)}"
+        )
+    
+    if "by" not in lines_list[step_line_num]:
+        raise ValueError(
+            f"Expected 'by' in line {step_line_num} but got: "
+            f"{lines_list[step_line_num]}"
+        )
+    
+    # replace
+    lines_list[step_line_num] = "        sorry"
+    
+    return "\n".join(lines_list)
+
+
+def generate_theorems_for_each_step(raw_theorem: str) -> list[str]:
+    """ Generate theorems for each step in the theorems. """
+    
+    statement, raw_proof = get_formal_statement_and_proof_from_full_theorem(
+        raw_theorem
+    )
     
     output_list = []
-    num_steps = proof.count("sledgehammer")
-    for step in range(num_steps):
-        # keep step-th sledgehammer
-        edited_proof = proof.replace("sledgehammer", "sorry", step)
-        edited_proof = edited_proof.replace("sledgehammer", "keepthisline", 1)
-        edited_proof = edited_proof.replace("sledgehammer", "sorry")
-        edited_proof = edited_proof.replace("keepthisline", "sledgehammer")
+    num_steps = (len(raw_proof.split("\n")) - 2) // 2
+    for keep_step in range(num_steps):
+        # keep keep_step-th lemma
+        edited_proof = copy.deepcopy(raw_proof)
+        for step in range(num_steps):
+            if step == keep_step:
+                continue
+            edited_proof = replace_step_lemma_with_sorry(edited_proof, step)
         
-        output_list.append(edited_proof)
+        # combine statement and proof
+        edited_theorem = "\n".join([statement, edited_proof])
+        output_list.append(edited_theorem)
     
     return output_list
+
+
+def generate_all_sorry_theorem(raw_theorem: str) -> str:
+    """ Generate the theorem with all sledgehammer replaced with sorry. """
+    
+    statement, raw_proof = get_formal_statement_and_proof_from_full_theorem(
+        raw_theorem
+    )
+    
+    # the first line is "proof -"
+    # the last line is "qed"
+    # each step has 2 lines and lemma line is the second line in each step
+    num_steps = (len(raw_proof.split("\n")) - 2) // 2
+    edited_proof = copy.deepcopy(raw_proof)
+    for step in range(num_steps):
+        edited_proof = replace_step_lemma_with_sorry(edited_proof, step)
+    
+    # combine statement and proof
+    edited_theorem = "\n".join([statement, edited_proof])
+    
+    return edited_theorem
 
 
 def make_batch_of_thy_files(
@@ -103,15 +214,18 @@ def make_batch_of_thy_files(
 
 def get_batch_file_names_path(
         dataset_name: str, initial_generation_model_name: str,
-        conversion_model_name: str, split: str, batch_idx: int
+        conversion_model_name: str, formal_proof_model_name: str,
+        split: str, batch_idx: int
     ) -> Path:
     
     initial_short_name = initial_generation_model_name.split("/")[-1]
     conversion_short_name = conversion_model_name.split("/")[-1]
+    formal_proof_short_name = formal_proof_model_name.split("/")[-1]
     
     return intermediate_dir / "isabelle" / "formal_proofs_batch_file_names" / \
         dataset_name / f"initial_generation={initial_short_name}" / \
         f"conversion={conversion_short_name}"/ \
+        f"formal_proof_generation={formal_proof_short_name}" / \
         split / f"batch_{batch_idx:03}.json"
 
 
@@ -122,80 +236,126 @@ def main():
         ###
         # preprocess and save proofs for step-level error detection
         
-        # load model generated proofs
-        proof_path = get_converted_formal_statement_or_proofs_path(
+        # load model generated statements and proofs
+        statements_path = get_converted_formal_statement_or_proofs_path(
             dataset_name=args.dataset_name,
             initial_generation_model_name=args.base_model_name,
             conversion_model_name=args.conversion_model_name,
-            statement_or_proof="proof", split=split
+            statement_or_proof="statement", split=split
         )
-        with open(proof_path, "r") as f:
+        with open(statements_path, "r") as f:
+            statements = [json.loads(line) for line in f]
+        
+        proofs_path = get_generated_formal_proof_path(
+            dataset_name=args.dataset_name,
+            initial_generation_model_name=args.base_model_name,
+            conversion_model_name=args.conversion_model_name,
+            formal_proof_model_name=args.formal_proof_generation_model_name,
+            split=split
+        )
+        with open(proofs_path, "r") as f:
             proofs = [json.loads(line) for line in f]
         
+        # check consistency
+        if len(statements) != len(proofs):
+            raise ValueError(
+                "Number of statements and proofs do not match: "
+                f"{len(statements)} statements vs {len(proofs)} proofs."
+            )
+        if not all(s["id"] == p["id"] for s, p in zip(statements, proofs)):
+            raise ValueError(
+                "IDs of statements and proofs do not match."
+            )
+        
+        data_ids = [s["id"] for s in statements]
+        
+        # combine statement and proof
+        theorems = [
+            {
+                "id": s["id"],
+                "response": "\n".join([s["response"], p["response"]])
+            }
+            for s, p in zip(statements, proofs)
+        ]
+        
         # save proofs for each step
-        for proof in proofs:
+        for theorem in theorems:
             # removce comments
-            proof_dir = get_formal_proofs_for_error_detection_dir(
+            theorem_dir = get_formal_theorems_for_error_detection_dir(
                 dataset_name=args.dataset_name,
                 initial_generation_model_name=args.base_model_name,
                 conversion_model_name=args.conversion_model_name,
-                split=split, data_id=proof["id"]
+                formal_proof_model_name=args.formal_proof_generation_model_name,
+                split=split, data_id=theorem["id"]
             )
             
-            if proof_dir.exists():
+            theorems_without_comments = clean_up_isabelle_statement_and_proof(
+                theorem["response"]
+            )
+            
+            # check format
+            invalid_format = False
+            try:
+                _, raw_proof = get_formal_statement_and_proof_from_full_theorem(
+                    theorems_without_comments
+                )
+            except Exception as e:
+                print(f"Error in getting formal statement and proof: {e}")
+                raw_proof = ""
+                invalid_format = True
+                
+            if invalid_format or not is_proof_valid_format(raw_proof):
+                print(f"Invalid proof format for theorem ID: {theorem['id']}")
+                
+                if theorem_dir.exists():
+                    shutil.rmtree(theorem_dir)
+                continue
+
+            if theorem_dir.exists():
                 # remove all .thy files
-                for file in proof_dir.glob("*.thy"):
+                for file in theorem_dir.glob("*.thy"):
                     file.unlink()
             else:
-                proof_dir.mkdir(parents=True, exist_ok=True)
+                theorem_dir.mkdir(parents=True, exist_ok=True)
             
-            proof_without_comments = clean_up_isabelle_statement_and_proof(
-                proof["response"])
-
-            proof_for_each_step = generate_proofs_for_each_step(
-                proof_without_comments
+            theorems_for_each_step = generate_theorems_for_each_step(
+                theorems_without_comments
             )
             
-            for step, proof_for_step in enumerate(proof_for_each_step):
-                proof_file_path = proof_dir / f"{step:03d}.thy"
-                with open(proof_file_path, "w") as f:
-                    f.write(proof_for_step)
+            for step, theorem_for_step in enumerate(theorems_for_each_step):
+                theorem_file_path = theorem_dir / f"{step:03d}.thy"
+                with open(theorem_file_path, "w") as f:
+                    f.write(theorem_for_step)
             
             # to check if the proof is correct
-            proof_file_path = proof_dir / "all_sledgehammer.thy"
-            with open(proof_file_path, "w") as f:
-                f.write(proof_without_comments)
+            theorem_file_path = theorem_dir / "all_lemmas.thy"
+            with open(theorem_file_path, "w") as f:
+                f.write(theorems_without_comments)
             
             # to check syntax error, replace all sledgehammer with sorry
-            proof_file_path = proof_dir / "all_sorry.thy"
-            with open(proof_file_path, "w") as f:
-                f.write(proof_without_comments.replace("sledgehammer", "sorry"))
+            theorem_file_path = theorem_dir / "all_sorry.thy"
+            all_sorry_theorem = generate_all_sorry_theorem(
+                theorems_without_comments
+            )
+            with open(theorem_file_path, "w") as f:
+                f.write(all_sorry_theorem)
         
         ###
         # make batch for parallel isabelle execution
         
-        # load model generated proofs
-        proof_path = get_converted_formal_statement_or_proofs_path(
-            dataset_name=args.dataset_name,
-            initial_generation_model_name=args.base_model_name,
-            conversion_model_name=args.conversion_model_name,
-            statement_or_proof="proof", split=split
-        )
-        with open(proof_path, "r") as f:
-            proofs = [json.loads(line) for line in f]
-        
         # load all .thy files
         all_thy_files = []
-        for proof in proofs:
-            proof_dir = get_formal_proofs_for_error_detection_dir(
+        for data_id in data_ids:
+            theorem_dir = get_formal_theorems_for_error_detection_dir(
                 dataset_name=args.dataset_name,
                 initial_generation_model_name=args.base_model_name,
                 conversion_model_name=args.conversion_model_name,
-                split=split, data_id=proof["id"]
+                formal_proof_model_name=args.formal_proof_generation_model_name,
+                split=split, data_id=data_id
             )
             
             # get all .thy files
-            thy_files_list = proof_dir.glob("*.thy")
+            thy_files_list = theorem_dir.glob("*.thy")
             all_thy_files.extend(thy_files_list)
         
         # clean up batch directory if exists
@@ -203,6 +363,7 @@ def main():
             dataset_name=args.dataset_name,
             initial_generation_model_name=args.base_model_name,
             conversion_model_name=args.conversion_model_name,
+            formal_proof_model_name=args.formal_proof_generation_model_name,
             split=split, batch_idx=-1
         ).parent
         if batch_file_names_dir.exists():
@@ -221,6 +382,7 @@ def main():
                 dataset_name=args.dataset_name,
                 initial_generation_model_name=args.base_model_name,
                 conversion_model_name=args.conversion_model_name,
+                formal_proof_model_name=args.formal_proof_generation_model_name,
                 split=split, batch_idx=batch_idx
             )
             batch_file_names_path.parent.mkdir(parents=True, exist_ok=True)

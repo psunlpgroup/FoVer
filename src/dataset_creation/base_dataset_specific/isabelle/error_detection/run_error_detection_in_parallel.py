@@ -5,7 +5,7 @@ import time
 
 from src.typing import SPLIT
 from src.dataset_creation.base_dataset_specific.isabelle.informal_to_formal.\
-    convert_to_formal import IsabelleInformalToFormalTap
+    generate_statement_and_proof import IsabelleInformalToFormalTap
 from src.dataset_creation.base_dataset_specific.isabelle.error_detection.\
     utils import kill_process_to_clean_up_isabelle
 from src.dataset_creation.base_dataset_specific.isabelle.error_detection.\
@@ -49,6 +49,7 @@ def main():
                 dataset_name=args.dataset_name,
                 initial_generation_model_name=args.base_model_name,
                 conversion_model_name=args.conversion_model_name,
+                formal_proof_model_name=args.formal_proof_generation_model_name,
                 split=args.split, batch_idx=batch_idx
             )
             

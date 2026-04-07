@@ -90,7 +90,7 @@ def extract_fover_scores(tokenized_prompt: np.ndarray,
         logits: torch.Tensor, tokenizer: AutoTokenizer) -> list[float]:
     
     model_type: Literal["llama", "qwen"] | None = None
-    for model_type_candidate in ["llama", "qwen"]:
+    for model_type_candidate in ["qwen", "llama"]:
         if model_type_candidate in tokenizer.name_or_path.lower():
             model_type = model_type_candidate
             break

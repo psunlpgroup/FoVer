@@ -2,14 +2,17 @@ from pathlib import Path
 import json
 import random
 
-from src.dataset_creation.prompts import get_assistant_message, get_user_message
+from src.dataset_creation.prompts import get_assistant_message, \
+    get_user_message, get_system_message
+from src.dataset_creation.base_dataset_specific.isabelle.informal_to_formal.\
+    utils import clean_up_isabelle_statement_and_proof
 from src.downstream_evaluation.utils.postprocess \
     import get_solution_steps_from_response
 
 
 isabelle_few_shot_examples_dir = Path(
     "src/dataset_creation/base_dataset_specific/" \
-        "isabelle/conversion_few_shot_examples"
+        "isabelle/formal_proof_generation_few_shot_examples"
 )
 
 
@@ -38,6 +41,10 @@ input_format_for_proof_conversion = """Your task is to convert the following inf
 {informal_proof}
 
 ** Formal Statement **
+{formal_statement}"""
+
+
+input_format_for_formal_proof_generation = """** Formal Statement **
 {formal_statement}"""
 
 
@@ -87,9 +94,16 @@ def get_input_format_for_proof_conversion(
     )
 
 
-def get_formal_statement_from_full_theorem(full_theorem: str) -> str:
-    statement, _ = full_theorem.split("\nproof -", 1)
-    return statement
+def get_input_format_for_formal_proof_generation(formal_statement: str) -> str:
+    return input_format_for_formal_proof_generation.format(
+        formal_statement=formal_statement
+    )
+
+
+def get_formal_statement_and_proof_from_full_theorem(full_theorem: str) -> tuple[str, str]:
+    statement, proof = full_theorem.split("\nproof -\n", 1)
+    proof = "proof -\n" + proof
+    return statement, proof
 
 
 def get_informal_statements_and_proof_dict(dataset_name: str) -> \
@@ -161,7 +175,7 @@ def load_few_shot_examples_for_statement_conversion(
         )
         
         # append to few_shot_examples
-        formal_statement = get_formal_statement_from_full_theorem(formal_proof)
+        formal_statement, _ = get_formal_statement_and_proof_from_full_theorem(formal_proof)
         few_shot_examples.append(
             get_assistant_message(formal_statement, model_name)
         )
@@ -169,7 +183,47 @@ def load_few_shot_examples_for_statement_conversion(
     return few_shot_examples
 
 
-def load_few_shot_examples_for_proof_conversion(
+# def load_few_shot_examples_for_proof_conversion(
+#         dataset_name: str, model_name: str) -> list[dict]:
+    
+#     few_shot_formal_proofs = get_formal_proofs_for_few_shot_examples(
+#         dataset_name
+#     )
+    
+#     # make few-shot examples
+#     informal_statements_and_proofs_dict = \
+#         get_informal_statements_and_proof_dict(dataset_name)
+    
+#     few_shot_examples: list[dict] = []
+#     for example_file, formal_proof in few_shot_formal_proofs:
+#         data_id = example_file.stem
+        
+#         formal_statement = get_formal_statement_from_full_theorem(
+#             formal_proof
+#         )
+        
+#         # make informal statement and proof
+#         informal_data = informal_statements_and_proofs_dict[data_id]
+#         informal_input = \
+#             get_input_format_for_proof_conversion(
+#                 informal_data["question"], informal_data["response"],
+#                 formal_statement=formal_statement
+#             )
+        
+#         # append to few_shot_examples
+#         few_shot_examples.append(
+#             get_user_message(informal_input)
+#         )
+        
+#         # append to few_shot_examples
+#         few_shot_examples.append(
+#             get_assistant_message(formal_proof, model_name)
+#         )
+    
+#     return few_shot_examples
+
+
+def load_few_shot_examples_for_formal_proof_generation(
         dataset_name: str, model_name: str) -> list[dict]:
     
     few_shot_formal_proofs = get_formal_proofs_for_few_shot_examples(
@@ -177,28 +231,28 @@ def load_few_shot_examples_for_proof_conversion(
     )
     
     # make few-shot examples
-    informal_statements_and_proofs_dict = \
-        get_informal_statements_and_proof_dict(dataset_name)
+    few_shot_examples: list[dict] = [
+        get_system_message("""Your task is to generate a formal proof for the provided formal statement in the Isabelle 2022 format.
+* You only need to generate a formal proof, without restating the formal statement or adding any explanations.
+* In your formal proof, use variables defined in the provided Formal Statement.
+* The second last step is expected to be the same as the equation shown in the “shows” section of the Formal Statement.
+* Your response should follow the format (e.g., structure, style, line breaks) of responses in previous examples.""")
+    ]
     
-    few_shot_examples: list[dict] = []
-    for example_file, formal_proof in few_shot_formal_proofs:
-        data_id = example_file.stem
-        
-        formal_statement = get_formal_statement_from_full_theorem(
-            formal_proof
+    for _, formal_theorem in few_shot_formal_proofs:
+        formal_statement, formal_proof = get_formal_statement_and_proof_from_full_theorem(
+            formal_theorem
         )
         
         # make informal statement and proof
-        informal_data = informal_statements_and_proofs_dict[data_id]
-        informal_input = \
-            get_input_format_for_proof_conversion(
-                informal_data["question"], informal_data["response"],
-                formal_statement=formal_statement
+        formal_proof_generation_input = \
+            get_input_format_for_formal_proof_generation(
+                formal_statement=clean_up_isabelle_statement_and_proof(formal_statement)
             )
         
         # append to few_shot_examples
         few_shot_examples.append(
-            get_user_message(informal_input)
+            get_user_message(formal_proof_generation_input)
         )
         
         # append to few_shot_examples
@@ -216,7 +270,8 @@ def get_few_shot_prompt_for_statement_conversion(
         dataset_name: str, model_name: str,
         informal_data: dict) -> list[dict]:
     
-    if dataset_name == "metamathqa_gsm8k":
+    # we use the few-shot example for gsm8k for metamathqa_gsm8k
+    if dataset_name in ["metamathqa_gsm8k", "bigmath_math_word_problems"]:
         dataset_name = "gsm8k"
     
     few_shot_examples = \
@@ -238,27 +293,51 @@ def get_few_shot_prompt_for_statement_conversion(
     return conversation
 
 
-def get_few_shot_prompt_for_proof_conversion(
-        dataset_name: str, model_name: str,
-        informal_data: dict, formal_statement: str
+# def get_few_shot_prompt_for_proof_conversion(
+#         dataset_name: str, model_name: str,
+#         informal_data: dict, formal_statement: str
+#     ) -> list[dict]:
+
+#     if dataset_name == "metamathqa_gsm8k":
+#         dataset_name = "gsm8k"
+    
+#     few_shot_examples = \
+#         load_few_shot_examples_for_proof_conversion(
+#             dataset_name, model_name
+#         )
+    
+#     if len(few_shot_examples) == 0:
+#         raise ValueError(f"No few-shot examples found for {dataset_name}.")
+    
+#     new_input = new_question_instruction + \
+#         get_input_format_for_proof_conversion(
+#             informal_data["question"], informal_data["response"],
+#             formal_statement=formal_statement
+#         )
+    
+#     conversation = few_shot_examples + [get_user_message(new_input)]
+    
+#     return conversation
+
+
+def get_few_shot_prompt_for_formal_proof_generation(
+        dataset_name: str, model_name: str, formal_statement: str
     ) -> list[dict]:
 
     if dataset_name == "metamathqa_gsm8k":
         dataset_name = "gsm8k"
     
     few_shot_examples = \
-        load_few_shot_examples_for_proof_conversion(
+        load_few_shot_examples_for_formal_proof_generation(
             dataset_name, model_name
         )
     
     if len(few_shot_examples) == 0:
         raise ValueError(f"No few-shot examples found for {dataset_name}.")
     
-    new_input = new_question_instruction + \
-        get_input_format_for_proof_conversion(
-            informal_data["question"], informal_data["response"],
-            formal_statement=formal_statement
-        )
+    new_input = get_input_format_for_formal_proof_generation(
+        formal_statement=clean_up_isabelle_statement_and_proof(formal_statement)
+    )
     
     conversation = few_shot_examples + [get_user_message(new_input)]
     
@@ -267,8 +346,8 @@ def get_few_shot_prompt_for_proof_conversion(
 
 if __name__ == "__main__":
     few_shot_examples = \
-        load_few_shot_examples_for_proof_conversion(
-            "gsm8k", "meta-llama/Llama-3.1-8B-Instruct"
+        load_few_shot_examples_for_formal_proof_generation(
+            "gsm8k", "Qwen/Qwen3-32B"
         )
     
     for example in few_shot_examples:

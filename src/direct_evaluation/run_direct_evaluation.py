@@ -15,21 +15,21 @@ from src.utils.sota_prms import get_verification_prompt_for_sota_prms
 from src.llm.utils import save_md5_hash
 
 
-class DirectEvaluationTap(Tap):
+class PrmEvaluationBaseTap(Tap):
     dataset_name: str  # name or path of the dataset
-    base_model_name: BASE_MODEL = "meta-llama/Llama-3.1-8B-Instruct"
+    base_model_name: str = "meta-llama/Llama-3.1-8B-Instruct"  # BASE_MODEL
     verification_model_name: str = "meta-llama/Llama-3.1-8B-Instruct"  # path to fine-tuned model
     batch_size: int = 16
     max_tokens: int = 2048
     max_num_evaluation_instances: int | None = None
-    verification_prompt_type: Literal["zero-shot", "few-shot", "multi-turn"] = "multi-turn"
+    verification_prompt_type: Literal["zero-shot", "few-shot", "multi-turn", "reasoning"] = "multi-turn"
     not_use_vllm_reward_task: bool = False  # use vllm "reward" task for generation
     overwrite_cache: bool = False  # do not use cache
     debug: bool = False
 
 
 def main():
-    args = DirectEvaluationTap().parse_args()
+    args = PrmEvaluationBaseTap().parse_args()
     print(args)
     
     if args.verification_prompt_type == "multi-turn" and args.not_use_vllm_reward_task:
@@ -39,10 +39,21 @@ def main():
     if "fover" in args.dataset_name:  # our dataset
         splits_list.append("train")
     
+    if ".jsonl" in args.dataset_name:
+        splits_list = ["none"]  # dummy split
+    
     for split in splits_list:
         ###
         # create and save prompts
-        dataset = load_dataset(args.dataset_name, split=split)
+        if ".jsonl" in args.dataset_name:
+            import datasets
+            dataset = datasets.load_dataset(
+                "json", data_files=args.dataset_name,
+                split="train"  # this is a psudo-split
+            )
+        else:
+            dataset = load_dataset(args.dataset_name, split=split)
+        
         if args.max_num_evaluation_instances is not None:
             if len(dataset) > args.max_num_evaluation_instances:
                 dataset = dataset.shuffle(seed=68)

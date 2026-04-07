@@ -11,12 +11,15 @@ direct_evaluation_datasets_dir = Path("direct_evaluation_datasets")
 intermediate_dir = Path("intermediate_outputs")
 base_datasets_dir = intermediate_dir / "base_datasets"
 error_labels_dir = intermediate_dir / "error_labels"
+train_data_for_unsloth_dir = intermediate_dir / "train_data_for_unsloth"
 
 model_inputs_dir = Path("model_inputs")
 prompt_for_initial_generation_dir = model_inputs_dir / "prompt_for_initial_generation"
+prompt_for_translation_dir = model_inputs_dir / "prompt_for_translation"
 
 model_responses_dir = Path("model_responses")
 dataset_creation_initial_answers_dir = model_responses_dir / "dataset_creation_initial_answers"
+dataset_creation_translation_outputs_dir = model_responses_dir / "dataset_creation_translation_outputs"
 
 # evaluation
 performance_dir = Path("performance")
@@ -29,10 +32,28 @@ manual_analysis_dir = Path("manual_analysis")
 ###
 # fover dataset creation
 
-def get_fover_dataset_path(dataset_name: str, model_name: str, split: str) -> Path:
+def get_fover_dataset_path(dataset_name: str, model_name: str, split: str, suffix: str) -> Path:
     """ Get the path to the JSONL file of the dataset for the given dataset, model, and split. """
     model_short_name = model_name.split("/")[-1]
-    return fover_dataset_dir / dataset_name / model_short_name / f"{split}.jsonl"
+
+    if len(suffix) == 0:
+        name = f"{split}.jsonl"
+    else:
+        name = f"{split}.{suffix}.jsonl"
+    
+    return fover_dataset_dir / dataset_name / model_short_name / name
+
+
+def get_unsloth_training_dataset_path(dataset_name: str, model_name: str, split: str, suffix: str) -> Path:
+    """Path to GRPO training data created for Unsloth runs."""
+    model_short_name = model_name.split("/")[-1]
+
+    if suffix:
+        name = f"{split}.{suffix}.jsonl"
+    else:
+        name = f"{split}.jsonl"
+
+    return train_data_for_unsloth_dir / dataset_name / model_short_name / name
 
 
 def get_base_dataset_path(dataset_name: str, split: str) -> Path:
@@ -56,6 +77,30 @@ def get_error_labels_path(dataset_name: str, model_name: str, split: str, seed: 
     """ Get the path to the JSONL file of the error labels file for the given dataset, model, and split. """
     model_short_name = model_name.split("/")[-1]
     return error_labels_dir / dataset_name / model_short_name / f"seed={seed}" / f"{split}.jsonl"
+
+
+def get_prompt_for_translation_path(dataset_name: str, generation_model_name: str, translation_model_name: str, split: str, field: str) -> Path:
+    """ Get the path to the JSONL file of the prompts for symbol-to-text translation for the given dataset, model, split, and field.
+    
+    Args:
+        field: Either 'problem' or 'proof_steps' to distinguish translation targets.
+    """
+    generation_model_short_name = generation_model_name.split("/")[-1]
+    translation_model_short_name = translation_model_name.split("/")[-1]
+    
+    return prompt_for_translation_dir / dataset_name / f"translation={translation_model_short_name}" / generation_model_short_name / field / f"{split}.jsonl"
+
+
+def get_translation_outputs_path(dataset_name: str, generation_model_name: str, translation_model_name: str, split: str, field: str) -> Path:
+    """ Get the path to the JSONL file of the translation outputs for the given dataset, model, split, and field.
+    
+    Args:
+        field: Either 'problem' or 'proof_steps' to distinguish translation targets.
+    """
+    generation_model_short_name = generation_model_name.split("/")[-1]
+    translation_model_short_name = translation_model_name.split("/")[-1]
+    
+    return dataset_creation_translation_outputs_dir / dataset_name / f"translation={translation_model_short_name}" / generation_model_short_name / field / f"{split}.jsonl"
 
 
 # multitask training dataset
@@ -106,32 +151,61 @@ def get_direct_evaluation_metrics_path(dataset_name: str, verification_model_nam
 downstream_evaluation_model_inputs_dir = model_inputs_dir / "downstream_evaluation"
 downstream_evaluation_model_responses_dir = model_responses_dir / "downstream_evaluation"
 
-def get_prompt_for_downstream_evaluation_initial_responses_path(dataset_name: str, model_name: str, split: str, prompt_type: str) -> Path:
+def get_prompt_for_downstream_evaluation_initial_responses_path(dataset_name: str, model_name: str, split: str, prompt_type: str, updated_save_directory: str | None = None) -> Path:
     """ Get the path to the JSONL file of the prompts for the downstream evaluation for the given dataset, model, and split. """
     model_short_name = model_name.split("/")[-1]
     dataset_short_name = dataset_name.split("/")[-1]
-    return downstream_evaluation_model_inputs_dir / "prompt_for_initial_responses" / dataset_short_name / prompt_type / model_short_name / f"{split}.jsonl"
+    
+    if updated_save_directory is None:
+        # default directory
+        base_dir = downstream_evaluation_model_inputs_dir / "prompt_for_initial_responses"
+    else:
+        # when an updated save directory is provided
+        # e.g., generating initial responses for training data creation
+        base_dir = Path(updated_save_directory)
+    
+    return base_dir / dataset_short_name / prompt_type / model_short_name / f"{split}.jsonl"
 
 
-def get_downstream_evaluation_initial_responses_path(dataset_name: str, model_name: str, split: str, prompt_type: str, sample_idx: int) -> Path:
+def get_downstream_evaluation_initial_responses_path(dataset_name: str, model_name: str, split: str, prompt_type: str, sample_idx: int, updated_save_directory: str | None = None) -> Path:
     """ Get the path to the JSONL file of the initial responses for the downstream evaluation for the given dataset, model, split, prompt type, and sample_idx. """
     model_short_name = model_name.split("/")[-1]
     dataset_short_name = dataset_name.split("/")[-1]
-    return downstream_evaluation_model_responses_dir / "downstream_evaluation_initial_responses" / dataset_short_name / prompt_type / model_short_name / f"{sample_idx}" / f"{split}.jsonl"
+    
+    if updated_save_directory is None:
+        # default directory
+        base_dir = downstream_evaluation_model_responses_dir / "downstream_evaluation_initial_responses"
+    else:
+        # when an updated save directory is provided
+        # e.g., generating initial responses for training data creation
+        base_dir = Path(updated_save_directory)
+    return base_dir / dataset_short_name / prompt_type / model_short_name / f"{sample_idx}" / f"{split}.jsonl"
 
 
-def get_prompt_for_extracting_answers_from_downstream_evaluation_initial_responses_path(dataset_name: str, model_name: str, split: str, sample_idx: int) -> Path:
+def get_prompt_for_extracting_answers_from_downstream_evaluation_initial_responses_path(dataset_name: str, model_name: str, split: str, sample_idx: int, updated_save_directory: str | None = None) -> Path:
     """ Get the path to the JSONL file of the prompts for extracting answers from the downstream evaluation initial responses for the given dataset, model, and split. """
     model_short_name = model_name.split("/")[-1]
     dataset_short_name = dataset_name.split("/")[-1]
-    return downstream_evaluation_model_inputs_dir / "prompt_for_extracting_answers_from_initial_responses" / dataset_short_name / model_short_name / f"{sample_idx}" / f"{split}.jsonl"
+    
+    if updated_save_directory is None:
+        # default directory
+        base_dir = downstream_evaluation_model_inputs_dir / "prompt_for_extracting_answers_from_initial_responses"
+    else:
+        # when an updated save directory is provided
+        # e.g., generating initial responses for training data creation
+        base_dir = Path(updated_save_directory)
+    
+    return base_dir / dataset_short_name / model_short_name / f"{sample_idx}" / f"{split}.jsonl"
 
 
-def get_prompt_for_verification_for_sample_and_rank_path(dataset_name: str, model_name: str, split: str, prompt_type: str, sample_idx: int) -> Path:
+def get_prompt_for_verification_for_sample_and_rank_path(dataset_name: str, model_name: str, split: str, prompt_type: str, few_shot_verification: bool, sample_idx: int) -> Path:
     """ Get the path to the JSONL file of the prompts for verification of sample-and-rank for the given dataset, model, split, prompt type, and sample_idx. """
     model_short_name = model_name.split("/")[-1]
     dataset_short_name = dataset_name.split("/")[-1]
-    return downstream_evaluation_model_inputs_dir / "prompt_for_verification_of_sample_and_rank" / dataset_short_name / prompt_type / model_short_name / f"{sample_idx}" / f"{split}.jsonl"
+
+    full_prompt_type = f"{prompt_type}_few-shot" if few_shot_verification else prompt_type
+
+    return downstream_evaluation_model_inputs_dir / "prompt_for_verification_of_sample_and_rank" / dataset_short_name / full_prompt_type / model_short_name / f"{sample_idx}" / f"{split}.jsonl"
 
 
 def get_prompt_for_verification_for_sample_and_rank_by_sota_prms_path(dataset_name: str, model_name: str, split: str, prompt_type: str, sample_idx: int, verification_model_name: str) -> Path:
@@ -142,28 +216,33 @@ def get_prompt_for_verification_for_sample_and_rank_by_sota_prms_path(dataset_na
     return downstream_evaluation_model_inputs_dir / "prompt_for_verification_of_sample_and_rank_by_sota_prms" / dataset_short_name / prompt_type / model_short_name / f"verification_model={verification_model_short_name}" / f"{sample_idx}" / f"{split}.jsonl"
 
 
-def get_verification_for_sample_and_rank_outputs_path(dataset_name: str, initial_response_model_name: str, verification_model_name: str, split: str, prompt_type: str, sample_idx: int) -> Path:
+def get_verification_for_sample_and_rank_outputs_path(dataset_name: str, initial_response_model_name: str, verification_model_name: str, split: str, prompt_type: str, few_shot_verification: bool, sample_idx: int) -> Path:
     """ Get the path to the JSONL file of the verification output for sample-and-rank for the given dataset, model, split, prompt type, and sample_idx. """
     initial_response_model_short_name = initial_response_model_name.split("/")[-1]
     verification_model_short_name = verification_model_name.split("/")[-1]
     dataset_short_name = dataset_name.split("/")[-1]
-    return downstream_evaluation_model_responses_dir / "verification_for_sample_and_rank_outputs" / dataset_short_name / prompt_type / f"initial_generation={initial_response_model_short_name}" / f"{sample_idx}" / f"verification={verification_model_short_name}" / f"{split}.jsonl"
+
+    updated_prompt_type = prompt_type if not few_shot_verification else f"{prompt_type}_few-shot"
+
+    return downstream_evaluation_model_responses_dir / "verification_for_sample_and_rank_outputs" / dataset_short_name / updated_prompt_type / f"initial_generation={initial_response_model_short_name}" / f"{sample_idx}" / f"verification={verification_model_short_name}" / f"{split}.jsonl"
 
 
-def get_verification_scores_for_sample_and_rank_path(dataset_name: str, base_model_name: str, verification_model_name: str, verification_score_type: str, split: str, prompt_type: str) -> Path:
+def get_verification_scores_for_sample_and_rank_path(dataset_name: str, base_model_name: str, verification_model_name: str, verification_score_type: str, split: str, prompt_type: str, few_shot_verification: bool) -> Path:
     """ Get the path to the JSONL file of the verification scores for sample-and-rank for the given dataset, base model, verification model, split, and prompt type. """
     base_model_short_name = base_model_name.split("/")[-1]
     verification_model_short_name = verification_model_name.split("/")[-1]
     dataset_short_name = dataset_name.split("/")[-1]
-    return downstream_evaluation_model_responses_dir / "verification_scores_for_sample_and_rank" / dataset_short_name / prompt_type / f"base_model={base_model_short_name}" / f"verification_model={verification_model_short_name}" / f"verification_score_type={verification_score_type}" / f"{split}.jsonl"
+    full_prompt_type = f"{prompt_type}_few-shot" if few_shot_verification else prompt_type
+    return downstream_evaluation_model_responses_dir / "verification_scores_for_sample_and_rank" / dataset_short_name / full_prompt_type / f"base_model={base_model_short_name}" / f"verification_model={verification_model_short_name}" / f"verification_score_type={verification_score_type}" / f"{split}.jsonl"
 
 
-def get_best_sample_and_rank_output_path(dataset_name: str, base_model_name: str, verification_model_name: str, verification_prompt_type: str, verification_score_type: str, split: str) -> Path:
+def get_best_sample_and_rank_output_path(dataset_name: str, base_model_name: str, verification_model_name: str, verification_prompt_type: str, few_shot_verification: bool, verification_score_type: str, selection_method: str, sample_k: int, split: str) -> Path:
     """ Get the path to the JSONL file of the best sample-and-rank output for the given dataset, base model, verification model, split, and prompt type. """
     base_model_short_name = base_model_name.split("/")[-1]
     verification_model_short_name = verification_model_name.split("/")[-1]
     dataset_short_name = dataset_name.split("/")[-1]
-    return downstream_evaluation_model_responses_dir / "best_sample_and_rank_output" / dataset_short_name / verification_prompt_type / f"base_model={base_model_short_name}" / f"verification_model={verification_model_short_name}" / f"verification_score_type={verification_score_type}" / f"{split}.jsonl"
+    full_verification_prompt_type = f"{verification_prompt_type}_few-shot" if few_shot_verification else verification_prompt_type
+    return downstream_evaluation_model_responses_dir / "best_sample_and_rank_output" / dataset_short_name / full_verification_prompt_type / f"base_model={base_model_short_name}" / f"verification_model={verification_model_short_name}" / f"verification_score_type={verification_score_type}" / f"selection_method={selection_method}" / f"sample_k={sample_k}" / f"{split}.jsonl"
 
 
 def get_downstream_evaluation_metrics_path(dataset_name: str, model_name: str, prediction_path: str | Path, split: str="test") -> Path:
@@ -180,6 +259,26 @@ def get_majority_vote_output_path(dataset_name: str, model_name: str, split: str
     model_short_name = model_name.split("/")[-1]
     dataset_short_name = dataset_name.split("/")[-1]
     return downstream_evaluation_model_responses_dir / "majority_vote_output" / dataset_short_name / prompt_type / model_short_name / f"{split}.jsonl"
+
+
+def get_prm_guided_search_output_path(
+    dataset_name: str,
+    generator_model_name: str,
+    prm_name: str,
+    split: str,
+    beam_size: int,
+    per_beam_samples: int,
+    max_steps: int,
+) -> Path:
+    """Get the path to the JSONL output file for PRM-guided search."""
+    generator_model_short_name = generator_model_name.split("/")[-1]
+    prm_short_name = prm_name.split("/")[-1]
+    dataset_short_name = get_short_fover_dataset_name(dataset_name) if "fover" in dataset_name else dataset_name.split("/")[-1]
+
+    return model_responses_dir / "prm_guided_search_outputs" / dataset_short_name / \
+        f"generator={generator_model_short_name}" / f"prm={prm_short_name}" / \
+        f"beam_size={beam_size}" / f"per_beam_samples={per_beam_samples}" / \
+        f"max_steps={max_steps}" / f"{split}.jsonl"
 
 
 # manual analysis
